@@ -5,11 +5,17 @@ url: docs.optumce.com/optum-gx
 
 start:
   # Uncomment the next line to try Retype Pro features
-  # pro: true
+  pro: true
 
 branding:
   logo: static/header/optumce-docs-logo-light.png
   logoDark: static/header/optumce-docs-logo-dark.png
+
+theme:
+  base:
+    base-color: "#0E9ED7"
+  dark:
+    base-color: "#0E9ED7"
 
 links:
 - text: OPTUM GX
