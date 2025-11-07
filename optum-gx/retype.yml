@@ -20,10 +20,10 @@ links:
   link: /optum-gx/python
 - text: OPTUM CS
   icon: static/header/cs-logo.png
-  link: tt-oce.github.io/optumce-docs/optum-cs
+  link: /optum-cs
 - text: OPTUM G2/G3
   icon: static/header/g2g3-logos.png
-  link: tt-oce.github.io/optumce-docs/optum-g2g3
+  link: /optum-g2g3
 
 footer:
   copyright: "&copy; Copyright {{ year }} - OptumCE | All rights reserved."

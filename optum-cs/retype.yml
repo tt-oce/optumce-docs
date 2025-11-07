@@ -14,16 +14,16 @@ branding:
 links:
 - text: OPTUM GX
   icon: static/header/gx-logo.png
-  link: tt-oce.github.io/optumce-docs/optum-gx
+  link: /optum-gx
 - text: OPTUM GX Python
   icon: static/header/python-logo.png
-  link: /gx-python
+  link: /optum-gx/python
 - text: OPTUM CS
   icon: static/header/cs-logo.png
   link: /
 - text: OPTUM G2/G3
   icon: static/header/g2g3-logos.png
-  link: tt-oce.github.io/optumce-docs/optum-g2g3
+  link: /optum-g2g3
 
 footer:
   copyright: "&copy; Copyright {{ year }} - OptumCE | All rights reserved."
