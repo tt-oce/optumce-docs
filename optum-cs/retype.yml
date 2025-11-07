@@ -11,6 +11,12 @@ branding:
   logo: static/header/optumce-docs-logo-light.png
   logoDark: static/header/optumce-docs-logo-dark.png
 
+theme:
+  base:
+    base-color: "#0E9ED7"
+  dark:
+    base-color: "#0E9ED7"
+
 links:
 - text: OPTUM GX
   icon: static/header/gx-logo.png
