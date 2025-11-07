@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tt-oce.github.io/optumce-docs/sitemap.xml.gz
+Sitemap: https://docs.optumce.com/optum-g2g3/sitemap.xml.gz
