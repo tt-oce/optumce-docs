@@ -1,0 +1,29 @@
+input: .
+output: .retype
+
+url: tt-oce.github.io/optumce-docs
+
+start:
+  # Uncomment the next line to try Retype Pro features
+  # pro: true
+
+branding:
+  logo: static/header/optumce-docs-logo-light.png
+  logoDark: static/header/optumce-docs-logo-dark.png
+
+links:
+- text: OPTUM GX
+  icon: static/header/gx-logo.png
+  link: tt-oce.github.io/optumce-docs/optum-gx
+- text: OPTUM GX Python
+  icon: static/header/python-logo.png
+  link: /gx-python
+- text: OPTUM CS
+  icon: static/header/cs-logo.png
+  link: tt-oce.github.io/optumce-docs/optum-cs
+- text: OPTUM G2/G3
+  icon: static/header/g2g3-logos.png
+  link: /
+
+footer:
+  copyright: "&copy; Copyright {{ year }} - OptumCE | All rights reserved."

@@ -1,0 +1,44 @@
+name: Build and deploy multi-product docs
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Build optum-gx
+      - name: Build optum-gx
+        uses: retypeapp/action-build@latest
+        with:
+          config_path: optum-gx/ # where retype.yml lives for optum-gx
+          output: optum-gx/ # output destination for this product
+
+      # Build optum-cs
+      - name: Build optum-cs
+        uses: retypeapp/action-build@latest
+        with:
+          config_path: optum-cs/
+          output: optum-cs/
+
+      # Build optum-g2g3
+      - name: Build optum-g2g3
+        uses: retypeapp/action-build@latest
+        with:
+          config_path: optum-g2g3/
+          output: optum-g2g3/
+
+      # Deploy the entire build
+      - name: Publish to GitHub Pages branch
+        uses: retypeapp/action-github-pages@latest
+        with:
+          # branch: gh-pages 
+          update-branch: true 
