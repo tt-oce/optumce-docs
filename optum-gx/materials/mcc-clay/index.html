@@ -10,21 +10,26 @@
     <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
-    <title>Overview of Materials</title>
-    <meta name="title" content="Overview of Materials">
+    <title>8 Modified Cam Clay</title>
+    <meta name="title" content="8 Modified Cam Clay">
+    <meta name="description" content="The critical state models developed by Roscoe and his co-workers (Roscoe and Burland 1968; Schofield and Wroth 1968) in the 1960s have been widely...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/overview/">
+    <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/mcc-clay/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/overview/">
-    <meta property="og:title" content="Overview of Materials">
+    <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/mcc-clay/">
+    <meta property="og:title" content="8 Modified Cam Clay">
+    <meta property="og:description" content="The critical state models developed by Roscoe and his co-workers (Roscoe and Burland 1968; Schofield and Wroth 1968) in the 1960s have been widely...">
+    <meta property="og:image" content="https://docs.optumce.com/optum-gx/static/sscc3_new4.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/materials/overview/">
-    <meta property="twitter:title" content="Overview of Materials">
+    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/materials/mcc-clay/">
+    <meta property="twitter:title" content="8 Modified Cam Clay">
+    <meta property="twitter:description" content="The critical state models developed by Roscoe and his co-workers (Roscoe and Burland 1968; Schofield and Wroth 1968) in the 1960s have been widely...">
+    <meta property="twitter:image" content="https://docs.optumce.com/optum-gx/static/sscc3_new4.png">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -33,6 +38,8 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.816447669405" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.816447669405" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=3.11.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.11.0" defer></script>
 
     <style>
         /* Images */
@@ -242,12 +249,249 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="overview-of-materials" class="break-words">
+<doc-anchor-target id="8-modified-cam-clay" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#overview-of-materials">#</doc-anchor-trigger>
-        <span>Overview of Materials</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#8-modified-cam-clay">#</doc-anchor-trigger>
+        <span>8 Modified Cam Clay</span>
     </h1>
 </doc-anchor-target>
+<p>The critical state models developed by Roscoe and his co-workers (Roscoe and Burland 1968; Schofield and Wroth 1968) in the 1960s have been widely applied in geomechanics and form the basis of many subsequent models. The Modified Cam Clay (MCC) model of Roscoe and Burland (1968) has been particularly popular. A slightly modified and extended version of this model (including creep and a finite cohesion, while prohibiting crossing of the critical state line) is implemented in GX.</p>
+<hr>
+<doc-anchor-target id="81-summary-of-material-parameters">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#81-summary-of-material-parameters">#</doc-anchor-trigger>
+        <span>8.1 Summary of material parameters</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="stiffness">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#stiffness">#</doc-anchor-trigger>
+        <span>Stiffness</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong>Parameter Set A</strong>
+<ul>
+<li><span class="math">\kappa^*</span>: modified swelling index</li>
+<li><span class="math">\lambda^*</span>: modified compression index</li>
+</ul>
+</li>
+<li><strong>Parameter Set B</strong>
+<ul>
+<li><span class="math">C_s</span>: conventional swelling index (approximate, see <doc-anchor-trigger to="#85-oedometric-compression">Section 8.5</doc-anchor-trigger>)</li>
+<li><span class="math">C_c</span>: conventional compression index (approximate, see <doc-anchor-trigger to="#85-oedometric-compression">Section 8.5</doc-anchor-trigger>)</li>
+</ul>
+</li>
+<li><span class="math">\nu</span>: Poisson’s ratio</li>
+</ul>
+<doc-anchor-target id="strength">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#strength">#</doc-anchor-trigger>
+        <span>Strength</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><span class="math">c'</span>: cohesion</li>
+<li><span class="math">\phi'</span>: friction angle</li>
+</ul>
+<doc-anchor-target id="initial-conditions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#initial-conditions">#</doc-anchor-trigger>
+        <span>Initial Conditions</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong>OCR</strong>: overconsolidation ratio (see <doc-anchor-trigger to="#initial-stresses-and-overconsolidation-ratio">Section 8.3</doc-anchor-trigger>)</li>
+<li><span class="math">K_0</span>: earth pressure at rest coefficient</li>
+<li><span class="math">e_0</span>: initial void ratio (only used for Stiffness Parameter Set B)</li>
+</ul>
+<doc-anchor-target id="creep">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creep">#</doc-anchor-trigger>
+        <span>Creep</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Creep = Yes:
+<ul>
+<li><span class="math">\mu^*/\lambda^*</span> — relative creep index</li>
+</ul>
+</li>
+</ul>
+<hr>
+<doc-anchor-target id="82-governing-equations">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#82-governing-equations">#</doc-anchor-trigger>
+        <span>8.2 Governing equations</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="821-elasticity">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#821-elasticity">#</doc-anchor-trigger>
+        <span>8.2.1 Elasticity</span>
+    </h3>
+</doc-anchor-target>
+<p>The volumetric and deviatoric stress strain relations are given by</p>
+<div class="math"><pre translate="no">\dot{\varepsilon}_v^e = \frac{1}{K}\dot p', \quad \varepsilon_q = \frac{1}{3G}\dot q \tag{8.1}</pre></div>
+<p><figure class="content-center">
+    <img src="../../static/mcc_yield.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/mcc_yield-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 8.1: Modified Cam Clay yield surfaces cut off by failure (critical state) line <span class="math">q = Mp'</span>.</p>
+</div>
+<p>where</p>
+<div class="math"><pre translate="no">K = \frac{p'}{\kappa^*}, \quad G = \frac{3(1-2\nu)}{2(1+\nu)}K \tag{8.2}</pre></div>
+<p>with <span class="math">\kappa^*</span> being a material parameter (the modified swelling modulus). The general 3D elastic stress–strain relation is:</p>
+<div class="math"><pre translate="no">\dot{\boldsymbol{\varepsilon}} = \mathbb{C}^e \dot{\boldsymbol{\sigma}} \tag{8.3}</pre></div>
+<p>where <span class="math">\mathbb{C}^e</span> is given in the <a href="/optum-gx/materials/2-elasticity">Elasticity</a> section.</p>
+<hr>
+<doc-anchor-target id="822-yield-and-failure-surfaces">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#822-yield-and-failure-surfaces">#</doc-anchor-trigger>
+        <span>8.2.2 Yield and failure surfaces</span>
+    </h3>
+</doc-anchor-target>
+<p>The yield function is given by</p>
+<div class="math"><pre translate="no">F = q^2 - M^2 p'(p_c - p') \tag{8.5}</pre></div>
+<p>where <span class="math">p_c</span> the preconsolidation pressures, functions as a hardening variable and</p>
+<div class="math"><pre translate="no">M = \frac{3\sin\phi'}{\sqrt{3}\cos\theta + \sin\theta\sin\phi'} \tag{8.5}</pre></div>
+<p>where <span class="math">\phi'</span> is the friction angle and <span class="math">\theta</span> is the Lode angle.</p>
+<p>The yield surface (8.5) depicts an ellipse in <span class="math">p'</span>-<span class="math">q</span> whose size is governed by <span class="math">p_c</span> (see Figure 8.1). The ellipse is such that the line <span class="math">q=Mp'</span> passes through its apex. This line is traditionally referred to as the critical state line. The conventional MCC model allows for stress paths that cross the critical state line. However, in the current implementation this is prohibited. That is, the critical state line is a conventional Mohr-Coulomb failure line given by</p>
+<div class="math"><pre translate="no">F_f = |\sigma_1 - \sigma_3| + (\sigma_1 + \sigma_3)\sin\phi \tag{8.6}</pre></div>
+<hr>
+<doc-anchor-target id="823-flow-rules">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#823-flow-rules">#</doc-anchor-trigger>
+        <span>8.2.3 Flow rules</span>
+    </h3>
+</doc-anchor-target>
+<p>The flow rule of the yield is the associated flow rule:</p>
+<div class="math"><pre translate="no">\dot{\boldsymbol{\varepsilon}}^p = \dot{\lambda}\frac{\partial F}{\partial \boldsymbol{\sigma}} \tag{8.7}</pre></div>
+<p>It is noted that this flow rule implies compaction for all stress states on the yield surface, except at the very top of the ellipse wher <span class="math">\dot{\varepsilon}_v^p = 0</span>.</p>
+<p>For the failure surface, a nonassociated flow rule is used:</p>
+<div class="math"><pre translate="no">\dot{\boldsymbol{\varepsilon}}^p_f = \dot{\lambda}_f\frac{\partial G_f}{\partial \boldsymbol{\sigma}} \tag{8.8}</pre></div>
+<p>where</p>
+<div class="math"><pre translate="no">G_f = |\sigma_1 - \sigma_3| \tag{8.9}</pre></div>
+<p>implying zero dilation.</p>
+<hr>
+<doc-anchor-target id="824-hardening-law">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#824-hardening-law">#</doc-anchor-trigger>
+        <span>8.2.4 Hardening law</span>
+    </h3>
+</doc-anchor-target>
+<p>The hardening law is such that the change in <span class="math">p_c</span> is proportional to the change in <span class="math">\varepsilon_v^p</span>:</p>
+<div class="math"><pre translate="no">\dot p_c = \frac{p_c}{\lambda^* - \kappa^*}\dot{\varepsilon}_v^p \tag{8.10}</pre></div>
+<p>where <span class="math">\lambda^*</span> is a material parameter, in the following referred to as the modified compression index. This hardening law implies that the yield surface expands <span class="math">\dot p_c&gt;0</span> up to the critical state line where <span class="math">\dot p_c=0</span> and the ultimate limit state is reached.</p>
+<hr>
+<doc-anchor-target id="825-cohesion">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#825-cohesion">#</doc-anchor-trigger>
+        <span>8.2.5 Cohesion</span>
+    </h3>
+</doc-anchor-target>
+<p>Cohesion is accommodated by replacing the mean effective stress by the following modified mean effective stress throughout:</p>
+<div class="math"><pre translate="no">\tilde{p}' = -\tfrac{1}{3}(\sigma_x' + \sigma_y' + \sigma_z') + \frac{c'}{\tan\phi'} \tag{8.11}</pre></div>
+<hr>
+<doc-anchor-target id="826-creep">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#826-creep">#</doc-anchor-trigger>
+        <span>8.2.6 Creep</span>
+    </h3>
+</doc-anchor-target>
+<p>For certain clays, creep (or secondary compression) accounts for a significant part of the total deformation. An often used empirical law states that the volumetric creep strain following full primary consolidation is given by</p>
+<div class="math"><pre translate="no">\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}\left(\frac{t}{t_{90}}\right) \tag{8.12}</pre></div>
+<p>and more generally between times <span class="math">t_n</span> and <span class="math">t_{n+1}</span>:</p>
+<div class="math"><pre translate="no">\Delta\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}\left(\frac{t_{n+1}}{t_n}\right) \tag{8.13}</pre></div>
+<p>For a layer of depth <span class="math">H</span>, the vertical settlement due to creep is:</p>
+<div class="math"><pre translate="no">\Delta u^c = H\frac{C_\alpha}{1+e}\log_{10}\left(\frac{t_{n+1}}{t_n}\right) \tag{8.14}</pre></div>
+<p>In OPTUM GX, creep follows Borja (1985):</p>
+<div class="math"><pre translate="no">\boldsymbol{\varepsilon} = \boldsymbol{\varepsilon}^e + \boldsymbol{\varepsilon}^p + \boldsymbol{\varepsilon}^c \tag{8.15}</pre></div>
+<p>with creep potential</p>
+<div class="math"><pre translate="no">\frac{d\Phi^c}{dt} = \frac{\mu^*}{\tau_0}\exp\left(-\frac{1}{\mu^*}\Phi^e\right), \quad \Phi(0)=0 \tag{8.16}</pre></div>
+<p>and creep strain evolution</p>
+<div class="math"><pre translate="no">\frac{d\boldsymbol{\varepsilon}^c}{dt} = \boldsymbol{a}\frac{d\Phi^c}{dt} \tag{8.17}</pre></div>
+<p>where</p>
+<div class="math"><pre translate="no">\boldsymbol{a} = \frac{\partial F^c}{\partial \boldsymbol{\sigma}'} \tag{8.18}</pre></div>
+<div class="math"><pre translate="no">F^c = \tilde{p}' + \frac{q^2}{M^2\tilde{p}'} \tag{8.19}</pre></div>
+<p>Typically <span class="math">\mu^*/\lambda^*</span> ranges from 0.02–0.1 for natural materials prone to creep.</p>
+<p>For 1D conditions:</p>
+<div class="math"><pre translate="no">\varepsilon_v^c = \mu^*\ln\left(\frac{t + \tau_0}{\tau_0}\right) \tag{8.20}</pre></div>
+<p>and</p>
+<div class="math"><pre translate="no">\Delta\varepsilon_v^c = \mu^*\ln\left(\frac{t + \tau_0}{t_{90} + \tau_0}\right) \tag{8.21}</pre></div>
+<p>which approaches the empirical form for <span class="math">t \gg \tau_0 = 1</span> day.</p>
+<hr>
+<doc-anchor-target id="83-initial-stresses-and-overconsolidation-ratio">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#83-initial-stresses-and-overconsolidation-ratio">#</doc-anchor-trigger>
+        <span>8.3 Initial stresses and overconsolidation ratio</span>
+    </h2>
+</doc-anchor-target>
+<p>The overconsolidation ratio is:</p>
+<div class="math"><pre translate="no">\text{OCR} = \frac{\sigma_{v,0}'}{\sigma_{c,0}} \tag{8.22}</pre></div>
+<p>In the oedometer test (1D), the stresses at yield are:</p>
+<div class="math"><pre translate="no">\begin{aligned}
+\sigma_x'{}^* &amp;= \sigma_{x,0}' + (\text{OCR} - 1)\frac{\nu}{1 - \nu}\sigma_{z,0}' \\
+\sigma_y'{}^* &amp;= \sigma_{y,0}' + (\text{OCR} - 1)\frac{\nu}{1 - \nu}\sigma_{z,0}' \\
+\sigma_z'{}^* &amp;= \text{OCR}\,\sigma_{z,0}' \\
+\tau_{xy}^* &amp;= \tau_{xy,0}, \quad
+\tau_{yz}^* = \tau_{yz,0}, \quad
+\tau_{zx}^* = \tau_{zx,0}
+\end{aligned} \tag{8.23}</pre></div>
+<p>The corresponding preconsolidation pressure:</p>
+<div class="math"><pre translate="no">p_{c,0} = \tilde{p}'{}^* + \frac{q^{*2}}{M^2 \tilde{p}'{}^*} \tag{8.24}</pre></div>
+<hr>
+<doc-anchor-target id="84-isotropic-compression">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#84-isotropic-compression">#</doc-anchor-trigger>
+        <span>8.4 Isotropic compression</span>
+    </h2>
+</doc-anchor-target>
+<p>For isotropic compression (<span class="math">\sigma_1' = \sigma_2' = \sigma_3' = p'</span>), before yield:</p>
+<div class="math"><pre translate="no">\dot{\varepsilon}_v = \frac{\kappa^*}{p'}\dot{p}' \tag{8.25}</pre></div>
+<p>At yield (<span class="math">p' = p_c</span>):</p>
+<div class="math"><pre translate="no">\dot{\varepsilon}_v = \frac{\lambda^*}{p'}\dot{p}' \tag{8.26}</pre></div>
+<p>Thus:</p>
+<div class="math"><pre translate="no">\frac{d\varepsilon_v}{dp'} =
+\begin{cases}
+\frac{\kappa^*}{p'}, &amp; p' &lt; p_c \\
+\frac{\lambda^*}{p'}, &amp; p' = p_c
+\end{cases} \tag{8.27}</pre></div>
+<p><figure class="content-center">
+    <img src="../../static/sscc3_new4.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/sscc3_new4-inverted.png" alt="Normal compression line (NCL) and unloading–reloading line (URL) in  space (left) and idealized oedometric response in  space" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Normal compression line (NCL) and unloading–reloading line (URL) in  space (left) and idealized oedometric response in  space</figcaption>
+</figure>
+</p>
+<hr>
+<doc-anchor-target id="85-oedometric-compression">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#85-oedometric-compression">#</doc-anchor-trigger>
+        <span>8.5 Oedometric compression</span>
+    </h2>
+</doc-anchor-target>
+<p>In the oedometer test, all strains except the vertical are zero. The result is a bilinear relation:</p>
+<div class="math"><pre translate="no">\frac{de}{d\log_{10}\sigma_v'} =
+\begin{cases}
+C_s, &amp; \sigma_v' &lt; \sigma_c \\
+C_c, &amp; \sigma_v' = \sigma_c
+\end{cases} \tag{8.28}</pre></div>
+<p>where</p>
+<div class="math"><pre translate="no">e = (1 + e_0)(1 - \varepsilon_v) - 1 \tag{8.29}</pre></div>
+<p>and approximate conversions are:</p>
+<div class="math"><pre translate="no">\begin{aligned}
+\kappa^* &amp;\approx \frac{C_s}{2.3(1 + e_0)} \\
+\lambda^* &amp;\approx \frac{C_c}{2.3(1 + e_0)}
+\end{aligned} \tag{8.30}</pre></div>
+<p>In OPTUM GX, the user has a choice between two parameter sets: A (<span class="math">\kappa^*, \lambda^*</span>) or B (<span class="math">C_s, C_c</span>); In the case of Set B, the above relations are used to calculate equivalent <span class="math">\kappa^*</span> and <span class="math">\lambda^*</span>.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -257,20 +501,20 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../materials/mcc-clay/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../materials/3-hydraulic-models/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">8 Modified Cam Clay</span>
+                                                <span class="block mt-1">3 Hydraulic Models</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../python/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../materials/overview/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">OPTUM GX Python</span>
+                                                <span class="block mt-1">Overview of Materials</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -314,6 +558,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Overview of Materials", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "8 Modified Cam Clay", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>

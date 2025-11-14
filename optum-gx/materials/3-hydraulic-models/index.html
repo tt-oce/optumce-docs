@@ -10,21 +10,24 @@
     <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
-    <title>Overview of Materials</title>
-    <meta name="title" content="Overview of Materials">
+    <title>3 Hydraulic Models</title>
+    <meta name="title" content="3 Hydraulic Models">
+    <meta name="description" content="Variably saturated flow through a deforming porous medium can be described by the mass balance equation:">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/overview/">
+    <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/3-hydraulic-models/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/overview/">
-    <meta property="og:title" content="Overview of Materials">
+    <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/3-hydraulic-models/">
+    <meta property="og:title" content="3 Hydraulic Models">
+    <meta property="og:description" content="Variably saturated flow through a deforming porous medium can be described by the mass balance equation:">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/materials/overview/">
-    <meta property="twitter:title" content="Overview of Materials">
+    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/materials/3-hydraulic-models/">
+    <meta property="twitter:title" content="3 Hydraulic Models">
+    <meta property="twitter:description" content="Variably saturated flow through a deforming porous medium can be described by the mass balance equation:">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -33,6 +36,8 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.816447669405" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.816447669405" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=3.11.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.11.0" defer></script>
 
     <style>
         /* Images */
@@ -242,12 +247,234 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="overview-of-materials" class="break-words">
+<doc-anchor-target id="3-hydraulic-models" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#overview-of-materials">#</doc-anchor-trigger>
-        <span>Overview of Materials</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-hydraulic-models">#</doc-anchor-trigger>
+        <span>3 Hydraulic Models</span>
     </h1>
 </doc-anchor-target>
+<p>Variably saturated flow through a deforming porous medium can be described by the mass balance equation:</p>
+<div class="math"><pre translate="no">S\boldsymbol{m}^{\textsf{{\tiny T}}}\frac{\partial \boldsymbol{\varepsilon}}{\partial t} + \frac{e}{1+e}\left(\frac{\partial S}{\partial t} + \frac{S}{K_w}\frac{\partial p_w}{\partial t}\right) + \nabla^{\textsf{{\tiny T}}}\boldsymbol{v} = 0 \tag{3.1}</pre></div>
+<p>which is to be supplemented with the usual mechanical governing equation (momentum balance and strain-displacement relations) and the generalized Darcy’s law:</p>
+<div class="math"><pre translate="no">\boldsymbol{v} = -K_r\boldsymbol{K}\nabla h_s = -K_r\boldsymbol{K}\nabla \left(\frac{p_w}{\gamma_w}+z\right) \tag{3.2}</pre></div>
+<p>where:</p>
+<ul>
+<li><span class="math">\boldsymbol{\varepsilon}</span> = Strain</li>
+<li><span class="math">\boldsymbol{m} = (1,1,1,0,0,0)^{\textsf{{\tiny T}}}</span>, making <span class="math">\boldsymbol{m}^{\textsf{{\tiny T}}}\boldsymbol{\varepsilon}</span> the volumetric strain</li>
+<li><span class="math">K_w</span> = Bulk modulus of water (= 2,200 MPa)</li>
+<li><span class="math">e</span> = Void ratio</li>
+<li><span class="math">S</span> = Degree of saturation</li>
+<li><span class="math">\boldsymbol{v} = (v_x,v_y,v_z)^{\textsf{{\tiny T}}}</span> = Fluid velocity [m/s]</li>
+<li><span class="math">\boldsymbol{K}</span> = Saturated hydraulic conductivity modulus [m/s]</li>
+<li><span class="math">K_r</span> = Relative hydraulic conductivity (a function of degree of saturation)</li>
+<li><span class="math">z</span> = Vertical coordinate</li>
+<li><span class="math">\gamma_w</span> = Unit weight of water (= 9.8 kN/m³)</li>
+<li><span class="math">p_s</span> = Pressure [kN/m²]</li>
+<li><span class="math">h_s = p_s/\gamma_w + z</span> = Head</li>
+</ul>
+<p>In OPTUM GX, the effects of deformation as a result of seepage are neglected, making the governing equation:</p>
+<div class="math"><pre translate="no">\frac{e}{1+e}\left(\frac{\partial S}{\partial t} + \frac{S}{K_w}\frac{\partial p_s}{\partial t}\right) = \nabla^{\textsf{{\tiny T}}}\left[K_r\boldsymbol{K}\nabla \left(\frac{p_s}{\gamma_w}+z\right)\right] \tag{3.3}</pre></div>
+<p>Typical values of hydraulic conductivity for different materials are shown in Figure 3.1.
+<figure class="content-center">
+    <img src="../../static/hydrtable.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 3.1: Typical values of hydraulic conductivity <span class="math">K = K_x = K_y = K_z</span>.</p>
+</div>
+<p>Besides the constants <span class="math">n</span> and <span class="math">\boldsymbol{K}</span>, the solution of this equation requires the relative hydraulic conductivity relation and the saturation-pressure relation (also known as the water retention curve or the soil water characteristic curve).</p>
+<p>In OPTUM GX, the saturated hydraulic conductivity modulus is always given by:</p>
+<div class="math"><pre translate="no">\boldsymbol{K} =
+\begin{bmatrix}
+K_x &amp;  &amp;  \\
+ &amp; K_y &amp;  \\
+ &amp;  &amp; K_z
+\end{bmatrix} \tag{3.4}</pre></div>
+<p>where <span class="math">K_x</span>, <span class="math">K_y</span>, and <span class="math">K_z</span> are the saturated hydraulic conductivities in the <span class="math">x</span>, <span class="math">y</span>, and <span class="math">z</span> directions, respectively.</p>
+<hr>
+<doc-anchor-target id="31-van-genuchten-model">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#31-van-genuchten-model">#</doc-anchor-trigger>
+        <span>3.1 van Genuchten Model</span>
+    </h2>
+</doc-anchor-target>
+<p>The van Genuchten model is the most widely used hydraulic model in soil science. It relates degree of saturation to pressure head by:</p>
+<div class="math"><pre translate="no">S =
+\begin{cases}
+S_r + (S_s - S_r)\left(1 + |\alpha \hat{h}|^n\right)^{-m} &amp; \text{for } \hat{h} \le 0 \\
+S_s &amp; \text{for } \hat{h} &gt; 0
+\end{cases} \tag{3.5}</pre></div>
+<p>where <span class="math">\hat{h} = -p/\gamma_w</span>, <span class="math">m = 1 - 1/n</span>, and:</p>
+<ul>
+<li><span class="math">S_r</span> = Residual degree of saturation (may be slightly greater than 0)</li>
+<li><span class="math">S_s</span> = Fraction of water-filled pores at full saturation (may be slightly less than 1)</li>
+<li><span class="math">\alpha</span> [m⁻¹] = Model parameter related to air entry pressure</li>
+<li><span class="math">n</span> = Model parameter related to the rate at which water is extracted from the soil once the air entry pressure has been exceeded</li>
+</ul>
+<p>The relative hydraulic conductivity is related to the effective saturation <span class="math">S_e</span> as:</p>
+<div class="math"><pre translate="no">K_r =
+\begin{cases}
+S_e^{1/2}\left[1 - \left(1 - S_e^{1/m}\right)^m\right]^2 &amp; \text{for } S_e &lt; 1 \\
+1 &amp; \text{for } S_e = 1
+\end{cases} \tag{3.6}</pre></div>
+<p>where</p>
+<div class="math"><pre translate="no">S_e = \frac{S - S_r}{S_s - S_r} \tag{3.7}</pre></div>
+<p>Alternatively, <span class="math">K_r</span> can be expressed in terms of <span class="math">\hat{h}</span> as:</p>
+<div class="math"><pre translate="no">K_r =
+\begin{cases}
+\displaystyle\frac{\left[1 - |\alpha \hat{h}|^{n-1}\left(1 + |\alpha \hat{h}|^n\right)^{-m}\right]^2}{\left(1 + |\alpha \hat{h}|^n\right)^{m/2}} &amp; \text{for } \hat{h} \le 0 \\
+1 &amp; \text{for } \hat{h} &gt; 0
+\end{cases} \tag{3.8}</pre></div>
+<p>Typical values of the parameters <span class="math">n</span> and <span class="math">\alpha</span> are given in the table below, and typical retention and relative hydraulic conductivity curves are shown in Figure 3.2.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="compact">
+<thead>
+<tr>
+<th>Material</th>
+<th style="text-align: center;">No. of </br>Samples</th>
+<th style="text-align: center;">Clay </br>Content </br>Min</th>
+<th style="text-align: center;">Clay </br>Content </br>Max</th>
+<th style="text-align: center;"><span class="math">n</span> </br>Min</th>
+<th style="text-align: center;"><span class="math">n</span> </br>Max</th>
+<th style="text-align: center;"><span class="math">\alpha (m^{-1})</span> </br>Min</th>
+<th style="text-align: center;"><span class="math">\alpha (m^{-1})</span> </br>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sand</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">2.22</td>
+<td style="text-align: center;">2.56</td>
+<td style="text-align: center;">2.74</td>
+<td style="text-align: center;">2.65</td>
+</tr>
+<tr>
+<td>Loamy sand</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">108</td>
+<td style="text-align: center;">1.33</td>
+<td style="text-align: center;">2.56</td>
+<td style="text-align: center;">4.41</td>
+<td style="text-align: center;">2.35</td>
+</tr>
+<tr>
+<td>Sandy loam</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">178</td>
+<td style="text-align: center;">1.12</td>
+<td style="text-align: center;">2.38</td>
+<td style="text-align: center;">4.90</td>
+<td style="text-align: center;">1.27</td>
+</tr>
+<tr>
+<td>Sandy clay loam</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">208</td>
+<td style="text-align: center;">349</td>
+<td style="text-align: center;">1.06</td>
+<td style="text-align: center;">1.85</td>
+<td style="text-align: center;">3.92</td>
+<td style="text-align: center;">1.47</td>
+</tr>
+<tr>
+<td>Loam</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">122</td>
+<td style="text-align: center;">260</td>
+<td style="text-align: center;">1.23</td>
+<td style="text-align: center;">1.96</td>
+<td style="text-align: center;">4.90</td>
+<td style="text-align: center;">1.76</td>
+</tr>
+<tr>
+<td>Silt loam</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;">270</td>
+<td style="text-align: center;">1.14</td>
+<td style="text-align: center;">1.25</td>
+<td style="text-align: center;">9.10</td>
+<td style="text-align: center;">1.47</td>
+</tr>
+<tr>
+<td>Silty clay loam</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">280</td>
+<td style="text-align: center;">390</td>
+<td style="text-align: center;">1.14</td>
+<td style="text-align: center;">1.43</td>
+<td style="text-align: center;">8.82</td>
+<td style="text-align: center;">0.98</td>
+</tr>
+<tr>
+<td>Clay loam</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">304</td>
+<td style="text-align: center;">348</td>
+<td style="text-align: center;">1.05</td>
+<td style="text-align: center;">1.64</td>
+<td style="text-align: center;">4.90</td>
+<td style="text-align: center;">1.76</td>
+</tr>
+<tr>
+<td>Sandy clay</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">352</td>
+<td style="text-align: center;">421</td>
+<td style="text-align: center;">1.14</td>
+<td style="text-align: center;">1.40</td>
+<td style="text-align: center;">4.90</td>
+<td style="text-align: center;">1.74</td>
+</tr>
+<tr>
+<td>Silty clay</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">420</td>
+<td style="text-align: center;">460</td>
+<td style="text-align: center;">1.09</td>
+<td style="text-align: center;">1.10</td>
+<td style="text-align: center;">6.37</td>
+<td style="text-align: center;">5.39</td>
+</tr>
+<tr>
+<td>Clay</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">452</td>
+<td style="text-align: center;">452</td>
+<td style="text-align: center;">1.51</td>
+<td style="text-align: center;">1.51</td>
+<td style="text-align: center;">0.88</td>
+<td style="text-align: center;">0.88</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="custom-caption"><p>Table 3.1: Soil properties of 72 samples collected from the literature and the fitted van Genuchten model <span class="math">n</span> and <span class="math">a</span> (after Ghanbarian-Alavijeh et al. 2010).</p>
+</div>
+<p><figure class="content-center">
+    <img src="../../static/vgfig3-2.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/vgfig3-2-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 3.2: Dependence of <span class="math">S(\hat{h})</span> and <span class="math">K_r(\hat{h})</span> on <span class="math">\alpha</span> (top) and <span class="math">n</span> (bottom).</p>
+</div>
+<hr>
+<doc-anchor-target id="32-basic-model">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#32-basic-model">#</doc-anchor-trigger>
+        <span>3.2 Basic Model</span>
+    </h2>
+</doc-anchor-target>
+<p>The Basic model, which is the default model for all materials, is a van Genuchten model with <span class="math">\alpha = 4, \quad n = 4, \quad S_r = 0, \quad S_s = 1</span> and <span class="math">\quad e = 1</span>. This gives a relatively steep pressure-saturation curve corresponding to a very coarse material.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -257,20 +484,20 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../materials/mcc-clay/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../materials/2-elasticity/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">8 Modified Cam Clay</span>
+                                                <span class="block mt-1">2 Elasticity</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../python/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../materials/mcc-clay/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">OPTUM GX Python</span>
+                                                <span class="block mt-1">8 Modified Cam Clay</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -314,6 +541,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Overview of Materials", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "3 Hydraulic Models", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>
