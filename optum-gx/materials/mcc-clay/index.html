@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.816447669405">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.816685109789">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -33,11 +33,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.816447669405" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.816685109789" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.816447669405" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.816685109789" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.816447669405" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.816685109789" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=3.11.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.11.0" defer></script>
 
@@ -405,26 +405,28 @@
     </h3>
 </doc-anchor-target>
 <p>For certain clays, creep (or secondary compression) accounts for a significant part of the total deformation. An often used empirical law states that the volumetric creep strain following full primary consolidation is given by</p>
-<div class="math"><pre translate="no">\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}\left(\frac{t}{t_{90}}\right) \tag{8.12}</pre></div>
-<p>and more generally between times <span class="math">t_n</span> and <span class="math">t_{n+1}</span>:</p>
-<div class="math"><pre translate="no">\Delta\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}\left(\frac{t_{n+1}}{t_n}\right) \tag{8.13}</pre></div>
-<p>For a layer of depth <span class="math">H</span>, the vertical settlement due to creep is:</p>
-<div class="math"><pre translate="no">\Delta u^c = H\frac{C_\alpha}{1+e}\log_{10}\left(\frac{t_{n+1}}{t_n}\right) \tag{8.14}</pre></div>
-<p>In OPTUM GX, creep follows Borja (1985):</p>
+<div class="math"><pre translate="no">\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}(t/t_{90}) \tag{8.12}</pre></div>
+<p>where <span class="math">\Delta \varepsilon_v^c</span> is the volumetric creep strain, <span class="math">C_\alpha</span> is the secondary compression coefficient, <span class="math">e</span> is the void ratio, <span class="math">t_{90}</span> is the time to 90% primary consolidation and <span class="math">t</span> is the time at which the creep strain is evaluated. More generally, the increment in creep stain between two times <span class="math">t_n</span> and <span class="math">t_{n+1}</span> may be calculated as</p>
+<div class="math"><pre translate="no">\Delta\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}(t_{n+1}/t_{n}) \tag{8.13}</pre></div>
+<p>The creep strain may be integrated to give the total settlement. For a layer of depth <span class="math">H</span> we have:</p>
+<div class="math"><pre translate="no">\Delta u^c = H\frac{C_\alpha}{1+e}\log_{10}(t_{n+1}/t_{n}) \tag{8.14}</pre></div>
+<p>where <span class="math">\Delta u^c</span> is the increment of vertical settlement due to creep.</p>
+<p>In OPTUM GX, creep is included using the approach of Borja and Kavazanjian (1985). The totalstrain is here given by</p>
 <div class="math"><pre translate="no">\boldsymbol{\varepsilon} = \boldsymbol{\varepsilon}^e + \boldsymbol{\varepsilon}^p + \boldsymbol{\varepsilon}^c \tag{8.15}</pre></div>
-<p>with creep potential</p>
+<p>where <span class="math">\boldsymbol\varepsilon^e</span> and <span class="math">\boldsymbol\varepsilon^p</span> are the usual elastic and plastic strains respectively and <span class="math">\boldsymbol\varepsilon^c</span> is the creep strain. To describe the evolution of the creep strain with time, a creep potential, <span class="math">\Phi^c</span>, is introduced by</p>
 <div class="math"><pre translate="no">\frac{d\Phi^c}{dt} = \frac{\mu^*}{\tau_0}\exp\left(-\frac{1}{\mu^*}\Phi^e\right), \quad \Phi(0)=0 \tag{8.16}</pre></div>
-<p>and creep strain evolution</p>
+<p>where <span class="math">\mu^*</span> is a material parameter (equivalent to <span class="math">C_\alpha</span> above) and <span class="math">\tau_0</span> is a constant which is set internally to <span class="math">1</span>,day. The evolution of the creep strain is then given by</p>
 <div class="math"><pre translate="no">\frac{d\boldsymbol{\varepsilon}^c}{dt} = \boldsymbol{a}\frac{d\Phi^c}{dt} \tag{8.17}</pre></div>
-<p>where</p>
+<p>where <span class="math">\boldsymbol a</span> is a vector that gives the direction of the creep strain rate vector. Consistent with Modified Cam Clay, this quantity is taken as</p>
 <div class="math"><pre translate="no">\boldsymbol{a} = \frac{\partial F^c}{\partial \boldsymbol{\sigma}'} \tag{8.18}</pre></div>
-<div class="math"><pre translate="no">F^c = \tilde{p}' + \frac{q^2}{M^2\tilde{p}'} \tag{8.19}</pre></div>
-<p>Typically <span class="math">\mu^*/\lambda^*</span> ranges from 0.02–0.1 for natural materials prone to creep.</p>
-<p>For 1D conditions:</p>
+<p>where</p>
+<div class="math"><pre translate="no">F^c = \tilde{p}+\frac{q^2}{M^2\tilde p} \tag{8.19}</pre></div>
+<p>In OPTUM GX, creep thus requires the specification of a single additional material parameter, <span class="math">\mu^*</span>. This parameter is specified as a fraction of <span class="math">\lambda^*</span>. The ratio <span class="math">\mu^*/\lambda^*</span> typically falls in the range of 0.02 to 0.1 for a wide variety of natural materials prone to creep (Mesri and Castro 1986).</p>
+<p>In the one-dimensional case, the above creep law leads to a volumetric creep strain given by.</p>
 <div class="math"><pre translate="no">\varepsilon_v^c = \mu^*\ln\left(\frac{t + \tau_0}{\tau_0}\right) \tag{8.20}</pre></div>
-<p>and</p>
+<p>The increment in creep strain over a time increment from <span class="math">t_{90}</span> to <span class="math">t</span> is thus given by</p>
 <div class="math"><pre translate="no">\Delta\varepsilon_v^c = \mu^*\ln\left(\frac{t + \tau_0}{t_{90} + \tau_0}\right) \tag{8.21}</pre></div>
-<p>which approaches the empirical form for <span class="math">t \gg \tau_0 = 1</span> day.</p>
+<p>which, with <span class="math">{\mu^*}=C_\alpha/[(1+e)\ln 10]</span>, approaches the empirical relation (8.13) for times significantly greater than <span class="math">\tau_0=1</span> day.</p>
 <hr>
 <doc-anchor-target id="83-initial-stresses-and-overconsolidation-ratio">
     <h2>
@@ -432,18 +434,18 @@
         <span>8.3 Initial stresses and overconsolidation ratio</span>
     </h2>
 </doc-anchor-target>
-<p>The overconsolidation ratio is:</p>
+<p>Conventionally, the overconsolidation ratio, OCR, is defined as the ratio of the initial vertical stress to the preconsolidation stress:</p>
 <div class="math"><pre translate="no">\text{OCR} = \frac{\sigma_{v,0}'}{\sigma_{c,0}} \tag{8.22}</pre></div>
-<p>In the oedometer test (1D), the stresses at yield are:</p>
-<div class="math"><pre translate="no">\begin{aligned}
-\sigma_x'{}^* &amp;= \sigma_{x,0}' + (\text{OCR} - 1)\frac{\nu}{1 - \nu}\sigma_{z,0}' \\
-\sigma_y'{}^* &amp;= \sigma_{y,0}' + (\text{OCR} - 1)\frac{\nu}{1 - \nu}\sigma_{z,0}' \\
-\sigma_z'{}^* &amp;= \text{OCR}\,\sigma_{z,0}' \\
-\tau_{xy}^* &amp;= \tau_{xy,0}, \quad
-\tau_{yz}^* = \tau_{yz,0}, \quad
-\tau_{zx}^* = \tau_{zx,0}
-\end{aligned} \tag{8.23}</pre></div>
-<p>The corresponding preconsolidation pressure:</p>
+<p>Although this is a rather general definition, <span class="math">\sigma_{c,0}</span> and thereby <span class="math">\mathsf{OCR}</span> are usually inferred from the oedometer test. This is a one-dimensional test in which a vertical stress, in the following denoted <span class="math">\sigma_z</span> is applied while the horizonal strains, <span class="math">\varepsilon_x</span> and <span class="math">\varepsilon_x</span> remain zero. In the general case, some shear stress could also be present although these are almost always assumed to be zero. Assuming elastic behavior, the stresses at yield, following the definition of the OCR (8.22), are:</p>
+<div class="math"><pre translate="no">   \begin{array}{l}
+    \displaystyle\sigma_x'{}^* = \sigma_{x,0}' + (\mathsf{OCR}-1)\frac{\nu}{1-\nu}\sigma_{z,0}'\\
+    \displaystyle\sigma_y'{}^* = \sigma_{y,0}' + (\mathsf{OCR}-1)\frac{\nu}{1-\nu}\sigma_{z,0}'\\
+    \displaystyle\sigma_z'{}^* = \mathsf{OCR}\sigma_{z,0}' \\
+    \displaystyle\tau_{xy}^* = \tau_{xy,0}\\
+    \displaystyle\tau_{yz}^* = \tau_{yz,0}\\
+    \displaystyle\tau_{zx}^* = \tau_{zx,0}
+    \end{array} \tag{8.23}</pre></div>
+<p>The corresponding value of the initial preconsolidation pressure is:</p>
 <div class="math"><pre translate="no">p_{c,0} = \tilde{p}'{}^* + \frac{q^{*2}}{M^2 \tilde{p}'{}^*} \tag{8.24}</pre></div>
 <hr>
 <doc-anchor-target id="84-isotropic-compression">
@@ -452,46 +454,52 @@
         <span>8.4 Isotropic compression</span>
     </h2>
 </doc-anchor-target>
-<p>For isotropic compression (<span class="math">\sigma_1' = \sigma_2' = \sigma_3' = p'</span>), before yield:</p>
+<p>In isotropic compression (<span class="math">\sigma_1'=\sigma_2'=\sigma_3'=p'</span>) the stress-strain response is as follows. Assume first that the initial stress state is below yield. We then have:</p>
 <div class="math"><pre translate="no">\dot{\varepsilon}_v = \frac{\kappa^*}{p'}\dot{p}' \tag{8.25}</pre></div>
-<p>At yield (<span class="math">p' = p_c</span>):</p>
-<div class="math"><pre translate="no">\dot{\varepsilon}_v = \frac{\lambda^*}{p'}\dot{p}' \tag{8.26}</pre></div>
-<p>Thus:</p>
-<div class="math"><pre translate="no">\frac{d\varepsilon_v}{dp'} =
-\begin{cases}
-\frac{\kappa^*}{p'}, &amp; p' &lt; p_c \\
-\frac{\lambda^*}{p'}, &amp; p' = p_c
-\end{cases} \tag{8.27}</pre></div>
+<p>At yield, i.e. once <span class="math">{p}'= p_c</span>, we have</p>
+<div class="math"><pre translate="no">    \begin{array}{lcl}
+    \dot{\varepsilon}_v &amp;=&amp; \dot{\varepsilon}_v^e + \dot{\varepsilon}_v^p\\ 
+                 &amp;=&amp; \displaystyle\frac{\kappa^*}{{p}'}\dot{{p}}' + \frac{\lambda^*-\kappa^*}{p_c}\dot{p}_c\\
+                 &amp;=&amp; \displaystyle\frac{\kappa^*}{{p}'} + \frac{\lambda^*-\kappa^*}{{{p}}'}\dot{{p}}'\\
+                 &amp;=&amp; \displaystyle\frac{\lambda^*}{{p}'}\dot{{p}}'
+    \end{array} \tag{8.26}</pre></div>
+<p>Summarizing we have</p>
+<div class="math"><pre translate="no">\frac{\textsf{d} \varepsilon_v}{\textsf{d} p'} =\left\{\begin{array}{lcl}
+    \displaystyle\frac{\kappa^*}{{p}'}&amp;\textsf{for~~}p'&lt;p_c&amp;\\
+    \displaystyle\frac{\lambda^*}{{p}'}&amp;\textsf{for~~}p'=p_c&amp;
+    \end{array}\right. \tag{8.27}</pre></div>
+<p>This is the classic bilinear semilog stress-strain relation, though conventionally it is expressed in terms of void ratio versus the base 10 logarithm to the vertical stress. The relation of the above to the more conventional relations is discussed in the following Section.</p>
 <p><figure class="content-center">
     <img src="../../static/sscc3_new4.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption"></figcaption>
 </figure>
 <figure class="content-center">
-    <img src="../../static/sscc3_new4-inverted.png" alt="Normal compression line (NCL) and unloading–reloading line (URL) in  space (left) and idealized oedometric response in  space" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption">Normal compression line (NCL) and unloading–reloading line (URL) in  space (left) and idealized oedometric response in  space</figcaption>
+    <img src="../../static/sscc3_new4-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<hr>
+<div class="custom-caption"><p>Figure 8.2: Normal compression line (NCL) and unloading-reloading line (URL) in <span class="math">\ln p'</span>-<span class="math">\varepsilon_v</span> space (left) and idealized response in oedometeter test in terms of <span class="math">\log\sigma_v'</span> vs <span class="math">e</span>.</p>
+</div>
 <doc-anchor-target id="85-oedometric-compression">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#85-oedometric-compression">#</doc-anchor-trigger>
         <span>8.5 Oedometric compression</span>
     </h2>
 </doc-anchor-target>
-<p>In the oedometer test, all strains except the vertical are zero. The result is a bilinear relation:</p>
+<p evp="">The oedometer test is rather more common that the isotropic compression test. The test setup is such that all strain except the vertical are zero. The test gauges vertical strain, which is equal to the volumetric strain, as function of applied vertical stress. The result tends to be bilinear relation similar to \eqref, but with the vertical stress, <span class="math">\sigma_v'</span> replacing <span class="math">p'</span> and the vertical preconsolidation stress, <span class="math">\sigma_c</span>, replacing <span class="math">p_c</span>. Moreover, the vertical strain is replaced by the void ratio and <span class="math">\log_{10}</span> is used in place of <span class="math">\ln</span>:</p>
 <div class="math"><pre translate="no">\frac{de}{d\log_{10}\sigma_v'} =
 \begin{cases}
 C_s, &amp; \sigma_v' &lt; \sigma_c \\
 C_c, &amp; \sigma_v' = \sigma_c
 \end{cases} \tag{8.28}</pre></div>
-<p>where</p>
+<p>where the void ratio is</p>
 <div class="math"><pre translate="no">e = (1 + e_0)(1 - \varepsilon_v) - 1 \tag{8.29}</pre></div>
-<p>and approximate conversions are:</p>
+<p Wood:1990="">with <span class="math">e_0</span> being the initial void ratio. While is straightforward to convert between <span class="math">\varepsilon_v</span> and <span class="math">e</span> and between <span class="math">\log_{10}</span> and <span class="math">\ln</span>, the conversion between <span class="math">\sigma_v'</span> and <span class="math">p'</span> is cannot be carried out in general. However, there are good arguments to support the following approximations\footnote{In some texts, <span class="math">\kappa^* \approx \frac{2C_s}{2.3(1+e0)}</span> is used while others, e.g. \cite, prefer the present one. Which approximation is better is rather problem dependent. Also, many texts cite the relation between <span class="math">C_c</span> and <span class="math">\lambda^*</span> as being exact although it is, in fact, only approximate.}:</p>
 <div class="math"><pre translate="no">\begin{aligned}
 \kappa^* &amp;\approx \frac{C_s}{2.3(1 + e_0)} \\
 \lambda^* &amp;\approx \frac{C_c}{2.3(1 + e_0)}
 \end{aligned} \tag{8.30}</pre></div>
-<p>In OPTUM GX, the user has a choice between two parameter sets: A (<span class="math">\kappa^*, \lambda^*</span>) or B (<span class="math">C_s, C_c</span>); In the case of Set B, the above relations are used to calculate equivalent <span class="math">\kappa^*</span> and <span class="math">\lambda^*</span>.</p>
+<p>In OPTUM GX, the user has a choice between two parameter sets: A <span class="math">(\kappa^*, \lambda^*)</span> or B <span class="math">(C_s,C_c)</span>. In the case of Set B, the above relations are used to calculate equivalent  <span class="math">\kappa^*</span> and <span class="math">\lambda^*</span>.</p>
 
                                 
                                 <!-- Required only on API pages -->
