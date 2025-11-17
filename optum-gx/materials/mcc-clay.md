@@ -143,129 +143,144 @@ $$
 For certain clays, creep (or secondary compression) accounts for a significant part of the total deformation. An often used empirical law states that the volumetric creep strain following full primary consolidation is given by
 
 $$
-\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}\left(\frac{t}{t_{90}}\right) \tag{8.12}
+\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}(t/t_{90}) \tag{8.12}
 $$
 
-and more generally between times $t_n$ and $t_{n+1}$:
+where $\Delta \varepsilon_v^c$ is the volumetric creep strain, $C_\alpha$ is the secondary compression coefficient, $e$ is the void ratio, $t_{90}$ is the time to 90\% primary consolidation and $t$ is the time at which the creep strain is evaluated. More generally, the increment in creep stain between two times $t_n$ and $t_{n+1}$ may be calculated as
 
 $$
-\Delta\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}\left(\frac{t_{n+1}}{t_n}\right) \tag{8.13}
+\Delta\varepsilon_v^c = \frac{C_\alpha}{1+e}\log_{10}(t_{n+1}/t_{n}) \tag{8.13}
 $$
 
-For a layer of depth $H$, the vertical settlement due to creep is:
+The creep strain may be integrated to give the total settlement. For a layer of depth $H$ we have:
 
 $$
-\Delta u^c = H\frac{C_\alpha}{1+e}\log_{10}\left(\frac{t_{n+1}}{t_n}\right) \tag{8.14}
+\Delta u^c = H\frac{C_\alpha}{1+e}\log_{10}(t_{n+1}/t_{n}) \tag{8.14}
 $$
 
-In OPTUM GX, creep follows Borja (1985):
+where $\Delta u^c$ is the increment of vertical settlement due to creep.
+
+In OPTUM GX, creep is included using the approach of Borja and Kavazanjian (1985). The totalstrain is here given by
 
 $$
 \boldsymbol{\varepsilon} = \boldsymbol{\varepsilon}^e + \boldsymbol{\varepsilon}^p + \boldsymbol{\varepsilon}^c \tag{8.15}
 $$
 
-with creep potential
+where $\boldsymbol\varepsilon^e$ and $\boldsymbol\varepsilon^p$ are the usual elastic and plastic strains respectively and $\boldsymbol\varepsilon^c$ is the creep strain. To describe the evolution of the creep strain with time, a creep potential, $\Phi^c$, is introduced by
 
 $$
 \frac{d\Phi^c}{dt} = \frac{\mu^*}{\tau_0}\exp\left(-\frac{1}{\mu^*}\Phi^e\right), \quad \Phi(0)=0 \tag{8.16}
 $$
 
-and creep strain evolution
+where $\mu^*$ is a material parameter (equivalent to $C_\alpha$ above) and $\tau_0$ is a constant which is set internally to $1$\,day. The evolution of the creep strain is then given by
 
 $$
 \frac{d\boldsymbol{\varepsilon}^c}{dt} = \boldsymbol{a}\frac{d\Phi^c}{dt} \tag{8.17}
 $$
 
-where 
+where $\boldsymbol a$ is a vector that gives the direction of the creep strain rate vector. Consistent with Modified Cam Clay, this quantity is taken as
+ 
 
 $$
 \boldsymbol{a} = \frac{\partial F^c}{\partial \boldsymbol{\sigma}'} \tag{8.18}
 $$
 
+where
 
 $$
-F^c = \tilde{p}' + \frac{q^2}{M^2\tilde{p}'} \tag{8.19}
+F^c = \tilde{p}+\frac{q^2}{M^2\tilde p} \tag{8.19}
 $$
 
-Typically $\mu^*/\lambda^*$ ranges from 0.02–0.1 for natural materials prone to creep.
+In OPTUM GX, creep thus requires the specification of a single additional material parameter, $\mu^*$. This parameter is specified as a fraction of $\lambda^*$. The ratio $\mu^*/\lambda^*$ typically falls in the range of 0.02 to 0.1 for a wide variety of natural materials prone to creep (Mesri and Castro 1986).
 
-For 1D conditions:
+In the one-dimensional case, the above creep law leads to a volumetric creep strain given by.
 
 $$
 \varepsilon_v^c = \mu^*\ln\left(\frac{t + \tau_0}{\tau_0}\right) \tag{8.20}
 $$ 
 
-and
+The increment in creep strain over a time increment from $t_{90}$ to $t$ is thus given by
 
 $$
 \Delta\varepsilon_v^c = \mu^*\ln\left(\frac{t + \tau_0}{t_{90} + \tau_0}\right) \tag{8.21}
 $$
 
-which approaches the empirical form for $t \gg \tau_0 = 1$ day.
+which, with ${\mu^*}=C_\alpha/[(1+e)\ln 10]$, approaches the empirical relation (8.13) for times significantly greater than $\tau_0=1$ day.
 
-***
+---
 
 ## 8.3 Initial stresses and overconsolidation ratio
 
-The overconsolidation ratio is:
+Conventionally, the overconsolidation ratio, OCR, is defined as the ratio of the initial vertical stress to the preconsolidation stress:
 
 $$
 \text{OCR} = \frac{\sigma_{v,0}'}{\sigma_{c,0}} \tag{8.22}
 $$
 
-In the oedometer test (1D), the stresses at yield are:
+Although this is a rather general definition, $\sigma_{c,0}$ and thereby $\mathsf{OCR}$ are usually inferred from the oedometer test. This is a one-dimensional test in which a vertical stress, in the following denoted $\sigma_z$ is applied while the horizonal strains, $\varepsilon_x$ and $\varepsilon_x$ remain zero. In the general case, some shear stress could also be present although these are almost always assumed to be zero. Assuming elastic behavior, the stresses at yield, following the definition of the OCR (8.22), are:
 
 $$
-\begin{aligned}
-\sigma_x'{}^* &= \sigma_{x,0}' + (\text{OCR} - 1)\frac{\nu}{1 - \nu}\sigma_{z,0}' \\
-\sigma_y'{}^* &= \sigma_{y,0}' + (\text{OCR} - 1)\frac{\nu}{1 - \nu}\sigma_{z,0}' \\
-\sigma_z'{}^* &= \text{OCR}\,\sigma_{z,0}' \\
-\tau_{xy}^* &= \tau_{xy,0}, \quad
-\tau_{yz}^* = \tau_{yz,0}, \quad
-\tau_{zx}^* = \tau_{zx,0}
-\end{aligned} \tag{8.23}
+   \begin{array}{l}
+    \displaystyle\sigma_x'{}^* = \sigma_{x,0}' + (\mathsf{OCR}-1)\frac{\nu}{1-\nu}\sigma_{z,0}'\\
+    \displaystyle\sigma_y'{}^* = \sigma_{y,0}' + (\mathsf{OCR}-1)\frac{\nu}{1-\nu}\sigma_{z,0}'\\
+    \displaystyle\sigma_z'{}^* = \mathsf{OCR}\sigma_{z,0}' \\
+    \displaystyle\tau_{xy}^* = \tau_{xy,0}\\
+    \displaystyle\tau_{yz}^* = \tau_{yz,0}\\
+    \displaystyle\tau_{zx}^* = \tau_{zx,0}
+    \end{array} \tag{8.23}
 $$
 
-The corresponding preconsolidation pressure:
+The corresponding value of the initial preconsolidation pressure is: 
 
 $$
 p_{c,0} = \tilde{p}'{}^* + \frac{q^{*2}}{M^2 \tilde{p}'{}^*} \tag{8.24}
 $$
 
-***
+---
 
 ## 8.4 Isotropic compression
 
-For isotropic compression ($\sigma_1' = \sigma_2' = \sigma_3' = p'$), before yield:
+In isotropic compression ($\sigma_1'=\sigma_2'=\sigma_3'=p'$) the stress-strain response is as follows. Assume first that the initial stress state is below yield. We then have:
+
 
 $$
 \dot{\varepsilon}_v = \frac{\kappa^*}{p'}\dot{p}' \tag{8.25}
 $$
 
-At yield ($p' = p_c$):
+At yield, i.e. once ${p}'= p_c$, we have
 
 $$
-\dot{\varepsilon}_v = \frac{\lambda^*}{p'}\dot{p}' \tag{8.26}
+    \begin{array}{lcl}
+    \dot{\varepsilon}_v &=& \dot{\varepsilon}_v^e + \dot{\varepsilon}_v^p\\ 
+                 &=& \displaystyle\frac{\kappa^*}{{p}'}\dot{{p}}' + \frac{\lambda^*-\kappa^*}{p_c}\dot{p}_c\\
+                 &=& \displaystyle\frac{\kappa^*}{{p}'} + \frac{\lambda^*-\kappa^*}{{{p}}'}\dot{{p}}'\\
+                 &=& \displaystyle\frac{\lambda^*}{{p}'}\dot{{p}}'
+    \end{array} \tag{8.26}
 $$
 
-Thus:
+Summarizing we have
 
 $$
-\frac{d\varepsilon_v}{dp'} =
-\begin{cases}
-\frac{\kappa^*}{p'}, & p' < p_c \\
-\frac{\lambda^*}{p'}, & p' = p_c
-\end{cases} \tag{8.27}
+\frac{\textsf{d} \varepsilon_v}{\textsf{d} p'} =\left\{\begin{array}{lcl}
+    \displaystyle\frac{\kappa^*}{{p}'}&\textsf{for~~}p'<p_c&\\
+    \displaystyle\frac{\lambda^*}{{p}'}&\textsf{for~~}p'=p_c&
+    \end{array}\right. \tag{8.27}
 $$
+
+This is the classic bilinear semilog stress-strain relation, though conventionally it is expressed in terms of void ratio versus the base 10 logarithm to the vertical stress. The relation of the above to the more conventional relations is discussed in the following Section.   
+
 
 ![](../static/sscc3_NEW4.png){#relight} 
-![Normal compression line (NCL) and unloading–reloading line (URL) in  space (left) and idealized oedometric response in  space](../static/sscc3_NEW4-inverted.png){#redark}
+![](../static/sscc3_NEW4-inverted.png){#redark}
+:::custom-caption
+Figure 8.2: Normal compression line (NCL) and unloading-reloading line (URL) in $\ln p'$-$\varepsilon_v$ space (left) and idealized response in oedometeter test in terms of $\log\sigma_v'$ vs $e$.
+:::
 
-***
 
 ## 8.5 Oedometric compression
 
-In the oedometer test, all strains except the vertical are zero. The result is a bilinear relation:
+The oedometer test is rather more common that the isotropic compression test. The test setup is such that all strain except the vertical are zero. The test gauges vertical strain, which is equal to the volumetric strain, as function of applied vertical stress. The result tends to be bilinear relation similar to \eqref{evp}, but with the vertical stress, $\sigma_v'$ replacing $p'$ and the vertical preconsolidation stress, $\sigma_c$, replacing $p_c$. Moreover, the vertical strain is replaced by the void ratio and $\log_{10}$ is used in place of $\ln$:
+
 
 $$
 \frac{de}{d\log_{10}\sigma_v'} =
@@ -275,13 +290,13 @@ C_c, & \sigma_v' = \sigma_c
 \end{cases} \tag{8.28}
 $$
 
-where
+where the void ratio is
 
 $$
 e = (1 + e_0)(1 - \varepsilon_v) - 1 \tag{8.29}
 $$
 
-and approximate conversions are:
+with $e_0$ being the initial void ratio. While is straightforward to convert between $\varepsilon_v$ and $e$ and between $\log_{10}$ and $\ln$, the conversion between $\sigma_v'$ and $p'$ is cannot be carried out in general. However, there are good arguments to support the following approximations\footnote{In some texts, $\kappa^* \approx \frac{2C_s}{2.3(1+e0)}$ is used while others, e.g. \cite{Wood:1990}, prefer the present one. Which approximation is better is rather problem dependent. Also, many texts cite the relation between $C_c$ and $\lambda^*$ as being exact although it is, in fact, only approximate.}: 
 
 $$
 \begin{aligned}
@@ -290,4 +305,5 @@ $$
 \end{aligned} \tag{8.30}
 $$
 
-In OPTUM GX, the user has a choice between two parameter sets: A ($\kappa^*, \lambda^*$) or B ($C_s, C_c$); In the case of Set B, the above relations are used to calculate equivalent $\kappa^*$ and $\lambda^*$.
+In OPTUM GX, the user has a choice between two parameter sets: A $(\kappa^*, \lambda^*)$ or B $(C_s,C_c)$. In the case of Set B, the above relations are used to calculate equivalent  $\kappa^*$ and $\lambda^*$. 
+
