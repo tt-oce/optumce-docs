@@ -10,29 +10,36 @@
     <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
-    <title>OPTUM GX Python</title>
-    <meta name="title" content="OPTUM GX Python">
+    <title>5 Tresca</title>
+    <meta name="title" content="5 Tresca">
+    <meta name="description" content="The Tresca model is essentially a special case of the Mohr-Coulomb model where the cohesion is set equal to the undrained shear strength,">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/">
+    <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/5-tresca/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/">
-    <meta property="og:title" content="OPTUM GX Python">
+    <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/5-tresca/">
+    <meta property="og:title" content="5 Tresca">
+    <meta property="og:description" content="The Tresca model is essentially a special case of the Mohr-Coulomb model where the cohesion is set equal to the undrained shear strength,">
+    <meta property="og:image" content="https://docs.optumce.com/optum-gx/static/trescay02.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/python/">
-    <meta property="twitter:title" content="OPTUM GX Python">
+    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/materials/5-tresca/">
+    <meta property="twitter:title" content="5 Tresca">
+    <meta property="twitter:description" content="The Tresca model is essentially a special case of the Mohr-Coulomb model where the cohesion is set equal to the undrained shear strength,">
+    <meta property="twitter:image" content="https://docs.optumce.com/optum-gx/static/trescay02.png">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=3.11.0.816790868167" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.816790868167" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=3.11.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.11.0" defer></script>
 
     <style>
         /* Images */
@@ -84,10 +91,10 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
                             <span class="grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../static/header/optumce-docs-logo-light.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="../static/header/optumce-docs-logo-dark.png">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png">
                             </span>
                         </a>
                     </div>
@@ -100,26 +107,26 @@
                     <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
                                     <span>OPTUM GX</span>
                                 </a>
                             </li>
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../python">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../python">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
                                     <span>OPTUM GX Python</span>
                                 </a>
                             </li>
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-cs">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
                                     <span>OPTUM CS</span>
                                 </a>
                             </li>
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
                                     <span>OPTUM G2/G3</span>
                                 </a>
                             </li>
@@ -198,26 +205,26 @@
                             <nav>
                                 <ul class="flex flex-wrap justify-center items-center">
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
                                             <span>OPTUM GX</span>
                                         </a>
                                     </li>
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../python">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../python">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
                                             <span>OPTUM GX Python</span>
                                         </a>
                                     </li>
                                     <li class="mr-6">
                                         <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-cs">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
                                             <span>OPTUM CS</span>
                                         </a>
                                     </li>
                                     <li class="mr-6">
                                         <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
                                             <span>OPTUM G2/G3</span>
                                         </a>
                                     </li>
@@ -243,12 +250,89 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="optum-gx-python" class="break-words">
+<doc-anchor-target id="5-tresca" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#optum-gx-python">#</doc-anchor-trigger>
-        <span>OPTUM GX Python</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-tresca">#</doc-anchor-trigger>
+        <span>5 Tresca</span>
     </h1>
 </doc-anchor-target>
+<p>The Tresca model is essentially a special case of the Mohr-Coulomb model
+where the cohesion is set equal to the undrained shear strength,
+<span class="math">c'=c_u</span>, the friction angle is set equal to zero and Poisson&#x27;s ratio is
+set equal to <span class="math">\frac{1}{2}</span>. The Tresca model implicitly assumed
+undrained conditions with the stresses being the total stresses. As
+such, the Tresca model should not be linked to other models, e.g.
+Mohr-Coulomb, making use of effective stresses.</p>
+<doc-anchor-target id="51-summary-of-material-parameters">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#51-summary-of-material-parameters">#</doc-anchor-trigger>
+        <span>5.1 Summary of material parameters</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="stiffness">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#stiffness">#</doc-anchor-trigger>
+        <span>Stiffness</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><span class="math">E_u</span>: undrained Young&#x27;s modulus (see Section
+<a href="/optum-gx/materials/2-elasticity">Elasticity</a> for relation to drained modulus)</li>
+</ul>
+<doc-anchor-target id="strength">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#strength">#</doc-anchor-trigger>
+        <span>Strength</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><span class="math">c_u</span>: undrained shear strength</li>
+</ul>
+<doc-anchor-target id="52-governing-equations">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#52-governing-equations">#</doc-anchor-trigger>
+        <span>5.2 Governing equations</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="521-elasticity">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#521-elasticity">#</doc-anchor-trigger>
+        <span>5.2.1 Elasticity</span>
+    </h3>
+</doc-anchor-target>
+<p>Isotropic elasticity defined by <span class="math">E_u</span> is used (see Section
+<a href="/optum-gx/materials/2-elasticity">Elasticity</a>).</p>
+<doc-anchor-target id="522-failure-surface">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#522-failure-surface">#</doc-anchor-trigger>
+        <span>5.2.2 Failure surface</span>
+    </h3>
+</doc-anchor-target>
+<p>The Tresca failure surface is given by</p>
+<div class="math"><pre translate="no">F = |\sigma_1-\sigma_3| - 2c_u \tag{5.1}</pre></div>
+<p>where <span class="math">c_u</span> is the undrained shear strength.</p>
+<p>Some possible depictions of the Tresca failure surface are shown in Figure 5.1.</p>
+<doc-anchor-target id="flow-rule">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#flow-rule">#</doc-anchor-trigger>
+        <span>Flow rule</span>
+    </h3>
+</doc-anchor-target>
+<p>The flow potential is associated:</p>
+<div class="math"><pre translate="no">\dot{\boldsymbol\varepsilon}^p = \dot\lambda\frac{\partial F}{\partial\boldsymbol\sigma} \tag{5.2}</pre></div>
+<p><figure class="content-center">
+    <img src="../../static/trescay02.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/trescay02-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 5.1: Possible depictions of Tresca yield surface in principal stress space. In (a) and (b), the principal stress ordering is
+<span class="math">\sigma_1\leq\sigma_2\leq\sigma_3</span> while no particular ordering is
+assumed in (c).</p>
+</div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -258,20 +342,20 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../materials/mcc-clay/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../materials/4-mohr-coulomb/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">8 Modified Cam Clay</span>
+                                                <span class="block mt-1">4 Mohr-​Coulomb</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../python/introduction/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../materials/6-mc-engineering/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">Introduction</span>
+                                                <span class="block mt-1">6 MC Engineering</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -315,6 +399,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Python", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "5 Tresca", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>

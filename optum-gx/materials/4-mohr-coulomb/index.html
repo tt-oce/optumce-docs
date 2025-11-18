@@ -10,29 +10,36 @@
     <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
-    <title>OPTUM GX Python</title>
-    <meta name="title" content="OPTUM GX Python">
+    <title>4 Mohr-Coulomb</title>
+    <meta name="title" content="4 Mohr-Coulomb">
+    <meta name="description" content="The Mohr-Coulomb is the most basic model capable of reproducing the key features of soils. While more complex models in principle offer the">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/">
+    <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/4-mohr-coulomb/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/">
-    <meta property="og:title" content="OPTUM GX Python">
+    <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/4-mohr-coulomb/">
+    <meta property="og:title" content="4 Mohr-Coulomb">
+    <meta property="og:description" content="The Mohr-Coulomb is the most basic model capable of reproducing the key features of soils. While more complex models in principle offer the">
+    <meta property="og:image" content="https://docs.optumce.com/optum-gx/static/mcy02.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/python/">
-    <meta property="twitter:title" content="OPTUM GX Python">
+    <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/materials/4-mohr-coulomb/">
+    <meta property="twitter:title" content="4 Mohr-Coulomb">
+    <meta property="twitter:description" content="The Mohr-Coulomb is the most basic model capable of reproducing the key features of soils. While more complex models in principle offer the">
+    <meta property="twitter:image" content="https://docs.optumce.com/optum-gx/static/mcy02.png">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=3.11.0.816790868167" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.816790868167" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.816790868167" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=3.11.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=3.11.0" defer></script>
 
     <style>
         /* Images */
@@ -84,10 +91,10 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
                             <span class="grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../static/header/optumce-docs-logo-light.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="../static/header/optumce-docs-logo-dark.png">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png">
                             </span>
                         </a>
                     </div>
@@ -100,26 +107,26 @@
                     <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
                                     <span>OPTUM GX</span>
                                 </a>
                             </li>
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../python">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../python">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
                                     <span>OPTUM GX Python</span>
                                 </a>
                             </li>
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-cs">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
                                     <span>OPTUM CS</span>
                                 </a>
                             </li>
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
-                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
                                     <span>OPTUM G2/G3</span>
                                 </a>
                             </li>
@@ -198,26 +205,26 @@
                             <nav>
                                 <ul class="flex flex-wrap justify-center items-center">
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
                                             <span>OPTUM GX</span>
                                         </a>
                                     </li>
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../python">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../../python">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
                                             <span>OPTUM GX Python</span>
                                         </a>
                                     </li>
                                     <li class="mr-6">
                                         <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-cs">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
                                             <span>OPTUM CS</span>
                                         </a>
                                     </li>
                                     <li class="mr-6">
                                         <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
-                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
                                             <span>OPTUM G2/G3</span>
                                         </a>
                                     </li>
@@ -243,12 +250,157 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="optum-gx-python" class="break-words">
+<doc-anchor-target id="4-mohr-coulomb" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#optum-gx-python">#</doc-anchor-trigger>
-        <span>OPTUM GX Python</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-mohr-coulomb">#</doc-anchor-trigger>
+        <span>4 Mohr-Coulomb</span>
     </h1>
 </doc-anchor-target>
+<p>The Mohr-Coulomb is the most basic model capable of reproducing the key
+features of soils. While more complex models in principle offer the
+possibility of matching real soil behaviour better, the simplicity of
+the MC model makes it an attractive alternative, provided that the
+material parameters are chosen appropriately.</p>
+<doc-anchor-target id="41-summary-of-material-parameters">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#41-summary-of-material-parameters">#</doc-anchor-trigger>
+        <span>4.1 Summary of material parameters</span>
+    </h2>
+</doc-anchor-target>
+<p>The key material parameters are summarized below. More specialized
+parameters are elaborated on in later sections.</p>
+<doc-anchor-target id="stiffness" class="unnumbered">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#stiffness">#</doc-anchor-trigger>
+        <span>Stiffness</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><p><span class="math">E</span>: Young&#x27;s modulus</p>
+</li>
+<li><p><span class="math">\nu</span>: Poisson&#x27;s ratio</p>
+</li>
+</ul>
+<doc-anchor-target id="strength" class="unnumbered">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#strength">#</doc-anchor-trigger>
+        <span>Strength</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><p><span class="math">c'</span>: cohesion</p>
+</li>
+<li><p><span class="math">\phi'</span>: friction angle</p>
+</li>
+</ul>
+<doc-anchor-target id="42-governing-equations">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#42-governing-equations">#</doc-anchor-trigger>
+        <span>4.2 Governing equations</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="421-elasticity">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#421-elasticity">#</doc-anchor-trigger>
+        <span>4.2.1 Elasticity</span>
+    </h3>
+</doc-anchor-target>
+<p>Isotropic elasticity defined by <span class="math">E</span> and <span class="math">\nu</span> is used (see <a href="/optum-gx/materials/2-elasticity">Elasticity</a>).</p>
+<doc-anchor-target id="422-failure-surface">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#422-failure-surface">#</doc-anchor-trigger>
+        <span>4.2.2 Failure surface</span>
+    </h3>
+</doc-anchor-target>
+<p>The Mohr-Coulomb failure surface is given by</p>
+<div class="math"><pre translate="no">F = |\sigma_1-\sigma_3|+(\sigma_1'+\sigma_3')\sin\phi' - 2c'\cos\phi' \tag{4.1}</pre></div>
+<p>where <span class="math">c'</span> and <span class="math">\phi'</span> are the cohesion and friction angle
+respectively.<br />
+Some possible depictions of the MC failure surface are shown in <a href="/optum-gx/materials/5-tresca">Figure 5.1</a>.</p>
+<doc-anchor-target id="423-flow-rule">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#423-flow-rule">#</doc-anchor-trigger>
+        <span>4.2.3 Flow rule</span>
+    </h3>
+</doc-anchor-target>
+<p>The flow potential is given by</p>
+<div class="math"><pre translate="no">G = |\sigma_1-\sigma_3|+(\sigma_1'+\sigma_3')\sin\psi \tag{4.2}</pre></div>
+<p>where <span class="math">\psi</span> is the dilation angle.</p>
+<p><figure class="content-center">
+    <img src="../../static/mcy02.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/mcy02-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 4.1: Possible depictions of Mohr-Coulomb yield surface in principal stress space. In (a) and (b), the principal stress ordering is
+<span class="math">\sigma_1\leq\sigma_2\leq\sigma_3</span> while no particular ordering is
+assumed in (c).</p>
+</div>
+<p>In GX, the basic choice of flow rule is between Associated and
+Nonassociated. In the former case, <span class="math">\psi=\phi</span>. In the latter case,
+<span class="math">\psi</span> is specified along with a possible cap on the dilation. That is,
+it is possible to define a critical strain above which <span class="math">\psi</span> is set to
+zero. For Dilation Cap = Yes, the critical strain may be specified
+either in terms of a volumetric strain, <span class="math">\varepsilon_{v,cr}</span>, or a
+deviatoric strain <span class="math">\varepsilon_{q,cr}</span> (see <a href="/optum-gx/materials/1-notation">Notation</a> for exact definition of these strains).</p>
+<p><figure class="content-center">
+    <img src="mc_softning.eps" alt="Softening Mohr-Coulomb material in triaxial
+compression." id="mc_softening" class="rounded-image-rounded border-image-border border-image-border-width" width="68%" />
+    <figcaption class="caption">Softening Mohr-Coulomb material in triaxial
+compression.</figcaption>
+</figure>
+</p>
+<p><figure class="content-center">
+    <img src="../../static/mc_softning.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/mc_softning-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 4.2: Softening Mohr-Coulomb material in triaxial
+compression.</p>
+</div>
+<doc-anchor-target id="424-softening">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#424-softening">#</doc-anchor-trigger>
+        <span>4.2.4 Softening</span>
+    </h3>
+</doc-anchor-target>
+<p>Softening is activated by first choosing Softening = Yes. Three
+parameters then define the properties of then softening stress-strain
+curve: the residual friction angle, <span class="math">\phi_\mathsf{residual}</span>, and two
+characteristic deviatoric strains, <span class="math">\varepsilon_{q,cr,1}</span> and
+<span class="math">\varepsilon_{q,cr,2}</span>. These are sketched in Figure 4.2 with
+respect to a triaxial compression test. The ultimate residual strength
+is:</p>
+<div class="math"><pre translate="no">q_{u,\mathsf{residual}} =|\sigma_1-\sigma_3|_{u,\mathsf{residual}} = \frac{2c'\sin\phi_{\mathsf{residual}}'}{1-\sin\phi_{\mathsf{residual}}'}(-\sigma_3'+c'/\tan\phi_{\mathsf{residual}}') \tag{4.3}</pre></div>
+<p>where it is noted that only the friction angle and not the cohesion is
+affected by the softening.</p>
+<p><figure class="content-center">
+    <img src="../../static/mc_stress_strain.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/mc_stress_strain-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<div class="custom-caption"><p>Figure 4.3: Response of Mohr-Coulomb in triaxial compression without and with a Volumetric Dilation Cap.</p>
+</div>
+<doc-anchor-target id="43-model-response">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#43-model-response">#</doc-anchor-trigger>
+        <span>4.3 Model response</span>
+    </h2>
+</doc-anchor-target>
+<p>The response of the MC material in triaxial compression is shown in
+Figure 4.3. The ultimate deviatoric stress is given by</p>
+<div class="math"><pre translate="no">q_u =|\sigma_1-\sigma_3|_u = \frac{2c'\sin\phi'}{1-\sin\phi}(-\sigma_3'+c/\tan\phi') \tag{4.4}</pre></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -258,20 +410,20 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../materials/mcc-clay/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../materials/3-hydraulic-models/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">8 Modified Cam Clay</span>
+                                                <span class="block mt-1">3 Hydraulic Models</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../python/introduction/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../materials/5-tresca/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">Introduction</span>
+                                                <span class="block mt-1">5 Tresca</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -315,6 +467,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Python", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "4 Mohr-Coulomb", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
 </body>
 </html>
