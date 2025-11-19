@@ -27,10 +27,36 @@
         font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
         font-size: 1rem;
     }
+
+    /* Custom caption for figures and tables */
     .custom-caption {
         font-size: 0.875rem;
         text-align: center;
         color: rgb(158, 158, 158);
         margin-top: -1.5rem;
+    }
+
+    /* Description list */
+    .retype-markdown dt {
+        float: initial !important;
+    }
+
+    .retype-markdown dd {
+        margin-left: 1.5rem !important;
+        padding: 0 !important;
+        border: none;
+        font-weight: 300;
+        width: auto !important;
+    }
+
+    .retype-markdown dt {
+        border: none;
+        padding: 0 !important;
+        font-weight: 700 !important;
+        width: auto !important;
+    }
+
+    .retype-markdown dt:first-child {
+        padding-top: 0 !important;
     }
 </style>
