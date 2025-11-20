@@ -17,16 +17,16 @@ Draw a Nprism in 3D.
 
 ## See also
 
-*   [add_circle](/optum-gx/python/functions/model/add_circle)
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_prism](/optum-gx/python/functions/model/add_prism)
-*   [add_sphere](/optum-gx/python/functions/model/add_sphere)
-*   [add_vertex](/optum-gx/python/functions/model/add_vertex)
+- [add_circle](/python/functions/model/add_circle)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_prism](/python/functions/model/add_prism)
+- [add_sphere](/python/functions/model/add_sphere)
+- [add_vertex](/python/functions/model/add_vertex)
 
 ## Notes
 
-This function is designed for use in 3D, refer to add\_circle in 2D.
+This function is designed for use in 3D, refer to add_circle in 2D.
 
 ## Examples
 

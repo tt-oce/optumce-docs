@@ -21,8 +21,8 @@ Set point boundary condition.
 
 ## See also
 
-*   [set_plate_bc](/optum-gx/python/functions/model/set_plate_bc)
-*   [set_standard_fixities](/optum-gx/python/functions/model/set_standard_fixities)
+- [set_plate_bc](/python/functions/model/set_plate_bc)
+- [set_standard_fixities](/python/functions/model/set_standard_fixities)
 
 ## Examples
 

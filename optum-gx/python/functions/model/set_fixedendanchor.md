@@ -19,7 +19,7 @@ Set fixed-end anchor from vertex.
 
 ## See also
 
-*   [set_nailrow](/optum-gx/python/functions/model/set_nailrow)
+- [set_nailrow](/python/functions/model/set_nailrow)
 
 ## Examples
 

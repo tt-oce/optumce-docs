@@ -13,8 +13,8 @@ Set mesh fan around vertex
 
 ## See also
 
-*   [set_analysis_properties](/optum-gx/python/functions/model/set_analysis_properties)
-*   [set_mesh_size](/optum-gx/python/functions/model/set_mesh_size)
+- [set_analysis_properties](/python/functions/stage/set_analysis_properties)
+- [set_mesh_size](/python/functions/model/set_mesh_size)
 
 ## Examples
 
@@ -24,3 +24,4 @@ model2d.add_rectangle([4,8],[6,11])
 v = model2d.get_vertices([[4,8]])
 model2d.set_mesh_fan(shapes=v,fan_angle=30)
 ```
+

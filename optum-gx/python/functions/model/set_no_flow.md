@@ -11,9 +11,9 @@ Set shape to disallow flow
 
 ## See also
 
-*   [set_fixed_pressure](/knowledge-base/gx/set_fixed_pressure)
-*   [set_fixed_head](/knowledge-base/gx/set_fixed_head)
-*   [set_fixed_excess_pressure](/knowledge-base/gx/set_fixed_excess_pressure)
+- [set_fixed_pressure](/python/functions/model/set_fixed_pressure)
+- [set_fixed_head](/python/functions/model/set_fixed_head)
+- [set_fixed_excess_pressure](/python/functions/model/set_fixed_excess_pressure)
 
 ## Examples
 

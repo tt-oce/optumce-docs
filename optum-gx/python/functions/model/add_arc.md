@@ -14,14 +14,15 @@ Draw an arc in 2D, using N line segments between two points and a midpoint.
 <dt>N : int</dt>
 <dd>Number of linearly spaced line segments.</dd>
 </dl>
+
 ## See also
 
-*   [add_circle](/optum-gx/python/functions/model/add_circle)
-*   [add_line](/optum-gx/python/functions/model/add_line)
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_rectangle](/optum-gx/python/functions/model/add_rectangle)
-*   [add_vertex](/optum-gx/python/functions/model/add_vertex)
+- [add_circle](/python/functions/model/add_circle)
+- [add_line](/python/functions/model/add_line)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_rectangle](/python/functions/model/add_rectangle)
+- [add_vertex](/python/functions/model/add_vertex)
 
 ## Examples
 
@@ -30,3 +31,4 @@ model2d.add_arc([0,0], [1,0], [1,1], N=12)
 model3d.add_arc([0,0,0], [1,0,0], [1,1,0], N=20)
 model3d.add_arc([0,0,0], [np.sqrt(2)/2,1-np.sqrt(2)/2,0], [1,1,0], N=20)
 ```
+

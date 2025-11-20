@@ -11,7 +11,7 @@ Set stage from another stage in the same model.
 
 ## See also
 
-*   [set_from_model](/optum-gx/python/functions/stage/set_from_model/)
+- [set_from_model](/python/functions/model/set_from_model/)
 
 ## Examples
 
@@ -20,3 +20,4 @@ stage1 = model2d.create_stage(name='stage 1')
 stage2.set_from_stage(from_stage='stage 1')
 stage2.set_from_stage(from_stage= stage1)
 ```
+

@@ -15,8 +15,8 @@ add connector
 
 ## See also
 
-*   [set_nailrow](/optum-gx/python/functions/model/set_nailrow)
-*   [set_fixedendanchor](/optum-gx/python/functions/model/set_fixedendanchor)
+- [set_nailrow](/python/functions/model/set_nailrow)
+- [set_fixedendanchor](/python/functions/model/set_fixedendanchor)
 
 ## Examples
 

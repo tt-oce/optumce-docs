@@ -13,7 +13,7 @@ Obtain the shared edges between two lists of shapes.
 
 ## See also
 
-*   [get_shared_faces](/optum-gx/python/functions/model/get_shared_faces)
+- [get_shared_faces](/python/functions/model/get_shared_faces)
 
 ## Examples
 

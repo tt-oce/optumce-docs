@@ -15,12 +15,12 @@ Create two-dimensional coordinate system.
 
 ## See also
 
-*   [create_csys_3d](/optum-gx/python/functions/project/create_csys_3d)
-*   [get_csys](/optum-gx/python/functions/project/get_csys)
+- [create_csys_3d](/python/functions/project/create_csys_3d)
+- [get_csys](/python/functions/project/get_csys)
 
 ## Notes
 
-direction\_j is derived from direction\_i.
+direction_j is derived from direction_i.
 
 ## Examples
 

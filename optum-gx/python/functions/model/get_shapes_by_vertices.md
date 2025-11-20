@@ -13,8 +13,8 @@ Get shapes bounded by vertices.
 
 ## See also
 
-*   [get_shapes](/optum-gx/python/functions/model/get_shapes/)
-*   [select](/optum-gx/python/functions/model/select/)
+- [get_shapes](/python/functions/model/get_shapes/)
+- [select](/python/functions/model/select/)
 
 ## Examples
 

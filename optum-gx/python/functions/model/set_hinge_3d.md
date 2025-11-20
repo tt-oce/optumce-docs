@@ -15,7 +15,7 @@ Edges must be connected to atleast one plate, to which the hinge will be assigne
 
 ## See also
 
-*   [set_hinge_2d](/optum-gx/python/functions/model/set_hinge_2d)
+- [set_hinge_2d](/python/functions/model/set_hinge_2d)
 
 ## Examples
 

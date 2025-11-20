@@ -8,9 +8,9 @@ None
 
 ## See also
 
-*   [delete_interior](/optum-gx/python/functions/model/delete_interior/)
-*   [del_shapes](/optum-gx/python/functions/model/del_shapes/)
-*   [delete_features](/optum-gx/python/functions/model/delete_features/)
+- [delete_interior](/python/functions/model/delete_interior/)
+- [del_shapes](/python/functions/model/del_shapes/)
+- [delete_features] missing
 
 ## Examples
 

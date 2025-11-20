@@ -11,10 +11,10 @@ Remove features
 
 ## See also
 
-*   [del_shapes](/optum-gx/python/functions/model/del_shapes)
-*   [delete_interior](/optum-gx/python/functions/model/delete_interior)
-*   [get_features](/optum-gx/python/functions/model/get_features)
-*   [remove](/optum-gx/python/functions/model/remove)
+- [del_shapes](/python/functions/model/del_shapes)
+- [delete_interior](/python/functions/model/delete_interior)
+- [get_features](/python/functions/model/get_features)
+- [remove]missing
 
 ## Examples
 
@@ -25,3 +25,4 @@ sel = model2d.select([1,10],types='edge')
 f=model2d.get_features(sel)
 model2d.remove_features(f)
 ```
+

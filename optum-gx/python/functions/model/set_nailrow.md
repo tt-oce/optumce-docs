@@ -13,8 +13,8 @@ Set shape as nail row.
 
 ## See also
 
-*   [set_fixedendanchor](/optum-gx/python/functions/model/set_fixedendanchor)
-*   [add_connector](/optum-gx/python/functions/model/add_connector)
+- [set_fixedendanchor](/python/functions/model/set_fixedendanchor)
+- [add_connector](/python/functions/model/add_connector)
 
 ## Examples
 

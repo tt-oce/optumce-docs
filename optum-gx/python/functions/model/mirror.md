@@ -15,8 +15,8 @@ Mirror shapes.
 
 ## See also
 
-*   [move](/optum-gx/python/functions/model/move)
-*   [rotate](/optum-gx/python/functions/model/rotate)
+- [move](/python/functions/model/move)
+- [rotate](/python/functions/model/rotate)
 
 ## Examples
 

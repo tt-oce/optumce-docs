@@ -11,9 +11,8 @@ Get shape by id.
 
 ## See also
 
-
-*   [select](/optum-gx/python/functions/model/select/)
-*   [get_shapes](/optum-gx/python/functions/model/get_shapes/)
+- [select](/python/functions/model/select/)
+- [get_shapes](/python/functions/model/get_shapes/)
 
 ## Examples
 

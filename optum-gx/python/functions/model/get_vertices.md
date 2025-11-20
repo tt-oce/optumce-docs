@@ -11,8 +11,8 @@ Get vertex from their coordinates.
 
 ## See also
 
-*   [select](/optum-gx/python/functions/model/select)
-*   [vertices](/optum-gx/python/functions/model/vertices)
+- [select](/python/functions/model/select)
+- [vertices](/python/functions/model/vertices)
 
 ## Examples
 

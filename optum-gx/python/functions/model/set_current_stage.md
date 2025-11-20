@@ -11,9 +11,9 @@ Sets the current stage.
 
 ## See also
 
-*   [create_stage](/optum-gx/python/functions/model/create_stage)
-*   [get_stage](/optum-gx/python/functions/model/get_stage)
-*   [set_current_model](/optum-gx/python/functions/model/set_current_model)
+- [create_stage](/python/functions/model/create_stage)
+- [get_stage](/python/functions/model/get_stage)
+- [set_current_model](/python/functions/project/set_current_model)
 
 ## Examples
 
@@ -22,3 +22,4 @@ stage4 = model3d.create_stage("stage 4")
 model3d.set_current_stage(stage_name="stage 4")
 model3d.set_current_stage(stage_name= stage4)
 ```
+

@@ -13,7 +13,8 @@ revolve 2D model to 3D.
 
 ## See also
 
-*   [create_3d_from2d_model](/optum-gx/python/functions/model/create_3d_from2d_model)
-*   [revolve](/optum-gx/python/functions/model/revolve)
+- [create_3d_from2d_model](/python/functions/model/create_3d_from_2d_model)
+- [revolve](/python/functions/model/revolve)
 
 ## Examples
+

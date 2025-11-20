@@ -8,7 +8,7 @@ None
 
 ## See also
 
-*   [set_support](/optum-gx/python/functions/model/set_support)
+- [set_support](/python/functions/model/set_support)
 
 ## Examples
 

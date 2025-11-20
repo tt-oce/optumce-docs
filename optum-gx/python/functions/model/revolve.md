@@ -19,11 +19,11 @@ Revolve shape around axis.
 
 ## See also
 
-*   [create_3d_from_2d_model](/optum-gx/python/functions/model/create_3d_from_2d_model)
-*   [extrude](/optum-gx/python/functions/model/extrude)
-*   [rotate](/optum-gx/python/functions/model/rotate)
-*   [revolve_2d_to_3d](/optum-gx/python/functions/model/revolve_2d_to_3d)
-*   [scale](/optum-gx/python/functions/model/scale)
+- [create_3d_from_2d_model](/python/functions/model/create_3d_from_2d_model)
+- [extrude](/python/functions/model/extrude)
+- [rotate](/python/functions/model/rotate)
+- [revolve_2d_to_3d](/python/functions/model/revolve_2d_to_3d)
+- [scale](/python/functions/model/scale)
 
 ## Examples
 

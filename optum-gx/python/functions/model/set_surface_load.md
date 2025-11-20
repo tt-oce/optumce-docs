@@ -4,9 +4,9 @@ Add surface load.
 
 ## See also
 
-*   [set_body_load](/optum-gx/python/functions/model/set_body_load)
-*   [set_line_load](/optum-gx/python/functions/model/set_line_load)
-*   [set_point_load](/optum-gx/python/functions/model/set_point_load)
+- [set_body_load](/python/functions/model/set_body_load)
+- [set_line_load](/python/functions/model/set_line_load)
+- [set_point_load](/python/functions/model/set_point_load)
 
 ## Examples
 

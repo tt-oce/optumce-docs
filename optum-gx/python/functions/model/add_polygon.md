@@ -10,9 +10,9 @@ Add a polygon defined by a two-dimensional array of vertex points.
 
 ## See also
 
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_sphere](/optum-gx/python/functions/model/add_sphere)
-*   [add_vertex](/optum-gx/python/functions/model/add_vertex)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_sphere](/python/functions/model/add_sphere)
+- [add_vertex](/python/functions/model/add_vertex)
 
 ## Notes
 

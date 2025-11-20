@@ -15,12 +15,12 @@ Draw a circle in 2D, from center point and radius, using N line segments.
 
 ## See also
 
-*   [add_arc](/optum-gx/python/functions/model/add_arc)
-*   [add_line](/optum-gx/python/functions/model/add_line)
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_rectangle](/optum-gx/python/functions/model/add_rectangle)
-*   [add_sphere](/optum-gx/python/functions/model/add_sphere)
+- [add_arc](/python/functions/model/add_arc)
+- [add_line](/python/functions/model/add_line)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_rectangle](/python/functions/model/add_rectangle)
+- [add_sphere](/python/functions/model/add_sphere)
 
 ## Examples
 

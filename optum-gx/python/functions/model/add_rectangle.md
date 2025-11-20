@@ -13,9 +13,9 @@ Create a rectangle in 2D between a start and end point.
 
 ## See also
 
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_box](/optum-gx/python/functions/model/add_box)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_box](/python/functions/model/add_box)
 
 ## Examples
 

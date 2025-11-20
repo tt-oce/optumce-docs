@@ -11,13 +11,13 @@ Create a point in 2D or 3D.
 
 ## See also
 
-*   [add_arc](/optum-gx/python/functions/model/add_arc)
-*   [add_box](/optum-gx/python/functions/model/add_box)
-*   [add_circle](/optum-gx/python/functions/model/add_circle)
-*   [add_line](/optum-gx/python/functions/model/add_line)
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_rectangle](/optum-gx/python/functions/model/add_rectangle)
+- [add_arc](/python/functions/model/add_arc)
+- [add_box](/python/functions/model/add_box)
+- [add_circle](/python/functions/model/add_circle)
+- [add_line](/python/functions/model/add_line)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_rectangle](/python/functions/model/add_rectangle)
 
 ## Examples
 

@@ -13,7 +13,7 @@ Set shape material as solid.
 
 ## See also
 
-*   [set_plate](/optum-gx/python/functions/model/set_plate)
+- [set_plate](/python/functions/model/set_plate)
 
 ## Examples
 

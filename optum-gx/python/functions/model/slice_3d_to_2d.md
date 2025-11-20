@@ -13,8 +13,8 @@ Slide a 3D model to 2D.
 
 ## See also
 
-*   [extrude](/optum-gx/python/functions/model/extrude)
-*   [revolve_2d_to_3d](/optum-gx/python/functions/model/revolve_2d_to_3d)
+- [extrude](/python/functions/model/extrude)
+- [revolve_2d_to_3d](/python/functions/model/revolve_2d_to_3d)
 
 ## Examples
 

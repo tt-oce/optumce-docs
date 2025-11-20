@@ -13,10 +13,10 @@ Extrude a shape.
 
 ## See also
 
-*   [create_3d_from_2d_model](/optum-gx/python/functions/model/create_3d_from_2d_model)
-*   [revolve](/optum-gx/python/functions/model/revolve)
-*   [revolve_2d_to_3d](/optum-gx/python/functions/model/revolve_2d_to_3d)
-*   [scale](/optum-gx/python/functions/model/scale)
+- [create_3d_from_2d_model](/python/functions/model/create_3d_from_2d_model)
+- [revolve](/python/functions/model/revolve)
+- [revolve_2d_to_3d](/python/functions/model/revolve_2d_to_3d)
+- [scale](/python/functions/model/scale)
 
 ## Examples
 

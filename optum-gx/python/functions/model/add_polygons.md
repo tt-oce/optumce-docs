@@ -10,17 +10,17 @@ Add a list of polygons defined by an array of two-dimensional arrays of vertex p
 
 ## See also
 
-*   [add_arc](/optum-gx/python/functions/model/add_arc)
-*   [add_box](/optum-gx/python/functions/model/add_box)
-*   [add_circle](/optum-gx/python/functions/model/add_circle)
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_rectangle](/optum-gx/python/functions/model/add_rectangle)
-*   [add_vertex](/optum-gx/python/functions/model/add_vertex)
+- [add_arc](/python/functions/model/add_arc)
+- [add_box](/python/functions/model/add_box)
+- [add_circle](/python/functions/model/add_circle)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_rectangle](/python/functions/model/add_rectangle)
+- [add_vertex](/python/functions/model/add_vertex)
 
 ## Notes
 
-add\_polygons is faster than using add\_polygon sequentially
+add_polygons is faster than using add_polygon sequentially
 
 ## Examples
 

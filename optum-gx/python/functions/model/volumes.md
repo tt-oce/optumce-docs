@@ -8,11 +8,11 @@ None
 
 ## See also
 
-*   [faces](/optum-gx/python/functions/model/faces)
-*   [edges](/optum-gx/python/functions/model/edges)
-*   [get_shapes](/optum-gx/python/functions/model/get_shapes)
-*   [get_sub_shapes](/optum-gx/python/functions/model/get_sub_shapes)
-*   [vertices](/optum-gx/python/functions/model/vertices)
+- [faces](/python/functions/model/faces)
+- [edges](/python/functions/model/edges)
+- [get_shapes](/python/functions/model/get_shapes)
+- [get_sub_shapes](/python/functions/model/get_sub_shapes)
+- [vertices](/python/functions/model/vertices)
 
 ## Examples
 

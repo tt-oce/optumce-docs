@@ -17,9 +17,9 @@ rotate shapes.
 
 ## See also
 
-*   [extrude](/optum-gx/python/functions/model/extrude)
-*   [revolve](/optum-gx/python/functions/model/revolve)
-*   [scale](/optum-gx/python/functions/model/scale)
+- [extrude](/python/functions/model/extrude)
+- [revolve](/python/functions/model/revolve)
+- [scale](/python/functions/model/scale)
 
 ## Examples
 

@@ -11,8 +11,8 @@ Delete shapes and leave voids in their place.
 
 ## See also
 
-*   [select](/optum-gx/python/functions/model/select)
-*   [del_shapes](/optum-gx/python/functions/model/del_shapes)
+- [select](/python/functions/model/select)
+- [del_shapes](/python/functions/model/del_shapes)
 
 ## Examples
 
@@ -27,3 +27,4 @@ model3d.add_box([0,0,0],[5,5,5])                                        #Add box
 v = model3d.select([1,1,1],types=['volume'])                            #Select volume of box
 model3d.delete_interior(v)                                                              #Delete box
 ```
+

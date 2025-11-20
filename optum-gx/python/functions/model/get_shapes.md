@@ -11,11 +11,11 @@ Get shapes in a model.
 
 ## See also
 
-*   [faces](/optum-gx/python/functions/model/faces/)
-*   [edges](/optum-gx/python/functions/model/edges/)
-*   [get_sub_shapes](/optum-gx/python/functions/model/get_sub_shapes/)
-*   [vertices](/optum-gx/python/functions/model/vertices/)
-*   [volumes](/optum-gx/python/functions/model/volumes/)
+- [faces](/python/functions/model/faces/)
+- [edges](/python/functions/model/edges/)
+- [get_sub_shapes](/python/functions/model/get_sub_shapes/)
+- [vertices](/python/functions/model/vertices/)
+- [volumes](/python/functions/model/volumes/)
 
 ## Examples
 

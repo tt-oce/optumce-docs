@@ -13,8 +13,8 @@ Set shape to fixed excess pressure.
 
 ## See also
 
-*   [set_fixed_pressure](/optum-gx/python/functions/model/set_fixed_pressure)
-*   [set_fixed_head](/optum-gx/python/functions/model/set_fixed_head)
+- [set_fixed_pressure](/python/functions/model/set_fixed_pressure)
+- [set_fixed_head](/python/functions/model/set_fixed_head)
 
 ## Examples
 

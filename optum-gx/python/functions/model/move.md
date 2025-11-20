@@ -13,8 +13,8 @@ Move shapes.
 
 ## See also
 
-*   [rotate](/optum-gx/python/functions/model/rotate)
-*   [mirror](/optum-gx/python/functions/model/mirror)
+- [rotate](/python/functions/model/rotate)
+- [mirror](/python/functions/model/mirror)
 
 ## Examples
 

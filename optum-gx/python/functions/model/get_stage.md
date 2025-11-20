@@ -10,8 +10,8 @@ Obtain a list of stages.
 
 ## See also
 
-*   [create_stage](/optum-gx/python/functions/model/create_stage)
-*   [set_current_stage](/optum-gx/python/functions/model/set_current_stage)
+- [create_stage](/python/functions/model/create_stage)
+- [set_current_stage](/python/functions/model/set_current_stage)
 
 ## Examples
 

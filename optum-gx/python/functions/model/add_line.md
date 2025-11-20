@@ -13,12 +13,12 @@ Add a line defined by two points.
 
 ## See also
 
-*   [add_arc](/optum-gx/python/functions/model/add_arc)
-*   [add_circle](/optum-gx/python/functions/model/add_circle)
-*   [add_polygon](/optum-gx/python/functions/model/add_polygon)
-*   [add_polygons](/optum-gx/python/functions/model/add_polygons)
-*   [add_rectangle](/optum-gx/python/functions/model/add_rectangle)
-*   [add_vertex](/optum-gx/python/functions/model/add_vertex)
+- [add_arc](/python/functions/model/add_arc)
+- [add_circle](/python/functions/model/add_circle)
+- [add_polygon](/python/functions/model/add_polygon)
+- [add_polygons](/python/functions/model/add_polygons)
+- [add_rectangle](/python/functions/model/add_rectangle)
+- [add_vertex](/python/functions/model/add_vertex)
 
 ## Examples
 

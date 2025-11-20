@@ -13,7 +13,7 @@ Define interface.
 
 ## See also
 
-*   [set_no_flow](/optum-gx/python/functions/model/set_no_flow)
+- [set_no_flow](/python/functions/model/set_no_flow)
 
 ## Examples
 

@@ -13,8 +13,8 @@ Set mesh size to shape
 
 ## See also
 
-*   [set_analysis_properties](/optum-gx/python/functions/model/set_analysis_properties)
-*   [set_mesh_fan](/optum-gx/python/functions/model/set_mesh_fan)
+- [set_analysis_properties](/python/functions/stage/set_analysis_properties)
+- [set_mesh_fan](/python/functions/model/set_mesh_fan)
 
 ## Examples
 
@@ -27,3 +27,4 @@ model3d.add_box([0,0,0],[10,10,10])
 e = model3d.select([5,0,10],types='edge')
 model3d.set_mesh_size(shapes=e,mesh_size=0.2)
 ```
+

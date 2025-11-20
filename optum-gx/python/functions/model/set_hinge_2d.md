@@ -15,7 +15,7 @@ Vertices must be connected to atleast one plate, to which the hinge will be assi
 
 ## See also
 
-*   [set_hinge_3d](/optum-gx/python/functions/model/set_hinge_3d)
+- [set_hinge_3d](/python/functions/model/set_hinge_3d)
 
 ## Examples
 

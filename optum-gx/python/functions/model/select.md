@@ -22,10 +22,10 @@ Select geometric objects by point or bounding box.
 
 ## See also
 
-*   [edges](/optum-gx/python/functions/model/edges)
-*   [faces](/optum-gx/python/functions/model/faces)
-*   [vertices](/optum-gx/python/functions/model/vertices)
-*   [volumes](/optum-gx/python/functions/model/volumes)
+- [edges](/python/functions/model/edges)
+- [faces](/python/functions/model/faces)
+- [vertices](/python/functions/model/vertices)
+- [volumes](/python/functions/model/volumes)
 
 ## Notes
 

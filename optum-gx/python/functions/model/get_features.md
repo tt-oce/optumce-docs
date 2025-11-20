@@ -11,7 +11,7 @@ Obtain features associated with shapes.
 
 ## See also
 
-*   [get_selected_shapes](/optum-gx/python/functions/model/get_selected_shapes)
+- [get_selected_shapes](/python/functions/model/get_selected_shapes)
 
 ## Examples
 

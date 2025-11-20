@@ -13,7 +13,7 @@ Toggle features for stage
 
 ## See also
 
-*   [remove_features](/optum-gx/python/functions/stage/remove_features/)
+- [remove_features](/python/functions/model/remove_features/)
 
 ## Examples
 

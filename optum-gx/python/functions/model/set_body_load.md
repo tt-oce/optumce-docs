@@ -4,10 +4,10 @@ Add body load.
 
 ## See also
 
-*   [set_surface_load](/optum-gx/python/functions/model/set_surface_load)
-*   [set_line_load](/optum-gx/python/functions/model/set_line_load)
-*   [set_point_load](/optum-gx/python/functions/model/set_point_load)
-  
+- [set_surface_load](/python/functions/model/set_surface_load)
+- [set_line_load](/python/functions/model/set_line_load)
+- [set_point_load](/python/functions/model/set_point_load)
+
 ```python
 # NEEDS VALIDATION!
 model3d.add_prism(
@@ -25,3 +25,4 @@ model3d.set_body_load(
     )
 
 ```
+

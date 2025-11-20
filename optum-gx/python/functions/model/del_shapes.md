@@ -1,4 +1,4 @@
-# delete_shapes
+# del_shapes
 
 Delete shapes and their definition.
 
@@ -11,8 +11,8 @@ Delete shapes and their definition.
 
 ## See also
 
-*   [select](/optum-gx/python/functions/model/select)
-*   [delete_interior](/optum-gx/python/functions/model/delete_interior)
+- [select](/python/functions/model/select)
+- [delete_interior](/python/functions/model/delete_interior)
 
 ## Examples
 
@@ -27,3 +27,4 @@ model3d.add_box([0,0,0],[5,5,5])                                        #Add box
 v = model3d.select([1,1,1],types=['volume'])                            #Select volume of box
 model3d.del_shapes(v)
 ```
+
