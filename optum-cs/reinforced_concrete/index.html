@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-root" content="/optum-cs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.817050686369">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.11.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Reinforced Concrete</title>
+    <meta name="title" content="Reinforced Concrete">
+    <meta name="description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.optumce.com/optum-cs/reinforced_concrete/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.optumce.com/optum-cs/reinforced_concrete/">
+    <meta property="og:title" content="Reinforced Concrete">
+    <meta property="og:description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://docs.optumce.com/optum-cs/reinforced_concrete/">
+    <meta property="twitter:title" content="Reinforced Concrete">
+    <meta property="twitter:description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS.">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../resources/css/retype.css?v=3.11.0.817050686369" rel="stylesheet">
+
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.11.0.817050686369" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.11.0.817050686369" data-turbo-eval="false" defer></script>
+    <link href="../resources/css/katex.css?v=3.11.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=3.11.0" defer></script>
+
+    <style>
+        /* Images */
+        figure.content-center {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        #relight {
+            display: inline !important;
+        }
+
+        .dark #relight {
+            display: none !important;
+        }
+
+        #redark {
+            display: none !important;
+        }
+
+        .dark #redark {
+            display: inline !important;
+        }
+
+        .katex .mathsf,
+        .katex .textsf {
+            font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+        <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+    
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
+                            <span class="grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../static/header/optumce-docs-logo-light.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../static/header/optumce-docs-logo-dark.png">
+                            </span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav id="retype-header-nav" class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                    <span>OPTUM GX</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx/python">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                    <span>OPTUM GX Python</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                    <span>OPTUM CS</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                    <span>OPTUM G2/G3</span>
+                                </a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="retype-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+    
+        <div id="retype-container" class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+            
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded shadow-none text-sm focus:outline-none focus:border-filter-border-focus" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                            <span>OPTUM GX</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx/python">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                            <span>OPTUM GX Python</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                            <span>OPTUM CS</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                            <span>OPTUM G2/G3</span>
+                                        </a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 bg-body-bg">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="retype-markdown" id="retype-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="retype-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="reinforced-concrete" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#reinforced-concrete">#</doc-anchor-trigger>
+        <span>Reinforced Concrete</span>
+    </h1>
+</doc-anchor-target>
+<p>Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries tension. The reinforcement can also function as confinement in the case of shear. Some of the main results of the finite element analysis are the concrete and reinforcement stresses.</p>
+<p>For the elastoplastic case, the concrete and reinforcement have different stiffness. Therefore, the stiffness of the concrete will be governing when in compression, while the stiffness of the reinforcement will be governing when in tension. The stiffness of the reinforcement is usually much lower than the concrete stiffness.</p>
+<p>The concrete itself is defined by a compressive strength and a tensile strength, which is usually taken as zero. The design compressive strength depends on a so-called effectiveness factor, which is a single number below 1 multiplied onto the characteristic strength. The effectiveness factor depends on several things, e.g. cracks in the concrete and the actual stress-strain curve of the material. Per default, a value of 0.5 for the effectiveness factor is defined, but it can be changed if needed.</p>
+<p>OPTUM CS has two types of reinforcement. The first type is smeared reinforcement, which is used to represent the rebar mesh of panels and stirrups in beams and columns. The advantage of smeared reinforcement is that it is not necessary to model each individual bar. Instead, the smeared reinforcement can be considered as an equivalent layer of steel instead of individual bars.</p>
+<p>The second type  is discrete reinforcement. This type is used to represent the rebars in beams and columns as well as stringer reinforcement. Discrete reinforcement is generally used when there are few destinct bars, e.g. in a beam.</p>
+<p>The bond between the reinforcement and the concrete is important to include in the calculations. For both types of reinforcement, the anchorage properties describe the minimum distance from a free end until the rebar can sustain the maximum (yield) stress. For the smeared reinforcement, this is included by decreasing the strength of the reinforcement near free edges, e.g. holes and the edges of the panel. The strength is decreased linearly. A anchorage distance of e.g. 200 mm means that the mesh reinforcement cannot be fully utilized in a zone of 200 mm near any edge, and at a distance of 100 mm from an edge only 50 % of the strength will be available.</p>
+<p>The discrete rebars are slightly different as they are represented using a bar element in the finite element calculation. The anchorage properties works by simply limiting the amout of force that can be tranferred between the concrete material and the discrete rebar.</p>
+<doc-anchor-target id="concrete-and-steel-stresses">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#concrete-and-steel-stresses">#</doc-anchor-trigger>
+        <span>Concrete and steel stresses</span>
+    </h2>
+</doc-anchor-target>
+<p>OPTUM CS uses local coordinate systems for each grid with the local <span class="math">x</span> along the grid and the local <span class="math">y</span> pointing upwards. The sign convention in OPTUM CS follows what is used in most literature with positive stresses being tension and negative stresses being compression. The two non-zero principal stresses are ordered as <span class="math">\sigma_2 \leq \sigma_1</span>, i.e. <span class="math">\sigma_2</span> being more compressive than <span class="math">\sigma_1</span>. The principal strains follow the same principles with <span class="math">\varepsilon_2 \leq \varepsilon_1</span>. In plane stress, the two principal stresses are given as</p>
+<div class="math"><pre translate="no">\left.\begin{array}{l} \sigma_1\\ 
+\sigma_2\end{array}\right\rbrace = \frac{\sigma_x + \sigma_y}{2} \pm \sqrt{\left(\frac{\sigma_x - \sigma_y}{2}\right)^2 + \tau_{xy}^2} </pre></div>
+<p>The finite element analysis uses three types of stresses: Total stresses, concrete stresses and reinforcement (steel) stresses. The total stresses are the ones used for the equilibrium, while the concrete and steel stresses are given as</p>
+<div class="math"><pre translate="no">\sigma = \sigma\_c + \sigma\_s </pre></div>
+<p>where subscript <span class="math">c</span> denotes concrete stresses and subscript <span class="math">s</span> denotes steel stresses. The reinforcement only carries normal forces, e.g. the concrete must carry all shear stresses.</p>
+<p>The use of concrete and steel stresses as separate entities also enable the use of reinforcement as confinement: Even if the total stresses are zero, the reinforcement can be activated and carry tension, while the concrete carry an equal amount of compression.</p>
+<doc-anchor-target id="elasticity">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#elasticity">#</doc-anchor-trigger>
+        <span>Elasticity</span>
+    </h2>
+</doc-anchor-target>
+<p>OPTUM CS uses a linear-elastic rigid-plastic material model for reinforced concrete. In the elastic domain, the stresses and strains are related to each other directly:</p>
+<div class="math"><pre translate="no">\varepsilon^{e} = \mathbb{C}\sigma \qquad \Leftrightarrow \qquad \sigma = \mathbb{D}\,\varepsilon^{e}</pre></div>
+<p>where <span class="math">\mathbb{C}</span> is the compliance modulus and <span class="math">\mathbb{D} = \mathbb{C}^{-1}</span> is the stiffness modulus. The compliance modulus can be expressed in terms of Young&#x27;s modulus, <span class="math">E</span>, and Poisson&#x27;s ratio, <span class="math">\nu</span>, and takes the following form for plane stress:</p>
+<div class="math"><pre translate="no">\mathbb{C} = \frac{1}{E} 
+\begin{bmatrix}1 &amp; -\nu &amp; 0 \\  -\nu &amp; 1 &amp; 0 \\0 &amp; 0 &amp; 2\,(1 + \nu) \end{bmatrix}</pre></div>
+<p>For cracked concrete, Poisson&#x27;s ratio is generally assumed to be zero. For the reinforcement an equivalent stiffness is used defined as</p>
+<div class="math"><pre translate="no">\hat{E}_s = E_s \frac{A_s}{t}</pre></div>
+<p>where <span class="math">t</span> is the thickness of the panel, <span class="math">A_s</span> is the steel area per unit length, and <span class="math">E_s</span> is the Young&#x27;s modulus for the reinforcement, usually around 200 GPa.</p>
+<doc-anchor-target id="yield-criteria">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#yield-criteria">#</doc-anchor-trigger>
+        <span>Yield criteria</span>
+    </h2>
+</doc-anchor-target>
+<p>Generally a yield criterion or yield function limits the stresses. It is a function of the stresses and can be stated as</p>
+<div class="math"><pre translate="no">F(\sigma) \leq 0</pre></div>
+<p>where <span class="math">F(\sigma) &lt; 0</span> corresponds to an elastic state, while <span class="math">F(\sigma) = 0</span> indicates yielding. In general, various other variables might be input to the yield function, e.g. to account for hardening, but currently in OPTUM CS, only the stresses are used for the yield functions.</p>
+<p>Separate yield criteria are enforced for the concrete and reinforcement respectively. For the concrete, the Mohr-Coulomb criterion with a tension cut-off is used. For plane stress, the criterion takes the following form:</p>
+<div class="math"><pre translate="no">\begin{array}{r} 
+\sigma_{c1} \leq f_t \\ k\,\sigma_{c1} - \sigma_{c2} \leq f_c \\ - \sigma_{c2} \leq f_c\
+\end{array}</pre></div>
+<p>where <span class="math">f_t</span> and <span class="math">f_c</span> are the tensile and compressive strength, respectively, and <span class="math">k</span> is a friction parameter. For normal strength concrete, a friction angle of about <span class="math">\varphi = 37^\circ</span> is generally assumed corresponding to a friction coefficient of <span class="math">\mu = 0.75</span>. The friction parameter <span class="math">k</span> is defined as</p>
+<div class="math"><pre translate="no">k = \frac{1 + \sin\varphi}{1 - \sin\varphi} = \left(\sqrt{\mu^2 + 1} + \mu\right)^{2}</pre></div>
+<p>If the tensile strength is zero, the friction angle does not come into play and the yield criterion is reduced to <span class="math">\sigma_{c1} \leq f_t</span> and <span class="math">-\sigma_{c2} \leq f_c</span>.</p>
+<p>For the reinforcement, the stress is limited by the yield strength, $f_y$. Moveover, for the finite element analysis it is assumed that the reinforcement only carries tension, i.e.</p>
+<div class="math"><pre translate="no">0 \leq \sigma_s \leq f_y</pre></div>
+<doc-anchor-target id="effectiveness-factor-strength-reduction-factor">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#effectiveness-factor-strength-reduction-factor">#</doc-anchor-trigger>
+        <span>Effectiveness factor (Strength reduction factor)</span>
+    </h2>
+</doc-anchor-target>
+<p>The compressive strength of the concrete depends on several factors. First and foremost is the characteristic strength, <span class="math">f_{ck}</span>, which the mix is designed to achieve. Next is the design strength, <span class="math">f_{cd}</span>, which related directly to the characteristic strength via a partial coefficient, <span class="math">\gamma_c</span>:</p>
+<div class="math"><pre translate="no">f_{cd} = \frac{f_{ck}}{\gamma_c}</pre></div>
+<p>The effective design strength used in the finite element calculations is reduced further to account for the linear-elastic rigid-plastic approximation to the real stress-strain curve. The effectiveness factor, <span class="math">\nu</span>, is split into two factors:</p>
+<div class="math"><pre translate="no">\nu = \eta_{fc} \eta_{\varepsilon}</pre></div>
+<p>where <span class="math">\eta_{fc}</span> depends on the characteristic compressive strength</p>
+<div class="math"><pre translate="no">\eta_{fc} = \text{min} \left\lbrace 
+\begin{array}{l}\left(\frac{30\text{MPa}}{f_{ck}}\right)^{1/3}\\ 
+1 
+\end{array} \right. </pre></div>
+<p>while <span class="math">\eta_\varepsilon</span> depends on the largest principal strain, <span class="math">\varepsilon_1</span>:</p>
+<div class="math"><pre translate="no">\eta_\varepsilon = \text{min} \left\lbrace 
+\begin{array}{l}\frac{1}{1 + 80\\
+,\varepsilon_1}\\
+1 
+\end{array} \right. </pre></div>
+<p>The largest principal strain is a measurement for the degree of cracking, and cracks parallel to the direction of compression lead to a decrease in the compressive strength.</p>
+<p>OPTUM CS provides two options regarding the effectiveness factor. Either a fixed effectiveness factor can be specified for each concrete material, or the effectiveness factor is calculated as part of the finite element analysis in an iterative manner. The latter increase the complexity and running time of the analysis. In both cases, a result field of the residual effective compression strength is calculated and shown. When using a fixed effectiveness factor the residual strength might be negative, i.e. insufficient, due to excessive cracking. The residual strength is calculated as</p>
+<div class="math"><pre translate="no">r_c = \nu \,f_{cd} - |\sigma_{c2}|</pre></div>
+<p>A warning is given in the analysis dialog if the residual strength is insufficient. In that case several adjustments can be made to increase the residual strength:</p>
+<ul>
+<li>Run the load combinations with variable effectiveness factor</li>
+<li>Increase reinforcement, which limits the cracks</li>
+<li>Increase concrete strength</li>
+</ul>
+<doc-anchor-target id="anchorage">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#anchorage">#</doc-anchor-trigger>
+        <span>Anchorage</span>
+    </h2>
+</doc-anchor-target>
+<p>The bond between the reinforcement and the concrete is crucial to the behaviour of reinforced concrete structures. The anchorage of the smeared reinforcement, e.g. mesh reinforcement, is treated by reducing the yield strength near free edges. An anchorage length is given for the mesh reinforcement, which defines the zone near free edges where the strength is reduced. At the very edge, the strength is reduced to zero and a linear variation is then assumed until full strength is reached. In most cases the anchorage length will be in the magnitude of 40 times the diameter of the bars.</p>
+<p>The discrete rebars are slightly different to the smeared reinforcement. The equilibrium equations of the rebars prescribe a normal force of zero at a free end, and a limit on the shear between the rebar and the concrete is enforced. This shear limit is derived from the anchorage length given by the user.</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer id="retype-content-footer" class="clear-both">
+                            
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../normeftervisning_af_bjaelker/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                                <span class="block mt-1">Normeftervisning af bjælker</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link-weight text-sm leading-relaxed"><p>© Copyright 2025 - OptumCE | All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="retype-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Reinforced Concrete", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-root" content="/optum-cs">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.817050686369">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.11.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Normeftervisning af bj&#230;lker</title>
+    <meta name="title" content="Normeftervisning af bjælker">
+    <meta name="description" content="Beregningsmetoden anvendes til armerede betonbjælker, hvilket inkluderer:">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.optumce.com/optum-cs/normeftervisning_af_bjaelker/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.optumce.com/optum-cs/normeftervisning_af_bjaelker/">
+    <meta property="og:title" content="Normeftervisning af bjælker">
+    <meta property="og:description" content="Beregningsmetoden anvendes til armerede betonbjælker, hvilket inkluderer:">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://docs.optumce.com/optum-cs/normeftervisning_af_bjaelker/">
+    <meta property="twitter:title" content="Normeftervisning af bjælker">
+    <meta property="twitter:description" content="Beregningsmetoden anvendes til armerede betonbjælker, hvilket inkluderer:">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../resources/css/retype.css?v=3.11.0.817050686369" rel="stylesheet">
+
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.11.0.817050686369" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.11.0.817050686369" data-turbo-eval="false" defer></script>
+    <link href="../resources/css/katex.css?v=3.11.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=3.11.0" defer></script>
+
+    <style>
+        /* Images */
+        figure.content-center {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        #relight {
+            display: inline !important;
+        }
+
+        .dark #relight {
+            display: none !important;
+        }
+
+        #redark {
+            display: none !important;
+        }
+
+        .dark #redark {
+            display: inline !important;
+        }
+
+        .katex .mathsf,
+        .katex .textsf {
+            font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+        <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+    
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
+                            <span class="grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../static/header/optumce-docs-logo-light.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../static/header/optumce-docs-logo-dark.png">
+                            </span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav id="retype-header-nav" class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                    <span>OPTUM GX</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx/python">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                    <span>OPTUM GX Python</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                    <span>OPTUM CS</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
+                                    <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                    <span>OPTUM G2/G3</span>
+                                </a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-search-placeholder transition-colors duration-200 ease-in bg-search-bg border border-transparent rounded md:text-sm hover:border-search-border-hover focus:outline-none focus:border-search-border-focus" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="retype-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+    
+        <div id="retype-container" class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+            
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded shadow-none text-sm focus:outline-none focus:border-filter-border-focus" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                            <span>OPTUM GX</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-gx/python">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                            <span>OPTUM GX Python</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="../">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                            <span>OPTUM CS</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-tex font-header-text-weight hover:text-header-text-hover" href="/optum-g2g3">
+                                            <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                            <span>OPTUM G2/G3</span>
+                                        </a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 bg-body-bg">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="retype-markdown" id="retype-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="retype-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="normeftervisning-af-bjælker" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#normeftervisning-af-bjælker">#</doc-anchor-trigger>
+        <span>Normeftervisning af bjælker</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="generelt">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#generelt">#</doc-anchor-trigger>
+        <span>Generelt</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="anvendelsesområde">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#anvendelsesområde">#</doc-anchor-trigger>
+        <span>Anvendelsesområde</span>
+    </h2>
+</doc-anchor-target>
+<p>Beregningsmetoden anvendes til armerede betonbjælker, hvilket inkluderer:</p>
+<ul>
+<li>Overliggere i væg</li>
+<li>Vægge der regnes som bjælker (”Calculate beam section forces” sat til ”Yes”)</li>
+</ul>
+<p>Det er en forudsætning for beregningerne at der anvendes en betonstyrke på 50 MPa eller under.</p>
+<doc-anchor-target id="overligger-detektion">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#overligger-detektion">#</doc-anchor-trigger>
+        <span>Overligger-detektion</span>
+    </h2>
+</doc-anchor-target>
+<p>Alle huller i væggene løbes igennem. Kun 400 mm brede huller eller derover betragtes.</p>
+<p>Hvis vægfeltet mellem oversiden af et hul og enten oversiden af vægelementet eller undersiden af et tilpas stort* hul har en højde der er mindre end bjælkelængden (=hulbredden), detekteres en bjælke.</p>
+<p>* Tilpas stort hul: Et hul som måler mere end 150 mm vandret eller lodret, eller mere end 20% af den samlede bjælkelængde eller -højde.</p>
+<doc-anchor-target id="bestemmelse-af-snitkræfter">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bestemmelse-af-snitkræfter">#</doc-anchor-trigger>
+        <span>Bestemmelse af snitkræfter</span>
+    </h2>
+</doc-anchor-target>
+<p>Snitkræfter:</p>
+<ul>
+<li>M = Moment (kNm)</li>
+<li>V = Forskydningskraft (kN)</li>
+<li>N = Normalkraft (kN)</li>
+</ul>
+<p>Snitkræfter bestemmes gennem integration af indre spændinger og altså ikke ud fra ydre laster.</p>
+<p>Etagekrydsudstøbning over bjælke (modelleret som væg) inkluderes i bestemmelse af snitkræfter.</p>
+<p>Moment regnes om center-aksen, altså <span class="math">y = (h_{bjælke} + h_{etagekryds}) / 2</span> og derfor ikke nødvendigvis om neutralaksen.</p>
+<doc-anchor-target id="huller-i-bjælker">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#huller-i-bjælker">#</doc-anchor-trigger>
+        <span>Huller i bjælker</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>Tilfælde hvor kapacitet ikke beregnes</strong></p>
+<p>Kapaciteter beregnes ikke hvis et vægelement der regnes som bjælke indeholder et hul som måler mere end 20% af den samlede bjælkelængde eller -højde.</p>
+<p>Der gives i rapporten en advarsel om at der er huller i bjælken og at de ikke inkluderes i beregning af kapaciteter, hvis hullerne er mindre end i tilfældene beskrevet herover. Der advares ligeledes om at momentkurven regnes om center-aksen.</p>
+<p><strong>Brand på over- og underside</strong></p>
+<p>Det detekteres om en bjælke påvirkes af brand på over- og underside. Hvis bare en lille del af den pågældende rand er fri, regnes den brandpåvirket. I detektionen betragtes strækninger på randen med tilstødende vægge, huller og etagekryds.</p>
+<doc-anchor-target id="nomenklatur">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nomenklatur">#</doc-anchor-trigger>
+        <span>Nomenklatur</span>
+    </h1>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">A_k</span></td>
+<td>Areal omsluttet af centerlinjerne i væggene i vridningsberegningen.</td>
+</tr>
+<tr>
+<td><span class="math">A_s</span></td>
+<td>Armeringens tværsnitsareal.</td>
+</tr>
+<tr>
+<td><span class="math">A_{sw}</span></td>
+<td>Forskydningsarmeringens tværsnitsareal pr. bøjle.</td>
+</tr>
+<tr>
+<td><span class="math">E_{cm}</span></td>
+<td>Sekantelasticitetsmodulet.</td>
+</tr>
+<tr>
+<td><span class="math">E_s</span></td>
+<td>Armeringens elasticitetsmodul.</td>
+</tr>
+<tr>
+<td><span class="math">F_{td,bund}</span></td>
+<td>Krav til forankringskraft ved kombineret forskydning og vridning for hovedjern i bjælkebund.</td>
+</tr>
+<tr>
+<td><span class="math">F_{td,V}</span></td>
+<td>Krav til forankringskraft ved ren forskydning.</td>
+</tr>
+<tr>
+<td><span class="math">F_{td,T}</span></td>
+<td>Krav til forankringskraft ved ren vridning.</td>
+</tr>
+<tr>
+<td><span class="math">M_{Ed}</span></td>
+<td>Det største regningsmæssige moment i bjælken.</td>
+</tr>
+<tr>
+<td><span class="math">M_{Rd}</span></td>
+<td>Den regningsmæssige momentkapacitet.</td>
+</tr>
+<tr>
+<td><span class="math">N_c</span></td>
+<td>Betontrykresultant.</td>
+</tr>
+<tr>
+<td><span class="math">N_s</span></td>
+<td>Armeringstrækresultant.</td>
+</tr>
+<tr>
+<td>$T_</td>
+<td>Regningsmæssig vridning.</td>
+</tr>
+<tr>
+<td><span class="math">T_{Rd,max}</span></td>
+<td>Den regningsmæssige vridningskapacitet, ved trykbrud i beton.</td>
+</tr>
+<tr>
+<td><span class="math">T_{Rd,s}</span></td>
+<td>Den regningsmæssige vridningskapacitet, ved trækbrud i bøjler.</td>
+</tr>
+<tr>
+<td><span class="math">V_{Ed,max}</span></td>
+<td>Den numerisk største regningsmæssige forskydningskraft i bjælken.</td>
+</tr>
+<tr>
+<td><span class="math">V_{Ed,s}</span></td>
+<td>Den numerisk største regningsmæssige forskydningskraft i bjælken, hvor der ses bort fra forskydningskraften i hver ende af bjælken, samt omkring understøtninger, inden for en afstand af <span class="math">a_s = \cot\Theta \cdot z</span>.</td>
+</tr>
+<tr>
+<td><span class="math">V_{Rd,max}</span></td>
+<td>Den regningsmæssige forskydningskapacitet, ved trykbrud i beton.</td>
+</tr>
+<tr>
+<td><span class="math">V_{Rd,max}'</span></td>
+<td>Den regningsmæssige forskydningskapacitet, ved trykbrud i beton, inkl. reduktion fra vridning.</td>
+</tr>
+<tr>
+<td><span class="math">V_{Rd,s}</span></td>
+<td>Den regningsmæssige forskydningskapacitet, ved trækbrud i bøjler.</td>
+</tr>
+<tr>
+<td><span class="math">V_{Rd,s}'</span></td>
+<td>Den regningsmæssige forskydningskapacitet, ved trækbrud i bøjler, inkl. reduktion fra vridning.</td>
+</tr>
+<tr>
+<td><span class="math">a_z</span></td>
+<td>Tykkelse af skadet randzone, ifm. brand.</td>
+</tr>
+<tr>
+<td><span class="math">b</span></td>
+<td>Bjælkebredde. Den effektive bredde anvendes generelt i stedet for <span class="math">b</span>: <span class="math">b = b_{eff}</span>.</td>
+</tr>
+<tr>
+<td><span class="math">b_{eff}</span></td>
+<td>Effektiv bjælkebredde hvor der tages hensyn til dæklag i kold tilstand og indbrændingsdybde i brandtilfældet.</td>
+</tr>
+<tr>
+<td><span class="math">c'</span></td>
+<td>Afstand fra bjælkeside til center hovedarmeringsjern. Nederste lag hovedarmeringsjern anvendes her. Største værdi af afstand på for- og bagside anvendes her.</td>
+</tr>
+<tr>
+<td><span class="math">\cot\Theta</span></td>
+<td>Trykstangens hældning. 2.5 i brand, ellers 2.0.</td>
+</tr>
+<tr>
+<td><span class="math">d</span></td>
+<td>Diameter af armeringsjern.</td>
+</tr>
+<tr>
+<td><span class="math">e</span></td>
+<td>Excentricitet fra last. Vægtet ift. linjelasternes resultanter.</td>
+</tr>
+<tr>
+<td><span class="math">f_{cm}</span></td>
+<td>Middeltrykstyrken ved 28 døgn.</td>
+</tr>
+<tr>
+<td><span class="math">f_{ywd}</span></td>
+<td>Regningsmæssig flydestyrke for armeringsjern.</td>
+</tr>
+<tr>
+<td><span class="math">h</span></td>
+<td>Bjælkehøjde.</td>
+</tr>
+<tr>
+<td><span class="math">i</span></td>
+<td>Iterationsnummer.</td>
+</tr>
+<tr>
+<td><span class="math">it</span></td>
+<td>Antal iterationer.</td>
+</tr>
+<tr>
+<td><span class="math">j</span></td>
+<td>Armeringslag-nummer.</td>
+</tr>
+<tr>
+<td><span class="math">k</span></td>
+<td>Parameter vedr. elasticitetsmoduler.</td>
+</tr>
+<tr>
+<td><span class="math">n</span></td>
+<td>Antal armeringsjern i snit.</td>
+</tr>
+<tr>
+<td><span class="math">s</span></td>
+<td>Indbyrdes afstand mellem bøjler/armeringsjern.</td>
+</tr>
+<tr>
+<td><span class="math">t_{ef}</span></td>
+<td>Effektiv vægtykkelse til vridningsberegning.</td>
+</tr>
+<tr>
+<td><span class="math">x</span></td>
+<td>Nullinjedybde. Ofte lig trykzonehøjde.</td>
+</tr>
+<tr>
+<td><span class="math">y_c'</span></td>
+<td>Lodret afstand mellem bjælkemidte og betontrykresultant.</td>
+</tr>
+<tr>
+<td><span class="math">y_s</span></td>
+<td>Lodret afstand til center hovedjern fra bunden af bjælken.</td>
+</tr>
+<tr>
+<td><span class="math">y_s'</span></td>
+<td>Lodret afstand til center hovedjern fra bjælkemidte.</td>
+</tr>
+<tr>
+<td><span class="math">z</span></td>
+<td>Indre momentarm bestemt ud fra beregning af positiv momentkapacitet.</td>
+</tr>
+<tr>
+<td><span class="math">\varepsilon_0</span></td>
+<td>Kanttøjning.</td>
+</tr>
+<tr>
+<td><span class="math">\varepsilon_{c1}</span></td>
+<td>Tøjning ved højeste betonspænding.</td>
+</tr>
+<tr>
+<td><span class="math">\varepsilon_{cu}</span></td>
+<td>Brudtøjning for beton.</td>
+</tr>
+<tr>
+<td><span class="math">\zeta</span></td>
+<td>Dimensionsløs parameter vedr. nullinjedybde uden for tværsnit.</td>
+</tr>
+<tr>
+<td><span class="math">\nu_t</span></td>
+<td>Effektivitetsfaktor for forskydning gennem vridning.</td>
+</tr>
+<tr>
+<td><span class="math">\nu_v</span></td>
+<td>Effektivitetsfaktor for ren forskydning.</td>
+</tr>
+<tr>
+<td><span class="math">\sigma_c</span></td>
+<td>Betonspænding.</td>
+</tr>
+<tr>
+<td><span class="math">\sigma_s</span></td>
+<td>Armeringsspænding.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="momentkapacitet">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#momentkapacitet">#</doc-anchor-trigger>
+        <span>Momentkapacitet</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="beregning">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#beregning">#</doc-anchor-trigger>
+        <span>Beregning</span>
+    </h2>
+</doc-anchor-target>
+<p>Både positiv og negativ momentkapacitet bestemmes.</p>
+<p>Momentkapacitet bestemmes ud fra bjælketværsnittet i midten af bjælken, altså ved <span class="math">X = L/2</span>.</p>
+<p>Beregningen svarer til metoden beskrevet i <em>Betonelementbyggeriers statik</em> afsnit 2.1.3 og 6.1.1 og anvendt i Betonelement-Foreningens beregningsmodul Bjælkeberegning, hvor momentkapaciteten findes gennem en iterativ beregning, hvor kanttøjningen gennem et antal iterationer forøges lineært op til brudtøjningen.</p>
+<p>Der tages ikke højde for krybning og svind i bjælken.</p>
+<p>Normalkraften inkluderes i beregning af momentkapaciteten.</p>
+<p><strong>Betonmateriale</strong></p>
+<p>Som angivet i tabel 3.1 i DS/EN 1992-1-1:</p>
+<div class="math"><pre translate="no">\varepsilon_{cu} = 0,0035</pre></div>
+<div class="math"><pre translate="no">\varepsilon_{c1} = 0,0007 \cdot f_{cm}^{0,31}</pre></div>
+<div class="math"><pre translate="no">f_{cm} = f_{ck} + 8 MPa</pre></div>
+<div class="math"><pre translate="no">E_{cm} = 22000 \cdot \left[ \frac{f_{cm}}{10} \right]^{0,3}</pre></div>
+<p>med <span class="math">E_{cd}</span> og <span class="math">f_{cm}</span> i <span class="math">MPa</span></p>
+<div class="math"><pre translate="no">E_{cd} = \frac{E_{cm}}{\gamma_c}</pre></div>
+<p>Der opereres med en ikke-lineær arbejdslinje som beskrevet i afsnit 3.1.5 (1) i DS/EN 1992-1-1:</p>
+<div class="math"><pre translate="no">\frac{\sigma_c}{f_{cm}} = \frac{k \eta-\eta^2}{1+(k-2)\eta}</pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">\eta = \varepsilon_c / \varepsilon_{c1}</pre></div>
+<p><span class="math">\varepsilon_{c1}</span> er tøjningen ved højeste spænding</p>
+<div class="math"><pre translate="no">k = 1,05 \cdot E_{cm} \cdot \varepsilon_{c1} / f_{cm}</pre></div>
+<p>Dog beregnes <span class="math">k</span> med <span class="math">f_{ck}</span> i stedet for <span class="math">f_{cm}</span>:</p>
+<div class="math"><pre translate="no">k = 1,05 \cdot \frac{E_{cm} \cdot \varepsilon_{c1}}{f_{ck}}</pre></div>
+<p><strong>Iterationsprocessen</strong></p>
+<ol>
+<li>Først vælges en værdi for kanttøjningen <span class="math">\varepsilon_0</span>.</li>
+<li>Herefter bestemmes <span class="math">x</span> ud fra projektionsligningen.</li>
+<li>Tværsnittets samlede momentkapacitet <span class="math">M_{Rd}</span> fås af momentligningen om tværsnittets nullinje.</li>
+<li>En ny værdi af kanttøjningen vælges og det undersøges om resultatet for <span class="math">M_{Rd}</span> er gunstigere.</li>
+</ol>
+<p>1: Kanttøjningen</p>
+<p>Kanttøjningen <span class="math">\varepsilon_0</span> bestemmes:</p>
+<div class="math"><pre translate="no">\varepsilon_0 = \frac{i}{it} \varepsilon_{cu}</pre></div>
+<p>hvor <span class="math">i</span> angiver iterationsnummeret og <span class="math">it</span> antallet af iterationer. I sidste iteration er kanttøjningen <span class="math">\varepsilon_{cu}</span>.</p>
+<p><span class="math">\zeta</span> bestemmes:</p>
+<p>Oftest, og i tilfælde hvor normalkraften er 0, er <span class="math">\zeta = 0</span>.</p>
+<div class="math"><pre translate="no">\zeta = \left\lbrace  
+\begin{array}{ll}  
+0 &amp; \textrm{for } x \leq h \\  
+\frac{x-h}{x} &amp; \textrm{for } x &gt; h \\  
+\end{array} \right. </pre></div>
+<p>2: Trykzonehøjden</p>
+<p>Trykzonehøjden, = nullinjedybden <span class="math">x</span>, bestemmes:</p>
+<div class="math"><pre translate="no">x = \frac{1}{2 A} \cdot \left( -B + \sqrt{B^2 - 4 A C} \right) </pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">A = f_{cd} \cdot b \cdot N_c'</pre></div>
+<div class="math"><pre translate="no">B = N_{Ed} + \sum{b_j}</pre></div>
+<div class="math"><pre translate="no">C = \sum{c_j}</pre></div>
+<p>hvor</p>
+<p><span class="math">N_{Ed}</span> er normalkraften</p>
+<div class="math"><pre translate="no">N_c' = \frac{k}{2} \frac{\varepsilon_0}{\varepsilon_{c1}} \left(  1 - \zeta^2 + \frac{K_A - K_B}{K_B^3} \cdot \left\lbrace K_B^2 \cdot \left( 1 - \zeta^2 \right) + 2 K_B \cdot \left( 1 - \zeta \right) + 2 \ln \frac{1 - K_B}{1 - \zeta \cdot K_B} \right\rbrace \right)</pre></div>
+<div class="math"><pre translate="no">b_j = \left\lbrace   
+\begin{array}{ll}  
+\varepsilon_0 \cdot A_{s,j} \cdot E_{s,j} &amp; \textrm{hvis } 2 \cdot \sigma_{s,j,(i-1)} - \sigma_{s,j,(i-2)} &lt; f_{yd} \\  
+A_{s,j} \cdot f_{yd} &amp; \textrm{hvis } 2 \cdot \sigma_{s,j,(i-1)} - \sigma_{s,j,(i-2)} \geq f_{yd} \\
+\end{array}  
+\right. </pre></div>
+<div class="math"><pre translate="no">c_j = \left\lbrace   
+\begin{array}{ll}  
+\left(h - y_{s,j}\right) \cdot \varepsilon_0 \cdot A_{s,j} \cdot E_{s,j} &amp; \textrm{hvis } 2 \cdot \sigma_{s,j,(i-1)} - \sigma_{s,j,(i-2)} &lt; f_{yd} \\  
+0 &amp; \textrm{hvis } 2 \cdot \sigma_{s,j,(i-1)} - \sigma_{s,j,(i-2)} \geq f_{yd} \\  
+\end{array}  
+\right.</pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">K_A = \frac{\varepsilon_0}{k \cdot \varepsilon_{c1}}</pre></div>
+<div class="math"><pre translate="no">K_B = \left( 2-k \right) \cdot \frac{\varepsilon_0}{\varepsilon_{c1}}</pre></div>
+<p><span class="math">A_{s,j}</span> og <span class="math">E_{s,j}</span> er areal og E-modul for hvert lag, <span class="math">j</span>, af hovedjern i bjælken.</p>
+<p><span class="math">y_{s,j}</span> angiver afstand til center hovedjern fra bunden af bjælken (for positivt moment).</p>
+<p>Herefter kan spændinger i hovedjern bestemmes:</p>
+<div class="math"><pre translate="no">\sigma_{s,j,i} = E_{s,j} \cdot \varepsilon_0 \cdot \frac{\left( h-x-y_{s,j} \right)}{x}</pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">-f_{yd} \leq \sigma_{s,j,i} \leq f_{yd}</pre></div>
+<p>3: Momentkapaciteten</p>
+<div class="math"><pre translate="no">M_{Rd} = y_c' \cdot N_c + \sum y_{s,j}' \cdot N_{s,j}</pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">y_c' = \frac{h}{2} - (t' - 1) \cdot x</pre></div>
+<div class="math"><pre translate="no">N_c = N' \cdot x \cdot b </pre></div>
+<div class="math"><pre translate="no">y_{s,j}' = \frac{h}{2} - y_{s,j} </pre></div>
+<div class="math"><pre translate="no">N_{s,j} = \sigma_{s,j} \cdot A_{s,j} </pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">t' = \frac{N_c''}{N_c'} </pre></div>
+<div class="math"><pre translate="no">N_c'' = \frac{k}{3} \frac{\varepsilon_0}{\varepsilon_{c1}} \left( 1 - \zeta^3 - \frac{K_A - K_B}{2 K_B^4} \cdot \left\lbrace - 2 K_B^3 \cdot \left( 1 - \zeta^3 \right) - 3 K_B^2 \cdot \left( 1 - \zeta^2 \right) - 6 K_B \cdot \left( 1 - \zeta \right) - 6 \ln \frac{1 - K_B}{1 - \zeta \cdot K_B} \right\rbrace \right) </pre></div>
+<p>4: Ny værdi for kanttøjning</p>
+<p>Ny værdi for kanttøjning <span class="math">\varepsilon_0</span> og <span class="math">\zeta</span> bestemmes. Se pkt. 1.</p>
+<doc-anchor-target id="brand">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#brand">#</doc-anchor-trigger>
+        <span>Brand</span>
+    </h2>
+</doc-anchor-target>
+<p>I brandtilfældet reduceres bjælketværsnittet, betonegenskaber og armeringsegenskaber som beskrevet i <a href="../brand-generelt/">Brand generelt</a>. Afstande måles fra kant bjælke minus skadet randzone \(a_z\). Følgende udtryk beregnes anderledes.</p>
+<div class="math"><pre translate="no">K_A = 2^{\frac{1}{3}} \cdot \frac{\varepsilon_{c1}}{k \cdot \varepsilon_0} </pre></div>
+<div class="math"><pre translate="no">K_B = 3 \cdot \left( \frac{\varepsilon_{c1}}{\varepsilon_{0}} \right)^{2}</pre></div>
+<div class="math"><pre translate="no">N_c' = \frac{K_B}{K_A} \left[ &lt;br&gt;\frac{1}{6} \left( \ln \frac{1-K_A+K_A^2}{\left( 1 + K_A \right)^2} - \ln \frac{\zeta^2 - K_A \cdot \zeta + K_A^2}{\left( \zeta + K_A \right)^2} \right) + \frac{1}{\sqrt{3}} \left( \arctan \frac{2-K_A}{\sqrt{3} \cdot K_A} - \arctan \frac{2 \zeta-K_A}{\sqrt{3} \cdot K_A} \right)&lt;br&gt;\right]</pre></div>
+<div class="math"><pre translate="no">N_c'' = \frac{K_B}{3} \ln \frac{K_A^3 + 1}{K_A^3 + \zeta^3} </pre></div>
+<doc-anchor-target id="udnyttelse-af-momentkapacitet">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#udnyttelse-af-momentkapacitet">#</doc-anchor-trigger>
+        <span>Udnyttelse af momentkapacitet</span>
+    </h2>
+</doc-anchor-target>
+<p>Udnyttelsesgraden bestemmes som <span class="math">M_{Ed} / M_{Rd}</span>.</p>
+<doc-anchor-target id="forskydningskapacitet">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#forskydningskapacitet">#</doc-anchor-trigger>
+        <span>Forskydningskapacitet</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="beregning-1">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#beregning-1">#</doc-anchor-trigger>
+        <span>Beregning</span>
+    </h2>
+</doc-anchor-target>
+<p>Forskydningskapacitet bestemmes ud fra bjælketværsnittet i midten af bjælken, altså ved <span class="math">x = L/2</span>.</p>
+<p>Hvis en bjælke ikke indeholder lukkede bøjler, men kun har netarmering lodret, kan den implementerede beregning af forskydningskapacitet ikke anvendes. Derfor returneres en kapacitet på 0, en udnyttelsesgrad på -100% og der vises en advarsel i rapporten.</p>
+<p>Hvis bjælken indeholder mere end én gruppe bøjler betragtes den der ligger i midten af bjælken.</p>
+<p><strong>Effektiv bredde</strong></p>
+<p><span class="math">b_{eff} = \min (b, b')</span></p>
+<p>hvor <span class="math">b' = 2 \cdot (b - 2 \cdot c')</span></p>
+<p>I beregningerne anvendes den effektive bredde, <span class="math">b = b_{eff}</span>.</p>
+<p><strong>Excentricitet fra last</strong></p>
+<p>Excentriciteten, <span class="math">e</span>, anvendes i et led i beregningen af forskydningskapaciteten, hvor der tages højde for vridning.</p>
+<p>Den resulterende excentricitet beregnes som en vægtet værdi, ift. linjelasternes resultanter.</p>
+<p>En samlet kraft <span class="math">P_{tot}</span> bestemmes som forskellen mellem største og mindste forskydningssnitkraft.</p>
+<p>Kraften <span class="math">P_0</span> er last fra væg over bjælken, men inkluderer også egenvægt af bjælken selv og forskydningskraft fra vægfelter i hver bjælkeende. <span class="math">P_0</span> virker med vægelementets excentricitet <span class="math">e_0</span> og bestemmes som forskellen mellem <span class="math">P_{tot}</span> og laster fra dæk og linjelaster der virker direkte på bjælken <span class="math">P_i</span>:</p>
+<p><span class="math">P_0 = P_{tot} - \sum P_i</span></p>
+<p>Direkte virkende dæklast <span class="math">P_i</span> har to excentriciteter, <span class="math">e_{i,max}</span> mod vægelementets forside og <span class="math">e_{i,min}</span> mod bagsiden. Derfor undersøges to scenarier. Direkte virkende linjelast <span class="math">P_i</span> virker med excentriciteten <span class="math">e_i</span>, som herunder regnes <span class="math">e_{i,max}= e_{i,min} = e_i</span>.</p>
+<p><span class="math">e_{max} = (P_0 \cdot e_0 + \sum (P_i \cdot e_{i,max})) / P_{tot}</span></p>
+<p><span class="math">e_{min} = (P_0 \cdot -e_0 + \sum (P_i \cdot e_{i,min})) / P_{tot}</span></p>
+<p>Største numeriske excentricitet <span class="math">e</span> anvendes:</p>
+<p><span class="math">e = \max \left( |e_{max} |, | e_{min} | \right)</span></p>
+<p>Bemærk: Metoden er forsimplet idet vægtningen foretages ud fra resultanterne fra hver linjelast.</p>
+<p><strong>Forskydningskapacitet</strong></p>
+<p>Dels bestemmes kapacitet ved trykbrud i beton <span class="math">V_{Rd,max}</span> og dels kapacitet af bøjler <span class="math">V_{Rd,s}</span>.</p>
+<p>Vridning inkluderes i kapacitetsberegningen, som beskrevet i afsnit 6.1.4 i <em>Betonelementbyggeriers statik</em>:</p>
+<div class="math"><pre translate="no">\frac{T_{Ed}}{T\_{Rd}} + \frac{V_{Ed}}{V_{Rd}} \leq 1 \Leftrightarrow  
+V_{Ed} \leq \frac{V_{Rd} \cdot T_{Rd}}{V_{Rd} \cdot e + T_{Rd}}</pre></div>
+<p>idet <span class="math">T_{Ed} = V_{Ed} \cdot e</span></p>
+<p><span class="math">V_{Rd,max}</span> beregnes med udtrykket i formel (6.9) i DS/EN 1992-1-1:</p>
+<div class="math"><pre translate="no">V_{Rd,max} = \frac{\alpha_{cw} \cdot b \cdot z \cdot \nu\_v \cdot f_{cd}}{\left( \cot\Theta + \frac{1}{\cot\Theta} \right)} </pre></div>
+<p><span class="math">\alpha_{cw} = 1</span> for ikke-forspændte bjælker ifølge 6.2.3(3) Note 3 i DS/EN 1992-1-1 DK NA.</p>
+<p>Effektivitetsfaktor i forskydning ifølge formel (5.103 NA) i DS/EN 1992-1-1 DK NA:</p>
+<div class="math"><pre translate="no">\nu_v = 0,7 - \frac{f_{ck}}{200} </pre></div>
+<p><span class="math">V_{Rd,s}</span> beregnes med udtrykket i formel (6.8) i DS/EN 1992-1-1:</p>
+<div class="math"><pre translate="no">V_{Rd,s} = frac{A\_{sw}}{2} z f\_{ywd} \cot\Theta </pre></div>
+<p>Vridningskapaciteten beregnes med udtrykket beskrevet i afsnit 6.1.3 i <em>Betonelementbyggeriers statik</em>:</p>
+<div class="math"><pre translate="no">T_{Rd} = V_{l,Rd} (b-t_{ef}) = V_{v,Rd} (h-t_{ef}) = \min   
+\left\lbrace \begin{array}{l}  
+T_{Rd,max} \\  
+T_{Rd,s} \\  
+\end{array} \right. </pre></div>
+<div class="math"><pre translate="no">T_{Rd,max} = \frac{ t_{ef} \cdot A_k \cdot \nu_t \cdot f_{cd}}{\left( \frac{1}{\cot\Theta} + \cot\Theta \right)} </pre></div>
+<div class="math"><pre translate="no">T_{Rd,s} = \frac{A_{sw}}{s} \cdot A_k \cdot f_{ywd} \cdot \cot\Theta </pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">t_{ef} = \max   
+\left\lbrace \begin{array}{l}  
+\frac{A}{u} \\  
+2 \cdot c' \\  
+\end{array} \right. </pre></div>
+<div class="math"><pre translate="no">\frac{A}{u} = \frac{b \cdot h}{2 \cdot (b + h)} </pre></div>
+<div class="math"><pre translate="no">A_k = \left( b-t_{ef} \right) \left( h-t_{ef} \right)</pre></div>
+<p>Effektivitetsfaktor i vridning ifølge formel (5.104 NA) i DS/EN 1992-1-1 DK NA:</p>
+<div class="math"><pre translate="no">\nu_t = 0,7 \cdot \left( 0,7 - \frac{f_{ck}}{200} \right) = 0,7 \cdot \nu_v </pre></div>
+<p>For trykbrud i beton er kapaciteten inkl. vridning:</p>
+<div class="math"><pre translate="no">V_{Rd,max}' = \frac{V_{Rd,max} \cdot T_{Rd,max}}{V_{Rd,max} \cdot e + T_{Rd,max}}</pre></div>
+<p>For trækkapacitet i bøjler er kapaciteten inkl. vridning:</p>
+<div class="math"><pre translate="no">V_{Rd,s}' = \frac{V_{Rd,s} \cdot T_{Rd,s}}{V_{Rd,s} \cdot e + T_{Rd,s}} </pre></div>
+<p>I beregningerne bruges <span class="math">\cot\Theta = 2,0</span>, hvilket er under den øvre grænseværdi på <span class="math">\cot\Theta = 2,5</span> ifølge formel (6.7a NA) i DS/EN 1992-1-1 DK NA.</p>
+<p><strong>Forankring af hovedarmering</strong></p>
+<p>Krav til forankring af hovedarmering ved bjælkeender beregnes ud fra forskydning og vridning, som beskrevet i <em>Betonelementbyggeriers statik</em> afsnit 6.1.5.</p>
+<p>For ren forskydning beregnes forankringskraften for hovedjern i bunden af bjælken:</p>
+<div class="math"><pre translate="no">F_{td,V} = 0,5 \cdot V_{Ed} \cdot \cot\Theta </pre></div>
+<p>For ren vridning beregnes forankringskraften for hovedjern i hhv. top og bund af bjælken:</p>
+<div class="math"><pre translate="no">F_{td,T} = 2 \cdot \max (F_{td,v} , F_{td,l}) </pre></div>
+<p>hvor</p>
+<div class="math"><pre translate="no">F_{td,l} = \frac{T_{Ed}}{4 \cdot \left( b - t\_{ef} \right)} \cdot \cot\Theta </pre></div>
+<div class="math"><pre translate="no">F_{td,v} = \frac{T_{Ed}}{4 \cdot \left( h - t_{ef} \right)} \cdot \cot\Theta </pre></div>
+<p>For kombineret forskydning og vridning bliver forankringskraften:</p>
+<div class="math"><pre translate="no">F_{td,bund} = F_{td,V} + F_{td,T} = 0,5 \cdot \cot\Theta + 2 \cdot \left( \frac{e \cdot V_{Ed}}{4 \cdot \left( \min(h, b) - t_{ef} \right)} \right) \cdot \cot\Theta </pre></div>
+<p>idet</p>
+<div class="math"><pre translate="no">T_{Ed} = e \cdot V_{Ed}</pre></div>
+<doc-anchor-target id="brand-1">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#brand-1">#</doc-anchor-trigger>
+        <span>Brand</span>
+    </h2>
+</doc-anchor-target>
+<p>I brandtilfældet reduceres bjælketværsnittet, betonstyrken og armeringsstyrken som beskrevet i <a href="../brand-generelt/">Brand generelt</a>. Excentriciteten forøges ved ensidig brandpåvirkning. Ellers anvendes samme formler som beskrevet.</p>
+<p><strong>Reduktion af tværsnit</strong></p>
+<div class="math"><pre translate="no">\begin{array}{ll}  
+b_{eff} = b - a_z                &amp; \textrm{for brand på en side} \\  
+b_{eff} = b - 2 \cdot a_z   &amp; \textrm{for brand på begge sider} \\ 
+h_{eff} = h - a_z                &amp; \textrm{for brand på enten over- eller underside} \\
+h_{eff} = h - 2 \cdot a_z   &amp; \textrm{for brand på både over- og underside} \\
+h_{eff} = h                         &amp; \textrm{hvis over- og underside ikke er brandpåvirket} \\  
+\end{array}</pre></div>
+<p><strong>Reduktion af flydestyrke</strong></p>
+<p>Bøjlearmeringens flydestyrke reduceres som funktion af temperaturen, som bestemmes som en vægtet gennemsnits-bøjle-temperatur ud fra temperaturen i 10 punkter på bøjlen.</p>
+<p>Der bestemmes både en temperatur for nederste halvdel og øverste halvdel. Den højeste af de to temperaturer anvendes.</p>
+<p><strong>Forøgelse af excentricitet</strong></p>
+<p>For ensidig brandpåvirkning forøges excentriciteten, <span class="math">e</span>, med:</p>
+<p><span class="math">0,5 \cdot a_z</span> ved brand på forsiden, og</p>
+<p><span class="math">-0,5 \cdot a_z</span> ved brand på bagsiden.</p>
+<doc-anchor-target id="udnyttelse-af-forskydningskapacitet">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#udnyttelse-af-forskydningskapacitet">#</doc-anchor-trigger>
+        <span>Udnyttelse af forskydningskapacitet</span>
+    </h2>
+</doc-anchor-target>
+<p>Udnyttelsesgraden bestemmes, under hensyntagen til vridning.</p>
+<p>Dels for trykbrud i beton som <span class="math">V_{Ed,max} / V_{Rd,max}'</span></p>
+<p>hvor <span class="math">V_{Ed,max}</span> er den numerisk største regningsmæssige forskydningskraft i bjælken.</p>
+<p>Og dels for trækbrud i bøjlerne som <span class="math">V_{Ed,s} / V_{Rd,s}'</span></p>
+<p>hvor <span class="math">V_{Ed,s}</span> er den numerisk største regningsmæssige forskydningskraft i bjælken, hvor der ses bort fra forskydningskraften i hver ende af bjælken, samt omkring understøtninger, inden for en afstand af <span class="math">a_s = \cot\Theta \cdot z</span>.</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer id="retype-content-footer" class="clear-both">
+                            
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../loads/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                                <span class="block mt-1">Loads</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../reinforced_concrete/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                                <span class="block mt-1">Reinforced Concrete</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link-weight text-sm leading-relaxed"><p>© Copyright 2025 - OptumCE | All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="retype-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Normeftervisning af bjælker", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+</body>
+</html>
