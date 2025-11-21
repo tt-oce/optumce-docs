@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.816950450355">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.817034368975">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -12,6 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Python Scripting with Spyder</title>
     <meta name="title" content="Python Scripting with Spyder">
+    <meta name="description" content="Download and install the Spyder IDE from the official website: https://www.spyder-ide.org/download">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/setting-up-ide/spyder/">
@@ -20,25 +21,31 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/setting-up-ide/spyder/">
     <meta property="og:title" content="Python Scripting with Spyder">
+    <meta property="og:description" content="Download and install the Spyder IDE from the official website: https://www.spyder-ide.org/download">
+    <meta property="og:image" content="https://optumce.com/wp-content/uploads/2025/09/spyder-1.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.optumce.com/optum-gx/python/setting-up-ide/spyder/">
     <meta property="twitter:title" content="Python Scripting with Spyder">
+    <meta property="twitter:description" content="Download and install the Spyder IDE from the official website: https://www.spyder-ide.org/download">
+    <meta property="twitter:image" content="https://optumce.com/wp-content/uploads/2025/09/spyder-1.png">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.11.0.816950450355" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.11.0.817034368975" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.11.0.816950450355" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.11.0.817034368975" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.11.0.816950450355" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.11.0.817034368975" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.11.0.817034368975" defer></script>
 
     <style>
         /* Images */
         figure.content-center {
-            max-width: 860px;
-            max-width: 600px;
+            /* max-width: 860px; */
+            /* max-width: 600px; */
+            max-width: 700px;
             margin: 0 auto;
         }
 
@@ -110,6 +117,11 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-hub-link" href="https://optumce.com/">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="30" viewBox="0 0 12 30" fill="currentColor" aria-label="Home" focusable="false" role="img">
+                                <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
+                            </svg>
+                        </a>
                         <a id="retype-branding-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="grow-0 shrink-0 overflow-hidden">
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png">
@@ -309,6 +321,151 @@
         <span>Python Scripting with Spyder</span>
     </h1>
 </doc-anchor-target>
+<doc-anchor-target id="downloading-and-installing-spyder">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#downloading-and-installing-spyder">#</doc-anchor-trigger>
+        <span>Downloading and Installing Spyder</span>
+    </h2>
+</doc-anchor-target>
+<ol>
+<li>Download and install the Spyder IDE from the official website: <a href="https://www.spyder-ide.org/download" class="outbound" target="_blank"><span>https://www.spyder-ide.org/download</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a></li>
+<li>Close Spyder before taking the next steps.</li>
+</ol>
+<doc-anchor-target id="preparing-a-working-environment">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#preparing-a-working-environment">#</doc-anchor-trigger>
+        <span>Preparing a Working Environment</span>
+    </h2>
+</doc-anchor-target>
+<p>This section contains the necessary steps to prepare a Python working environment using Optum&#x27;s Python Interpreter and Python Virtual Environment.</p>
+<ol>
+<li>Create an empty folder for your GX Python scripts. For example C:\GX_Scripts. All Python scripts are to be placed in this folder (or in folders within the folder, e.g. <code v-pre>C:\GX_Scripts\Project 1</code>, <code v-pre>C:\GX_Scripts\Project 2</code>, and so on).</li>
+<li>Open a Windows Command Prompt in the empty folder created and run the following command to setup an environment: <code v-pre>C:\Users\Public\OPTUM CE\OPTUM GX\python311\setup_venv_spyder.bat</code></li>
+</ol>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-1.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>This will create a .venv folder inside the GX scripts folder. This should never be deleted or modified manually.</p>
+<ol start="3">
+<li>Open Spyder. Under Tools/Preferences/Python Interpreter, change the Python interpreter to the interpreter inside the created .venv folder. For example, with the above created folder, <code v-pre>C:\GX_Scripts\.venv\Scripts\python.exe</code>. Apply and close the Preferences dialog.</li>
+</ol>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-2.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<ol start="4">
+<li>Restart the console.</li>
+</ol>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-3.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="troubleshooting">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
+        <span>Troubleshooting</span>
+    </h3>
+</doc-anchor-target>
+<p>Step 3 of the above installs the so-called Spyder kernels needed for <strong>Spyder v. 6.0.7</strong>. For other versions of Spyder, different kernels may be needed. Therefore, when restarting the Spyder console (step 4 above), you may encounter a message of the kind:</p>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-4.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>This indicates that the incorrect Spyder kernel has been installed. In the above case, what is needed is version 2.4. This is fixed by editing the file:</p>
+<p><code v-pre>C:\Users\Public\OPTUM CE\OPTUM GX\python311\setup_venv_spyder.bat</code>.</p>
+<p>Change the default <code v-pre>spyder-kernels==3.0.</code> to <code v-pre>spyder-kernels==2.4.</code> (or appropriate version as revealed when restarting the Spyder console).</p>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-5.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>Finally, close Spyder and repeat steps 2-4 above.</p>
+<doc-anchor-target id="first-script">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#first-script">#</doc-anchor-trigger>
+        <span>First Script</span>
+    </h2>
+</doc-anchor-target>
+<p>You should now be up and running and can use Spyder for GX scripting. The script shown below calculates the foundation capacity for the problem shown in Figure 3.1.</p>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-6.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p><figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/spyder-7.png" alt="Figure 3.1: Foundation problem and Spyder IDE" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption">Figure 3.1: Foundation problem and Spyder IDE</figcaption>
+</figure>
+</p>
+<p>The full code is listed below.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python"># OptumGX module
+from OptumGX import *
+
+# Application
+gx = GX()
+
+# Project
+prj = gx.create_project('First_GX_Script')
+
+# Mohr-Coulomb material
+mc_mat = prj.MohrCoulomb(name='Soil', c=10, phi=25, gamma_dry=18,
+color=rgb(80,155,80))
+
+# Rigid material
+rigid_mat = prj.Rigid(name='Foundation', color=rgb(120,140,160))
+
+# Model (default model)
+m = prj.get_model()[0]
+
+# Soil domain
+m.add_rectangle([0,0],[13,6])
+
+# Foundation
+m.add_rectangle([0,6],[2,7])
+
+# Apply soil material
+sel = m.select([5,3],types='face')
+m.set_solid(sel,mc_mat)
+
+# Apply foundation material
+sel = m.select([1,6.5],types='face')
+m.set_solid(sel,rigid_mat)
+
+# Apply multiplier load to foundation
+sel = m.select([1,7],types='edge')
+m.set_surface_load(sel,-1,direction='y',option='multiplier')
+
+# Apply fixed load as surcharge
+sel = m.select([3,6],types='edge')
+m.set_surface_load(sel,-10,direction='y',option='fixed')
+
+# Standard fixities &amp; zoom all
+m.set_standard_fixities()
+8
+FIRST SCRIPT
+m.zoom_all()
+
+# Analysis settings
+m.set_analysis_properties(analysis_type='load_multiplier',
+element_type='mixed',
+no_of_elements=2000,
+mesh_adaptivity=True,
+start_elements=1000,
+adaptivity_iterations=3)
+
+# Run analysis
+prj.run_analysis()
+
+# Extract and display load multiplier
+LM = m.output.global_results.load_multiplier
+print('Load multiplier = '+str(LM))</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -375,6 +532,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Python Scripting with Spyder", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Python Scripting with Spyder", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
