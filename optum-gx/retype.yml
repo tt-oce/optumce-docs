@@ -7,6 +7,9 @@ start:
   # Uncomment the next line to try Retype Pro features
   pro: true
 
+hub:
+  link: https://optumce.com/
+
 branding:
   logo: static/header/optumce-docs-logo-light.png
   logoDark: static/header/optumce-docs-logo-dark.png
