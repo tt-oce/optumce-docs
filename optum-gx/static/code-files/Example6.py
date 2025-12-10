@@ -4,7 +4,8 @@ import numpy as np
 # Application
 gx = GX()
 # Project
-prj = gx.create_project('Basic slope stability')
+project_name = "Example 6 Basic slope stability"
+prj = gx.create_project(project_name)
 prj.get_current_model().delete()
 # Model (2D)
 model2d = prj.create_model('2D model',model_type='plane_strain')
@@ -71,3 +72,10 @@ res = [stage1.output.global_results.factor_of_safety]
 print("Factor of safety:", round(res[0],ndigits=3))
 #Zoom and center model
 model2d.zoom_all()
+
+#If desired, save the GX file produced by the script by setting: save = True  
+save = False
+if save: #Save GX file to current working directory 
+       current_path = os.getcwd()
+       filename =project_name+".gxx"
+       gx.save_project(file_path=os.path.join(current_path, filename))

@@ -1,0 +1,15 @@
+# 10 Slope with pre-existing fault
+In this example we consider the stability of slope with, and without, a fault line.
+
+![**`Figure 10.1`** Slope geometry.](../../static/example-figures/example10/Geometry.png)
+
+![**`Figure 10.2`** Slope failure surface without fault line.](../../static/example-figures/example10/Result.png)
+
+![**`Figure 10.3`** Slope failure surface with fault line.](../../static/example-figures/example10/Result_fault.png)
+## Code
+
+:::code source="../../static/code-files/Example10.py" :::
+
+## File
+
+<!-- [!file](../../static/gx-files/Example4_Gibson_soil.gxx) -->
