@@ -4,7 +4,8 @@ import numpy as np
 # Application
 gx = GX()
 # Project
-prj = gx.create_project('Slope fault')
+project_name = "Example 10 Slope fault"
+prj = gx.create_project(project_name)
 prj.get_current_model().delete()
 # Model (2D)
 model2d = prj.create_model('2D model',model_type='plane_strain')
@@ -20,12 +21,7 @@ top=[12.65,0]
 bot=[28,-17]
 model2d.add_line(p0=top,p1=bot)
 a_fault = (top[1]-bot[1])/(top[0]-bot[0])
-#Boundary
-intersect = [20.01, -8.15]
-
-#Boundary slope
-bound =  np.array([[-6,16],[14.01,13.85]])
-a = (bound[0][1]-bound[1][1])/(bound[0][0]-bound[1][0])
+#Layer boundary (Draw desired slope and delete excess)
 a = np.deg2rad(-6)
 temp1=[22,-6+22*a]
 model2d.add_line(p0=[0,-6],p1=temp1)
@@ -35,7 +31,6 @@ right = [left[0]+40,left[1]+40*a]
 model2d.add_line(p0=left,p1=right)
 model2d.delete_shapes(model2d.select(p0=left,types=['edge']))
 model2d.delete_shapes(model2d.select(p0=right,types='edge'))
-# model2d.add_line(p0=[21.9503,-10.3],p1=[28.4617, -11.0002])
 #Fault line
 model2d.add_line(p0=[28,-17],p1=[12.65, 0])
 
@@ -116,3 +111,10 @@ print("Factor of safety without fault:", round(res[0],ndigits=3))
 print("Factor of safety with fault:", round(res[1],ndigits=3))
 #Zoom and center model
 model2d.zoom_all()
+
+#If desired, save the GX file produced by the script by setting: save = True  
+save = False
+if save: #Save GX file to current working directory 
+       current_path = os.getcwd()
+       filename =project_name+".gxx"
+       gx.save_project(file_path=os.path.join(current_path, filename))
