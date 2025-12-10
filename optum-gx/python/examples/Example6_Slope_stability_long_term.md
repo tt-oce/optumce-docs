@@ -1,4 +1,4 @@
-# 6 Slope stability - Long term
+# 6. Slope stability - Long term
 In this example we consider the stability of a layered slope.
 
 ![**`Figure 6.1`** Slope geometry.](../../static/example-figures/example6/Geometry.png)

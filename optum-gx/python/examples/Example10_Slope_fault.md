@@ -1,4 +1,4 @@
-# 10 Slope with pre-existing fault
+# 10. Slope with pre-existing fault
 In this example we consider the stability of slope with, and without, a fault line.
 
 ![**`Figure 10.1`** Slope geometry.](../../static/example-figures/example10/Geometry.png)
