@@ -1,11 +1,10 @@
 """Initialization"""
 from OptumGX import *
 import numpy as np
-import os
 # Application
 gx = GX()
 # Project
-project_name = "Example 4 Gibson soil"
+project_name = "Example 3 Strip footing"
 prj = gx.create_project(project_name)
 prj.get_current_model().delete()
 # Model (2D)
@@ -14,14 +13,16 @@ model2d = prj.create_model('2D model',model_type='plane_strain')
 stage1 = model2d.create_stage('stage 1')
 
 """Constants"""
-depth = 35
-nu = 0.5 # [-]
-q = 10 #kN/m^2
-#Soil profile with Gibson
-E = Profile([[0,0],[-depth,depth*0.3]]) #MPa
+B = 2 #m
+E = 30 #MPa
+nu = 0.2 # [-]
+q = 150 #kN/m^2
+factor = q*B/(E*10**3) #m
 """Geometry"""
-model2d.add_rectangle(p0=[0,0],p1=[depth,-depth])
-model2d.add_line(p0=[0,0],p1=[1,0])
+
+model2d.add_rectangle(p0=[0,0],p1=[7,4])
+model2d.add_rectangle(p0=[0,4],p1=[B/2,4+1/4])
+
 
 """Materials"""
 #Soil domain
@@ -31,18 +32,22 @@ LinearElasticMaterial = prj.LinearElastic(name='LinearElasticMaterial',
                             nu=nu,                        
                             )
 #Selecting soil domain
-SoilFace = model2d.select(p0=[1,-1],types='face')
+SoilFace = model2d.select(p0=[1,1],types='face')
 #Setting 
 model2d.set_solid(shapes=SoilFace,material=LinearElasticMaterial)
+#Rigid footing
+RigidMaterial = prj.Rigid(name="Rigid1",
+       color=rgb(r=108,g=136,b=160),
+       )
+f = model2d.select(p0=[0,4.1],types=['face'])
+model2d.set_solid(shapes=f,material=RigidMaterial)
 
-"""Loads"""
 #Surcharge
-model2d.set_surface_load(shapes=model2d.select(p0=[0.01,0],types='edge'),
-                         value=-q,
+model2d.set_surface_load(shapes=model2d.select(p0=[0.01,4+1/4],types='edge'),
+                         value=-150,
                          direction='y',
                          coordinate_type= 'local',
                          option='fixed')
-
 """Supports"""
 #Set standard supports
 model2d.set_standard_fixities()
@@ -58,11 +63,9 @@ stage1.set_analysis_properties(
 prj.run_analysis()
 
 """Output"""
-uy = [stage1.output.critical_results.u_solid_y_min,stage1.output.critical_results.u_solid_y_max]
-uy = [x if x>=0 else -x for x in uy]
-uy_max = max(uy)
-print("Max vertical displacement:", round(uy_max,ndigits=5),"m")
-print(f"Deviation from theoretical: {round((uy_max-0.05)/0.05*100,2)}%")
+res = [stage1.output.global_results.max_displacement]
+print("Max displacement:", round(res[0],ndigits=5),"m")
+print(f"Constant factor q*B/E = {factor}\nbeta = {round(res[0]/factor,3)} for nu = {nu}")
 #Zoom and center model
 model2d.zoom_all()
 
