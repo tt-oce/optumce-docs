@@ -14,7 +14,7 @@
 This section contains the necessary steps to prepare a Python working environment using Optum’s Python Interpreter and Python Virtual Environment.
 
 1.  Create an empty folder for your GX Python scripts. For example `C:\GX_Scripts`. All Python scripts are to be placed in this folder (or in folders within the folder, e.g. `C:\GX_Scripts\Project 1`, `C:\GX_Scripts\Project 2`, and so on).
-2.  Open a Windows Command Prompt in the empty folder created and run the following command to setup an environment: `C:\Users\Public\OPTUM CE\OPTUM GX\python311\setup_venv.bat` 
+2.  Open a Windows Command Prompt in the empty folder created and run the following command to setup an environment: `"C:\Users\Public\OPTUM CE\OPTUM GX\python311\setup_venv.bat"` 
 
 ![command prompt](https://optumce.com/wp-content/uploads/2025/09/python-scripting-2.png) 
 
