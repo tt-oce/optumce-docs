@@ -94,8 +94,6 @@ m.set_surface_load(sel,-10,direction='y',option='fixed')
 
 # Standard fixities & zoom all
 m.set_standard_fixities()
-8
-FIRST SCRIPT
 m.zoom_all()
 
 # Analysis settings
