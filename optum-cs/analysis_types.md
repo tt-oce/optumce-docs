@@ -1,0 +1,14 @@
+# Analysis Types
+
+It is possible to perform two types of analysis in OPTUM CS: An **elastoplastic calculation** and a **rigid-plastic limit analysis calculation**. The two types of analysis are summarized in the table below.
+
+|     |     |     |
+| --- | --- | --- |
+|     | **Limit analysis (load multiplier)** | **Elastoplastic analysis** |
+| **Input** | Strength parameters for concrete and steel Geometry Loads Supports Joints and interfaces | Strength parameters for concrete and steel Stiffness for concrete and steel Geometry Loads Supports Joints and interfaces |
+| **Primary output** | Load multiplier and collapse mechanism Load multiplier > 1 – OK Load multiplier < 1 – NOT OK | Stresses, strains and displacements Reactions Code check (wall slice analysis and beam analysis) |
+| **Requirements in calculation** | Equilibrium compliance Yield stress compliance in all elements | Equilibrium compliance Yield stress compliance in all elements |
+
+The rigid-plastic analysis uses a rigid-plastic material model allowing unlimited plastic redistribution. Column stability is not a part of this analysis. In the rigid-plastic calculation, only the strength parameters are included - i.e., the calculation does not depend on stiffnesses – analogous to, for example, upper bound calculation of a slab. The concrete can only transfer compression stresses and the reinforcement only tension stresses. The analysis type is extremely fast, which makes it particularly useful for initial determination of strength parameters including dimensions, reinforcement, etc. Along with the load multiplier, users also get a collapse mechanism, which can be used to visually locate where the structure fails when subjected to that set of loads. A load multiplier greater than 1.0 is a necessary, but not sufficient, condition to verify the design according to EN 1992. 
+
+To verify the design according to EN 1992, a so-called elastoplastic analysis is carried out. In this type of analysis, the design loads are applied in the relevant load combination, and the stresses in all structural elements are calculated. The calculation differs from the rigid-plastic limit analysis calculation by also including the stiffness of the elements, but just as in the rigid-plastic limit analysis calculation, the concrete is considered fully cracked – i.e., can only transfer compression stresses – and the reinforcement can only transfer tension stresses. Based on the calculated stress fields, a subsequent post-processing is performed where all structural elements are verified, while considering column stability and transverse load.

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-cs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857046630">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147499114">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Step 3: Loads</title>
@@ -17,6 +17,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-3-loads/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-cs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -30,13 +31,24 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-3-loads/">
+    <meta name="twitter:title" content="Step 3: Loads">
+    <meta name="twitter:description" content="Edit the self weight of the wall:">
+    <meta name="twitter:image" content="https://optumce.com/wp-content/uploads/2021/11/self-weight-properties.png">
+    <meta name="twitter:image:alt" content="Step 3: Loads">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-3-loads.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.1.0.825857046630" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.829147499114" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.1.0.825857046630" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.1.0.825857046630" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829147499114" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829147499114" data-turbo-eval="false" defer></script>
 
     <style>
         /* Images */
@@ -81,10 +93,10 @@
             <!-- Logo -->
             <div class="flex items-center justify-between h-full py-2 md:w-75">
                 <div class="flex items-center px-2 md:px-6">
-                    <a id="retype-branding-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-cs/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -98,25 +110,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx/python">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -171,25 +183,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx/python">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -211,41 +223,27 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="step-3-loads" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-3-loads">#</doc-anchor-trigger>
-        <span>Step 3: Loads</span>
-    </h1>
-</doc-anchor-target>
-<doc-anchor-target id="self-weight">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#self-weight">#</doc-anchor-trigger>
-        <span>Self weight</span>
-    </h2>
-</doc-anchor-target>
+<h1 id="step-3-loads">Step 3: Loads</h1>
+<h2 id="self-weight">Self weight</h2>
 <p>Edit the self weight of the wall:</p>
 <ul>
 <li>In the BLOCKS tab in the ribbon, choose the wall block named &quot;200 mm C30 S500 2xØ8/400 S500 2xØ8/250&quot; (or any other wall block).</li>
 <li>In the wall block properties the default value of <em>Weight [kN/m³]</em> is <em>25</em>.</li>
 <li>Load from masonry, insulation etc. acting on the façade is added by changing <em>Surface load [kN/m²]</em> in <em>Vertical surface</em> load to <em>2</em>.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/self-weight-properties.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/self-weight-properties.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/self-weight-properties.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
-<doc-anchor-target id="load-types-and-load-definitions">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#load-types-and-load-definitions">#</doc-anchor-trigger>
-        <span>Load types and load definitions</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="load-types-and-load-definitions">Load types and load definitions</h2>
 <p>Create load definitions:</p>
 <ul>
 <li>In the LOADS tab in the ribbon choose <em>Define loads</em>.</li>
@@ -254,19 +252,13 @@
 <li>In the load definitions table, add another load definition by pressing <em>New</em>.</li>
 <li>Change the names and included load types as pictured below.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/load-types-and-definitions-1.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/load-types-and-definitions-1-1024x490.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/load-types-and-definitions-1-1024x490.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
-<doc-anchor-target id="assign-loads">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#assign-loads">#</doc-anchor-trigger>
-        <span>Assign loads</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="assign-loads">Assign loads</h2>
 <p>Assign the load definitions to the model:</p>
 <ul>
 <li>In the LOADS tab in the ribbon choose <em>Assign loads</em>.</li>
@@ -274,19 +266,13 @@
 <li>Choose the Load definition named &quot;F01 Office&quot; and assign it to the decks on level 2, 3 and 4 by clicking on the decks.</li>
 <li>Assign the load definition named &quot;R01 Roof&quot; to the deck on level 5.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/assign-loads.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/assign-loads-1024x555.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/assign-loads-1024x555.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
-<doc-anchor-target id="horizontal-loads">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#horizontal-loads">#</doc-anchor-trigger>
-        <span>Horizontal loads</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="horizontal-loads">Horizontal loads</h2>
 <p>Create horizontal load cases:</p>
 <ul>
 <li>In the LOADS tab in the ribbon choose <em>Wind generation</em>.</li>
@@ -294,19 +280,13 @@
 <li>Rename the new set of loads from &quot;(user defined)&quot; to &quot;Wind+&quot;.</li>
 <li>Change <em>Shear forces [kN]</em> to <em>20</em> for the top level and <em>40</em> for the three others.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/horizontal-loads.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/horizontal-loads.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/horizontal-loads.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
-<doc-anchor-target id="lateral-wind-loads">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#lateral-wind-loads">#</doc-anchor-trigger>
-        <span>Lateral wind loads</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="lateral-wind-loads">Lateral wind loads</h2>
 <p>Lateral loads are assigned to the concrete elements (panels) via the properties.</p>
 <ul>
 <li>In the LOADS tab in the ribbon choose <em>Assign loads</em>.</li>
@@ -318,13 +298,12 @@
 <ul>
 <li>Ensure that <em>Lateral load category</em> is <em>V (Wind load)</em>.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/lateral-loads.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/lateral-loads-1024x555.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/lateral-loads-1024x555.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <p>Next step is setting up a load combination and making a calculation.</p>
 <p>Read more about <a href="/optum-cs/loads/">loads in the documentation</a>.</p>
 
@@ -393,6 +372,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Step 3: Loads", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Step 3: Loads", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/tutorials/tutorials_1/step-3-loads.md" }</script>
 </body>
 </html>

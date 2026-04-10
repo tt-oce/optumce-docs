@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857041516">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147491342">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>5 Tresca</title>
@@ -17,6 +17,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/5-tresca/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-gx/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -30,15 +31,26 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/materials/5-tresca/">
+    <meta name="twitter:title" content="5 Tresca">
+    <meta name="twitter:description" content="The Tresca model is essentially a special case of the Mohr-Coulomb model where the cohesion is set equal to the undrained shear strength, c'=c_u, the">
+    <meta name="twitter:image" content="https://docs.optumce.com/optum-gx/static/trescay02.png">
+    <meta name="twitter:image:alt" content="5 Tresca">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/materials/5-tresca.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.1.0.825857041516" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829147491342" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <link href="../../resources/css/katex.css?v=4.1.0" rel="stylesheet">
-    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.1.0" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=4.5.3" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.5.3" defer></script>
 
     <style>
         /* Images */
@@ -122,10 +134,10 @@
                             <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
                         </svg>
                     </a>
-                    <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-gx/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -139,25 +151,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../python/">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -212,25 +224,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../python/">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -252,7 +264,7 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
@@ -281,13 +293,10 @@
                     </ol>
                 </nav>
 
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="5-tresca" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#5-tresca">#</doc-anchor-trigger>
-        <span>5 Tresca</span>
-    </h1>
-</doc-anchor-target>
+<h1 id="5-tresca">5 Tresca</h1>
 <p>The Tresca model is essentially a special case of the Mohr-Coulomb model
 where the cohesion is set equal to the undrained shear strength,
 <span class="math">c'=c_u</span>, the friction angle is set equal to zero and Poisson&#x27;s ratio is
@@ -295,69 +304,30 @@ set equal to <span class="math">\frac{1}{2}</span>. The Tresca model implicitly 
 undrained conditions with the stresses being the total stresses. As
 such, the Tresca model should not be linked to other models, e.g.
 Mohr-Coulomb, making use of effective stresses.</p>
-<doc-anchor-target id="51-summary-of-material-parameters">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#51-summary-of-material-parameters">#</doc-anchor-trigger>
-        <span>5.1 Summary of material parameters</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="stiffness">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#stiffness">#</doc-anchor-trigger>
-        <span>Stiffness</span>
-    </h3>
-</doc-anchor-target>
+<h2 id="51-summary-of-material-parameters">5.1 Summary of material parameters</h2>
+<h3 id="stiffness">Stiffness</h3>
 <ul>
 <li><span class="math">E_u</span>: undrained Young&#x27;s modulus (see Section
 <a href="../2-elasticity/">Elasticity</a> for relation to drained modulus)</li>
 </ul>
-<doc-anchor-target id="strength">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#strength">#</doc-anchor-trigger>
-        <span>Strength</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="strength">Strength</h3>
 <ul>
 <li><span class="math">c_u</span>: undrained shear strength</li>
 </ul>
-<doc-anchor-target id="52-governing-equations">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#52-governing-equations">#</doc-anchor-trigger>
-        <span>5.2 Governing equations</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="521-elasticity">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#521-elasticity">#</doc-anchor-trigger>
-        <span>5.2.1 Elasticity</span>
-    </h3>
-</doc-anchor-target>
+<h2 id="52-governing-equations">5.2 Governing equations</h2>
+<h3 id="521-elasticity">5.2.1 Elasticity</h3>
 <p>Isotropic elasticity defined by <span class="math">E_u</span> is used (see Section
 <a href="../2-elasticity/">Elasticity</a>).</p>
-<doc-anchor-target id="522-failure-surface">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#522-failure-surface">#</doc-anchor-trigger>
-        <span>5.2.2 Failure surface</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="522-failure-surface">5.2.2 Failure surface</h3>
 <p>The Tresca failure surface is given by</p>
 <div class="math"><pre translate="no">F = |\sigma_1-\sigma_3| - 2c_u \tag{5.1}</pre></div>
 <p>where <span class="math">c_u</span> is the undrained shear strength.</p>
 <p>Some possible depictions of the Tresca failure surface are shown in Figure 5.1.</p>
-<doc-anchor-target id="flow-rule">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#flow-rule">#</doc-anchor-trigger>
-        <span>Flow rule</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="flow-rule">Flow rule</h3>
 <p>The flow potential is associated:</p>
 <div class="math"><pre translate="no">\dot{\boldsymbol\varepsilon}^p = \dot\lambda\frac{\partial F}{\partial\boldsymbol\sigma} \tag{5.2}</pre></div>
-<p><figure class="content-center">
-    <img src="../../static/trescay02.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-<figure class="content-center">
-    <img src="../../static/trescay02-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width rounded-image-rounded border-image-border border-image-border-width" />
+<p><img src="../../static/trescay02.png" alt="" /><figure class="content-center">
+    <img src="../../static/trescay02-inverted.png" alt="" id="redark" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width rounded-image-rounded border-image-border border-image-border-width" width="758" height="1492" />
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -367,16 +337,18 @@ assumed in (c).</p>
 </div>
 <div id="retype-backlinks">
     <h2>See also</h2>
-    <div class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
-        <a href="/optum-gx/materials/4-mohr-coulomb/" class="group no-link">
-            <div class="flex flex-col">
-                <div>
-                    <span>4 Mohr-Coulomb</span>
-                </div>
-                <p>The Mohr-Coulomb is the most basic model capable of reproducing the key features of soils. While more complex models in principle offer the</p>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/optum-gx/materials/4-mohr-coulomb/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">4 Mohr-Coulomb</span>
             </div>
-        </a>
-    </div>
+            <p class="card-compact-description">The Mohr-Coulomb is the most basic model capable of reproducing the key features of soils. While more complex models in principle offer the possibility of</p>
+        </div>
+    </a>
+</div>
+</div>
 </div>
 
                 
@@ -444,6 +416,6 @@ assumed in (c).</p>
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "5 Tresca", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "5 Tresca", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/materials/5-tresca.md" }</script>
 </body>
 </html>

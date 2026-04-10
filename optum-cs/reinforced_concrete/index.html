@@ -5,36 +5,46 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-cs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857046630">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147499114">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Reinforced Concrete</title>
     <meta name="title" content="Reinforced Concrete">
-    <meta name="description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries">
+    <meta name="description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries tension.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-cs/reinforced_concrete/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-cs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-cs/reinforced_concrete/">
     <meta property="og:title" content="Reinforced Concrete">
-    <meta property="og:description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries">
+    <meta property="og:description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries tension.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-cs/reinforced_concrete/">
+    <meta name="twitter:title" content="Reinforced Concrete">
+    <meta name="twitter:description" content="Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries tension.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-cs/reinforced_concrete.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.1.0.825857046630" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.5.3.829147499114" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.825857046630" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.825857046630" data-turbo-eval="false" defer></script>
-    <link href="../resources/css/katex.css?v=4.1.0" rel="stylesheet">
-    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=4.1.0" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.5.3.829147499114" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.5.3.829147499114" data-turbo-eval="false" defer></script>
+    <link href="../resources/css/katex.css?v=4.5.3" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=4.5.3" defer></script>
 
     <style>
         /* Images */
@@ -79,10 +89,10 @@
             <!-- Logo -->
             <div class="flex items-center justify-between h-full py-2 md:w-75">
                 <div class="flex items-center px-2 md:px-6">
-                    <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-cs/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -96,25 +106,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx">
-                                <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx/python">
-                                <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -169,25 +179,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx/python">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -209,16 +219,13 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="reinforced-concrete" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#reinforced-concrete">#</doc-anchor-trigger>
-        <span>Reinforced Concrete</span>
-    </h1>
-</doc-anchor-target>
+<h1 id="reinforced-concrete">Reinforced Concrete</h1>
 <p>Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries tension. The reinforcement can also function as confinement in the case of shear. Some of the main results of the finite element analysis are the concrete and reinforcement stresses.</p>
 <p>For the elastoplastic case, the concrete and reinforcement have different stiffness. Therefore, the stiffness of the concrete will be governing when in compression, while the stiffness of the reinforcement will be governing when in tension. The stiffness of the reinforcement is usually much lower than the concrete stiffness.</p>
 <p>The concrete itself is defined by a compressive strength and a tensile strength, which is usually taken as zero. The design compressive strength depends on a so-called effectiveness factor, which is a single number below 1 multiplied onto the characteristic strength. The effectiveness factor depends on several things, e.g. cracks in the concrete and the actual stress-strain curve of the material. Per default, a value of 0.5 for the effectiveness factor is defined, but it can be changed if needed.</p>
@@ -226,12 +233,7 @@
 <p>The second type  is discrete reinforcement. This type is used to represent the rebars in beams and columns as well as stringer reinforcement. Discrete reinforcement is generally used when there are few destinct bars, e.g. in a beam.</p>
 <p>The bond between the reinforcement and the concrete is important to include in the calculations. For both types of reinforcement, the anchorage properties describe the minimum distance from a free end until the rebar can sustain the maximum (yield) stress. For the smeared reinforcement, this is included by decreasing the strength of the reinforcement near free edges, e.g. holes and the edges of the panel. The strength is decreased linearly. A anchorage distance of e.g. 200 mm means that the mesh reinforcement cannot be fully utilized in a zone of 200 mm near any edge, and at a distance of 100 mm from an edge only 50 % of the strength will be available.</p>
 <p>The discrete rebars are slightly different as they are represented using a bar element in the finite element calculation. The anchorage properties works by simply limiting the amout of force that can be tranferred between the concrete material and the discrete rebar.</p>
-<doc-anchor-target id="concrete-and-steel-stresses">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#concrete-and-steel-stresses">#</doc-anchor-trigger>
-        <span>Concrete and steel stresses</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="concrete-and-steel-stresses">Concrete and steel stresses</h2>
 <p>OPTUM CS uses local coordinate systems for each grid with the local <span class="math">x</span> along the grid and the local <span class="math">y</span> pointing upwards. The sign convention in OPTUM CS follows what is used in most literature with positive stresses being tension and negative stresses being compression. The two non-zero principal stresses are ordered as <span class="math">\sigma_2 \leq \sigma_1</span>, i.e. <span class="math">\sigma_2</span> being more compressive than <span class="math">\sigma_1</span>. The principal strains follow the same principles with <span class="math">\varepsilon_2 \leq \varepsilon_1</span>. In plane stress, the two principal stresses are given as</p>
 <div class="math"><pre translate="no">\left.\begin{array}{l} \sigma_1\\ 
 \sigma_2\end{array}\right\rbrace = \frac{\sigma_x + \sigma_y}{2} \pm \sqrt{\left(\frac{\sigma_x - \sigma_y}{2}\right)^2 + \tau_{xy}^2} </pre></div>
@@ -239,12 +241,7 @@
 <div class="math"><pre translate="no">\sigma = \sigma\_c + \sigma\_s </pre></div>
 <p>where subscript <span class="math">c</span> denotes concrete stresses and subscript <span class="math">s</span> denotes steel stresses. The reinforcement only carries normal forces, e.g. the concrete must carry all shear stresses.</p>
 <p>The use of concrete and steel stresses as separate entities also enable the use of reinforcement as confinement: Even if the total stresses are zero, the reinforcement can be activated and carry tension, while the concrete carry an equal amount of compression.</p>
-<doc-anchor-target id="elasticity">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#elasticity">#</doc-anchor-trigger>
-        <span>Elasticity</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="elasticity">Elasticity</h2>
 <p>OPTUM CS uses a linear-elastic rigid-plastic material model for reinforced concrete. In the elastic domain, the stresses and strains are related to each other directly:</p>
 <div class="math"><pre translate="no">\varepsilon^{e} = \mathbb{C}\sigma \qquad \Leftrightarrow \qquad \sigma = \mathbb{D}\,\varepsilon^{e}</pre></div>
 <p>where <span class="math">\mathbb{C}</span> is the compliance modulus and <span class="math">\mathbb{D} = \mathbb{C}^{-1}</span> is the stiffness modulus. The compliance modulus can be expressed in terms of Young&#x27;s modulus, <span class="math">E</span>, and Poisson&#x27;s ratio, <span class="math">\nu</span>, and takes the following form for plane stress:</p>
@@ -253,12 +250,7 @@
 <p>For cracked concrete, Poisson&#x27;s ratio is generally assumed to be zero. For the reinforcement an equivalent stiffness is used defined as</p>
 <div class="math"><pre translate="no">\hat{E}_s = E_s \frac{A_s}{t}</pre></div>
 <p>where <span class="math">t</span> is the thickness of the panel, <span class="math">A_s</span> is the steel area per unit length, and <span class="math">E_s</span> is the Young&#x27;s modulus for the reinforcement, usually around 200 GPa.</p>
-<doc-anchor-target id="yield-criteria">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#yield-criteria">#</doc-anchor-trigger>
-        <span>Yield criteria</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="yield-criteria">Yield criteria</h2>
 <p>Generally a yield criterion or yield function limits the stresses. It is a function of the stresses and can be stated as</p>
 <div class="math"><pre translate="no">F(\sigma) \leq 0</pre></div>
 <p>where <span class="math">F(\sigma) &lt; 0</span> corresponds to an elastic state, while <span class="math">F(\sigma) = 0</span> indicates yielding. In general, various other variables might be input to the yield function, e.g. to account for hardening, but currently in OPTUM CS, only the stresses are used for the yield functions.</p>
@@ -271,12 +263,7 @@
 <p>If the tensile strength is zero, the friction angle does not come into play and the yield criterion is reduced to <span class="math">\sigma_{c1} \leq f_t</span> and <span class="math">-\sigma_{c2} \leq f_c</span>.</p>
 <p>For the reinforcement, the stress is limited by the yield strength, $f_y$. Moveover, for the finite element analysis it is assumed that the reinforcement only carries tension, i.e.</p>
 <div class="math"><pre translate="no">0 \leq \sigma_s \leq f_y</pre></div>
-<doc-anchor-target id="effectiveness-factor-strength-reduction-factor">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#effectiveness-factor-strength-reduction-factor">#</doc-anchor-trigger>
-        <span>Effectiveness factor (Strength reduction factor)</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="effectiveness-factor-strength-reduction-factor">Effectiveness factor (Strength reduction factor)</h2>
 <p>The compressive strength of the concrete depends on several factors. First and foremost is the characteristic strength, <span class="math">f_{ck}</span>, which the mix is designed to achieve. Next is the design strength, <span class="math">f_{cd}</span>, which related directly to the characteristic strength via a partial coefficient, <span class="math">\gamma_c</span>:</p>
 <div class="math"><pre translate="no">f_{cd} = \frac{f_{ck}}{\gamma_c}</pre></div>
 <p>The effective design strength used in the finite element calculations is reduced further to account for the linear-elastic rigid-plastic approximation to the real stress-strain curve. The effectiveness factor, <span class="math">\nu</span>, is split into two factors:</p>
@@ -301,12 +288,7 @@
 <li>Increase reinforcement, which limits the cracks</li>
 <li>Increase concrete strength</li>
 </ul>
-<doc-anchor-target id="anchorage">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#anchorage">#</doc-anchor-trigger>
-        <span>Anchorage</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="anchorage">Anchorage</h2>
 <p>The bond between the reinforcement and the concrete is crucial to the behaviour of reinforced concrete structures. The anchorage of the smeared reinforcement, e.g. mesh reinforcement, is treated by reducing the yield strength near free edges. An anchorage length is given for the mesh reinforcement, which defines the zone near free edges where the strength is reduced. At the very edge, the strength is reduced to zero and a linear variation is then assumed until full strength is reached. In most cases the anchorage length will be in the magnitude of 40 times the diameter of the bars.</p>
 <p>The discrete rebars are slightly different to the smeared reinforcement. The equilibrium equations of the rebars prescribe a normal force of zero at a free end, and a limit on the shear between the rebar and the concrete is enforced. This shear limit is derived from the anchorage length given by the user.</p>
 
@@ -322,7 +304,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                             <span>
                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">Normeftervisning af bjælker</span>
+                                <span class="block mt-1">Normeftervisning af bj&#230;lker</span>
                             </span>
                         </a>
                     </div>
@@ -368,6 +350,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Reinforced Concrete", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Reinforced Concrete", level: 1, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/reinforced_concrete.md" }</script>
 </body>
 </html>

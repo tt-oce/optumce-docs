@@ -1,0 +1,9 @@
+# 8. Stability of slope subjected to unconfined seepage
+In this example we consider the stability of a layered slope. The seepage pressure distribution and the location of the phreatic surface are not known a priori except that the groundwater table is located at the foot of the slope and the conditions at a distance of 15m from the crest of the slope correspond to hydrostatic conditions.
+
+![**`Figure 8.1`** Geometry of layered slope.](../../static/example-figures/example8/Geometry.png)
+
+![**`Figure 8.2`** Resultant saturation in the embankment.](../../static/example-figures/example8/Result.png)
+## Code
+
+:::code source="../../static/code-files/Example8.py" :::

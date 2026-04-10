@@ -1,0 +1,9 @@
+# 6. Slope stability - Long term
+In this example we consider the stability of a layered slope.
+
+![**`Figure 6.1`** Slope geometry.](../../static/example-figures/example6/Geometry.png)
+
+![**`Figure 6.2`** Slope failure surface.](../../static/example-figures/example6/Result.png)
+## Code
+
+:::code source="../../static/code-files/Example6.py" :::

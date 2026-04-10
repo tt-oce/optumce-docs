@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857041516">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147491342">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>set_surface_load</title>
@@ -17,6 +17,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/model/set_surface_load/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-gx/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -26,14 +27,23 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/model/set_surface_load/">
+    <meta name="twitter:title" content="set_surface_load">
+    <meta name="twitter:description" content="Add surface load.">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/model/set_surface_load.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=4.1.0.825857041516" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=4.5.3.829147491342" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.1.0.825857041516" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.5.3.829147491342" defer></script>
 
     <style>
         /* Images */
@@ -117,10 +127,10 @@
                             <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
                         </svg>
                     </a>
-                    <a id="retype-branding-logo" href="../../../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-gx/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -134,25 +144,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../../python/">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -207,25 +217,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../../python/">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -247,7 +257,7 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
@@ -292,31 +302,18 @@
                     </ol>
                 </nav>
 
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="set_surface_load" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#set_surface_load">#</doc-anchor-trigger>
-        <span>set_surface_load</span>
-    </h1>
-</doc-anchor-target>
+<h1 id="set_surface_load">set_surface_load</h1>
 <p>Add surface load.</p>
-<doc-anchor-target id="see-also">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#see-also">#</doc-anchor-trigger>
-        <span>See also</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../set_body_load/">set_body_load</a></li>
 <li><a href="../set_line_load/">set_line_load</a></li>
 <li><a href="../set_point_load/">set_point_load</a></li>
 </ul>
-<doc-anchor-target id="examples">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#examples">#</doc-anchor-trigger>
-        <span>Examples</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">model3d.add_rectangle([0,0,0],[3,3,0])
 sel = model3d.select([3,3,0],types='face')
@@ -328,40 +325,48 @@ model3d.set_surface_load(shapes=sel,value=Pmap,direction='z',coordinate_type='lo
 </doc-codeblock></div>
 <div id="retype-backlinks">
     <h2>See also</h2>
-    <div class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
-        <a href="/optum-gx/python/functions/model/set_body_load/" class="group no-link">
-            <div class="flex flex-col">
-                <div>
-                    <span>set_body_load</span>
-                </div>
-                <p>Add body load.</p>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/model/set_body_load/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">set_body_load</span>
             </div>
-        </a>
-        <a href="/optum-gx/python/functions/model/set_line_load/" class="group no-link">
-            <div class="flex flex-col">
-                <div>
-                    <span>set_line_load</span>
-                </div>
-                <p>Add line load.</p>
+            <p class="card-compact-description">Add body load.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/model/set_line_load/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">set_line_load</span>
             </div>
-        </a>
-        <a href="/optum-gx/python/functions/model/set_line_moment/" class="group no-link">
-            <div class="flex flex-col">
-                <div>
-                    <span>set_line_moment</span>
-                </div>
-                <p>Add line moment.</p>
+            <p class="card-compact-description">Add line load.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/model/set_line_moment/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">set_line_moment</span>
             </div>
-        </a>
-        <a href="/optum-gx/python/functions/model/set_point_load/" class="group no-link">
-            <div class="flex flex-col">
-                <div>
-                    <span>set_point_load</span>
-                </div>
-                <p>Add point load.</p>
+            <p class="card-compact-description">Add line moment.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/model/set_point_load/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">set_point_load</span>
             </div>
-        </a>
-    </div>
+            <p class="card-compact-description">Add point load.</p>
+        </div>
+    </a>
+</div>
+</div>
 </div>
 
                 
@@ -429,6 +434,6 @@ model3d.set_surface_load(shapes=sel,value=Pmap,direction='z',coordinate_type='lo
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "set_surface_load", level: 4, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "set_surface_load", level: 4, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/model/set_surface_load.md" }</script>
 </body>
 </html>

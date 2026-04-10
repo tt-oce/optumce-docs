@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-cs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857046630">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147499114">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Step 5: Elastoplastic Analysis</title>
@@ -17,6 +17,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-5-elastoplastic-analysis/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-cs/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -30,13 +31,24 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-5-elastoplastic-analysis/">
+    <meta name="twitter:title" content="Step 5: Elastoplastic Analysis">
+    <meta name="twitter:description" content="Edit load combination:">
+    <meta name="twitter:image" content="https://optumce.com/wp-content/uploads/2021/11/load-combinations-EP-1024x555.png">
+    <meta name="twitter:image:alt" content="Step 5: Elastoplastic Analysis">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-5-elastoplastic-analysis.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.1.0.825857046630" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.829147499114" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.1.0.825857046630" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.1.0.825857046630" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829147499114" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829147499114" data-turbo-eval="false" defer></script>
 
     <style>
         /* Images */
@@ -81,10 +93,10 @@
             <!-- Logo -->
             <div class="flex items-center justify-between h-full py-2 md:w-75">
                 <div class="flex items-center px-2 md:px-6">
-                    <a id="retype-branding-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-cs/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -98,25 +110,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx/python">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -171,25 +183,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-gx/python">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -211,22 +223,14 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="step-5-elastoplastic-analysis" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-5-elastoplastic-analysis">#</doc-anchor-trigger>
-        <span>Step 5: Elastoplastic Analysis</span>
-    </h1>
-</doc-anchor-target>
-<doc-anchor-target id="load-combination">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#load-combination">#</doc-anchor-trigger>
-        <span>Load combination</span>
-    </h2>
-</doc-anchor-target>
+<h1 id="step-5-elastoplastic-analysis">Step 5: Elastoplastic Analysis</h1>
+<h2 id="load-combination">Load combination</h2>
 <p>Edit load combination:</p>
 <ul>
 <li>In the LOADS tab in the ribbon choose <em>Load comb__inations</em>.</li>
@@ -243,35 +247,19 @@
 <li>In <em>Horizontal loads</em> include the user-defined load <em>Wind+</em>.</li>
 <li>Press Run analysis (F5).</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/load-combinations-EP.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/load-combinations-EP-1024x555.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/load-combinations-EP-1024x555.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <ul>
 <li>When the analysis is done, close the Analysis Progress window. The RESULTS tab is now active.</li>
 </ul>
-<doc-anchor-target id="elastoplastic-analysis-result">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#elastoplastic-analysis-result">#</doc-anchor-trigger>
-        <span>Elastoplastic analysis result</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="elastoplastic-analysis-result">Elastoplastic analysis result</h2>
 <p>The elastoplastic analysis results in different types of results; Direct results from the finite element analysis and post processed code check results. Also the input parameters for the calculation can be illustrated.</p>
-<doc-anchor-target id="finite-element-results">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#finite-element-results">#</doc-anchor-trigger>
-        <span>Finite element results</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="displacements">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#displacements">#</doc-anchor-trigger>
-        <span>Displacements</span>
-    </h3>
-</doc-anchor-target>
+<h2 id="finite-element-results">Finite element results</h2>
+<h3 id="displacements">Displacements</h3>
 <ul>
 <li>Select <em>Combination 1</em> in the load manager.</li>
 </ul>
@@ -280,83 +268,57 @@
 <li>Add a check mark in the <em>Show displacement</em> box in the ribbon, and adjust the scaling using the mouse wheel while the cursor is on the scale input field, to show the wall section in deformed shape.</li>
 <li>Select the other load combination in the load manager and check if the displacement corresponds to the direction of the applied horizontal loads.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/11/displacement-plot-1.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/11/displacement-plot-1-1024x555.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/11/displacement-plot-1-1024x555.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
-<doc-anchor-target id="stresses">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#stresses">#</doc-anchor-trigger>
-        <span>Stresses</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="stresses">Stresses</h3>
 <p>In <em>Stresses</em> in the <em>Panel</em> section in the ribbon, select &quot;<em>Panel σc2</em>&quot;, the minimum of the principal stresses in the concrete (the (absolute) highest compression stresses in the concrete). The biggest compression is in this case 10.7 MPa, as displayed in the colour bar in the scale section in the ribbon, which is the maximum allowable compression stress in the elastoplastic finite element calculation:</p>
 <p>σ = ν · fck / γc = 0.5 · 30 MPa / 1.40 = 10.7 MPa</p>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/12/sigma-c2.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/12/sigma-c2-1024x555.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/12/sigma-c2-1024x555.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <ul>
 <li>Drag the left limit in the Scale bar in the ribbon to the center or even higher, to intensify the compression struts/paths in the wall section.</li>
 </ul>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/12/sigma-c2-limit.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/12/sigma-c2-limit-1024x922.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/12/sigma-c2-limit-1024x922.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <p>Explore many other results of the finite element calculation in the Panel, Rebar, Joints and Reactions sections in the ribbon. The input parameters for the calculation is grouped in the Model section in the ribbon. This is a great tool for visual control of the model inputs.</p>
-<doc-anchor-target id="code-check-results">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#code-check-results">#</doc-anchor-trigger>
-        <span>Code check results</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="code-check-results">Code check results</h2>
 <p>Code check includes calculations of walls and beams. The results are made in the post processing, after the FE calculations, in compliance with EN 1992 (EC2), and with similarities to the analyses used in the calculation software provided by the danish concrete element association, Betonelement-Foreningen. The panels in the wall section are divided into slices, and for each of these a second order analysis is performed, checking the stability and the out of plane displacement. Also the wall beams are recognized and analysed. In the RESULTS tab, the results are presented visually. More details, including the NM-curves, tables and summarizing plots are available in the report, which is explained in the next step of the tutorial.</p>
-<doc-anchor-target id="wall-slice-utilization">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#wall-slice-utilization">#</doc-anchor-trigger>
-        <span>Wall slice utilization</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="wall-slice-utilization">Wall slice utilization</h3>
 <p>The utilization of the wall slices are visualized for each load combination in the &quot;<em>Code Check M0Ed/M0Rd</em>&quot; plot in the <em>Wall column</em> menu in the <em>Code check</em> section in the ribbon.</p>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/12/wall-slice-utilization.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/12/wall-slice-utilization-1024x555.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/12/wall-slice-utilization-1024x555.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <p>Explore more results in the <em>Code check</em> menu and calculated input parameters in the <em>Geometry</em> menu.</p>
-<doc-anchor-target id="beam-moment">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#beam-moment">#</doc-anchor-trigger>
-        <span>Beam moment</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="beam-moment">Beam moment</h3>
 <p>The internal moment for the beams are visualized for each load combination in the &quot;<em>Beams M</em>&quot; plot in the <em>Section forces</em> menu in the <em>Beams</em> section in the ribbon. Also the other section force plots are available in this menu. The horizontal joint is included in the calculation of section forces.</p>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/12/beam-moment.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/12/beam-moment-1024x793.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/12/beam-moment-1024x793.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <p>The positive and negative moment bearing capacity plots, <em>MRd+</em> and <em>MRd-</em> are available in the <em>Section forces</em> menu, displaying the capacities calculated at mid beam, with no normal force, and without including the horizontal joint.</p>
-<p><figure class="content-center">
+<figure class="content-center">
     <a href="https://optumce.com/wp-content/uploads/2021/12/beam-positive-moment-capacity.png">
-        <img src="https://optumce.com/wp-content/uploads/2021/12/beam-positive-moment-capacity-1024x816.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+        <img src="https://optumce.com/wp-content/uploads/2021/12/beam-positive-moment-capacity-1024x816.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     </a>
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <p>Next step is generating a report.</p>
 
                 
@@ -424,6 +386,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Step 5: Elastoplastic Analysis", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Step 5: Elastoplastic Analysis", level: 3, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/tutorials/tutorials_1/step-5-elastoplastic-analysis.md" }</script>
 </body>
 </html>

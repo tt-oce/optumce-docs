@@ -1,0 +1,10 @@
+# 3.  Settlement of strip footing on elastic soil
+This example deals with a centrally loaded weightless rigid strip footing on an elastic soil. The footing and the soil are modeled using the default materials Rigid and Linear Elastic, respectively.
+
+![**`Figure 3.1`** Strip footing geometry.](../../static/example-figures/example3/Geometry.png)
+
+![**`Figure 3.2`** Strip footing deformed mesh.](../../static/example-figures/example3/Result.png)
+
+## Code
+
+:::code source="../../static/code-files/Example3.py" :::

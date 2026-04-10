@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857041516">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147491342">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>3 Hydraulic Models</title>
@@ -17,6 +17,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/3-hydraulic-models/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-gx/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -30,15 +31,26 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/materials/3-hydraulic-models/">
+    <meta name="twitter:title" content="3 Hydraulic Models">
+    <meta name="twitter:description" content="Variably saturated flow through a deforming porous medium can be described by the mass balance equation:">
+    <meta name="twitter:image" content="https://docs.optumce.com/optum-gx/static/hydrtable.png">
+    <meta name="twitter:image:alt" content="3 Hydraulic Models">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/materials/3-hydraulic-models.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.1.0.825857041516" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829147491342" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <link href="../../resources/css/katex.css?v=4.1.0" rel="stylesheet">
-    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.1.0" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=4.5.3" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.5.3" defer></script>
 
     <style>
         /* Images */
@@ -122,10 +134,10 @@
                             <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
                         </svg>
                     </a>
-                    <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-gx/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -139,25 +151,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../python/">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -212,25 +224,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../python/">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -252,7 +264,7 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
@@ -281,13 +293,10 @@
                     </ol>
                 </nav>
 
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="3-hydraulic-models" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#3-hydraulic-models">#</doc-anchor-trigger>
-        <span>3 Hydraulic Models</span>
-    </h1>
-</doc-anchor-target>
+<h1 id="3-hydraulic-models">3 Hydraulic Models</h1>
 <p>Variably saturated flow through a deforming porous medium can be described by the mass balance equation:</p>
 <div class="math"><pre translate="no">S\boldsymbol{m}^{\textsf{{\tiny T}}}\frac{\partial \boldsymbol{\varepsilon}}{\partial t} + \frac{e}{1+e}\left(\frac{\partial S}{\partial t} + \frac{S}{K_w}\frac{\partial p_w}{\partial t}\right) + \nabla^{\textsf{{\tiny T}}}\boldsymbol{v} = 0 \tag{3.1}</pre></div>
 <p>which is to be supplemented with the usual mechanical governing equation (momentum balance and strain-displacement relations) and the generalized Darcy’s law:</p>
@@ -311,7 +320,7 @@
 <div class="math"><pre translate="no">\frac{e}{1+e}\left(\frac{\partial S}{\partial t} + \frac{S}{K_w}\frac{\partial p_s}{\partial t}\right) = \nabla^{\textsf{{\tiny T}}}\left[K_r\boldsymbol{K}\nabla \left(\frac{p_s}{\gamma_w}+z\right)\right] \tag{3.3}</pre></div>
 <p>Typical values of hydraulic conductivity for different materials are shown in Figure 3.1.
 <figure class="content-center">
-    <img src="../../static/hydrtable.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <img src="../../static/hydrtable.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2182" height="470" />
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -327,12 +336,7 @@ K_x &amp;  &amp;  \\
 \end{bmatrix} \tag{3.4}</pre></div>
 <p>where <span class="math">K_x</span>, <span class="math">K_y</span>, and <span class="math">K_z</span> are the saturated hydraulic conductivities in the <span class="math">x</span>, <span class="math">y</span>, and <span class="math">z</span> directions, respectively.</p>
 <hr>
-<doc-anchor-target id="31-van-genuchten-model">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#31-van-genuchten-model">#</doc-anchor-trigger>
-        <span>3.1 van Genuchten Model</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="31-van-genuchten-model">3.1 van Genuchten Model</h2>
 <p>The van Genuchten model is the most widely used hydraulic model in soil science. It relates degree of saturation to pressure head by:</p>
 <div class="math"><pre translate="no">S =
 \begin{cases}
@@ -491,24 +495,15 @@ S_e^{1/2}\left[1 - \left(1 - S_e^{1/m}\right)^m\right]^2 &amp; \text{for } S_e &
 </div>
 <div class="custom-caption"><p>Table 3.1: Soil properties of 72 samples collected from the literature and the fitted van Genuchten model <span class="math">n</span> and <span class="math">a</span> (after Ghanbarian-Alavijeh et al. 2010).</p>
 </div>
-<p><figure class="content-center">
-    <img src="../../static/vgfig3-2.png" alt="" id="relight" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-<figure class="content-center">
-    <img src="../../static/vgfig3-2-inverted.png" alt="" id="redark" class="rounded-image-rounded border-image-border border-image-border-width" />
+<p><img src="../../static/vgfig3-2.png" alt="" /><figure class="content-center">
+    <img src="../../static/vgfig3-2-inverted.png" alt="" id="redark" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1200" height="927" />
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
 <div class="custom-caption"><p>Figure 3.2: Dependence of <span class="math">S(\hat{h})</span> and <span class="math">K_r(\hat{h})</span> on <span class="math">\alpha</span> (top) and <span class="math">n</span> (bottom).</p>
 </div>
 <hr>
-<doc-anchor-target id="32-basic-model">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#32-basic-model">#</doc-anchor-trigger>
-        <span>3.2 Basic Model</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="32-basic-model">3.2 Basic Model</h2>
 <p>The Basic model, which is the default model for all materials, is a van Genuchten model with <span class="math">\alpha = 4, \quad n = 4, \quad S_r = 0, \quad S_s = 1</span> and <span class="math">\quad e = 1</span>. This gives a relatively steep pressure-saturation curve corresponding to a very coarse material.</p>
 
                 
@@ -576,6 +571,6 @@ S_e^{1/2}\left[1 - \left(1 - S_e^{1/m}\right)^m\right]^2 &amp; \text{for } S_e &
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "3 Hydraulic Models", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "3 Hydraulic Models", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/materials/3-hydraulic-models.md" }</script>
 </body>
 </html>

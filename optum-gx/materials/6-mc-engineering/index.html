@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857041516">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147491342">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>6 MC Engineering</title>
     <meta name="title" content="6 MC Engineering">
-    <meta name="description" content="The Mohr-Coulomb and Tresca models both have their advantages and limitations. Under drained conditions, the Mohr-Coulomb model produces results that">
+    <meta name="description" content="The Mohr-Coulomb and Tresca models both have their advantages and limitations. Under drained conditions, the Mohr-Coulomb model produces results that generally accepted and that have a transparent relation to the input parameters (E,\\nu,c',\\phi').">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/materials/6-mc-engineering/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-gx/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/materials/6-mc-engineering/">
     <meta property="og:title" content="6 MC Engineering">
-    <meta property="og:description" content="The Mohr-Coulomb and Tresca models both have their advantages and limitations. Under drained conditions, the Mohr-Coulomb model produces results that">
+    <meta property="og:description" content="The Mohr-Coulomb and Tresca models both have their advantages and limitations. Under drained conditions, the Mohr-Coulomb model produces results that generally accepted and that have a transparent relation to the input parameters (E,\\nu,c',\\phi').">
     <meta property="og:image" content="https://docs.optumce.com/optum-gx/static/dutime.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -30,15 +31,26 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/materials/6-mc-engineering/">
+    <meta name="twitter:title" content="6 MC Engineering">
+    <meta name="twitter:description" content="The Mohr-Coulomb and Tresca models both have their advantages and limitations. Under drained conditions, the Mohr-Coulomb model produces results that generally accepted and that have a transparent relation to the input parameters (E,\\nu,c',\\phi').">
+    <meta name="twitter:image" content="https://docs.optumce.com/optum-gx/static/dutime.png">
+    <meta name="twitter:image:alt" content="6 MC Engineering">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/materials/6-mc-engineering.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.1.0.825857041516" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829147491342" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <link href="../../resources/css/katex.css?v=4.1.0" rel="stylesheet">
-    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.1.0" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=4.5.3" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.5.3" defer></script>
 
     <style>
         /* Images */
@@ -122,10 +134,10 @@
                             <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
                         </svg>
                     </a>
-                    <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-gx/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -139,25 +151,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../python/">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -212,25 +224,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../python/">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -252,7 +264,7 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
@@ -281,89 +293,55 @@
                     </ol>
                 </nav>
 
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="6-mc-engineering" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#6-mc-engineering">#</doc-anchor-trigger>
-        <span>6 MC Engineering</span>
-    </h1>
-</doc-anchor-target>
+<h1 id="6-mc-engineering">6 MC Engineering</h1>
 <p>The Mohr-Coulomb and Tresca models both have their advantages and limitations. Under drained conditions, the Mohr-Coulomb model produces results that generally accepted and that have a transparent relation to the input parameters <span class="math">(E,\nu,c',\phi')</span>. Under undrained conditions, however, the undrained shear strength implied by the Mohr-Coulomb model is often at odds with what is measured in the field. Hence, for such analyses, Tresca – with direct input of the undrained shear strength (constant or varying with depth) – is often preferred.</p>
 <p>For bearing capacity and factor of safety assessment, this effectively necessitates two separate models: a Mohr-Coulomb model with drained parameters (<span class="math">c'</span> and <span class="math">\phi'</span>) and a Tresca model with the undrained (<span class="math">c_u</span>).</p>
 <p>Secondly, linking the effective stress Mohr-Coulomb model to the total stress Tresca model in staged construction analysis is highly problematic and is not encouraged.</p>
 <p>The MC Engineering (MCE) model is motivated by these two considerations. Firstly, the elastic parameters are always the drained ones, <span class="math">E</span> and <span class="math">\nu</span>. Secondly, depending on the combination of Drainage and Time
 Scope, either <span class="math">(c',\phi')</span> or <span class="math">c_u</span> are used as strength parameters. The rules are summarized in Figure 6.1. For Deformation and Load-Deformation analysis, the usual effective stress framework is employed, making it unproblematic tolike the models with MCE material.</p>
-<p><figure class="content-center">
-    <img src="../../static/dutime.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+<figure class="content-center">
+    <img src="../../static/dutime.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2168" height="396" />
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <div class="custom-caption"><p>Figure 6.1: Strength parameters used as function of Drainage (material property) and Time Scope (analysis property).</p>
 </div>
-<doc-anchor-target id="61-summary-of-material-parameters">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#61-summary-of-material-parameters">#</doc-anchor-trigger>
-        <span>6.1 Summary of material parameters</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="61-summary-of-material-parameters">6.1 Summary of material parameters</h2>
 <p>The key material parameters are summarized below. More specialized
 parameters are elaborated on in later sections.</p>
-<doc-anchor-target id="stiffness">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#stiffness">#</doc-anchor-trigger>
-        <span>Stiffness</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="stiffness">Stiffness</h3>
 <ul>
-<li><p><span class="math">E</span>: Young&#x27;s modulus</p>
+<li>
+<p><span class="math">E</span>: Young&#x27;s modulus</p>
 </li>
-<li><p><span class="math">\nu</span>: Poisson&#x27;s ratio</p>
+<li>
+<p><span class="math">\nu</span>: Poisson&#x27;s ratio</p>
 </li>
 </ul>
-<doc-anchor-target id="strength" class="unnumbered">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#strength">#</doc-anchor-trigger>
-        <span>Strength</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="strength" class="unnumbered">Strength</h3>
 <ul>
-<li><p><span class="math">c'</span>: cohesion</p>
+<li>
+<p><span class="math">c'</span>: cohesion</p>
 </li>
-<li><p><span class="math">\phi'</span>: friction angle</p>
+<li>
+<p><span class="math">\phi'</span>: friction angle</p>
 </li>
-<li><p><span class="math">c_u</span>: undrained shear strength</p>
+<li>
+<p><span class="math">c_u</span>: undrained shear strength</p>
 </li>
 </ul>
-<doc-anchor-target id="62-governing-equations">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#62-governing-equations">#</doc-anchor-trigger>
-        <span>6.2 Governing equations</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="621-elasticity">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#621-elasticity">#</doc-anchor-trigger>
-        <span>6.2.1 Elasticity</span>
-    </h3>
-</doc-anchor-target>
+<h2 id="62-governing-equations">6.2 Governing equations</h2>
+<h3 id="621-elasticity">6.2.1 Elasticity</h3>
 <p>Isotropic elasticity defined by <span class="math">E</span> and <span class="math">\nu</span> is used (see
 <a href="../2-elasticity/">Elasticity</a>).</p>
-<doc-anchor-target id="622-plasticity">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#622-plasticity">#</doc-anchor-trigger>
-        <span>6.2.2 Plasticity</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="622-plasticity">6.2.2 Plasticity</h3>
 <p>For materials with Drainage = Drained/Undrained and analyses with Time
 Scope = Short Term, the yield condition is Tresca with undrained shear
 strength <span class="math">c_u</span> and otherwise Mohr-Coulomb with cohesion <span class="math">c'</span> and
 friction angle <span class="math">\phi'</span>.</p>
-<doc-anchor-target id="63-davis-parameters">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#63-davis-parameters">#</doc-anchor-trigger>
-        <span>6.3 Davis parameters</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="63-davis-parameters">6.3 Davis parameters</h2>
 <p>Load Multiplier and Factor of Safety analysis both assume an associated
 flow rule. However, when conducting full Load-Deformation analysis to
 failure one usually observes that the dilation angle does have an effect
@@ -687,11 +665,10 @@ stress is</p>
 <div class="custom-caption"><p>Table 6.2: Davis friction angle <span class="math">\phi_D</span> as function of Mohr-Coulomb friction and dilation angle and dilation angle.</p>
 </div>
 <p>It should be noted that while the Davis parameters usually lead to a bearing capacity less than that obtained in an elastoplastic analysis with the actual <span class="math">c'</span>, <span class="math">\phi'</span> and <span class="math">\psi</span>, there are also cases where the opposite is true.</p>
-<p><figure class="content-center">
-    <img src="../../static/daviscorr.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+<figure class="content-center">
+    <img src="../../static/daviscorr.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="466" height="640" />
     <figcaption class="caption"></figcaption>
 </figure>
-</p>
 <div class="custom-caption"><p>Figure 6.2: Davis correction.</p>
 </div>
 <p>For Load Multiplier and Factor of Safety analysis, the Davis parameters are used when selecting Davis Correction = Yes under analysis properties (see Figure 6.2). It should be noted that this setting is available only for Models/Stages as long as only Rigid and MCE materials (with <span class="math">\psi&lt;\phi</span>) are present.</p>
@@ -761,6 +738,6 @@ stress is</p>
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "6 MC Engineering", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "6 MC Engineering", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/materials/6-mc-engineering.md" }</script>
 </body>
 </html>

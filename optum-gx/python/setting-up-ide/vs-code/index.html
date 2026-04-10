@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825857041516">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829147491342">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.1.0">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Python Scripting with Visual Studio Code</title>
@@ -17,6 +17,7 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/setting-up-ide/vs-code/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-gx/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -30,14 +31,25 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/setting-up-ide/vs-code/">
+    <meta name="twitter:title" content="Python Scripting with Visual Studio Code">
+    <meta name="twitter:description" content="Download and install the Visual Studio Code (VS Code) from https://code.visualstudio.com">
+    <meta name="twitter:image" content="https://optumce.com/wp-content/uploads/2025/09/python-scripting-1.png">
+    <meta name="twitter:image:alt" content="Python Scripting with Visual Studio Code">
+
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/setting-up-ide/vs-code.md">
+
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.1.0.825857041516" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.829147491342" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.1.0.825857041516" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.1.0.825857041516" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.829147491342" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.829147491342" defer></script>
 
     <style>
         /* Images */
@@ -121,10 +133,10 @@
                             <path d="M10.6763 23.0822C10.4303 23.328 10.0967 23.4661 9.74885 23.4661C9.40103 23.4661 9.06744 23.328 8.82135 23.0822L1.38384 15.6447C1.13806 15.3986 1 15.065 1 14.7172C1 14.3694 1.13806 14.0358 1.38384 13.7897L8.82135 6.35222C9.0703 6.1205 9.39939 5.99432 9.73945 6.0002C10.0795 6.00607 10.404 6.14354 10.6448 6.38372C10.885 6.62452 11.0225 6.94906 11.0284 7.28912C11.0342 7.62917 10.9081 7.95826 10.6763 8.20722L4.16635 14.7172L10.6763 21.2272C10.9221 21.4733 11.0602 21.8069 11.0602 22.1547C11.0602 22.5025 10.9221 22.8361 10.6763 23.0822Z" />
                         </svg>
                     </a>
-                    <a id="retype-branding-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                    <a id="retype-branding-logo" href="https://docs.optumce.com/optum-gx/" class="flex items-center leading-snug text-2xl">
                         <span class="grow-0 shrink-0 overflow-hidden">
-                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png">
-                            <img class="max-h-10 hidden dark:inline-block" src="../../../static/header/optumce-docs-logo-dark.png">
+                            <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/header/optumce-docs-logo-light.png" alt="" width="180" height="37">
+                            <img class="max-h-10 hidden dark:inline-block" src="../../../static/header/optumce-docs-logo-dark.png" alt="" width="180" height="37">
                         </span>
                     </a>
                 </div>
@@ -138,25 +150,25 @@
                     <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/gx-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/gx-logo.png">
                                 <span>OPTUM GX</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../python/">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/python-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/python-logo.png">
                                 <span>OPTUM GX Python</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/cs-logo.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/cs-logo.png">
                                 <span>OPTUM CS</span>
                             </a>
                         </li>
                         <li class="mr-6">
                             <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/g2g3-logos.png">
+                                <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/g2g3-logos.png">
                                 <span>OPTUM G2/G3</span>
                             </a>
                         </li>
@@ -211,25 +223,25 @@
                             <ul class="flex flex-wrap justify-center items-center">
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/gx-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/gx-logo.png">
                                         <span>OPTUM GX</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../../python/">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/python-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/python-logo.png">
                                         <span>OPTUM GX Python</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-cs">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/cs-logo.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/cs-logo.png">
                                         <span>OPTUM CS</span>
                                     </a>
                                 </li>
                                 <li class="mr-6">
                                     <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://docs.optumce.com/optum-g2g3">
-                                        <img class="mb-px mr-1" width="18" alt="" src="../../../static/header/g2g3-logos.png">
+                                        <img class="block shrink-0 mr-1.5" width="18" height="18" alt="" aria-hidden="true" src="../../../static/header/g2g3-logos.png">
                                         <span>OPTUM G2/G3</span>
                                     </a>
                                 </li>
@@ -251,7 +263,7 @@
 <div class="flex">
     <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
         <main class="relative pb-12 lg:pt-2">
-            <div class="retype-markdown" id="retype-content">
+            <div class="relative retype-markdown" id="retype-content">
                 <!-- Rendered if sidebar right is enabled -->
                 <div id="retype-sidebar-right-toggle"></div>
                 <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
@@ -288,65 +300,43 @@
                     </ol>
                 </nav>
 
+                <doc-page-actions></doc-page-actions>
+
                 <!-- Page content  -->
-<doc-anchor-target id="python-scripting-with-visual-studio-code" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#python-scripting-with-visual-studio-code">#</doc-anchor-trigger>
-        <span>Python Scripting with Visual Studio Code</span>
-    </h1>
-</doc-anchor-target>
-<doc-anchor-target id="downloading-and-setting-up-visual-studio-code">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#downloading-and-setting-up-visual-studio-code">#</doc-anchor-trigger>
-        <span>Downloading and Setting up Visual Studio Code</span>
-    </h2>
-</doc-anchor-target>
+<h1 id="python-scripting-with-visual-studio-code">Python Scripting with Visual Studio Code</h1>
+<h2 id="downloading-and-setting-up-visual-studio-code">Downloading and Setting up Visual Studio Code</h2>
 <ol>
-<li>Download and install the Visual Studio Code (VS Code) from <a href="https://code.visualstudio.com/" class="outbound" target="_blank"><span>https://code.visualstudio.com</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a></li>
+<li>Download and install the Visual Studio Code (VS Code) from <a href="https://code.visualstudio.com/" class="outbound" target="_blank"><span>https://code.visualstudio.com</span><svg xmlns="http://www.w3.org/2000/svg" class="retype-outbound-trigger docs-icon ml-1" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"/></g></svg></a></li>
 <li>Add Python extension if not already available. Open VS Code and click the Extensions button, then search for <em>python</em> and press Install as shown below.</li>
 </ol>
-<p><figure class="content-center">
-    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-1.png" alt="Python extension for vs code" class="rounded-image-rounded border-image-border border-image-border-width" />
+<figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-1.png" alt="Python extension for vs code" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Python extension for vs code</figcaption>
 </figure>
-</p>
 <ol start="3">
 <li>Close VS Code.</li>
 </ol>
-<doc-anchor-target id="preparing-a-working-environment">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#preparing-a-working-environment">#</doc-anchor-trigger>
-        <span>Preparing a Working Environment</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="preparing-a-working-environment">Preparing a Working Environment</h2>
 <p>This section contains the necessary steps to prepare a Python working environment using Optum’s Python Interpreter and Python Virtual Environment.</p>
 <ol>
 <li>Create an empty folder for your GX Python scripts. For example <code translate="no" v-pre>C:\GX_Scripts</code>. All Python scripts are to be placed in this folder (or in folders within the folder, e.g. <code translate="no" v-pre>C:\GX_Scripts\Project 1</code>, <code translate="no" v-pre>C:\GX_Scripts\Project 2</code>, and so on).</li>
 <li>Open a Windows Command Prompt in the empty folder created and run the following command to setup an environment: <code translate="no" v-pre>&quot;C:\Users\Public\OPTUM CE\OPTUM GX\python311\setup_venv.bat&quot;</code></li>
 </ol>
-<p><figure class="content-center">
-    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-2.png" alt="command prompt" class="rounded-image-rounded border-image-border border-image-border-width" />
+<figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-2.png" alt="command prompt" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">command prompt</figcaption>
 </figure>
-</p>
 <p>This will create a .venv folder inside the GX scripts folder. This should never be deleted or modified manually.</p>
-<doc-anchor-target id="first-script">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#first-script">#</doc-anchor-trigger>
-        <span>First Script</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="first-script">First Script</h2>
 <p>You should now be up and running and can use VS Code for GX scripting. The script shown below calculates the foundation capacity for the problem shown in Figure 3.1.</p>
-<p><figure class="content-center">
-    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-3.png" alt="Foundation capacity in OPTUM GX" class="rounded-image-rounded border-image-border border-image-border-width" />
+<figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-3.png" alt="Foundation capacity in OPTUM GX" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Foundation capacity in OPTUM GX</figcaption>
 </figure>
-</p>
-<p><figure class="content-center">
-    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-4.png" alt="Figure 3.1: Foundation problem and VS Code IDE" class="rounded-image-rounded border-image-border border-image-border-width" />
+<figure class="content-center">
+    <img src="https://optumce.com/wp-content/uploads/2025/09/python-scripting-4.png" alt="Figure 3.1: Foundation problem and VS Code IDE" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Figure 3.1: Foundation problem and VS Code IDE</figcaption>
 </figure>
-</p>
 <p>The full code is listed below.</p>
 <div id="first-script-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python"># OptumGX module
@@ -475,6 +465,6 @@ print('Load multiplier = '+str(LM))</code></pre>
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Python Scripting with Visual Studio Code", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Python Scripting with Visual Studio Code", level: 3, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/setting-up-ide/vs-code.md" }</script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+﻿# OPTUM CS Documentation
+
+- [OPTUM CS Documentation](https://docs.optumce.com/optum-cs/index.md): OPTUM CS Documentation
+- [Analysis Types](https://docs.optumce.com/optum-cs/analysis_types.md): It is possible to perform two types of analysis in OPTUM CS: An elastoplastic calculation and a rigid-plastic limit analysis calculation. The two types of analysis are summarized in the table below.
+- [Brand generelt (Fire in general)](https://docs.optumce.com/optum-cs/brand-generelt.md): I brandtilfældet reduceres tværsnittet, betonegenskaber og armeringsegenskaber som funktion af temperaturen.
+- [Horizontal Joints](https://docs.optumce.com/optum-cs/horizontal_joints.md): Horizontal joints are modelled as reinforced concrete in plane stress coupled with two interfaces. The core of the joint is defined by a height, h, and
+- [Loads](https://docs.optumce.com/optum-cs/loads.md): OPTUM Concrete Solution uses a logical, straight-forward way of defining and applying loads to models. The "Loads" ribbon takes you through the necessary fields.
+- [Normeftervisning af bjælker](https://docs.optumce.com/optum-cs/normeftervisning_af_bjaelker.md): Beregningsmetoden anvendes til armerede betonbjælker, hvilket inkluderer:
+- [Reinforced Concrete](https://docs.optumce.com/optum-cs/reinforced_concrete.md): Reinforced concrete is represented as a fully cracked material in OPTUM CS. The concrete can carry compression and shear, while the reinforcement carries tension.
+
+## Tutorials
+
+### Tutorials 1
+
+- [Step 1: Gemoetry](https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-1-geometry.md): In OPTUM CS the model is described through different types of blocks. Each block is used for several geometries. A block includes e.g. the concrete and steel material parameters, the reinforcement arrangement and other parameters.
+- [Step 2: Reinforcement](https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-2-reinforcement.md): OPTUM CS has three types of reinforcement: Net reinforcement, reinforcement (blocks) and discrete rebars (blocks).
+- [Step 3: Loads](https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-3-loads.md): Edit the self weight of the wall:
+- [Limit Analysis](https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-4-limit-analysis.md): Create a load combination:
+- [Step 5: Elastoplastic Analysis](https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-5-elastoplastic-analysis.md): Edit load combination:
+- [Step 6: Generate Structural Documentation](https://docs.optumce.com/optum-cs/tutorials/tutorials_1/step-6-generate-report.md): OPTUM CS features a report generator. In the generated report all inputs and results are presented in a neat and organized way. The report can be used directly as a part of the structural documentation.
