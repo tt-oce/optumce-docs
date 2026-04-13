@@ -49,11 +49,7 @@ A typical GX Python workflow consists of:
 4. Running the analysis
 5. Extracting and processing results
 
-```text
-Script → Model → Solve → Results → Post-process
-```
-
-The Python interface mirrors the structure of GX, making it intuitive to move from manual modelling to scripting. The transition is simplified by the option to auto-generate python code from your GX projects. 
+The Python interface mirrors the structure of GX, making it intuitive to move from manual modelling to scripting. The transition is simplified by the option to auto-generate python code from your GX projects.  
 It may help your intuitive understanding to think of the mouse clicks you are used to making in GX, as separate coordinate inputs in Python functions.
 
 ## Recommended Learning Path
@@ -92,12 +88,12 @@ gx = GX()                                       # GX Application
 prj = gx.create_project("MyFirstProject")       # Project
 m = prj.get_model()[0]                          # Model (default model)
 ```
-From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions. 
-The GX application level has the smallest number of functions, with the main functionality being creating, opening and saving projects.
+From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions.  
+The GX application level has the smallest number of functions, with the main functionality being creating, opening and saving projects.  
 The Project level primarily contains materials creation functions, but it also includes coordinate systems, model creation and running analyses. All these are hence members functions of the project object.
 
 
-The next step is for to apply all this by by creating your first script.
+The next step is for to apply all this by by creating your first script.  
 Be sure that your Integrated Development Environment (IDE) is configured properly. We recommend using either of the IDE's Visual Studio Code or Spyder for Python scripting, which can be set up using the following guides: [Setting up VS Code](../setting-up-ide/vs-code.md) & [Setting up Spyder](../setting-up-ide/spyder.md)
 ---
 
