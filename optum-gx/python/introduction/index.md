@@ -77,9 +77,9 @@ GX Application
               ├── Loads
               └── Analysis Settings
 ```
-This hierarchy is reflected directly in the Python interface.
+This hierarchy is reflected directly in the Python interface member functions.
 
-All Python scripts will start with importing the OptumGX library, which allows you to interact directly with the GX application. Then the GX structure is followed to create the objects needed, as seen below.
+All Python scripts will start with importing the OptumGX library, which allows you to interact directly with the GX application, subsequently the GX hierachy is followed to create the objects needed:
 
 ```python
 from OptumGX import *
@@ -89,8 +89,14 @@ prj = gx.create_project("MyFirstProject")       # Project
 m = prj.get_model()[0]                          # Model (default model)
 ```
 From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions.  
-The GX application level has the smallest number of functions, with the main functionality being creating, opening and saving projects.  
-The Project level primarily contains materials creation functions, but it also includes coordinate systems, model creation and running analyses. All these are hence members functions of the project object.
+The GX application level only has a handful of functions, with the main functionality being creating, opening and saving projects.  
+The Project level primarily contains materials creation functions, but it also includes coordinate systems, model operations and running analyses. All these are hence members functions of the project object.
+The Model level contains functions for modifying geometry and features as well as stage operations.
+
+<div style="border: 2px solid rgb(19, 9, 9); padding: 10px; border-radius: 6px; background-color: #ffecec;">
+  <strong>📖 Optional context:</strong><br>
+  One thing to note is that a number of functions are members of both stage and model. This is rooted in the choise that a model with no explicitly created stages should still available for analysis, hence it essentially behaves as an implicit stage. 
+</div>
 
 The next step is for to apply all this by by creating your first script.  
 Be sure that your Integrated Development Environment (IDE) is configured properly. We recommend using either of the IDE's Visual Studio Code or Spyder for Python scripting, which can be set up using the following guides: [Setting up VS Code](../setting-up-ide/vs-code.md) & [Setting up Spyder](../setting-up-ide/spyder.md)
