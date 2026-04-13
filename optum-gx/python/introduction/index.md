@@ -95,8 +95,10 @@ The Model level contains functions for modifying geometry and features as well a
 
 <div style="border: 2px solid rgb(19, 9, 9); padding: 10px; border-radius: 6px; background-color: #ffecec;">
   <strong>📖 Optional context:</strong><br>
-  One thing to note is that a number of functions are members of both stage and model. This is rooted in the choise that a model with no explicitly created stages should still available for analysis, hence it essentially behaves as an implicit stage. 
+  It is worth noteing that a number of functions are members of both stage and model. This is rooted in the choise that a model with no explicitly created stages should still be available for analysis, hence it essentially behaves as an implicit stage. When stages are defined in a model, using these functions will apply the to all the stages in the given model. 
 </div>
+
+## Creating Your First Script
 
 The next step is for to apply all this by by creating your first script.  
 Be sure that your Integrated Development Environment (IDE) is configured properly. We recommend using either of the IDE's Visual Studio Code or Spyder for Python scripting, which can be set up using the following guides: [Setting up VS Code](../setting-up-ide/vs-code.md) & [Setting up Spyder](../setting-up-ide/spyder.md)
