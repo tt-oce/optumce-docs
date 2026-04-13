@@ -248,20 +248,20 @@ $$
 At yield, i.e. once ${p}'= p_c$, we have
 
 $$
-    \begin{array}{lcl}
-    \dot{\varepsilon}_v &=& \dot{\varepsilon}_v^e + \dot{\varepsilon}_v^p\\
-                 &=& \displaystyle\frac{\kappa^*}{{p}'}\dot{{p}}' + \frac{\lambda^*-\kappa^*}{p_c}\dot{p}_c\\
-                 &=& \displaystyle\frac{\kappa^*}{{p}'} + \frac{\lambda^*-\kappa^*}{{{p}}'}\dot{{p}}'\\
-                 &=& \displaystyle\frac{\lambda^*}{{p}'}\dot{{p}}'
-    \end{array} \tag{8.26}
+\begin{array}{lcl}
+\dot{\varepsilon}_v &=& \dot{\varepsilon}_v^e + \dot{\varepsilon}_v^p\\
+             &=& \displaystyle\frac{\kappa^*}{p'}\dot{p}' + \frac{\lambda^*-\kappa^*}{p_c}\dot{p}_c\\
+             &=& \displaystyle\frac{\kappa^*}{p'} + \frac{\lambda^*-\kappa^*}{p'}\dot{p}'\\
+             &=& \displaystyle\frac{\lambda^*}{p'}\dot{p}'
+\end{array} \tag{8.26}
 $$
 
 Summarizing we have
 
 $$
 \frac{\textsf{d} \varepsilon_v}{\textsf{d} p'} =\left\{\begin{array}{lcl}
-    \displaystyle\frac{\kappa^*}{{p}'}&\textsf{for~~}p'<p_c&\\
-    \displaystyle\frac{\lambda^*}{{p}'}&\textsf{for~~}p'=p_c&
+    \displaystyle\frac{\kappa^*}{p'}&\textsf{for~~}p'<p_c&\\
+    \displaystyle\frac{\lambda^*}{p'}&\textsf{for~~}p'=p_c&
     \end{array}\right. \tag{8.27}
 $$
 
