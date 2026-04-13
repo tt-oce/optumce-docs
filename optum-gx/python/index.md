@@ -2,7 +2,7 @@
 
 Extend, automate, and customize your geotechnical workflows with Python in **OPTUM GX**.
 
-The GX Python interface gives you direct access to models, analyses, and results—allowing you to generate models programmatically, run simulations, and extract data with full control. Whether you're building parametric studies, automating repetitive tasks, or developing custom tools, Python enables a more efficient and scalable workflow.
+The GX Python interface gives you direct access to models, analyses, and results—allowing you to generate models, run simulations, and extract data with full control. Whether you're building parametric studies, automating repetitive tasks, or developing custom tools, Python enables a more efficient and scalable workflow.
 
 ---
 
@@ -13,31 +13,7 @@ Get up and running in minutes:
 1. Read the [Introduction](./introduction/)
 2. Set up your Python environment ([Setting up IDE](./setting-up-ide/vs-code.md))
 3. Run your first script
-4. Explore [Examples](./examples/) and [Functions](./functions/)
-
----
-
-## What You Can Do
-
-<div class="grid cards">
-
-### Automate Workflows
-
-Eliminate repetitive modelling tasks and standardize your engineering processes.
-
-### Parametric Studies
-
-Run large-scale variations and sensitivity analyses with minimal effort.
-
-### Full Solver Access
-
-Interact directly with models, materials, loads, and results.
-
-### Integration & Extensibility
-
-Connect GX with external tools or build custom plugins and utilities.
-
-</div>
+4. Explore [Examples](./examples/) and [Functions](./functions/application/create_project.md)
 
 ---
 
@@ -56,7 +32,7 @@ Whether you're writing your first script or building advanced automation pipelin
 
 *  [Introduction](./introduction/) — Learn how GX Python works
 *  [Examples](./examples/) — See real scripts in action
-*  [Functions](./functions/) — Explore all available functions and their use
+*  [Functions](./functions/application/create_project.md) — Explore all available functions and their use
 
 ---
 <!--
