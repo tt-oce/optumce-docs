@@ -1,7 +1,7 @@
 ﻿# OPTUM GX Documentation
 
 - [OPTUM GX Documentation](https://docs.optumce.com/optum-gx/index.md): OPTUM GX Documentation
-- [OPTUM GX Python](https://docs.optumce.com/optum-gx/python/index.md)
+- [OPTUM GX Python](https://docs.optumce.com/optum-gx/python/index.md): Extend, automate, and customize your geotechnical workflows with Python in OPTUM GX.
 
 ## Materials
 
@@ -16,7 +16,7 @@
 
 ## Python
 
-- [Introduction](https://docs.optumce.com/optum-gx/python/introduction/index.md)
+- [Introduction](https://docs.optumce.com/optum-gx/python/introduction/index.md): The OPTUM GX Python interface enables straightforward scripting control of geotechnical models, analyses, and results.
 
 ### Setting Up IDE
 

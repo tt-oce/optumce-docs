@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829385516134">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829401074681">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -13,6 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Introduction</title>
     <meta name="title" content="Introduction">
+    <meta name="description" content="The OPTUM GX Python interface enables straightforward scripting control of geotechnical models, analyses, and results.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/introduction/">
@@ -22,6 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/introduction/">
     <meta property="og:title" content="Introduction">
+    <meta property="og:description" content="The OPTUM GX Python interface enables straightforward scripting control of geotechnical models, analyses, and results.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -29,17 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/introduction/">
     <meta name="twitter:title" content="Introduction">
+    <meta name="twitter:description" content="The OPTUM GX Python interface enables straightforward scripting control of geotechnical models, analyses, and results.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/introduction/index.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.5.3.829385516134" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.5.3.829401074681" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829385516134" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829401074681" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829385516134" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829401074681" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.5.3.829401074681" defer></script>
 
     <style>
         /* Images */
@@ -286,6 +290,139 @@
 
                 <!-- Page content  -->
 <h1 id="introduction">Introduction</h1>
+<p>The OPTUM GX Python interface enables straightforward scripting control of geotechnical models, analyses, and results.</p>
+<p>Instead of building models manually through the graphical interface, Python allows you to define geometry, materials, loads, and analysis settings directly in code. This approach enables automation, reproducibility, and scalable workflows.</p>
+<hr>
+<h2 id="why-use-python-in-gx">Why Use Python in GX?</h2>
+<p>Python scripting is designed for engineers who want more control and efficiency:</p>
+<ul>
+<li>Automate repetitive tasks and reduce manual input</li>
+<li>Ensure consistency across analyses</li>
+<li>Perform parametric studies efficiently</li>
+<li>Extract and process results in one go</li>
+<li>Build custom tools and plugins</li>
+</ul>
+<h3 id="manual-vs-python-workflow">Manual vs Python Workflow</h3>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Manual GX</th>
+<th>Python GX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GUI-based modelling</td>
+<td>Script-based modelling</td>
+</tr>
+<tr>
+<td>One model at a time</td>
+<td>Parametric creation</td>
+</tr>
+<tr>
+<td>Manual result extraction</td>
+<td>Automated data extraction</td>
+</tr>
+<tr>
+<td>Repetitive work</td>
+<td>Reusable scripts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="when-to-use-python">When to Use Python</h2>
+<p>Python is especially useful when:</p>
+<ul>
+<li>You need to run multiple similar analyses</li>
+<li>You want reproducible and version-controlled workflows</li>
+<li>You are integrating GX into a larger pipeline</li>
+<li>You are building internal engineering tools</li>
+<li>You want to assess geotechnical performance probabilistically</li>
+</ul>
+<hr>
+<h2 id="how-it-works">How It Works</h2>
+<p>A typical GX Python workflow consists of:</p>
+<ol>
+<li>Creating a project</li>
+<li>Defining the model (geometry, materials, loads, supports, features)</li>
+<li>Configuring analysis settings</li>
+<li>Running the analysis</li>
+<li>Extracting and processing results</li>
+</ol>
+<div id="how-it-works-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">Script → Model → Solve → Results → Post-process</code></pre>
+</doc-codeblock></div>
+<p>The Python interface mirrors the structure of GX, making it intuitive to move from manual modelling to scripting. The transition is simplified by the option to auto-generate python code from your GX projects.
+It may help your intuitive understanding to think of the mouse clicks you are used to making in GX, as separate coordinate inputs in Python functions.</p>
+<h2 id="recommended-learning-path">Recommended Learning Path</h2>
+<p>To get started effectively:</p>
+<ol>
+<li>Introduction (this page)</li>
+<li>Environment setup</li>
+<li>First complete model script</li>
+<li>Examples</li>
+<li>Python function reference</li>
+</ol>
+<hr>
+<h2 id="gx-object-and-scripting-structure">GX Object and Scripting Structure</h2>
+<p>Understanding the structure of GX is key to using the Applicaiton Programming Interface (API) effectively:</p>
+<div id="gx-object-and-scripting-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">GX Application
+  └── Project
+        ├── Materials
+        └── Model
+              ├── Geometry
+              ├── Loads
+              └── Analysis Settings</code></pre>
+</doc-codeblock></div>
+<p>This hierarchy is reflected directly in the Python interface.</p>
+<p>All Python scripts will start with importing the OptumGX library, which allows you to interact directly with the GX application. Then the GX structure is followed to create the objects needed, as seen below.</p>
+<div id="gx-object-and-scripting-structure-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">from OptumGX import *
+
+gx = GX()                                       # GX Application
+prj = gx.create_project(&quot;MyFirstProject&quot;)       # Project
+m = prj.get_model()[0]                          # Model (default model)</code></pre>
+</doc-codeblock></div>
+<p>From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions.
+The GX application level has the smallest number of functions, with the main functionality being creating, opening and saving projects.
+The Project level primarily contains materials creation functions, but it also includes coordinate systems, model creation and running analyses. All these are hence members functions of the project object.</p>
+<p>The next step is for to apply all this by by creating your first script.
+Be sure that your Integrated Development Environment (IDE) is configured properly. We recommend using either of the IDE&#x27;s Visual Studio Code or Spyder for Python scripting, which can be set up using the following guides: <a href="../setting-up-ide/vs-code/">Setting up VS Code</a> &amp; <a href="../setting-up-ide/spyder/">Setting up Spyder</a></p>
+<hr>
+<!-- ## Suggested Visuals (to add in site) -->
+<!--
+1. Diagram:
+   GX Object Model (Application → Project → Model)
+
+2. Workflow pipeline graphic
+
+3. Comparison table (Manual vs Python) as visual cards
+-->
+<hr>
+<!-- 
+## Next Step
+
+Continue to the setup and examples to start building your first automated GX workflows. -->
+<hr>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/optum-gx/python/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-icon inline-flex shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><!--icon--><path d="M16.125 5.37583C16.125 4.57167 15.9312 3.99196 15.5358 3.68286C14.9333 3.21268 13.8391 2.65 12 2.65C10.1596 2.65 9.06669 3.21313 8.46421 3.6834L8.46367 3.68286C8.06846 3.99202 7.875 4.57189 7.875 5.37583V6.225H12C12.4556 6.225 12.825 6.59437 12.825 7.05C12.825 7.50564 12.4556 7.875 12 7.875H5.37583C4.57189 7.875 3.99202 8.06846 3.68286 8.46367C3.21259 9.06615 2.65 10.1596 2.65 12C2.65 13.8394 3.21318 14.9334 3.6834 15.5358H3.68286C3.99196 15.9312 4.57167 16.125 5.37583 16.125H6.225V14.2C6.225 13.3977 6.54393 12.6285 7.11123 12.0612C7.67853 11.4939 8.44772 11.175 9.25 11.175H14.75C15.1147 11.175 15.4643 11.03 15.7222 10.7722C15.98 10.5143 16.125 10.1647 16.125 9.8V5.37583ZM17.775 9.8C17.775 10.6023 17.4561 11.3715 16.8888 11.9388C16.3215 12.5061 15.5523 12.825 14.75 12.825H9.25C8.88533 12.825 8.5357 12.97 8.27783 13.2278C8.01997 13.4857 7.875 13.8353 7.875 14.2V18.6242C7.875 19.427 8.06871 20.0074 8.46367 20.3166C9.06609 20.7868 10.1606 21.35 12 21.35C13.8405 21.35 14.9331 20.7869 15.5353 20.3161L15.5363 20.3155C15.9309 20.0078 16.125 19.4279 16.125 18.6231V17.775H12C11.5444 17.775 11.175 17.4056 11.175 16.95C11.175 16.4944 11.5444 16.125 12 16.125H18.6231C19.4279 16.125 20.0078 15.9309 20.3155 15.5363L20.3161 15.5353C20.7869 14.9331 21.35 13.8405 21.35 12C21.35 10.1606 20.7868 9.06663 20.3166 8.46421V8.46367C20.0074 8.06871 19.427 7.875 18.6242 7.875H17.775V9.8ZM17.775 6.225H18.6242C19.5638 6.225 20.7556 6.43124 21.5423 7.35669L21.6175 7.44854C22.3133 8.33992 23 9.79139 23 12C23 14.2097 22.3132 15.6603 21.6159 16.552L21.6153 16.5515C20.8318 17.5553 19.5933 17.775 18.6231 17.775H17.775V18.6231C17.775 19.5933 17.5553 20.8318 16.5515 21.6153L16.552 21.6159C15.6603 22.3132 14.2097 23 12 23C9.92935 23 8.52456 22.3962 7.62256 21.7475L7.44854 21.6175C6.44477 20.8331 6.225 19.5941 6.225 18.6242V17.775H5.37583C4.43502 17.775 3.24429 17.5687 2.45771 16.6433L2.38252 16.5515C1.68674 15.6601 1 14.2086 1 12C1 9.79021 1.68679 8.33986 2.38252 7.44854L2.45771 7.35669C3.24429 6.43131 4.43502 6.225 5.37583 6.225H6.225V5.37583C6.225 4.40467 6.44485 3.16685 7.44854 2.38252L7.62256 2.25254C8.52439 1.60381 9.92827 1 12 1C14.0706 1 15.4754 1.60377 16.3774 2.25254L16.5515 2.38252C17.5552 3.16685 17.775 4.40467 17.775 5.37583V6.225Z" /><path d="M15.2992 19.1504C15.2992 19.3692 15.2123 19.579 15.0576 19.7338C14.9029 19.8885 14.693 19.9754 14.4742 19.9754C14.2554 19.9754 14.0456 19.8885 13.8909 19.7338C13.7361 19.579 13.6492 19.3692 13.6492 19.1504C13.6492 18.9316 13.7361 18.7217 13.8909 18.567C14.0456 18.4123 14.2554 18.3254 14.4742 18.3254C14.693 18.3254 14.9029 18.4123 15.0576 18.567C15.2123 18.7217 15.2992 18.9316 15.2992 19.1504ZM8.69922 4.85039C8.69922 4.63159 8.78614 4.42174 8.94086 4.26703C9.09557 4.11231 9.30542 4.02539 9.52422 4.02539C9.74302 4.02539 9.95286 4.11231 10.1076 4.26703C10.2623 4.42174 10.3492 4.63159 10.3492 4.85039C10.3492 5.06919 10.2623 5.27904 10.1076 5.43375C9.95286 5.58847 9.74302 5.67539 9.52422 5.67539C9.30542 5.67539 9.09557 5.58847 8.94086 5.43375C8.78614 5.27904 8.69922 5.06919 8.69922 4.85039Z" /></svg></span>
+                <span class="card-compact-title">OPTUM GX Python</span>
+            </div>
+            <p class="card-compact-description">Extend, automate, and customize your geotechnical workflows with Python in OPTUM GX.</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
 
                 
                 <!-- Required only on API pages -->
@@ -352,6 +489,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Introduction", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/introduction/index.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Introduction", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/introduction/index.md" }</script>
 </body>
 </html>
