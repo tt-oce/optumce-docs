@@ -74,8 +74,11 @@ GX Application
         ├── Materials
         └── Model
               ├── Geometry
-              ├── Loads
-              └── Analysis Settings
+              ├── Features
+              ├── Analysis Settings
+              └── Stage
+                    ├── Activation
+                    └── Analysis settings
 ```
 This hierarchy is reflected directly in the Python interface member functions.
 
@@ -88,10 +91,15 @@ gx = GX()                                       # GX Application
 prj = gx.create_project("MyFirstProject")       # Project
 m = prj.get_model()[0]                          # Model (default model)
 ```
-From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions.  
+From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions. 
+
 The GX application level only has a handful of functions, with the main functionality being creating, opening and saving projects.  
+
 The Project level primarily contains materials creation functions, but it also includes coordinate systems, model operations and running analyses. All these are hence members functions of the project object.
-The Model level contains functions for modifying geometry and features as well as stage operations.
+
+The Model level contains functions for modifying geometry and features as well as analysis settings and stage operations.
+
+The Stage level has member function that control the activation of geometry and features, along with analysis settings and interstage operations.
 
 <div style="border: 2px solid rgb(0, 0, 0); padding: 10px; border-radius: 6px; background-color: #ffecec;">
   <strong>📖 Optional context:</strong><br>
