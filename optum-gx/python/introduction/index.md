@@ -93,9 +93,9 @@ The GX application level only has a handful of functions, with the main function
 The Project level primarily contains materials creation functions, but it also includes coordinate systems, model operations and running analyses. All these are hence members functions of the project object.
 The Model level contains functions for modifying geometry and features as well as stage operations.
 
-<div style="border: 2px solid rgb(19, 9, 9); padding: 10px; border-radius: 6px; background-color: #ffecec;">
+<div style="border: 2px solid rgb(0, 0, 0); padding: 10px; border-radius: 6px; background-color: #ffecec;">
   <strong>📖 Optional context:</strong><br>
-  It is worth noteing that a number of functions are members of both stage and model. This is rooted in the choise that a model with no explicitly created stages should still be available for analysis, hence it essentially behaves as an implicit stage. When stages are defined in a model, using these functions will apply the to all the stages in the given model. 
+  It is worth noteing that a number of functions are members of both stage and model. This is rooted in the choise that a model with no explicitly created stages should still be available for analysis, hence it essentially behaves as an implicit stage. When stages are defined in a model, the functions can still be used on the model object, but the changes will remain unseen as long as stages exist in the model. 
 </div>
 
 
