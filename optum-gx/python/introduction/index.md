@@ -90,9 +90,8 @@ from OptumGX import *
 gx = GX()                                       # GX Application
 prj = gx.create_project("MyFirstProject")       # Project
 m = prj.get_model()[0]                          # Model (default model)
-m.create_stage("stage 1")                       # Stage
 ```
-From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierarchy is presented, in order to provide you with the best background for applying the GX Python functions. 
+From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierarchy is presented, in order to provide you with the best foundation for applying the GX Python functions. 
 
 The GX application level only has a handful of functions, with the main functionality being creating, opening and saving projects.  
 
