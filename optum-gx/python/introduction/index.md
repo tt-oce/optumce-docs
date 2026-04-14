@@ -94,6 +94,9 @@ m.create_stage("stage 1")                       # Stage
 ```
 From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierarchy is presented, in order to provide you with the best background for applying the GX Python functions. 
 
+The hierarchy levels of the objects in GX is as follows: Application, Project, Model, Stage.  
+This also means an instance of all levels above the the current must exist, e.g. a model can only be created in an existing project inside the application.
+
 The GX application level only has a handful of functions, with the main functionality being creating, opening and saving projects.  
 
 The Project level primarily contains materials creation functions, but it also includes coordinate systems, model operations and running analyses. All these are hence members functions of the project object.
@@ -113,7 +116,7 @@ The Stage level has member function that control the activation of geometry and 
 
 The next step is for to apply all this by by creating your first script.  
 Be sure that your Integrated Development Environment (IDE) is configured properly. We recommend using either of the IDE's Visual Studio Code or Spyder for Python scripting, which can be set up using the following guides: [Setting up VS Code](../setting-up-ide/vs-code.md) & [Setting up Spyder](../setting-up-ide/spyder.md)
----
+
 
 
 <!-- ## Suggested Visuals (to add in site) -->
@@ -127,7 +130,7 @@ Be sure that your Integrated Development Environment (IDE) is configured properl
 3. Comparison table (Manual vs Python) as visual cards
 -->
 
----
+
 <!-- 
 ## Next Step
 
