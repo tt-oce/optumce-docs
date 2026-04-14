@@ -66,7 +66,7 @@ To get started effectively:
 
 ## GX Object and Scripting Structure
 
-Understanding the structure of GX is key to using the Applicaiton Programming Interface (API) effectively:
+Understanding the structure of GX is key to using the Application Programming Interface (API) effectively:
 
 ```text
 GX Application
@@ -82,7 +82,7 @@ GX Application
 ```
 This hierarchy is reflected directly in the Python interface member functions.
 
-All Python scripts will start with importing the OptumGX library, which allows you to interact directly with the GX application, subsequently the GX hierachy is followed to create the objects needed:
+All Python scripts will start with importing the OptumGX library, which allows you to interact directly with the GX application, subsequently the GX hierarchy is followed to create the objects needed:
 
 ```python
 from OptumGX import *
@@ -90,8 +90,9 @@ from OptumGX import *
 gx = GX()                                       # GX Application
 prj = gx.create_project("MyFirstProject")       # Project
 m = prj.get_model()[0]                          # Model (default model)
+m.create_stage("stage 1")                       # Stage
 ```
-From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierachy is presented, in order to provide you with the best foundation for applying the GX Python functions. 
+From here, you can begin adding geometry, materials, features and analyses. Before we get in to modelling, a brief overview of where everything lives in the GX hierarchy is presented, in order to provide you with the best background for applying the GX Python functions. 
 
 The GX application level only has a handful of functions, with the main functionality being creating, opening and saving projects.  
 
@@ -99,11 +100,11 @@ The Project level primarily contains materials creation functions, but it also i
 
 The Model level contains functions for modifying geometry and features as well as analysis settings and stage operations.
 
-The Stage level has member function that control the activation of geometry and features, along with analysis settings and interstage operations.
+The Stage level has member function that control the activation of geometry and features, along with analysis settings and inter-stage operations.
 
 <div style="border: 2px solid rgb(0, 0, 0); padding: 10px; border-radius: 6px; background-color: #ffecec;">
   <strong>📖 Optional context:</strong><br>
-  It is worth noteing that a number of functions are members of both stage and model. This is rooted in the choise that a model with no explicitly created stages should still be available for analysis, hence it essentially behaves as an implicit stage. When stages are defined in a model, the functions can still be used on the model object, but the changes will remain unseen as long as stages exist in the model. 
+  It is worth noting that a number of functions are members of both stage and model. This is rooted in the choice that a model with no explicitly created stages should still be available for analysis, hence it essentially behaves as an implicit stage. When stages are defined in a model, the functions can still be used on the model object, but the changes will remain unseen as long as stages exist in the model. 
 </div>
 
 ## Creating Your First Script
