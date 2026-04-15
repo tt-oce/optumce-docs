@@ -11,30 +11,30 @@
     <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
-    <title>set_solid</title>
-    <meta name="title" content="set_solid">
-    <meta name="description" content="Set shape material as solid.">
+    <title>Run OptumGX from Python</title>
+    <meta name="title" content="Run OptumGX from Python">
+    <meta name="description" content="This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/model/set_solid/">
+    <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.optumce.com/optum-gx/sitemap.xml">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/model/set_solid/">
-    <meta property="og:title" content="set_solid">
-    <meta property="og:description" content="Set shape material as solid.">
+    <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python/">
+    <meta property="og:title" content="Run OptumGX from Python">
+    <meta property="og:description" content="This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/model/set_solid/">
-    <meta name="twitter:title" content="set_solid">
-    <meta name="twitter:description" content="Set shape material as solid.">
+    <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python/">
+    <meta name="twitter:title" content="Run OptumGX from Python">
+    <meta name="twitter:description" content="This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.">
 
     <!-- Alternate Markdown -->
-    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/model/set_solid.md">
+    <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -287,16 +287,8 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <span class="pr-4">
-                                Model
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
-                            </svg>
-                        </li>
-                        <li class="pr-4">
-                            <a href="../../../../python/functions/model/set_solid/" class="pr-4">
-                                set_​solid
+                            <a href="../../../../python/functions/utilities/" class="pr-4">
+                                Utilities
                             </a>
                         </li>
                     </ol>
@@ -305,44 +297,90 @@
                 <doc-page-actions></doc-page-actions>
 
                 <!-- Page content  -->
-<h1 id="set_solid">set_solid</h1>
-<p>Set shape material as solid.</p>
-<h2 id="parameters">Parameters</h2>
-<dl>
-<dt>shapes : ShapeList</dt>
-<dd>List of shapes</dd>
-<dt>material : material</dt>
-<dd>Solid material</dd>
-</dl>
-<h2 id="see-also">See also</h2>
-<ul>
-<li><a href="../set_plate/">set_plate</a></li>
-</ul>
-<h2 id="examples">Examples</h2>
-<div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">model2d.add_rectangle([0,0],[4,4])
-SoilMaterial = prj.MohrCoulomb(name=&quot;Soil&quot;,c=10, phi=20, gamma_dry=20, color=Color(r=79,g=180,b=83))
-SoilFace = model2d.select(point1=[1,1],types=[ShapeType.face])
-model2d.set_solid(shapes=SoilFace,material=SoilMaterial)
-model3d.add_box([1,1,1],[3,3,3])
-SoilVol = model3d.select(point1=[2,2,1],types='volume')
-model3d.set_solid(shapes=SoilVol,material=SoilMaterial)</code></pre>
+<h1 id="run-optumgx-from-python">Run OptumGX from Python</h1>
+<p>This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started.
+The input parameters are set to the default, but may need to be altered to match the current machine.</p>
+<div id="run-optumgx-from-python-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">import socket
+import subprocess
+import time as pytime
+from pathlib import Path
+
+import grpc
+from OptumGX import *
+
+def startGX(
+    exe_path=r&quot;C:\Program Files\OPTUM CE\OPTUM GX\OptumGX.exe&quot;,
+    api_host=&quot;127.0.0.1&quot;,
+    api_port=6000,
+    startup_timeout=30,
+    stable_seconds=5,
+):
+    &quot;&quot;&quot;
+    Start Optum GX if needed and wait until its API is stable.
+    Import it into other scripts before calling the application ( GX() ).
+    &quot;&quot;&quot;
+    exe_path = Path(exe_path)
+
+    def is_optumgx_running():
+        result = subprocess.run(
+            [
+                &quot;powershell.exe&quot;,
+                &quot;-NoProfile&quot;,
+                &quot;-Command&quot;,
+                &quot;Get-Process -Name 'OptumGX' -ErrorAction SilentlyContinue | &quot;
+                &quot;Select-Object -First 1 -ExpandProperty ProcessName&quot;,
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return result.stdout.strip() == &quot;OptumGX&quot;
+
+    def is_gx_api_ready():
+        try:
+            with socket.create_connection((api_host, api_port), timeout=1):
+                return True
+        except OSError:
+            return False
+
+    if not exe_path.exists():
+        raise FileNotFoundError(f&quot;Optum GX executable not found: {exe_path}&quot;)
+
+    if not is_optumgx_running():
+        subprocess.Popen([str(exe_path)])
+
+    deadline = pytime.time() + startup_timeout
+    stable_since = None
+
+    while pytime.time() &lt; deadline:
+        if is_optumgx_running() and is_gx_api_ready():
+            if stable_since is None:
+                stable_since = pytime.time()
+            elif pytime.time() - stable_since &gt;= stable_seconds:
+                return
+        else:
+            stable_since = None
+
+        pytime.sleep(1)
+
+    raise TimeoutError(
+        f&quot;Optum GX did not make its API available on {api_host}:{api_port} &quot;
+        f&quot;for {stable_seconds} stable seconds within {startup_timeout} seconds.&quot;
+    )
+</code></pre>
 </doc-codeblock></div>
-<div id="retype-backlinks">
-    <h2>See also</h2>
-<div class="card-compact-group">
-<div class="card-compact-container">
-    <a href="/optum-gx/python/functions/model/set_plate/" class="group card-compact no-link">
-        <div class="card-compact-body">
-            <div class="card-compact-header">
-                <span class="card-compact-title">Set plate</span>
-            </div>
-            <p class="card-compact-description">Set shape material as plate.</p>
-        </div>
-    </a>
-</div>
-</div>
-</div>
+<p>This script can then be saved in you Python scripting folder and be imported and called in other scripts.</p>
+<div id="run-optumgx-from-python-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python"># OptumGX module
+from OptumGX import *
+
+from startGX import startGX # Importing the startGX function from startGX.py
+startGX()                   # Checking if GX is running, if not it is started
+
+# Application
+gx = GX()</code></pre>
+</doc-codeblock></div>
 
                 
                 <!-- Required only on API pages -->
@@ -350,27 +388,6 @@ model3d.set_solid(shapes=SoilVol,material=SoilMaterial)</code></pre>
             </div>
             <footer id="retype-content-footer" class="clear-both">
             
-                <nav id="retype-nextprev" class="print:hidden flex mt-14">
-                    <div class="w-1/2">
-                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../python/functions/model/set_seepage_face/">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                            <span>
-                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                <span class="block mt-1">set_​seepage_​face</span>
-                            </span>
-                        </a>
-                    </div>
-            
-                    <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../python/functions/model/set_solver_settings/">
-                            <span>
-                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">set_​solver_​settings</span>
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                        </a>
-                    </div>
-                </nav>
             </footer>
         </main>
 
@@ -409,6 +426,6 @@ model3d.set_solid(shapes=SoilVol,material=SoilMaterial)</code></pre>
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "set_solid", level: 4, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/model/set_solid.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Run OptumGX from Python", level: 4, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/run-gx-from-python.md" }</script>
 </body>
 </html>
