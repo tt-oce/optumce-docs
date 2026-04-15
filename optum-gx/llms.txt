@@ -19,7 +19,7 @@
 ### Introduction
 
 - [Introduction](https://docs.optumce.com/optum-gx/python/introduction/index.md): The OPTUM GX Python interface enables straightforward scripting control of geotechnical models, analyses, and results.
-- [Generate Project Python Code](https://docs.optumce.com/optum-gx/python/introduction/generate-project-python-code.md): Optum GX has a built-in feature to translate the input made in the user interface directly to the corresponding Python code. This makes it easy to discover the functionality of python functions and convert your existing models to parametric python code.
+- [Generate Project Python Code](https://docs.optumce.com/optum-gx/python/introduction/generate-project-python-code.md): Optum GX has a built-in feature to translate the input made in the user interface, directly to the corresponding Python code. This makes it easy to discover the functionality of python functions and convert your existing models to parametric python code.
 
 ### Setting Up IDE
 
