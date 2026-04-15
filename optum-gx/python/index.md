@@ -17,7 +17,7 @@ Get up and running in minutes:
 
 ---
 
-## What You'll Find in This Documentation
+## What You Will Find In This Documentation
 
 This documentation is structured to support both new and advanced users:
 
@@ -28,7 +28,7 @@ This documentation is structured to support both new and advanced users:
 
 Whether you're writing your first script or building advanced automation pipelines, you'll find the resources you need here.
 
-## Where to Go Next
+## Where To Go Next
 
 *  [Introduction](./introduction/) — Learn how GX Python works
 *  [Examples](./examples/) — See real scripts in action

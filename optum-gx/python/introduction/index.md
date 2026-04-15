@@ -6,7 +6,7 @@ Instead of building models manually through the graphical interface, Python allo
 
 ---
 
-## Why Use Python in GX?
+## Why Use Python In GX?
 
 Python scripting is designed for engineers who want more control and efficiency:
 
@@ -27,7 +27,7 @@ Python scripting is designed for engineers who want more control and efficiency:
 
 ---
 
-## When to Use Python
+## When To Use Python
 
 Python is especially useful when:
 
@@ -64,7 +64,7 @@ To get started effectively:
 
 ---
 
-## GX Object and Scripting Structure
+## GX Object And Scripting Structure
 
 Understanding the structure of GX is key to using the Application Programming Interface (API) effectively:
 
