@@ -159,7 +159,11 @@
 - [set_from_stage](https://docs.optumce.com/optum-gx/python/functions/stage/set_from_stage.md): Set stage from another stage in the same model.
 - [stage](https://docs.optumce.com/optum-gx/python/functions/stage/set_run_flag.md): Set run flag for model or stage.
 - [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/toggle_features.md): Toggle features for stage
+
+#### Utilities
+
 - [Utilities](https://docs.optumce.com/optum-gx/python/functions/utilities/index.md)
+- [Run OptumGX from Python](https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md): This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.
 
 ### Examples
 
