@@ -88,7 +88,7 @@ $$
 \end{array} \tag{1.10}
 $$
 
-The conventional continuum mechanics sign convention (strains negative in contraction) is used throughout. The principal stresses are ordered as:
+The conventional continuum mechanics sign convention (strains negative in contraction) is used throughout. The principal strains are ordered as:
 
 $$
 \varepsilon_1\leq \varepsilon_2 \leq\varepsilon_3 \tag{1.11}
