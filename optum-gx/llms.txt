@@ -172,5 +172,6 @@
 - [Examples](https://docs.optumce.com/optum-gx/python/examples/index.md)
 - [1. Shallow foundation](https://docs.optumce.com/optum-gx/python/examples/example1_shallow_foundation.md): This example deals with the an eccentrically loaded foundation. The soil is saturated clay and the analysis is to be performed assuming undrained conditions.
 - [3.  Settlement of strip footing on elastic soil](https://docs.optumce.com/optum-gx/python/examples/example3_strip_footing.md): This example deals with a centrally loaded weightless rigid strip footing on an elastic soil. The footing and the soil are modeled using the default materials Rigid and Linear Elastic, respectively.
+- [5. Footing on soil with user defined material data](https://docs.optumce.com/optum-gx/python/examples/example5_parametric_cu.md): This example deals with user defined material parameter variation.
 - [6. Slope stability - Long term](https://docs.optumce.com/optum-gx/python/examples/example6_slope_stability_long_term.md): In this example we consider the stability of a layered slope.
 - [10. Slope with pre-existing fault](https://docs.optumce.com/optum-gx/python/examples/example10_slope_fault.md): In this example we consider the stability of slope with, and without, a fault line.
