@@ -16,10 +16,10 @@ Whether you are building models through the graphical interface or automating wo
 ## Documentation Areas
 
 ### Materials
-Learn how material models in OPTUM GX are formulated and configured, including constitutive behavior, parameters, and analysis considerations. [Materials](./materials/)
+Learn how material models in OPTUM GX are formulated and configured, including constitutive behavior, parameters, and analysis considerations. [Materials](./materials/1-notation/)
 
 ### Python
 Automate and extend OPTUM GX using Python. The Python interface provides direct access to projects, models, analyses, and results for custom workflows, parametric studies, and even customizable plugins. [Python](./python/)
 
 ### Examples
-Explore practical examples demonstrating common geotechnical problems and scripting workflows. [Examples](./examples/)
+Explore practical examples demonstrating common geotechnical problems and scripting workflows. [Examples](./python/examples/)
