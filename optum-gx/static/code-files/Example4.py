@@ -40,7 +40,6 @@ model2d.set_solid(shapes=SoilFace,material=LinearElasticMaterial)
 model2d.set_surface_load(shapes=model2d.select(p0=[0.01,0],types='edge'),
                          value=-q,
                          direction='y',
-                         coordinate_type= 'local',
                          option='fixed')
 
 """Supports"""
