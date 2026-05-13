@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831906088833">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.831984237497">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.5.3">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>11. Stability of seismically loaded slope</title>
     <meta name="title" content="11. Stability of seismically loaded slope">
-    <meta name="description" content="In this example we consider the stability of slope with pseudo-static seismic loading.">
+    <meta name="description" content="In this example we consider the stability of slope with pseudo-static seismic loading. The analytical solutions are shown in [Loukidis et al. (2003)].">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/examples/example11_loukidis_seismic/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/examples/example11_loukidis_seismic/">
     <meta property="og:title" content="11. Stability of seismically loaded slope">
-    <meta property="og:description" content="In this example we consider the stability of slope with pseudo-static seismic loading.">
+    <meta property="og:description" content="In this example we consider the stability of slope with pseudo-static seismic loading. The analytical solutions are shown in [Loukidis et al. (2003)].">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/examples/example11_loukidis_seismic/">
     <meta name="twitter:title" content="11. Stability of seismically loaded slope">
-    <meta name="twitter:description" content="In this example we consider the stability of slope with pseudo-static seismic loading.">
+    <meta name="twitter:description" content="In this example we consider the stability of slope with pseudo-static seismic loading. The analytical solutions are shown in [Loukidis et al. (2003)].">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/examples/example11_loukidis_seismic.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.5.3.831906088833" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.5.3.831984237497" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.831906088833" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.5.3.831984237497" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.831906088833" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.831906088833" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.5.3.831984237497" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.5.3.831984237497" defer></script>
 
     <style>
         /* Images */
@@ -282,6 +282,14 @@
                             <a href="../../../python/examples/" class="pr-4">
                                 Examples
                             </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                            </svg>
+                        </li>
+                        <li class="pr-4">
+                            <a href="../../../python/examples/example11_loukidis_seismic/" class="pr-4">
+                                11. Stability of seismically loaded slope
+                            </a>
                         </li>
                     </ol>
                 </nav>
@@ -290,11 +298,12 @@
 
                 <!-- Page content  -->
 <h1 id="11-stability-of-seismically-loaded-slope">11. Stability of seismically loaded slope</h1>
-<p>In this example we consider the stability of slope with pseudo-static seismic loading.</p>
+<p>In this example we consider the stability of slope with pseudo-static seismic loading. The analytical solutions are shown in [Loukidis et al. (2003)].</p>
 <figure class="content-center">
     <img src="../../static/example-figures/example11/geometry.png" alt="Figure 11.1 Slope geometry." class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Figure 11.1 Slope geometry.</figcaption>
 </figure>
+<p>[1]: Loukidis, D., Bandini, P. and Salgado, R. (2003). Stability of seismically loaded slopes using limit analysis. Géotechnique, 53 (5), 463–479.</p>
 <h2 id="code">Code</h2>
 <div id="code-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">&quot;&quot;&quot;Initialization&quot;&quot;&quot;
@@ -325,7 +334,7 @@ model2d.add_polygon(points=[[0, 0], [b, 0], [b, -25-a], [-99, -25-a], [-99, -25]
 MC = prj.MohrCoulomb(
     name='MC',
     color = rgb(79,180,63),
-    c = 20,
+    c = 25,
     phi= 30,
     gamma_dry=20,
     gamma_sat=20,
@@ -340,7 +349,6 @@ model2d.set_body_load(
     shapes=SoilFace,
     value= -1,
     direction= 'x',
-    coordinate_type= 'local',
     option='multiplier')
 
 &quot;&quot;&quot;Supports&quot;&quot;&quot;
@@ -363,13 +371,11 @@ prj.run_analysis()
 
 &quot;&quot;&quot;Output&quot;&quot;&quot;
 res = [stage1.output.global_results.load_multiplier]
-print(&quot;k_c =&quot;, round(9.8/res[0],ndigits=3))
+print(&quot;k_c =&quot;, round(res[0]/MC.gamma_dry,ndigits=3))
 #Zoom and center model
 model2d.zoom_all()
 
-#If desired, save the GX file produced by the script by setting: save = True
-save = False
-if save: #Save GX file to current working directory
+if False: #if True: Save GX file to current working directory
        current_path = os.getcwd()
        filename =project_name+&quot;.gxx&quot;
        gx.save_project(file_path=os.path.join(current_path, filename))</code></pre>
@@ -384,6 +390,20 @@ Project file generated by the code:
             </div>
             <footer id="retype-content-footer" class="clear-both">
             
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../python/examples/example10_slope_fault/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">10. Slope with pre-​existing fault</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                    </div>
+                </nav>
             </footer>
         </main>
 

@@ -4,7 +4,7 @@ import numpy as np
 # Application
 gx = GX()
 # Project
-project_name = "Example 6 Slope seepage"
+project_name = "Example 8 Slope seepage"
 prj = gx.create_project(project_name)
 prj.get_current_model().delete()
 # Model (2D)
@@ -14,7 +14,7 @@ stage1 = model2d.create_stage('stage 1')
 
 """Geometry"""
 #Model outline
-model2d.add_polygon(points=[[0,0],[15,0],[25,-7],[32,-7],[32,-12],[0,-12]])
+model2d.add_polygon(points=[[0,0],[15,0],[25,-7],[32,-7],[32,-16],[0,-16]])
 #Layer boundary (lower)
 model2d.add_line(p0=[0,-5],p1=[32,-5])
 #Select and remove the part of the line outside of model outline
@@ -28,13 +28,12 @@ model2d.delete_shapes(sel)
 
 """Materials"""
 #Soil domain (Upper)
-Soft_Clay = prj.MohrCoulomb(
+Soft_Clay = prj.MohrCoulombEngineering(
     name='Soft Clay',
     color=rgb(185,137,129),
-    E = 15,
-    nu=0.35,
     c = 5,
-    phi= 18,
+    phi_2d= 25,
+    cu= 50,
     gamma_dry=19,
     gamma_sat=19,
     K0=0.69, 
@@ -44,13 +43,11 @@ Soft_Clay = prj.MohrCoulomb(
 SoilFace = model2d.select(p0=[1,-0.5],types='face')
 model2d.set_solid(shapes=SoilFace,material=Soft_Clay)
 #Soil domain (middle)
-Firm_Clay = prj.MohrCoulomb(
+Firm_Clay = prj.MohrCoulombEngineering(
     name='Firm Clay',
     color=rgb(119,67,56),
-    E = 25,
-    nu=0.3,
     c = 10,
-    phi= 20,
+    phi_2d= 20,
     gamma_dry=20,
     gamma_sat=20,
     K0=0.66,
@@ -60,13 +57,11 @@ Firm_Clay = prj.MohrCoulomb(
 SoilFace = model2d.select(p0=[1,-2],types='face')
 model2d.set_solid(shapes=SoilFace,material=Firm_Clay)
 #Soil domain (Lower)
-Stiff_Clay = prj.MohrCoulomb(
+Stiff_Clay = prj.MohrCoulombEngineering(
     name='Stiff Clay',
     color=rgb(84,47,38),
-    E = 50,
-    nu=0.25,
     c = 20,
-    phi= 22,
+    phi_2d= 22,
     gamma_dry=21,
     gamma_sat=21,
     K0=0.63, 
@@ -84,7 +79,7 @@ model2d.set_standard_fixities()
 sel = model2d.select(p0=[30,-7],types='edge')
 model2d.set_water_table(sel)
 #Select left boundary up to the soft clay layer
-sel = model2d.select(p0=[0,-1],p1=[0,-12],types='edge',option='blue')
+sel = model2d.select(p0=[0,-1],p1=[0,-16],types='edge',option='blue')
 #Set fixed head
 model2d.set_fixed_head(sel,head=15)
 
@@ -97,7 +92,7 @@ stage1.set_analysis_properties(
                 no_of_elements=2000,
                 mesh_adaptivity='yes',
                 adaptivity_iterations=3,
-                time_scope= 'long_term'
+                time_scope= 'short_term'
                 )
 #Begin analysis
 prj.run_analysis()
