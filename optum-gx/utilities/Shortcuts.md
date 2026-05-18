@@ -21,12 +21,16 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 
 ## Mouse
 
-| Action | Input |
-| ------ | ----- |
-| **Select** | Left mouse button |
-| **Multi-select** | Shift + left mouse button |
-| **Pan** | Middle mouse button |
-| **Zoom** | Mouse wheel |
+Pan and orbit behavior depends on the **Mouse Controls** setting (*Settings → Mouse Controls*), which can be set to *2 Button Mouse* or *3 Button Mouse*.
+
+| Action | 2 Button Mouse | 3 Button Mouse |
+| ------ | -------------- | -------------- |
+| **Select** | Left mouse click | Left mouse click |
+| **Multi-select** | Shift + Left mouse click | Shift + Left mouse click |
+| **Deselect** | Ctrl + Left mouse click | Ctrl + Left mouse click |
+| **Zoom** | Mouse wheel | Mouse wheel |
+| **Pan** | Shift + Left mouse drag | Middle mouse drag |
+| **Orbit** | Ctrl + Left mouse drag | Shift + Middle mouse drag |
 
 ---
 
