@@ -21,7 +21,7 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 
 ## Mouse
 
-Pan and orbit behavior depends on the **Mouse Controls** setting (*Settings → Mouse Controls*), which can be set to *2 Button Mouse* or *3 Button Mouse*.
+Some mouse behavior depends on the **Mouse Controls** setting (*Settings → Mouse Controls*), which can be set to *2 Button Mouse* or *3 Button Mouse*.
 
 | Action | 2 Button Mouse | 3 Button Mouse |
 | ------ | -------------- | -------------- |
