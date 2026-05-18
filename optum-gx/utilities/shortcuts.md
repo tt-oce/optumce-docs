@@ -8,11 +8,18 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | ------ | -------- |
 | **Run analysis** | F5 |
 | **New project** | Ctrl + N |
+| **Open project** | Ctrl + O |
 | **Save project** | Ctrl + S |
+| **Cancel current tool** | Esc |
 | **Copy** | Ctrl + C |
 | **Paste** | Ctrl + V |
 | **Undo** | Ctrl + Z |
 | **Redo** | Ctrl + Y |
+| **Toggle voids** | Ctrl + 0 |
+| **Toggle points** | Ctrl + 1 |
+| **Toggle lines** | Ctrl + 2 |
+| **Toggle faces** | Ctrl + 3 |
+| **Toggle volumes** | Ctrl + 4 |
 
 ## Mouse
 
