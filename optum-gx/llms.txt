@@ -176,3 +176,7 @@
 - [6. Slope stability - Long term](https://docs.optumce.com/optum-gx/python/examples/example6_slope_stability_long_term.md): In this example we consider the stability of a layered slope.
 - [10. Slope with pre-existing fault](https://docs.optumce.com/optum-gx/python/examples/example10_slope_fault.md): In this example we consider the stability of slope with, and without, a fault line.
 - [11. Stability of seismically loaded slope](https://docs.optumce.com/optum-gx/python/examples/example11_loukidis_seismic.md): In this example we consider the stability of slope with pseudo-static seismic loading. The analytical solutions are shown in [Loukidis et al. (2003)][1].
+
+## Utilities
+
+- [Shortcuts](https://docs.optumce.com/optum-gx/utilities/shortcuts.md): A reference of keyboard and mouse shortcuts available in OPTUM GX.
