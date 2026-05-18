@@ -12,12 +12,12 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 
 | Action | Shortcut |
 | ------ | -------- |
+| **New project** | Ctrl + N |
+| **Save project** | Ctrl + S |
 | **Copy** | Ctrl + C |
 | **Paste** | Ctrl + V |
-| **Cut** | Ctrl + X |
 | **Undo** | Ctrl + Z |
 | **Redo** | Ctrl + Y |
-| **Save project** | Ctrl + S |
 
 ## Mouse
 
