@@ -4,20 +4,20 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 
 ## Analysis
 
-| Shortcut | Action |
-| -------- | ------ |
-| **F5**   | Run analysis |
+| Action | Shortcut |
+| ------ | -------- |
+| **Run analysis** | F5 |
 
 ## Editing
 
-| Shortcut | Action |
-| -------- | ------ |
-| **Ctrl + C** | Copy |
-| **Ctrl + V** | Paste |
-| **Ctrl + X** | Cut |
-| **Ctrl + Z** | Undo |
-| **Ctrl + Y** | Redo |
-| **Ctrl + S** | Save project |
+| Action | Shortcut |
+| ------ | -------- |
+| **Copy** | Ctrl + C |
+| **Paste** | Ctrl + V |
+| **Cut** | Ctrl + X |
+| **Undo** | Ctrl + Z |
+| **Redo** | Ctrl + Y |
+| **Save project** | Ctrl + S |
 
 ## Mouse
 
