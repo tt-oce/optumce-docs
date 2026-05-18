@@ -26,7 +26,7 @@ model2d.add_polygon(points=[[0, 0], [b, 0], [b, -25-a], [-99, -25-a], [-99, -25]
 MC = prj.MohrCoulomb(
     name='MC',
     color = rgb(79,180,63),
-    c = 20,
+    c = 25,
     phi= 30,
     gamma_dry=20,
     gamma_sat=20,
@@ -41,7 +41,6 @@ model2d.set_body_load(
     shapes=SoilFace,
     value= -1,
     direction= 'x',
-    coordinate_type= 'local',
     option='multiplier')
 
 """Supports"""
@@ -64,13 +63,11 @@ prj.run_analysis()
 
 """Output"""
 res = [stage1.output.global_results.load_multiplier]
-print("k_c =", round(9.8/res[0],ndigits=3))
+print("k_c =", round(res[0]/MC.gamma_dry,ndigits=3))
 #Zoom and center model
 model2d.zoom_all()
 
-#If desired, save the GX file produced by the script by setting: save = True  
-save = False
-if save: #Save GX file to current working directory 
+if False: #if True: Save GX file to current working directory 
        current_path = os.getcwd()
        filename =project_name+".gxx"
        gx.save_project(file_path=os.path.join(current_path, filename))

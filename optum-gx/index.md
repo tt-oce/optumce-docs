@@ -22,4 +22,4 @@ Learn how material models in OPTUM GX are formulated and configured, including c
 Automate and extend OPTUM GX using Python. The Python interface provides direct access to projects, models, analyses, and results for custom workflows, parametric studies, and even customizable plugins. [Python](./python/)
 
 ### Examples
-Explore practical examples demonstrating common geotechnical problems and scripting workflows. [Examples](./python/examples/)
+Explore practical examples demonstrating common geotechnical problems and scripting workflows. [Examples](./python/examples/) & [Youtube Guides](https://www.youtube.com/@OptumComputationalEngineering)

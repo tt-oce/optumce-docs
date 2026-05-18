@@ -1,6 +1,6 @@
 # 1. Shallow foundation
 This example deals with the an eccentrically loaded foundation. The soil is
-saturated clay and the analysis is to be performed assuming undrained conditions. For this purpose a total stress analysis approach is adopted. The soil is modeled by means of the Tresca model with an undrained shear strength $s_u = 30$ kPa and an undrained Young’s modulus of $E_u = 40$ MPa. The foundation is modeled as Rigid material with a unit weight of 24kN/m3.
+saturated clay and the analysis is to be performed assuming undrained conditions. For this purpose a total stress analysis approach is adopted. The soil is modeled by means of the Tresca model with an undrained shear strength $s_u = 30$ kPa and an undrained Young’s modulus of $E_u = 40$ MPa. The foundation is modeled as Rigid material with a unit weight of $24$ kN/m3.
 
 ![**`Figure 1.1`** Shallow foundation geometry.](../../static/example-figures/example1/Geometry.png)
 
