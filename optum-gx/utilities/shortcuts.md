@@ -35,5 +35,3 @@ Some mouse behavior depends on the **Mouse Controls** setting (*Settings → Mou
 | **Orbit** | Ctrl + Left mouse drag | Shift + Middle mouse drag |
 
 ---
-
-*This list is a work in progress.*
