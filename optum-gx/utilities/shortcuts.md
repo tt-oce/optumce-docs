@@ -2,16 +2,11 @@
 
 A reference of keyboard and mouse shortcuts available in OPTUM GX.
 
-## Analysis
+## Keyboard
 
 | Action | Shortcut |
 | ------ | -------- |
 | **Run analysis** | F5 |
-
-## Editing
-
-| Action | Shortcut |
-| ------ | -------- |
 | **New project** | Ctrl + N |
 | **Save project** | Ctrl + S |
 | **Copy** | Ctrl + C |
