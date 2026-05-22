@@ -15,11 +15,11 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | **Paste** | Ctrl + V |
 | **Undo** | Ctrl + Z |
 | **Redo** | Ctrl + Y |
-| **Toggle voids** | Ctrl + 0 |
-| **Toggle points** | Ctrl + 1 |
-| **Toggle lines** | Ctrl + 2 |
-| **Toggle faces** | Ctrl + 3 |
-| **Toggle volumes** | Ctrl + 4 |
+| **Toggle voids selection** | Ctrl + 0 |
+| **Toggle points selection** | Ctrl + 1 |
+| **Toggle lines selection** | Ctrl + 2 |
+| **Toggle faces selection** | Ctrl + 3 |
+| **Toggle volumes selection** | Ctrl + 4 |
 
 ## Mouse
 
