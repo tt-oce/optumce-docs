@@ -108,11 +108,11 @@ The Stage level has member function that control the activation of geometry and 
 <div style="border: 2px solid rgb(0, 0, 0); padding: 10px; border-radius: 6px; background-color: #ffecec;">
   <strong>📖 Optional context:</strong><br>
   It is worth noting that a number of functions are members of both stage and model. This is rooted in the choice that a model with no explicitly created stages should still be available for analysis, hence it essentially behaves as an implicit stage. When stages are defined in a model, the functions can still be used on the model object, but the changes will remain unseen as long as stages exist in the model. 
-</div>
+</div><br>
 
 ## Creating Your First Script
 
-The next step is for to apply all this by by creating your first script.  
+The next step is for to apply all this by creating your first script.  
 Be sure that your Integrated Development Environment (IDE) is configured properly. We recommend using either of the IDE's Visual Studio Code or Spyder for Python scripting, which can be set up using the following guides: [Setting up VS Code](../setting-up-ide/vs-code.md) & [Setting up Spyder](../setting-up-ide/spyder.md)
 
 ---
