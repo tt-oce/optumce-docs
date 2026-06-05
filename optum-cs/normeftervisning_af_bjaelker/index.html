@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-cs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.832756710572">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.833984824613">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.5.3">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Normeftervisning af bj&#230;lker</title>
@@ -38,13 +38,13 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.5.3.832756710572" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.6.0.833984824613" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.5.3.832756710572" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.5.3.832756710572" data-turbo-eval="false" defer></script>
-    <link href="../resources/css/katex.css?v=4.5.3" rel="stylesheet">
-    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=4.5.3" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.6.0.833984824613" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.6.0.833984824613" data-turbo-eval="false" defer></script>
+    <link href="../resources/css/katex.css?v=4.6.0" rel="stylesheet">
+    <script id="katex-js" data-cfasync="false" src="../resources/js/katex.js?v=4.6.0" defer></script>
 
     <style>
         /* Images */
@@ -255,6 +255,59 @@
 <p><strong>Brand på over- og underside</strong></p>
 <p>Det detekteres om en bjælke påvirkes af brand på over- og underside. Hvis bare en lille del af den pågældende rand er fri, regnes den brandpåvirket. I detektionen betragtes strækninger på randen med tilstødende vægge, huller og etagekryds.</p>
 <h1 id="nomenklatur">Nomenklatur</h1>
+<retype-table copy-text="|     |     |
+| --- | --- |
+| $A_k$ | Areal omsluttet af centerlinjerne i væggene i vridningsberegningen. |
+| $A_s$ | Armeringens tværsnitsareal. |
+| $A_{sw}$ | Forskydningsarmeringens tværsnitsareal pr. bøjle. |
+| $E_{cm}$ | Sekantelasticitetsmodulet. |
+| $E_s$ | Armeringens elasticitetsmodul. |
+| $F_{td,bund}$ | Krav til forankringskraft ved kombineret forskydning og vridning for hovedjern i bjælkebund. |
+| $F_{td,V}$ | Krav til forankringskraft ved ren forskydning. |
+| $F_{td,T}$ | Krav til forankringskraft ved ren vridning. |
+| $M_{Ed}$ | Det største regningsmæssige moment i bjælken. |
+| $M_{Rd}$ | Den regningsmæssige momentkapacitet. |
+| $N_c$ | Betontrykresultant. |
+| $N_s$ | Armeringstrækresultant. |
+| $T_{Ed} | Regningsmæssig vridning. |
+| $T_{Rd,max}$ | Den regningsmæssige vridningskapacitet, ved trykbrud i beton. |
+| $T_{Rd,s}$ | Den regningsmæssige vridningskapacitet, ved trækbrud i bøjler. |
+| $V_{Ed,max}$ | Den numerisk største regningsmæssige forskydningskraft i bjælken. |
+| $V_{Ed,s}$ | Den numerisk største regningsmæssige forskydningskraft i bjælken, hvor der ses bort fra forskydningskraften i hver ende af bjælken, samt omkring understøtninger, inden for en afstand af $a_s = \cot\Theta \cdot z$. |
+| $V_{Rd,max}$ | Den regningsmæssige forskydningskapacitet, ved trykbrud i beton. |
+| $V_{Rd,max}'$ | Den regningsmæssige forskydningskapacitet, ved trykbrud i beton, inkl. reduktion fra vridning. |
+| $V_{Rd,s}$ | Den regningsmæssige forskydningskapacitet, ved trækbrud i bøjler. |
+| $V_{Rd,s}'$ | Den regningsmæssige forskydningskapacitet, ved trækbrud i bøjler, inkl. reduktion fra vridning. |
+| $a_z$ | Tykkelse af skadet randzone, ifm. brand. |
+| $b$ | Bjælkebredde. Den effektive bredde anvendes generelt i stedet for $b$: $b = b_{eff}$. |
+| $b_{eff}$ | Effektiv bjælkebredde hvor der tages hensyn til dæklag i kold tilstand og indbrændingsdybde i brandtilfældet. |
+| $c'$ | Afstand fra bjælkeside til center hovedarmeringsjern. Nederste lag hovedarmeringsjern anvendes her. Største værdi af afstand på for- og bagside anvendes her. |
+| $\cot\Theta$ | Trykstangens hældning. 2.5 i brand, ellers 2.0. |
+| $d$ | Diameter af armeringsjern. |
+| $e$ | Excentricitet fra last. Vægtet ift. linjelasternes resultanter. |
+| $f_{cm}$ | Middeltrykstyrken ved 28 døgn. |
+| $f_{ywd}$ | Regningsmæssig flydestyrke for armeringsjern. |
+| $h$ | Bjælkehøjde. |
+| $i$ | Iterationsnummer. |
+| $it$ | Antal iterationer. |
+| $j$ | Armeringslag-nummer. |
+| $k$ | Parameter vedr. elasticitetsmoduler. |
+| $n$ | Antal armeringsjern i snit. |
+| $s$ | Indbyrdes afstand mellem bøjler/armeringsjern. |
+| $t_{ef}$ | Effektiv vægtykkelse til vridningsberegning. |
+| $x$ | Nullinjedybde. Ofte lig trykzonehøjde. |
+| $y_c'$ | Lodret afstand mellem bjælkemidte og betontrykresultant. |
+| $y_s$ | Lodret afstand til center hovedjern fra bunden af bjælken. |
+| $y_s'$ | Lodret afstand til center hovedjern fra bjælkemidte. |
+| $z$ | Indre momentarm bestemt ud fra beregning af positiv momentkapacitet. |
+| $\varepsilon_0$ | Kanttøjning. |
+| $\varepsilon_{c1}$ | Tøjning ved højeste betonspænding. |
+| $\varepsilon_{cu}$ | Brudtøjning for beton. |
+| $\zeta$ | Dimensionsløs parameter vedr. nullinjedybde uden for tværsnit. |
+| $\nu_t$ | Effektivitetsfaktor for forskydning gennem vridning. |
+| $\nu_v$ | Effektivitetsfaktor for ren forskydning. |
+| $\sigma_c$ | Betonspænding. |
+| $\sigma_s$ | Armeringsspænding. |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -471,6 +524,7 @@
 </tbody>
 </table>
 </div>
+</retype-table>
 <h2 id="momentkapacitet">Momentkapacitet</h2>
 <h2 id="beregning">Beregning</h2>
 <p>Både positiv og negativ momentkapacitet bestemmes.</p>
