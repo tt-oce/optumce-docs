@@ -6,9 +6,9 @@ gx = GX()
 # Project
 project_name = "Example Stem Wall"
 prj = gx.create_project(project_name)
-prj.get_current_model().delete()
+model2d = prj.get_current_model()
 # Model (2D)
-model2d = prj.create_model('1000_Elements', model_type='plane_strain')
+model2d.name = '1000_Elements'
 
 """Constants"""
 # Mesh convergence study: number of elements per analysis
