@@ -159,7 +159,7 @@
 - [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/get_analysis_properties.md): Get analysis properties.
 - [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/set_analysis_properties.md): Define analysis properties
 - [set_from_stage](https://docs.optumce.com/optum-gx/python/functions/stage/set_from_stage.md): Set stage from another stage in the same model.
-- [stage](https://docs.optumce.com/optum-gx/python/functions/stage/set_run_flag.md): Set run flag for model or stage.
+- [set_run_flag](https://docs.optumce.com/optum-gx/python/functions/stage/set_run_flag.md): Set run flag for model or stage.
 - [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/toggle_features.md): Toggle features for stage
 
 #### Utilities

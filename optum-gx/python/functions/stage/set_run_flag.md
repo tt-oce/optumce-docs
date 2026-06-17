@@ -1,4 +1,4 @@
-# stage
+# set_run_flag
 
 Set run flag for model or stage.
 
