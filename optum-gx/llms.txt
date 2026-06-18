@@ -30,6 +30,11 @@
 
 ### Functions
 
+#### Geometry
+
+- [Shape](https://docs.optumce.com/optum-gx/python/functions/geometry/shape.md): A single geometric entity (vertex, edge, face or volume) within a model.
+- [ShapeList](https://docs.optumce.com/optum-gx/python/functions/geometry/shapelist.md): An ordered collection of Shape objects from a single stage.
+
 #### Application
 
 - [create_project](https://docs.optumce.com/optum-gx/python/functions/application/create_project.md): Create project.
@@ -190,6 +195,7 @@
 - [faces](https://docs.optumce.com/optum-gx/python/functions/stage/faces.md): Get all faces in model.
 - [get_active_csys](https://docs.optumce.com/optum-gx/python/functions/stage/get_active_csys.md): Obtains the active coordinate system.
 - [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/get_analysis_properties.md): Get analysis properties.
+- [get_run_flag](https://docs.optumce.com/optum-gx/python/functions/stage/get_run_flag.md): Get run flag for model or stage.
 - [get_selected_shapes](https://docs.optumce.com/optum-gx/python/functions/stage/get_selected_shapes.md): Return selected shapes in GUI.
 - [get_shape_by_id](https://docs.optumce.com/optum-gx/python/functions/stage/get_shape_by_id.md): Get shape by id.
 - [get_shapes](https://docs.optumce.com/optum-gx/python/functions/stage/get_shapes.md): Get shapes in a model.
