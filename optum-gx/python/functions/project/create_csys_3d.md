@@ -11,6 +11,8 @@ Create three-dimensional coordinate system.
 <dd>Point to define the basis vector from origo in direction i</dd>
 <dt>direction_j : array</dt>
 <dd>Point to define the basis vector from origo in direction j</dd>
+<dt>direction_k : array</dt>
+<dd>Point to define the basis vector from origo in direction k</dd>
 <dt>name : str</dt>
 <dd>String naming the coordinate system.</dd>
 </dl>
@@ -22,7 +24,7 @@ Create three-dimensional coordinate system.
 
 ## Notes
 
-direction_k is derived from direction_i and direction_j.
+If direction_k is not specified, it is derived from direction_i and direction_j.
 
 ## Examples
 

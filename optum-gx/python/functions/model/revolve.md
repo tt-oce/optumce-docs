@@ -19,10 +19,10 @@ Revolve shape around axis.
 
 ## See also
 
-- [create_3d_from_2d_model](/python/functions/model/create_3d_from_2d_model)
+- [extrude_2d_to_3d_model](/python/functions/model/extrude_2d_to_3d_model)
 - [extrude](/python/functions/model/extrude)
 - [rotate](/python/functions/model/rotate)
-- [revolve_2d_to_3d](/python/functions/model/revolve_2d_to_3d)
+- [revolve_2d_to_3d_model](/python/functions/model/revolve_2d_to_3d_model)
 - [scale](/python/functions/model/scale)
 
 ## Examples

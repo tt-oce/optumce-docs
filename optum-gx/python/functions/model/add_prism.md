@@ -13,7 +13,7 @@ Draw a prism in 3D.
 
 ## See also
 
-- [add_ncone] missing
+- [add_ncone](/python/functions/model/add_ncone)
 - [add_nprism](/python/functions/model/add_nprism)
 - [create_csys_2d](/python/functions/project/create_csys_2d)
 - [create_csys_3d](/python/functions/project/create_csys_3d)

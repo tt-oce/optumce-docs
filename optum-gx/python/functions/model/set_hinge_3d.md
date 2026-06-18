@@ -20,10 +20,10 @@ Edges must be connected to atleast one plate, to which the hinge will be assigne
 ## Examples
 
 ```python
-e = model3d.select(
-p0=[0,0,0],
-p1=[0,0,1],
-types=['edge'],
-option='blue')
+e = model3d.select(  
+    p0=[0,0,0],
+    p1=[0,0,1],
+    types=['edge'],
+    option='blue')
 model3d.set_hinge_3d(edges=e)
 ```

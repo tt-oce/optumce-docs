@@ -53,6 +53,7 @@
 - [get_csys](https://docs.optumce.com/optum-gx/python/functions/project/get_csys.md): Obtains a list of coordinate systems.
 - [get_current_model](https://docs.optumce.com/optum-gx/python/functions/project/get_current_model.md): Get current model.
 - [get_current_stage](https://docs.optumce.com/optum-gx/python/functions/project/get_current_stage.md): Get current stage.
+- [get_file_path](https://docs.optumce.com/optum-gx/python/functions/project/get_file_path.md): Get the full path of the currently opened project file.
 - [get_model](https://docs.optumce.com/optum-gx/python/functions/project/get_model.md): Get model or models by name.
 - [HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/project/hardeningsoil.md): Define a Hardeing Soil material.
 - [HMC](https://docs.optumce.com/optum-gx/python/functions/project/hmc.md): Define a Hardening Mohr-Coulomb material.
@@ -68,6 +69,7 @@
 - [Rigid](https://docs.optumce.com/optum-gx/python/functions/project/rigid.md): Define a Rigid material.
 - [RigidPlate](https://docs.optumce.com/optum-gx/python/functions/project/rigidplate.md): Define a Rigid Plate material.
 - [run_analysis](https://docs.optumce.com/optum-gx/python/functions/project/run_analysis.md): Run analysis
+- [run_analysis_async](https://docs.optumce.com/optum-gx/python/functions/project/run_analysis_async.md): Start the analysis without blocking and return a progress handle.
 - [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/set_current_model.md): Sets the current model.
 - [SheetPile](https://docs.optumce.com/optum-gx/python/functions/project/sheetpile.md): Define a Sheet Pile material.
 - [Tresca](https://docs.optumce.com/optum-gx/python/functions/project/tresca.md): Define a Tresca material.
@@ -80,22 +82,30 @@
 - [add_circle](https://docs.optumce.com/optum-gx/python/functions/model/add_circle.md): Draw a circle in 2D, from center point and radius, using N line segments.
 - [add_connector](https://docs.optumce.com/optum-gx/python/functions/model/add_connector.md): add connector
 - [add_line](https://docs.optumce.com/optum-gx/python/functions/model/add_line.md): Add a line defined by two points.
+- [add_lines](https://docs.optumce.com/optum-gx/python/functions/model/add_lines.md): Add line segments between consecutive points.
+- [add_ncone](https://docs.optumce.com/optum-gx/python/functions/model/add_ncone.md): Draw a cone (or truncated cone) in 3D.
 - [add_nprism](https://docs.optumce.com/optum-gx/python/functions/model/add_nprism.md): Draw a Nprism in 3D.
 - [add_polygon](https://docs.optumce.com/optum-gx/python/functions/model/add_polygon.md): Add a polygon defined by a two-dimensional array of vertex points.
 - [add_polygons](https://docs.optumce.com/optum-gx/python/functions/model/add_polygons.md): Add a list of polygons defined by an array of two-dimensional arrays of vertex points for each polygon.
+- [add_polyline](https://docs.optumce.com/optum-gx/python/functions/model/add_polyline.md): Add a polyline defined by a list of points.
 - [add_prism](https://docs.optumce.com/optum-gx/python/functions/model/add_prism.md): Draw a prism in 3D.
 - [add_rectangle](https://docs.optumce.com/optum-gx/python/functions/model/add_rectangle.md): Create a rectangle in 2D between a start and end point.
 - [add_sphere](https://docs.optumce.com/optum-gx/python/functions/model/add_sphere.md): Add a sphere from center point and radius, using N line segments.
 - [add_vertex](https://docs.optumce.com/optum-gx/python/functions/model/add_vertex.md): Create a point in 2D or 3D.
 - [clone](https://docs.optumce.com/optum-gx/python/functions/model/clone.md): Clones the selected model.
+- [copy](https://docs.optumce.com/optum-gx/python/functions/model/copy.md): Copy shapes.
 - [create_3d_from_2d_model](https://docs.optumce.com/optum-gx/python/functions/model/create_3d_from_2d_model.md): Extrudes a 2D model to 3D.
 - [create_stage](https://docs.optumce.com/optum-gx/python/functions/model/create_stage.md): Creates a new stage.
 - [del_shapes](https://docs.optumce.com/optum-gx/python/functions/model/del_shapes.md): Delete shapes and their definition.
 - [delete](https://docs.optumce.com/optum-gx/python/functions/model/delete.md): Delete model or stage.
 - [delete_interior](https://docs.optumce.com/optum-gx/python/functions/model/delete_interior.md): Delete shapes and leave voids in their place.
+- [delete_shapes](https://docs.optumce.com/optum-gx/python/functions/model/delete_shapes.md): Delete shapes and their definition.
 - [edges](https://docs.optumce.com/optum-gx/python/functions/model/edges.md): Get all edges in model.
 - [extrude](https://docs.optumce.com/optum-gx/python/functions/model/extrude.md): Extrude a shape.
+- [extrude_2d_to_3d_model](https://docs.optumce.com/optum-gx/python/functions/model/extrude_2d_to_3d_model.md): Extrudes a 2D model to 3D.
+- [extrude_along](https://docs.optumce.com/optum-gx/python/functions/model/extrude_along.md): Extrude faces along a path defined by a list of points.
 - [faces](https://docs.optumce.com/optum-gx/python/functions/model/faces.md): Get all faces in model.
+- [from_model](https://docs.optumce.com/optum-gx/python/functions/model/from_model.md): Model from model property.
 - [get_active_csys](https://docs.optumce.com/optum-gx/python/functions/model/get_active_csys.md): Obtains the active coordinate system.
 - [get_current_stage](https://docs.optumce.com/optum-gx/python/functions/model/get_current_stage.md): Obtain current stage.
 - [get_features](https://docs.optumce.com/optum-gx/python/functions/model/get_features.md): Obtain features associated with shapes.
@@ -108,11 +118,17 @@
 - [get_stage](https://docs.optumce.com/optum-gx/python/functions/model/get_stage.md): Obtain a list of stages.
 - [get_sub_shapes](https://docs.optumce.com/optum-gx/python/functions/model/get_sub_shapes.md): Get subshapes in a model.
 - [get_vertices](https://docs.optumce.com/optum-gx/python/functions/model/get_vertices.md): Get vertex from their coordinates.
+- [hide_shapes](https://docs.optumce.com/optum-gx/python/functions/model/hide_shapes.md): Hide shapes from view.
 - [mirror](https://docs.optumce.com/optum-gx/python/functions/model/mirror.md): Mirror shapes.
+- [model_type](https://docs.optumce.com/optum-gx/python/functions/model/model_type.md): Model type property.
 - [move](https://docs.optumce.com/optum-gx/python/functions/model/move.md): Move shapes.
+- [output](https://docs.optumce.com/optum-gx/python/functions/model/output.md): Analysis output.
+- [polar_array](https://docs.optumce.com/optum-gx/python/functions/model/polar_array.md): Generate polar array of shapes.
+- [rectangular_array](https://docs.optumce.com/optum-gx/python/functions/model/rectangular_array.md): Generate rectangular array of shapes.
 - [remove_features](https://docs.optumce.com/optum-gx/python/functions/model/remove_features.md): Remove features
 - [revolve](https://docs.optumce.com/optum-gx/python/functions/model/revolve.md): Revolve shape around axis.
 - [revolve_2d_to_3d](https://docs.optumce.com/optum-gx/python/functions/model/revolve_2d_to_3d.md): revolve 2D model to 3D.
+- [revolve_2d_to_3d_model](https://docs.optumce.com/optum-gx/python/functions/model/revolve_2d_to_3d_model.md): revolve 2D model to 3D.
 - [rotate](https://docs.optumce.com/optum-gx/python/functions/model/rotate.md): rotate shapes.
 - [scale](https://docs.optumce.com/optum-gx/python/functions/model/scale.md): Scale shapes.
 - [select](https://docs.optumce.com/optum-gx/python/functions/model/select.md): Select geometric objects by point or bounding box.
@@ -150,17 +166,43 @@
 - [set_vertex_position](https://docs.optumce.com/optum-gx/python/functions/model/set_vertex_position.md): Set new postion of vertex.
 - [set_water_table](https://docs.optumce.com/optum-gx/python/functions/model/set_water_table.md): Define watertable at shape.
 - [slice_3d_to_2d](https://docs.optumce.com/optum-gx/python/functions/model/slice_3d_to_2d.md): Slide a 3D model to 2D.
+- [slice_3d_to_2d_model](https://docs.optumce.com/optum-gx/python/functions/model/slice_3d_to_2d_model.md): Slide a 3D model to 2D.
+- [unhide_all_shapes](https://docs.optumce.com/optum-gx/python/functions/model/unhide_all_shapes.md): Unhide all hidden shapes.
+- [unhide_shapes](https://docs.optumce.com/optum-gx/python/functions/model/unhide_shapes.md): Unhide previously hidden shapes.
 - [vertices](https://docs.optumce.com/optum-gx/python/functions/model/vertices.md): Get all vertices in model.
 - [volumes](https://docs.optumce.com/optum-gx/python/functions/model/volumes.md): Get all volumes in model.
 - [zoom_all](https://docs.optumce.com/optum-gx/python/functions/model/zoom_all.md): Zoom to view all geometry.
 
 #### Stage
 
+- [clone](https://docs.optumce.com/optum-gx/python/functions/stage/clone.md): Clones the selected model.
+- [create_stage](https://docs.optumce.com/optum-gx/python/functions/stage/create_stage.md): Creates a new stage from this stage.
+- [delete](https://docs.optumce.com/optum-gx/python/functions/stage/delete.md): Delete model or stage.
+- [edges](https://docs.optumce.com/optum-gx/python/functions/stage/edges.md): Get all edges in model.
+- [faces](https://docs.optumce.com/optum-gx/python/functions/stage/faces.md): Get all faces in model.
+- [get_active_csys](https://docs.optumce.com/optum-gx/python/functions/stage/get_active_csys.md): Obtains the active coordinate system.
 - [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/get_analysis_properties.md): Get analysis properties.
+- [get_selected_shapes](https://docs.optumce.com/optum-gx/python/functions/stage/get_selected_shapes.md): Return selected shapes in GUI
+- [get_shape_by_id](https://docs.optumce.com/optum-gx/python/functions/stage/get_shape_by_id.md): Get shape by id.
+- [get_shapes](https://docs.optumce.com/optum-gx/python/functions/stage/get_shapes.md): Get shapes in a model.
+- [get_shapes_by_vertices](https://docs.optumce.com/optum-gx/python/functions/stage/get_shapes_by_vertices.md): Get shapes bounded by vertices.
+- [get_shared_edges](https://docs.optumce.com/optum-gx/python/functions/stage/get_shared_edges.md): Obtain the shared edges between two lists of shapes.
+- [get_shared_faces](https://docs.optumce.com/optum-gx/python/functions/stage/get_shared_faces.md): Obtain the shared faces between two lists of shapes.
+- [get_sub_shapes](https://docs.optumce.com/optum-gx/python/functions/stage/get_sub_shapes.md): Get subshapes in a model.
+- [get_vertices](https://docs.optumce.com/optum-gx/python/functions/stage/get_vertices.md): Get vertex from their coordinates.
+- [model](https://docs.optumce.com/optum-gx/python/functions/stage/model.md): Stage origin model property.
+- [output](https://docs.optumce.com/optum-gx/python/functions/stage/output.md): Analysis output.
+- [redo](https://docs.optumce.com/optum-gx/python/functions/stage/redo.md): Redo last undone operation on this model.
+- [select](https://docs.optumce.com/optum-gx/python/functions/stage/select.md): Select geometric objects by point or bounding box.
+- [set_active_csys](https://docs.optumce.com/optum-gx/python/functions/stage/set_active_csys.md): Set the active coordinate system.
 - [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/set_analysis_properties.md): Define analysis properties
 - [set_from_stage](https://docs.optumce.com/optum-gx/python/functions/stage/set_from_stage.md): Set stage from another stage in the same model.
 - [set_run_flag](https://docs.optumce.com/optum-gx/python/functions/stage/set_run_flag.md): Set run flag for model or stage.
+- [set_solver_settings](https://docs.optumce.com/optum-gx/python/functions/stage/set_solver_settings.md): Define solver settings.
 - [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/toggle_features.md): Toggle features for stage
+- [vertices](https://docs.optumce.com/optum-gx/python/functions/stage/vertices.md): Get all vertices in model.
+- [volumes](https://docs.optumce.com/optum-gx/python/functions/stage/volumes.md): Get all volumes in model.
+- [zoom_all](https://docs.optumce.com/optum-gx/python/functions/stage/zoom_all.md): Zoom to view all geometry.
 
 #### Utilities
 

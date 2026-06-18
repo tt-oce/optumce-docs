@@ -4,7 +4,9 @@ Get current stage.
 
 ## Parameters
 
-None
+<dl>
+<dd>None</dd>
+</dl>
 
 ## Examples
 
