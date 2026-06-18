@@ -2,11 +2,12 @@
 
 Get the full path of the currently opened project file.
 
-Returns
--------
-str or None
-    The absolute path of the open project file, or None if no file is
-    currently open (e.g. an unsaved/untitled or recovery session).
+## Returns
+
+<dl>
+<dt>str or None</dt>
+<dd>The absolute path of the open project file, or None if no file is currently open (e.g. an unsaved/untitled or recovery session).</dd>
+</dl>
 
 ## Examples
 

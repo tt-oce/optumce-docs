@@ -6,7 +6,13 @@ Clones the selected model.
 
 <dl>
 <dt>name : str</dt>
-<dd>String nameing the clone. Return GX model identical to the selected</dd>
+<dd>String nameing the clone.</dd>
+</dl>
+
+## Returns
+
+<dl>
+<dt>GX model identical to the selected</dt>
 </dl>
 
 ## See also

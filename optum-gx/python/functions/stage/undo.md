@@ -1,6 +1,6 @@
-# redo
+# undo
 
-Redo last undone operation on this model.
+Undo last operation on this model.
 
 ## Parameters
 
@@ -11,5 +11,5 @@ Redo last undone operation on this model.
 ## Examples
 
 ```python
-model.redo()
+model.undo()
 ```

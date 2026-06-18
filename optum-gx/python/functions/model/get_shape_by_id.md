@@ -6,7 +6,14 @@ Get shape by id.
 
 <dl>
 <dt>id : int or List[int]</dt>
-<dd>Shape id or list of shape ids Returns Shape or ShapeList Single shape if id is int, ShapeList if id is List[int]</dd>
+<dd>Shape id or list of shape ids</dd>
+</dl>
+
+## Returns
+
+<dl>
+<dt>Shape or ShapeList</dt>
+<dd>Single shape if id is int, ShapeList if id is List[int]</dd>
 </dl>
 
 ## See also
