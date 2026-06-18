@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835099529803">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835103920355">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=4.6.0.835099529803" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=4.6.0.835103920355" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835099529803" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835103920355" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835099529803" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.835099529803" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835103920355" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.835103920355" defer></script>
 
     <style>
         /* Images */
@@ -312,16 +312,24 @@
 <dd>Selection by point:</dd>
 <dt>p0 : array</dt>
 <dt>Point : p0 = [x0,y0] in 2D, p0 = [x0,y0,z0] in 3D</dt>
-<dt>types : str</dt>
-<dd>One or more shape types:    types = ['vertex','edge', 'face', 'volume'] Selection by bounding box:</dd>
+<dt>types : str | list[str]</dt>
+<dd>One or more shape types:    types = 'edge' or ['vertex','edge', 'face', 'volume'] Selection by bounding box:</dd>
 <dt>p0 : array</dt>
 <dd>Starting point of bounding box: p0 = [x0,y0] in 2D, p0 = [x0,y0,z0] in 3D</dd>
 <dt>p1 : array</dt>
 <dd>End point of bounding box:      p1 = [x1,y1] in 2D, p1 = [x1,y1,z1] in 3D</dd>
-<dt>types : str</dt>
+<dt>types : str | list[str]</dt>
 <dd>One or more shape types:        types = ['vertex','edge', 'face', 'volume']</dd>
 <dt>option : str</dt>
-<dd>Bounding box type:              option = 'blue' or 'green'</dd>
+<dd>Bounding box type:              option = 'blue' or 'green' Multi-point selection (same type):</dd>
+<dt>p0 : list[array]</dt>
+<dd>List of points: p0 = [[x0,y0], [x1,y1], ...]</dd>
+<dt>types : str</dt>
+<dd>Shape type for all points:      types = 'face' Multi-point selection (mixed types):</dd>
+<dt>p0 : list[list[array]]</dt>
+<dd>Points grouped by type: p0 = [vertex_points, edge_points, ...] Each group is a list of points for the corresponding type.</dd>
+<dt>types : list[str]</dt>
+<dd>Shape types matching groups:    types = ['vertex', 'edge']</dd>
 </dl>
 <h2 id="see-also">See also</h2>
 <ul>
@@ -331,27 +339,21 @@
 <li><a href="../volumes/">volumes</a></li>
 </ul>
 <h2 id="notes">Notes</h2>
-<p>p0 and p1 define the bounding box and option defines bounding box type, where &quot;blue&quot; and &quot;green&quot; refer to exclusive and inclusive select respectively (refer to the colors of the bounding box for east/west selection in the GUI).</p>
+<p>p0 and p1 define the bounding box and option defines bounding box type,
+where &quot;blue&quot; and &quot;green&quot; refer to exclusive and inclusive select respectively
+(refer to the colors of the bounding box for east/west selection in the GUI).</p>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">model2d.add_polygons([[[0,0],[2,0],[2,2]],[[2,0],[5,0],[5,5],[3,5]]])           #Add two polygons
-model2d.select([2,2],types=['edge'])                                            #Select edges at point
-model2d.select([2,2],types=['edge']).values                                     #List of edges at point
-[edge:id=7, edge:id=8]
-model2d.select([2,0],types=['vertex','edge', 'face']).values                    #List of vertex, edges and faces
-[vertex:id=1, edge:id=6, edge:id=7, edge:id=9, edge:id=12, face:id=13, face:id=14]
-model2d.select([0,0],[3,3],types=['edge'],option='blue').values                 #Exclusive bounding box edge list
-[edge:id=6, edge:id=7, edge:id=8]
-model2d.select([0,0],[3,3],types=['edge'],option='green').values                #Inclusive bounding box edge list
-[edge:id=6, edge:id=7, edge:id=8, edge:id=9, edge:id=12]
-sel = model2d.select([0,0],[10,10],ShapeType.vertex,SelectOption.green)              #Select all four vertices
-model3d.add_box([0,0,0],[5,5,5])                                                #Add box
-model3d.select([1,1,1],types=['vertex','edge', 'face', 'volume']).values        #List of every shape in point
-[volume:id=26]
-model3d.select([0,0,0],[3,3,3],types=['edge'],option='blue').values             #Exclusive bounding box edge list
-[]
-model3d.select([0,0,0],[3,3,3],types=['edge'],option='green').values            #Inclusive bounding box edge list
-[edge:id=8, edge:id=11, edge:id=14]</code></pre>
+<pre translate="no" class="language-python"><code v-pre class="language-python">model2d.select([2,2], types='edge')                                             #Select edges at point
+model2d.select([0,0], [3,3], types=['edge'], option='blue')                     #Bounding box select
+model2d.select([[1,1], [3,3]], types='face')                                    #Multi-point, same type
+model2d.select([                                                                #Multi-point, mixed types
+    [[0,1], [2,3]],                                                             #  edges at these points
+    [[0,0], [2,2]]                                                              #  vertices at these points
+], types=['edge', 'vertex'])
+model3d.select([1,1,1],types=['vertex','edge', 'face', 'volume'])               #List of every shape in point
+model3d.select([0,0,0],[3,3,3],types=['edge'],option='blue')                    #Exclusive bounding box edge list
+model3d.select([0,0,0],[3,3,3],types=['edge'],option='green')                   #Inclusive bounding box edge list</code></pre>
 </doc-codeblock></div>
 <div id="retype-backlinks">
     <h2>See also</h2>

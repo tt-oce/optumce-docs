@@ -13,7 +13,7 @@ Create a solid box in 3D between a start and end point.
 
 ## Notes
 
-This function is designed for use in 3D, refer to [add_rectangle](/python/functions/model/add_rectangle) in 2D.
+This function is designed for use in 3D, refer to add_rectangle in 2D.
 
 ## See also
 

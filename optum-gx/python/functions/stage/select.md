@@ -48,7 +48,10 @@ model2d.select([2,2], types='edge')                                             
 model2d.select([0,0], [3,3], types=['edge'], option='blue')                     #Bounding box select
 model2d.select([[1,1], [3,3]], types='face')                                    #Multi-point, same type
 model2d.select([                                                                #Multi-point, mixed types
-    ...     [[0,1], [2,3]],                                                             #  edges at these points
-    ...     [[0,0], [2,2]]                                                              #  vertices at these points
-    ... ], types=['edge', 'vertex'])
+    [[0,1], [2,3]],                                                             #  edges at these points
+    [[0,0], [2,2]]                                                              #  vertices at these points
+], types=['edge', 'vertex'])
+model3d.select([1,1,1],types=['vertex','edge', 'face', 'volume'])               #List of every shape in point
+model3d.select([0,0,0],[3,3,3],types=['edge'],option='blue')                    #Exclusive bounding box edge list
+model3d.select([0,0,0],[3,3,3],types=['edge'],option='green')                   #Inclusive bounding box edge list
 ```
