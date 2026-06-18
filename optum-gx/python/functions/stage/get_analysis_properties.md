@@ -4,7 +4,9 @@ Get analysis properties.
 
 ## Parameters
 
-None
+<dl>
+<dd>None</dd>
+</dl>
 
 ## See also
 

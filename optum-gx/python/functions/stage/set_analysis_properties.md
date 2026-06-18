@@ -79,110 +79,111 @@ Define analysis properties
 
 ## Notes
 
-Most analysis parameters only refer to specific analysis types. element_type = 'mixed' is not applicable for axisymmetry and will be reverted to gauss. time_scope = 'variable' is only applicable for defomation analysis.
+Most analysis parameters only refer to specific analysis types.
+element_type = 'mixed' is not applicable for axisymmetry and will be reverted to gauss.
+time_scope = 'variable' is only applicable for defomation analysis.
 
 ## Examples
 
 ```python
 stage1.set_analysis_properties(
-analysis_type='mesh',
-no_of_elements=1000,
-)
+        analysis_type='mesh',
+        no_of_elements=1000,
+        ) 
 
 stage2.set_analysis_properties(
-analysis_type='initial_stress',
-element_type='mixed',
-no_of_elements=2000,
-design_approach = 'unity'
-)
+        analysis_type='initial_stress',
+        element_type='mixed',
+        no_of_elements=2000,
+        design_approach = 'unity'
+        ) 
 
 stage3.set_analysis_properties(
-analysis_type='load_multiplier',
-element_type='lower',
-no_of_elements=1000,
-mesh_adaptivity='yes',
-adaptivity_iterations=2,
-start_elements=1000,
-adaptivity_control= 'shear_disipation',
-from_model = '2D model',
-from_stage = 'stage 1',
-design_approach= 'sls',
-time_scope= 'short_term',
-load_multiplier_multiplier = 'load',
-undrained_parameters= 'cu',
-)
+        analysis_type='load_multiplier',
+        element_type='lower',
+        no_of_elements=1000,
+        mesh_adaptivity='yes',
+        adaptivity_iterations=2,
+        start_elements=1000,
+        adaptivity_control= 'shear_disipation',
+        from_model = '2D model',
+        from_stage = 'stage 1',
+        design_approach= 'sls',
+        time_scope= 'short_term',
+        load_multiplier_multiplier = 'load',
+        undrained_parameters= 'cu',
+        )
 
 stage4.set_analysis_properties(
-analysis_type='deformation',
-element_type='upper',
-no_of_elements=1000,
-mesh_adaptivity='no',
-adaptivity_iterations=2,
-adaptivity_control= 'total_disipation',
-start_elements=1000,
-from_model = '2D model',
-from_stage = 'stage 2',
-design_approach= 'uls',
-time_scope= 'long_term',
-initial_stresses= 'automatic',
-reset_displacements= 'yes',
-deformation_target= 'time',
-deformation_time= 30,
-deformation_no_of_steps= 3,
-deformation_time_step_variation= 'linear',
-deformation_u_target= 0.1,
-)
+        analysis_type='deformation',
+        element_type='upper',
+        no_of_elements=1000,
+        mesh_adaptivity='no',
+        adaptivity_iterations=2,
+        adaptivity_control= 'total_disipation',
+        start_elements=1000,
+        from_model = '2D model',
+        from_stage = 'stage 2',
+        design_approach= 'uls',
+        time_scope= 'long_term',
+        initial_stresses= 'automatic',
+        reset_displacements= 'yes',
+        deformation_target= 'time',
+        deformation_time= 30,
+        deformation_no_of_steps= 3,
+        deformation_time_step_variation= 'linear',
+        deformation_u_target= 0.1,
+        )
 
 stage5.set_analysis_properties(
-analysis_type='load_deformation',
-element_type='gauss',
-no_of_elements=1000,
-mesh_adaptivity='no',
-adaptivity_iterations=2,
-start_elements=1000,
-adaptivity_control='strain',
-from_model = '2D model',
-from_stage = 'stage 2',
-design_approach= 'als',
-time_scope= 'variable',
-initial_stresses= 'none',
-reset_displacements = 'no',
-load_deformation_scheme= 'target',
-load_deformation_target= 'displacement',
-load_deformation_u_target= 0.1,
-load_deformation_no_of_steps= 10,
-load_deformation_step_variation= 'constant',
-)
+        analysis_type='load_deformation',
+        element_type='gauss',
+        no_of_elements=1000,
+        mesh_adaptivity='no',
+        adaptivity_iterations=2,
+        start_elements=1000,
+        adaptivity_control='strain',
+        from_model = '2D model',
+        from_stage = 'stage 2',
+        design_approach= 'als',
+        time_scope= 'variable',
+        initial_stresses= 'none',
+        reset_displacements = 'no',
+        load_deformation_scheme= 'target',
+        load_deformation_target= 'displacement',
+        load_deformation_u_target= 0.1,
+        load_deformation_no_of_steps= 10,
+        load_deformation_step_variation= 'constant',
+        )
 
 stage6.set_analysis_properties(
-analysis_type='factor_of_safety',
-element_type='gauss',
-no_of_elements=1000,
-mesh_adaptivity='yes',
-adaptivity_iterations=2,
-start_elements=500,
-adaptivity_control='strain',
-from_model = '2D model',
-from_stage = 'stage 2',
-design_approach= 'sls',
-time_scope='long_term'
-reduce_strength_in= 'soil'
-)
+        analysis_type='factor_of_safety',
+        element_type='gauss',
+        no_of_elements=1000,
+        mesh_adaptivity='yes',
+        adaptivity_iterations=2,
+        start_elements=500,
+        adaptivity_control='strain',
+        from_model = '2D model',
+        from_stage = 'stage 2',
+        design_approach= 'sls',
+        time_scope='long_term'
+        reduce_strength_in= 'soil'
+        )
 
 stage7.set_analysis_properties(
-analysis_type='seepage',
-element_type='gauss',
-no_of_elements=1000,
-mesh_adaptivity='yes',
-adaptivity_iterations=2,
-start_elements=500,
-adaptivity_control='strain',
-from_model = '2D model',
-from_stage = 'stage 2',
-seepage_time_settings = 'transient',
-seepage_target_time= 120,
-seepage_no_of_steps=10,
-seepage_time_step_variation = 'linear',
-)
+        analysis_type='seepage',
+        element_type='gauss',
+        no_of_elements=1000,
+        mesh_adaptivity='yes',
+        adaptivity_iterations=2,
+        start_elements=500,
+        adaptivity_control='strain',
+        from_model = '2D model',
+        from_stage = 'stage 2',
+        seepage_time_settings = 'transient',
+        seepage_target_time= 120,
+        seepage_no_of_steps=10,
+        seepage_time_step_variation = 'linear',
+        )
 ```
-

@@ -15,4 +15,3 @@ Set run flag for model or stage.
 stage1.set_run_flag('run')
 stage1.set_run_flag('none')
 ```
-

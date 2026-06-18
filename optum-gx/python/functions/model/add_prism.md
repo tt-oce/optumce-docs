@@ -13,7 +13,7 @@ Draw a prism in 3D.
 
 ## See also
 
-- [add_ncone] missing
+- [add_ncone](/python/functions/model/add_ncone)
 - [add_nprism](/python/functions/model/add_nprism)
 - [create_csys_2d](/python/functions/project/create_csys_2d)
 - [create_csys_3d](/python/functions/project/create_csys_3d)
@@ -29,4 +29,3 @@ To create a solid prism all points must be on the same plane.
 model3d.add_prism([[0,0,0],[1,0,0],[0,1,0]], height = 4)
 model3d.add_prism([[4,-2,0],[2,2,0],[0,2,0],[3,-2,0]], height = 1)
 ```
-

@@ -18,7 +18,6 @@ Sets the current model.
 ## Examples
 
 ```python
-prj.set_current_model(model_name='2D model')
+prj.set_current_model(model_name='2D model')                
 prj.set_current_model(model_name=model3d)
 ```
-

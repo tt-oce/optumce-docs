@@ -4,7 +4,9 @@ Get current stage.
 
 ## Parameters
 
-None
+<dl>
+<dd>None</dd>
+</dl>
 
 ## Examples
 
@@ -12,4 +14,3 @@ None
 prj.get_current_stage()
 prj.get_current_stage().name
 ```
-

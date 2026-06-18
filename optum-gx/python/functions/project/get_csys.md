@@ -4,7 +4,9 @@ Obtains a list of coordinate systems.
 
 ## Parameters
 
-None
+<dl>
+<dd>None</dd>
+</dl>
 
 ## See also
 
@@ -19,6 +21,5 @@ None
 project.get_csys()
 project.get_csys()[0]
 project.get_csys()[0].name
-Global 3D
+    Global 3D
 ```
-

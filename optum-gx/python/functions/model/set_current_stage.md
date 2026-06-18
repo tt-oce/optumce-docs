@@ -22,4 +22,3 @@ stage4 = model3d.create_stage("stage 4")
 model3d.set_current_stage(stage_name="stage 4")
 model3d.set_current_stage(stage_name= stage4)
 ```
-

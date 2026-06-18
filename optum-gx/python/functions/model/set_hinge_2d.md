@@ -23,10 +23,10 @@ Vertices must be connected to atleast one plate, to which the hinge will be assi
 model2d.add_rectangle([0,0],[0,2])
 edge = model2d.select(p0=[0,1],types='edge')
 RigidPlateMaterial = prj.RigidPlate(name='RigidPlateMaterial',
-color=rgb(128,156,180),
-weight=0,
-permeable='no',
-)
+                            color=rgb(128,156,180),
+                            weight=0,
+                            permeable='no',
+                            )
 model2d.set_plate(shapes=edge,material=RigidPlateMaterial)
 model2d.add_vertex([0,1])
 vertex = model2d.select(p0=[0,1],p1=[0,2],types=['vertex'])

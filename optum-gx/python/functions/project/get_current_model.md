@@ -4,7 +4,9 @@ Get current model.
 
 ## Parameters
 
-None
+<dl>
+<dd>None</dd>
+</dl>
 
 ## Examples
 

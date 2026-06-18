@@ -4,9 +4,10 @@ Creates a new stage.
 
 ## Parameters
 
-name : str
-
-Optional name string
+<dl>
+<dt>name : str</dt>
+<dd>Optional name string</dd>
+</dl>
 
 ## See also
 

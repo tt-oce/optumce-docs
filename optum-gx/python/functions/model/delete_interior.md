@@ -27,4 +27,3 @@ model3d.add_box([0,0,0],[5,5,5])                                        #Add box
 v = model3d.select([1,1,1],types=['volume'])                            #Select volume of box
 model3d.delete_interior(v)                                                              #Delete box
 ```
-

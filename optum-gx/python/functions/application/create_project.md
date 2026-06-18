@@ -18,4 +18,3 @@ Overwrites any current projects.
 ```python
 gx.create_project(name='Slope_stability')
 ```
-
