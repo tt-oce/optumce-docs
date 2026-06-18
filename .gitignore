@@ -2,3 +2,5 @@
 venv/
 .claude/
 .vscode/settings.json
+__pycache__/
+*.pyc

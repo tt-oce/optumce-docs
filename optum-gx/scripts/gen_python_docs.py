@@ -32,7 +32,7 @@ from pathlib import Path
 # ---- Configuration ----------------------------------------------------------
 
 DEFAULT_SOURCE = Path(r"C:\Users\Public\OPTUM CE\OPTUM GX\library\OptumGX")
-SOURCE_FILES = ["v2.py", "ContractV2_gen.py"]
+SOURCE_FILES = ["v2.py", "ContractV2_gen.py", "DataModelV2.py"]
 
 # Class name in the source -> doc folder(s) under optum-gx/python/functions/.
 # StageBase methods are inherited by both Model and Stage, so duplicate them.
@@ -45,14 +45,22 @@ CLASS_TO_CATEGORIES = {
     "Stage": ["stage"],
     "StageBase": ["model", "stage"],
     "_RemoteStage": ["stage"],
-    "AnalysisProperties": ["stage"],
+    "AnalysisProperties": ["model","stage"],
+    "Shape": ["geometry"],
+    "ShapeList": ["geometry"],
 }
+
+# Classes rendered as a SINGLE page (overview + Properties + Methods) instead of
+# one page per method. Properties come from a numpy-style "Attributes" section in
+# the class docstring; methods are the public, non-@property callables.
+CLASS_PAGE_CLASSES = {"Shape", "ShapeList"}
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DOCS_ROOT = SCRIPT_DIR.parent / "python" / "functions"
 REPO_ROOT = DOCS_ROOT.parent.parent.parent
 
-SECTION_RE = re.compile(r'^(Parameters|Examples|See Also|Notes)\s*$', re.MULTILINE)
+SECTION_RE = re.compile(r'^(Parameters|Returns|Examples|See Also|Notes)\s*$', re.MULTILINE)
+ATTR_HEADER_RE = re.compile(r'^Attributes\s*$', re.MULTILINE)
 PARAM_RE = re.compile(r'^\s*(\w+)\s*:\s*(.+?)\s*$')
 SEPARATOR_RE = re.compile(r'^-{5,}\s*$')
 INDEX_FILES = {"index.md", "index.yaml", "index.yml"}
@@ -68,11 +76,28 @@ class FuncDoc:
     categories: list
 
 
+@dataclass
+class ClassDoc:
+    """A class rendered as a single page (overview + Properties + Methods)."""
+    class_name: str
+    docstring: str          # full class docstring (overview + Attributes section)
+    categories: list
+    methods: list           # list of (name, one-line summary)
+
+
+def _is_property(func: ast.FunctionDef) -> bool:
+    """True if the def is decorated with @property (so it's a data attribute,
+    documented via the class Attributes section rather than as a method)."""
+    return any(isinstance(d, ast.Name) and d.id == "property"
+               for d in func.decorator_list)
+
+
 # ---- Extraction (AST) -------------------------------------------------------
 
 def extract_docs(source_root: Path) -> list:
     """Walk the configured source files and pull every (class, method, docstring)
-    we know how to route to a doc category."""
+    we know how to route to a doc category. Returns a mix of FuncDoc (one page per
+    method) and ClassDoc (one page per class, for CLASS_PAGE_CLASSES)."""
     docs = []
     for fname in SOURCE_FILES:
         path = source_root / fname
@@ -86,6 +111,21 @@ def extract_docs(source_root: Path) -> list:
             cats = CLASS_TO_CATEGORIES.get(node.name)
             if not cats:
                 continue
+
+            if node.name in CLASS_PAGE_CLASSES:
+                methods = []
+                for sub in node.body:
+                    if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                        continue
+                    if sub.name.startswith("_") or _is_property(sub):
+                        continue
+                    ds = ast.get_docstring(sub, clean=True) or ""
+                    summary = ds.strip().split("\n")[0] if ds else ""
+                    methods.append((sub.name, summary))
+                class_ds = ast.get_docstring(node, clean=True) or ""
+                docs.append(ClassDoc(node.name, class_ds, cats, methods))
+                continue
+
             for sub in node.body:
                 if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
                     continue
@@ -96,6 +136,43 @@ def extract_docs(source_root: Path) -> list:
                     continue
                 docs.append(FuncDoc(node.name, sub.name, ds, cats))
     return docs
+
+
+def parse_attributes(docstring: str):
+    """Split a class docstring into (overview_text, [(name, type, desc), ...]).
+    The attribute list is parsed from a numpy-style 'Attributes' section."""
+    m = ATTR_HEADER_RE.search(docstring)
+    if not m:
+        return docstring, []
+    overview = docstring[:m.start()]
+    rest = docstring[m.end():]
+    nxt = SECTION_RE.search(rest)          # stop at any following named section
+    block = rest[:nxt.start()] if nxt else rest
+
+    attrs = []
+    name = typ = None
+    desc_buf = []
+
+    def flush():
+        if name is not None:
+            attrs.append((name, typ, " ".join(desc_buf)))
+
+    for line in block.split("\n"):
+        s = line.strip()
+        if not s or SEPARATOR_RE.match(s):
+            continue
+        indented = line[:1] in (" ", "\t")
+        pm = PARAM_RE.match(s)
+        if not indented and pm:
+            flush()
+            name, typ, desc_buf = pm.group(1), pm.group(2).strip(), []
+        elif not indented and name is None:
+            flush()
+            name, typ, desc_buf = s, "", []
+        else:
+            desc_buf.append(s)
+    flush()
+    return overview, attrs
 
 
 # ---- Rendering --------------------------------------------------------------
@@ -138,6 +215,28 @@ def render_markdown(doc: FuncDoc, func_to_cat: dict) -> str:
             parts.append("</dl>")
             parts.append("")
 
+        elif title == "Returns":
+            # numpy style: a non-indented line is a return type (or "name : type"),
+            # following indented lines are its description.
+            parts.append("## Returns")
+            parts.append("")
+            parts.append("<dl>")
+            desc_buf = []
+            for line in content.split("\n"):
+                if not line.strip() or SEPARATOR_RE.match(line.strip()):
+                    continue
+                if line[:1] in (" ", "\t"):
+                    desc_buf.append(line.strip())
+                else:
+                    if desc_buf:
+                        parts.append(f"<dd>{' '.join(desc_buf)}</dd>")
+                        desc_buf = []
+                    parts.append(f"<dt>{line.strip()}</dt>")
+            if desc_buf:
+                parts.append(f"<dd>{' '.join(desc_buf)}</dd>")
+            parts.append("</dl>")
+            parts.append("")
+
         elif title == "Examples":
             parts.append("## Examples")
             parts.append("")
@@ -145,7 +244,8 @@ def render_markdown(doc: FuncDoc, func_to_cat: dict) -> str:
             for line in content.split("\n"):
                 if SEPARATOR_RE.match(line.strip()):
                     continue
-                line = re.sub(r'^\s*>>>\s?', '', line)
+                # strip interactive prompts: '>>>' and '...' continuation
+                line = re.sub(r'^\s*(?:>>>|\.\.\.)\s?', '', line)
                 parts.append(line)
             parts.append("```")
             parts.append("")
@@ -176,26 +276,73 @@ def render_markdown(doc: FuncDoc, func_to_cat: dict) -> str:
     return "\n".join(parts)
 
 
+def render_class_markdown(doc: ClassDoc, func_to_cat: dict) -> str:
+    """Render a ClassDoc to a single page: overview, Properties, Methods."""
+    parts = [f"# {doc.class_name}", ""]
+
+    overview, attrs = parse_attributes(doc.docstring)
+    overview = overview.strip()
+    if overview:
+        parts.append(overview)
+        parts.append("")
+
+    if attrs:
+        parts.append("## Properties")
+        parts.append("")
+        parts.append("<dl>")
+        for name, typ, desc in attrs:
+            parts.append(f"<dt>{name} : {typ}</dt>" if typ else f"<dt>{name}</dt>")
+            if desc:
+                parts.append(f"<dd>{desc}</dd>")
+        parts.append("</dl>")
+        parts.append("")
+
+    if doc.methods:
+        parts.append("## Methods")
+        parts.append("")
+        parts.append("<dl>")
+        for name, summary in doc.methods:
+            parts.append(f"<dt>{name}()</dt>")
+            if summary:
+                parts.append(f"<dd>{summary}</dd>")
+        parts.append("</dl>")
+        parts.append("")
+
+    while parts and parts[-1] == "":
+        parts.pop()
+    parts.append("")
+    return "\n".join(parts)
+
+
 # ---- Writer -----------------------------------------------------------------
 
+def _doc_name(d) -> str:
+    """Output base name (without .md) for a FuncDoc or ClassDoc."""
+    return d.class_name if isinstance(d, ClassDoc) else d.func_name
+
+
 def write_docs(docs: list, dry_run: bool, verbose: bool):
-    """Render each FuncDoc and write only files whose content changed.
+    """Render each doc and write only files whose content changed.
     Returns (written, unchanged, set_of_touched_paths)."""
-    # See-also link resolution: which category does each function name live in?
+    # See-also link resolution: which category does each name live in?
     # If a method exists in multiple categories (e.g. StageBase), prefer the
     # one that appears first in CLASS_TO_CATEGORIES (model before stage).
     func_to_cat = {}
     for d in docs:
-        if d.func_name not in func_to_cat:
-            func_to_cat[d.func_name] = d.categories[0]
+        key = _doc_name(d)
+        if key not in func_to_cat:
+            func_to_cat[key] = d.categories[0]
 
     written = 0
     unchanged = 0
     touched = set()
     for d in docs:
-        rendered = render_markdown(d, func_to_cat)
+        if isinstance(d, ClassDoc):
+            rendered = render_class_markdown(d, func_to_cat)
+        else:
+            rendered = render_markdown(d, func_to_cat)
         for cat in d.categories:
-            target = DOCS_ROOT / cat / f"{d.func_name}.md"
+            target = DOCS_ROOT / cat / f"{_doc_name(d)}.md"
             touched.add(target)
             if target.exists() and target.read_text(encoding="utf-8") == rendered:
                 unchanged += 1
