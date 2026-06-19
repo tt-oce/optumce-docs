@@ -3,13 +3,16 @@
 Select geometric objects by point or bounding box.
 
 ## Parameters
-
+### Selection by point:</dd>
 <dl>
-<dd>Selection by point:</dd>
 <dt>p0 : array</dt>
 <dt>Point : p0 = [x0,y0] in 2D, p0 = [x0,y0,z0] in 3D</dt>
 <dt>types : str | list[str]</dt>
-<dd>One or more shape types:    types = 'edge' or ['vertex','edge', 'face', 'volume'] Selection by bounding box:</dd>
+<dd>One or more shape types:    types = 'edge' or ['vertex','edge', 'face', 'volume']</dd>
+</dl>
+
+### Selection by bounding box:
+<dl>
 <dt>p0 : array</dt>
 <dd>Starting point of bounding box: p0 = [x0,y0] in 2D, p0 = [x0,y0,z0] in 3D</dd>
 <dt>p1 : array</dt>
