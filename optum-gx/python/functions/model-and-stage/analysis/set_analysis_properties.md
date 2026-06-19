@@ -75,7 +75,7 @@ Define analysis properties
 
 ## See also
 
-- [get_analysis_properties](/python/functions/stage/analysis/get_analysis_properties)
+- [get_analysis_properties](/python/functions/model-and-stage/analysis/get_analysis_properties)
 
 ## Notes
 

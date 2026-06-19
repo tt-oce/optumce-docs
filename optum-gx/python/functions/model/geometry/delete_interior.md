@@ -12,7 +12,7 @@ Delete shapes and leave voids in their place.
 ## See also
 
 - [select](/python/functions/model-and-stage/geometry/select)
-- [del_shapes](/python/functions/model/del_shapes)
+- [delete_shapes](/python/functions/model/geometry/delete_shapes)
 
 ## Examples
 

@@ -19,11 +19,11 @@ Delete shapes and their definition.
 ```python
 model2d.add_polygons([[[0,0],[2,0],[2,2]],[[2,0],[5,0],[5,5],[3,5]]])       #Add two polygons
 f = model2d.select([1,1],[2,2],types=['face'],option='green')           #Select the face of first polygon
-model2d.del_shapes(f)                                                   #Delete the face
+model2d.delete_shapes(f)                                                   #Delete the face
 model2d.add_polygons([[[0,0],[2,0],[2,2]],[[2,0],[5,0],[5,5],[3,5]]])       #Add two polygons
 v = model2d.select([2,2],types=['vertex'])                              #Select vertex
-model2d.del_shapes(v)                                                   #Delete vertex and all shapes defined by vertex
+model2d.delete_shapes(v)                                                   #Delete vertex and all shapes defined by vertex
 model3d.add_box([0,0,0],[5,5,5])                                        #Add box
 v = model3d.select([1,1,1],types=['volume'])                            #Select volume of box
-model3d.del_shapes(v)
+model3d.delete_shapes(v)
 ```
