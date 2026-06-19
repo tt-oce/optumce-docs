@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835173537704">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835174024374">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.835173537704" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.835174024374" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835173537704" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835174024374" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835173537704" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835173537704" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835174024374" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835174024374" defer></script>
 
     <style>
         /* Images */
@@ -316,12 +316,15 @@
 <h1 id="select">select</h1>
 <p>Select geometric objects by point or bounding box.</p>
 <h2 id="parameters">Parameters</h2>
+<h3 id="selection-by-point">Selection by point:</dd></h3>
 <dl>
-<dd>Selection by point:</dd>
 <dt>p0 : array</dt>
 <dt>Point : p0 = [x0,y0] in 2D, p0 = [x0,y0,z0] in 3D</dt>
 <dt>types : str | list[str]</dt>
-<dd>One or more shape types:    types = 'edge' or ['vertex','edge', 'face', 'volume'] Selection by bounding box:</dd>
+<dd>One or more shape types:    types = 'edge' or ['vertex','edge', 'face', 'volume']</dd>
+</dl>
+<h3 id="selection-by-bounding-box">Selection by bounding box:</h3>
+<dl>
 <dt>p0 : array</dt>
 <dd>Starting point of bounding box: p0 = [x0,y0] in 2D, p0 = [x0,y0,z0] in 3D</dd>
 <dt>p1 : array</dt>
