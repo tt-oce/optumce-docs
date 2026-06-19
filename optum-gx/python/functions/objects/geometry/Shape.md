@@ -25,13 +25,49 @@ type (length for edges, area for faces, volume for volumes).
 
 ## Methods
 
+### set_2d_to_3d_settings()
+
+Set 2D to 3D extrusion settings for this shape.
+
+#### Parameters
+
 <dl>
-<dt>vertices()</dt>
-<dt>edges()</dt>
-<dt>faces()</dt>
-<dt>volumes()</dt>
-<dt>set_2d_to_3d_settings()</dt>
-<dd>Set 2D to 3D extrusion settings for this shape.</dd>
-<dt>get_2d_to_3d_settings()</dt>
-<dd>Get 2D to 3D extrusion settings for this shape.</dd>
+<dt>depth_in : float, optional</dt>
+<dd>Extrusion depth inward</dd>
+<dt>depth_out : float, optional</dt>
+<dd>Extrusion depth outward</dd>
+<dt>repetition : bool, optional</dt>
+<dd>Enable repetition</dd>
+<dt>repetition_spacing : float, optional</dt>
+<dd>Spacing between repetitions</dd>
+<dt>repetition_out : float, optional</dt>
+<dd>Number of repetitions outward</dd>
+<dt>repetition_in : float, optional</dt>
+<dd>Number of repetitions inward</dd>
+<dt>fill : bool, optional</dt>
+<dd>Fill between repetitions</dd>
+<dt>fill_in : float, optional</dt>
+<dd>Fill depth inward</dd>
+<dt>fill_out : float, optional</dt>
+<dd>Fill depth outward</dd>
+<dt>as_face : bool, optional</dt>
+<dd>Treat as face</dd>
+</dl>
+
+#### Returns
+
+<dl>
+<dt>bool</dt>
+<dd>True if settings were applied successfully</dd>
+</dl>
+
+### get_2d_to_3d_settings()
+
+Get 2D to 3D extrusion settings for this shape.
+
+#### Returns
+
+<dl>
+<dt>dict</dt>
+<dd>Dictionary containing extrusion settings: - depth_in: Extrusion depth inward - depth_out: Extrusion depth outward - repetition: Whether repetition is enabled - repetition_spacing: Spacing between repetitions - repetition_out: Number of repetitions outward - repetition_in: Number of repetitions inward - fill: Whether fill is enabled - fill_in: Fill depth inward - fill_out: Fill depth outward - as_face: Whether to treat as face</dd>
 </dl>

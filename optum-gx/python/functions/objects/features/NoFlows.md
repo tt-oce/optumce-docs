@@ -1,0 +1,3 @@
+# NoFlows
+
+Object without properties.

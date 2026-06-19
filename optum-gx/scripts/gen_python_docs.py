@@ -247,11 +247,22 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 DOCS_ROOT = SCRIPT_DIR.parent / "python" / "functions"
 REPO_ROOT = DOCS_ROOT.parent.parent.parent
 
-SECTION_RE = re.compile(r'^(Parameters|Returns|Examples|See Also|Notes)\s*$', re.MULTILINE)
+SECTION_RE = re.compile(
+    r'^(Parameters|Returns|Examples|See Also|Notes|Attributes)\s*$',
+    re.MULTILINE,
+)
 ATTR_HEADER_RE = re.compile(r'^Attributes\s*$', re.MULTILINE)
 PARAM_RE = re.compile(r'^\s*(\w+)\s*:\s*(.+?)\s*$')
 SEPARATOR_RE = re.compile(r'^-{5,}\s*$')
 INDEX_FILES = {"index.md", "index.yaml", "index.yml"}
+
+# Files the script is allowed to KNOW ABOUT (so they don't appear as orphans)
+# but never overwrites. Use for pages with overload signatures or other
+# structure the auto-renderer can't capture faithfully -- hand-maintained.
+# Paths are relative to DOCS_ROOT, forward-slash separated.
+SKIP_REGENERATE_PATHS = {
+    "model-and-stage/geometry/select.md",
+}
 
 
 # ---- Data model -------------------------------------------------------------
@@ -266,13 +277,13 @@ class FuncDoc:
 
 @dataclass
 class ClassDoc:
-    """A class rendered as a single page (overview + Properties + Methods).
-    Each entry in `methods` carries the full method docstring so per-method
-    sub-pages can be emitted at <ClassName>/<method>.md when present."""
+    """A class rendered as a single self-contained page: docstring body +
+    Properties + Methods (each method's full docstring inlined)."""
     class_name: str
-    docstring: str          # full class docstring (overview + Attributes section)
+    docstring: str          # full class docstring (overview + sections)
     categories: list
     methods: list           # list of (name, one-line summary, full_docstring)
+    properties: list = None # list of (name, type, attribute_docstring); may be []
 
 
 def _is_property(func: ast.FunctionDef) -> bool:
@@ -299,6 +310,41 @@ def _extract_class_methods(class_node: ast.ClassDef) -> list:
     return out
 
 
+def _extract_class_properties(class_node: ast.ClassDef) -> list:
+    """Return [(name, type, attribute_docstring), ...] for class-level
+    annotated assignments (PEP 258 attribute-docstring pattern):
+
+        name: type
+        \"\"\"Description.\"\"\"
+        name = prop(...)         # optional binding line
+
+    Skips private names. The attribute docstring is the string Expr that
+    immediately follows the AnnAssign in the class body."""
+    out = []
+    body = class_node.body
+    for i, node in enumerate(body):
+        if not isinstance(node, ast.AnnAssign):
+            continue
+        if not isinstance(node.target, ast.Name):
+            continue
+        name = node.target.id
+        if name.startswith("_"):
+            continue
+        try:
+            type_str = ast.unparse(node.annotation)
+        except Exception:
+            type_str = ""
+        ds = ""
+        if i + 1 < len(body):
+            nxt = body[i + 1]
+            if (isinstance(nxt, ast.Expr)
+                    and isinstance(nxt.value, ast.Constant)
+                    and isinstance(nxt.value.value, str)):
+                ds = nxt.value.value.strip()
+        out.append((name, type_str, ds))
+    return out
+
+
 # ---- Extraction (AST) -------------------------------------------------------
 
 def extract_docs(source_root: Path) -> list:
@@ -321,8 +367,10 @@ def extract_docs(source_root: Path) -> list:
 
             if node.name in CLASS_PAGE_CLASSES:
                 methods = _extract_class_methods(node)
+                properties = _extract_class_properties(node)
                 class_ds = ast.get_docstring(node, clean=True) or ""
-                docs.append(ClassDoc(node.name, class_ds, cats, methods))
+                docs.append(ClassDoc(node.name, class_ds, cats, methods,
+                                     properties))
                 continue
 
             for sub in node.body:
@@ -363,7 +411,9 @@ def extract_docs(source_root: Path) -> list:
                 continue
             class_ds = ast.get_docstring(cls_node, clean=True) or ""
             methods = _extract_class_methods(cls_node)
-            docs.append(ClassDoc(class_name, class_ds, ["objects"], methods))
+            properties = _extract_class_properties(cls_node)
+            docs.append(ClassDoc(class_name, class_ds, ["objects"], methods,
+                                 properties))
             objects_subs[class_name] = cfg["subcategory"]
 
     return docs
@@ -408,12 +458,18 @@ def parse_attributes(docstring: str):
 
 # ---- Rendering --------------------------------------------------------------
 
-def render_markdown(doc: FuncDoc, link_map: dict) -> str:
-    """Render a FuncDoc to markdown matching the repo's existing style."""
-    parts = [f"# {doc.func_name}", ""]
+def _render_body(docstring: str, link_map: dict, fallback_cat: str,
+                 h_level: int = 2, skip_attributes: bool = False) -> list:
+    """Render the body of a docstring (everything after the title) as a list of
+    markdown lines. `h_level` controls the depth of section headers (2 for a
+    function/class top-level page, 4 when inlined under a class's Methods).
+    `skip_attributes=True` suppresses the Attributes section -- used by the
+    class renderer, which renders properties separately from a merged source
+    (docstring Attributes + AnnAssign attribute docstrings)."""
+    parts = []
+    h = "#" * h_level
 
-    sections = SECTION_RE.split(doc.docstring)
-
+    sections = SECTION_RE.split(docstring)
     overview = sections[0].strip()
     if overview:
         parts.append(overview)
@@ -423,8 +479,14 @@ def render_markdown(doc: FuncDoc, link_map: dict) -> str:
         title = sections[i].strip()
         content = sections[i + 1].strip()
 
-        if title == "Parameters":
-            parts.append("## Parameters")
+        if title == "Attributes" and skip_attributes:
+            continue
+
+        if title in ("Parameters", "Attributes"):
+            # Attributes is rendered as "Properties" to match the existing
+            # class-page convention; Parameters keeps its name.
+            label = "Properties" if title == "Attributes" else "Parameters"
+            parts.append(f"{h} {label}")
             parts.append("")
             parts.append("<dl>")
             desc_buf = []
@@ -447,9 +509,7 @@ def render_markdown(doc: FuncDoc, link_map: dict) -> str:
             parts.append("")
 
         elif title == "Returns":
-            # numpy style: a non-indented line is a return type (or "name : type"),
-            # following indented lines are its description.
-            parts.append("## Returns")
+            parts.append(f"{h} Returns")
             parts.append("")
             parts.append("<dl>")
             desc_buf = []
@@ -469,32 +529,29 @@ def render_markdown(doc: FuncDoc, link_map: dict) -> str:
             parts.append("")
 
         elif title == "Examples":
-            parts.append("## Examples")
+            parts.append(f"{h} Examples")
             parts.append("")
             parts.append("```python")
             for line in content.split("\n"):
                 if SEPARATOR_RE.match(line.strip()):
                     continue
-                # strip interactive prompts: '>>>' and '...' continuation
                 line = re.sub(r'^\s*(?:>>>|\.\.\.)\s?', '', line)
                 parts.append(line)
             parts.append("```")
             parts.append("")
 
         elif title == "See Also":
-            parts.append("## See also")
+            parts.append(f"{h} See also")
             parts.append("")
             for raw in re.split(r'[,;\n]', content):
                 ref = raw.strip()
                 if not ref or SEPARATOR_RE.match(ref):
                     continue
-                # Look the ref up in the global (name -> (category, sub)) map.
-                # Fallback: same category and subcategory as the current doc.
                 loc = link_map.get(ref)
                 if loc:
                     cat, sub = loc
                 else:
-                    cat = doc.categories[0]
+                    cat = fallback_cat
                     sub = SUBCATEGORIES.get(cat, {}).get(ref)
                 path = f"/python/functions/{cat}/{sub}/{ref}" if sub \
                        else f"/python/functions/{cat}/{ref}"
@@ -502,7 +559,7 @@ def render_markdown(doc: FuncDoc, link_map: dict) -> str:
             parts.append("")
 
         elif title == "Notes":
-            parts.append("## Notes")
+            parts.append(f"{h} Notes")
             parts.append("")
             for line in content.split("\n"):
                 if SEPARATOR_RE.match(line.strip()):
@@ -510,6 +567,14 @@ def render_markdown(doc: FuncDoc, link_map: dict) -> str:
                 parts.append(line)
             parts.append("")
 
+    return parts
+
+
+def render_markdown(doc: FuncDoc, link_map: dict) -> str:
+    """Render a FuncDoc to markdown matching the repo's existing style."""
+    parts = [f"# {doc.func_name}", ""]
+    parts.extend(_render_body(doc.docstring, link_map, doc.categories[0],
+                              h_level=2))
     while parts and parts[-1] == "":
         parts.pop()
     parts.append("")
@@ -517,62 +582,62 @@ def render_markdown(doc: FuncDoc, link_map: dict) -> str:
 
 
 def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
-    """Render a ClassDoc to a single page: overview, Properties, Methods."""
+    """Render a ClassDoc to a single self-contained page: class docstring body
+    + Properties (merged from docstring Attributes + AnnAssign attribute
+    docstrings) + Methods (each method's full docstring inlined)."""
     parts = [f"# {doc.class_name}", ""]
+    fallback_cat = doc.categories[0]
 
-    overview, attrs = parse_attributes(doc.docstring)
-    overview = overview.strip()
-    if overview:
-        parts.append(overview)
-        parts.append("")
+    # Class-level docstring -> body sections at H2. Skip the Attributes
+    # section here; it's rendered explicitly below alongside AnnAssign props.
+    parts.extend(_render_body(doc.docstring, link_map, fallback_cat,
+                              h_level=2, skip_attributes=True))
 
-    if attrs:
+    # Properties: union of docstring Attributes and AnnAssign attribute
+    # docstrings. Docstring entries come first (they tend to be hand-curated);
+    # AnnAssign entries fill in the rest. De-dupe by name.
+    _doc_overview, doc_attrs = parse_attributes(doc.docstring)
+    seen = set()
+    merged_props = []
+    for name, typ, desc in doc_attrs:
+        if name in seen:
+            continue
+        merged_props.append((name, typ, desc))
+        seen.add(name)
+    for name, typ, desc in (doc.properties or []):
+        if name in seen:
+            continue
+        merged_props.append((name, typ, desc))
+        seen.add(name)
+
+    if merged_props:
         parts.append("## Properties")
         parts.append("")
         parts.append("<dl>")
-        for name, typ, desc in attrs:
-            parts.append(f"<dt>{name} : {typ}</dt>" if typ else f"<dt>{name}</dt>")
+        for name, typ, desc in merged_props:
+            parts.append(f"<dt>{name} : {typ}</dt>" if typ
+                         else f"<dt>{name}</dt>")
             if desc:
                 parts.append(f"<dd>{desc}</dd>")
         parts.append("</dl>")
         parts.append("")
 
-    # Methods entries link to per-method sub-pages when the method has a
-    # docstring (so the sub-page actually exists). Plain text otherwise.
-    if doc.methods:
-        cat = doc.categories[0]
-        sub = SUBCATEGORIES.get(cat, {}).get(doc.class_name)
-        base = f"/python/functions/{cat}/{sub}/{doc.class_name}" if sub \
-               else f"/python/functions/{cat}/{doc.class_name}"
+    # Method docstrings inlined under a Methods section. Each method's title
+    # is H3, its docstring's own sub-sections drop to H4 so they don't clash
+    # with the H2 class-level headers above.
+    documented_methods = [m for m in doc.methods if m[2]]
+    if documented_methods:
         parts.append("## Methods")
         parts.append("")
-        parts.append("<dl>")
-        for name, summary, ds in doc.methods:
-            if ds:
-                parts.append(f'<dt><a href="{base}/{name}">{name}()</a></dt>')
-            else:
-                parts.append(f"<dt>{name}()</dt>")
-            if summary:
-                parts.append(f"<dd>{summary}</dd>")
-        parts.append("</dl>")
-        parts.append("")
+        for name, _summary, ds in documented_methods:
+            parts.append(f"### {name}()")
+            parts.append("")
+            parts.extend(_render_body(ds, link_map, fallback_cat, h_level=4))
 
     while parts and parts[-1] == "":
         parts.pop()
     parts.append("")
     return "\n".join(parts)
-
-
-def render_class_method_markdown(class_name: str, method_doc: FuncDoc,
-                                 link_map: dict) -> str:
-    """Render a method of an Object class as its own page. Same body as
-    render_markdown but the H1 is class-qualified (e.g. '# Shape.center')."""
-    md = render_markdown(method_doc, link_map)
-    return md.replace(
-        f"# {method_doc.func_name}\n",
-        f"# {class_name}.{method_doc.func_name}\n",
-        1,
-    )
 
 
 # ---- Writer -----------------------------------------------------------------
@@ -618,6 +683,13 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
     def _emit(target: Path, rendered: str):
         nonlocal written, unchanged
         touched.add(target)
+        # Carve-out: pages in SKIP_REGENERATE_PATHS are hand-maintained.
+        # Mark them as touched so they're not flagged as orphans, but never
+        # write over them.
+        rel_skip = str(target.relative_to(DOCS_ROOT)).replace("\\", "/")
+        if rel_skip in SKIP_REGENERATE_PATHS:
+            unchanged += 1
+            return
         if target.exists() and target.read_text(encoding="utf-8") == rendered:
             unchanged += 1
             return
@@ -640,21 +712,6 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
         for cat in d.categories:
             target = _resolve_path(cat, _doc_name(d))
             _emit(target, rendered)
-
-        # Per-method sub-pages for Object classes (only when the method has
-        # a docstring -- skips creating the <Class>/ folder otherwise).
-        if isinstance(d, ClassDoc):
-            for method_name, _summary, method_ds in d.methods:
-                if not method_ds:
-                    continue
-                method_doc = FuncDoc(d.class_name, method_name, method_ds,
-                                     d.categories)
-                method_rendered = render_class_method_markdown(
-                    d.class_name, method_doc, link_map)
-                for cat in d.categories:
-                    parent = _resolve_path(cat, d.class_name).with_suffix("")
-                    method_target = parent / f"{method_name}.md"
-                    _emit(method_target, method_rendered)
 
     return written, unchanged, touched
 
