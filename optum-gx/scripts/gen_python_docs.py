@@ -31,23 +31,183 @@ from pathlib import Path
 
 # ---- Configuration ----------------------------------------------------------
 
-DEFAULT_SOURCE = Path(r"C:\Users\Public\OPTUM CE\OPTUM GX\library\OptumGX")
-SOURCE_FILES = ["v2.py", "ContractV2_gen.py", "DataModelV2.py"]
+# Default source path. Switch back to the release install path
+# (C:\Users\Public\OPTUM CE\OPTUM GX\library\OptumGX) once the release is
+# reinstalled. Both layouts are identical -- the script doesn't care.
+DEFAULT_SOURCE = Path(r"C:\Optum\OptumGX\Rpc\src\OptumGX")
+SOURCE_FILES = [
+    "v2.py",
+    "ContractV2_gen.py",
+    "DataModelV2.py",
+    "Materials/RemoteMaterialAPI.pyi",
+    "RemoteFeatures/FeatureAPI.pyi",
+]
 
 # Class name in the source -> doc folder(s) under optum-gx/python/functions/.
-# StageBase methods are inherited by both Model and Stage, so duplicate them.
-# _RemoteStage (in ContractV2_gen.py) holds set/get_analysis_properties, which
-# the existing docs place under stage/.
+# StageBase methods are inherited by both Model and Stage. Instead of writing
+# them to both model/ and stage/, they go to a shared "model-and-stage/" folder.
+# _RemoteStage (in ContractV2_gen.py) holds set/get_analysis_properties (stage/).
+# RemoteMaterialAPI holds the material factories (project/).
+# FeatureAPI holds set_solid/set_plate/... (model/).
+# ModelFeatureAPI extends with model-only methods.
+# StageFeatureAPI extends with stage-only ones (toggle_features).
 CLASS_TO_CATEGORIES = {
     "GX": ["application"],
     "Project": ["project"],
     "Model": ["model"],
     "Stage": ["stage"],
-    "StageBase": ["model", "stage"],
+    "StageBase": ["model-and-stage"],
     "_RemoteStage": ["stage"],
-    "AnalysisProperties": ["model","stage"],
-    "Shape": ["geometry"],
-    "ShapeList": ["geometry"],
+    "AnalysisProperties": ["stage"],
+    "Shape": ["objects"],
+    "ShapeList": ["objects"],
+    "RemoteMaterialAPI": ["project"],
+    "FeatureAPI": ["model"],
+    "ModelFeatureAPI": ["model"],
+    "StageFeatureAPI": ["stage"],
+}
+
+# Per-category function-name -> subcategory mapping. The renderer composes
+# the target path as DOCS_ROOT / category / subcategory / name.md when a match
+# exists, otherwise DOCS_ROOT / category / name.md (i.e. unmapped functions
+# land at the category root -- useful as a "fix me" surface for new methods).
+SUBCATEGORIES = {
+    "application": {
+        # All five Application/GX methods are workflow ops; flat layout is fine,
+        # but expose under operations/ for consistency with the other categories.
+        "create_project": "operations", "open_project": "operations",
+        "save_project": "operations", "write_step": "operations",
+        "get_current_project": "operations",
+    },
+    "project": {
+        # Material factories (one entry per MaterialType -- same name as the
+        # generated material class).
+        "AUS": "materials", "Beam": "materials", "Connector": "materials",
+        "DruckerPrager": "materials", "FlatPlateConcrete": "materials",
+        "FlatPlateSteel": "materials", "GeneralPlate": "materials",
+        "Geogrid": "materials", "HMC": "materials", "HardeningSoil": "materials",
+        "HoekBrown": "materials", "LinearElastic": "materials",
+        "ModifiedCamClay": "materials", "MohrCoulomb": "materials",
+        "MohrCoulombEngineering": "materials", "MultiMohrCoulomb": "materials",
+        "NGIADP": "materials", "NailRow": "materials", "PileRow": "materials",
+        "ReinforcedConcrete": "materials", "Rigid": "materials",
+        "RigidBeam": "materials", "RigidPlate": "materials",
+        "SheetPile": "materials", "Tresca": "materials", "Water": "materials",
+        "get_material": "materials",
+        # Coordinate-system creation -- geometry domain.
+        "create_csys_2d": "geometry", "create_csys_3d": "geometry",
+        "get_csys": "geometry",
+        # Running analyses.
+        "run_analysis": "analysis", "run_analysis_async": "analysis",
+        # Project / model / stage management.
+        "create_model": "operations", "get_model": "operations",
+        "get_current_model": "operations", "set_current_model": "operations",
+        "get_current_stage": "operations", "get_current_result_set": "operations",
+        "get_file_path": "operations", "get_python_code": "operations",
+    },
+    "model": {
+        # Geometry creation
+        "add_arc": "geometry", "add_box": "geometry", "add_circle": "geometry",
+        "add_connector": "geometry", "add_line": "geometry",
+        "add_lines": "geometry", "add_ncone": "geometry",
+        "add_nprism": "geometry", "add_polygon": "geometry",
+        "add_polygons": "geometry", "add_polyline": "geometry",
+        "add_prism": "geometry", "add_rectangle": "geometry",
+        "add_sphere": "geometry", "add_vertex": "geometry",
+        # Geometry modification
+        "delete_interior": "geometry", "delete_shapes": "geometry",
+        "extrude": "geometry", "extrude_2d_to_3d_model": "geometry",
+        "extrude_along": "geometry", "revolve": "geometry",
+        "revolve_2d_to_3d_model": "geometry",
+        "slice_3d_to_2d_model": "geometry",
+        "mirror": "geometry", "polar_array": "geometry",
+        "rectangular_array": "geometry", "rotate": "geometry",
+        "scale": "geometry", "move": "geometry", "copy": "geometry",
+        "set_vertex_position": "geometry",
+        # 2D-to-3D extrude configuration
+        "get_extrude_to_3d": "geometry", "set_extrude_to_3d": "geometry",
+        # Features (FeatureAPI)
+        "set_solid": "features", "set_plate": "features",
+        "set_interface": "features", "set_geogrid": "features",
+        "set_nailrow": "features", "set_connector": "features",
+        "add_connector": "features",
+        "set_support": "features", "set_water_table": "features",
+        "set_no_flow": "features", "set_seepage_face": "features",
+        "set_surface_load": "features", "set_line_load": "features",
+        "set_point_load": "features", "set_body_load": "features",
+        "set_line_moment": "features", "set_point_moment": "features",
+        "set_six_dof_load": "features",
+        "set_fixed_head": "features", "set_fixed_pressure": "features",
+        "set_fixed_excess_pressure": "features",
+        "set_point_bc": "features", "set_plate_bc": "features",
+        "set_resultpoint": "features",
+        "set_prestress": "features", "set_reaction_relaxation": "features",
+        "set_fixed_end_anchor": "features", "add_fixed_end_anchor": "features",
+        "set_pilerow": "features",
+        "set_hinge_2d": "features", "set_hinge_3d": "features",
+        "set_standard_fixities": "features",
+        # Feature getters (mirror of the setters above)
+        "get_solid": "features", "get_plate": "features",
+        "get_interface": "features", "get_geogrid": "features",
+        "get_nailrow": "features", "get_connector": "features",
+        "get_support": "features", "get_water_table": "features",
+        "get_no_flow": "features", "get_seepage_face": "features",
+        "get_surface_load": "features", "get_line_load": "features",
+        "get_point_load": "features", "get_body_load": "features",
+        "get_line_moment": "features", "get_point_moment": "features",
+        "get_six_dof_load": "features",
+        "get_fixed_head": "features", "get_fixed_pressure": "features",
+        "get_fixed_excess_pressure": "features",
+        "get_point_bc": "features", "get_plate_bc": "features",
+        "get_resultpoint": "features",
+        "get_prestress": "features", "get_reaction_relaxation": "features",
+        "get_fixed_end_anchor": "features", "get_pilerow": "features",
+        # Meshing
+        "set_mesh_size": "meshing", "set_mesh_fan": "meshing",
+        "get_mesh_size": "meshing", "get_mesh_fan": "meshing",
+        # Analysis (stage-inheritance settings on Model)
+        "from_model": "analysis", "set_from_model": "analysis",
+        # Operations
+        "model_type": "operations",
+        "get_current_stage": "operations", "set_current_stage": "operations",
+        "get_stage": "operations", "get_features": "operations",
+        "remove_features": "operations",
+        "hide_shapes": "operations", "unhide_shapes": "operations",
+        "unhide_all_shapes": "operations",
+        "enable_transparency": "operations",
+        "disable_transparency": "operations",
+        "disable_global_transparency": "operations",
+    },
+    "stage": {
+        # Analysis settings on Stage itself (not the inherited ones).
+        "set_analysis_properties": "analysis",
+        "get_analysis_properties": "analysis",
+        "set_from_stage": "analysis",
+        # Stage-only features API.
+        "toggle_features": "features",
+        # Stage-only operations.
+        "create_stage": "operations", "model": "operations",
+    },
+    "model-and-stage": {
+        # StageBase methods: geometry / analysis / operations buckets.
+        "select": "geometry",
+        "edges": "geometry", "faces": "geometry",
+        "vertices": "geometry", "volumes": "geometry",
+        "get_active_csys": "geometry", "set_active_csys": "geometry",
+        "get_selected_shapes": "geometry", "get_shape_by_id": "geometry",
+        "get_shapes": "geometry", "get_shapes_by_vertices": "geometry",
+        "get_shared_edges": "geometry", "get_shared_faces": "geometry",
+        "get_sub_shapes": "geometry", "get_vertices": "geometry",
+        "output": "analysis", "set_solver_settings": "analysis",
+        "clone": "operations", "delete": "operations",
+        "undo": "operations", "redo": "operations", "zoom_all": "operations",
+        "create_stage": "operations",
+        "get_run_flag": "operations", "set_run_flag": "operations",
+    },
+    "objects": {
+        # The two existing Object class pages live under geometry/ in objects/.
+        "Shape": "geometry", "ShapeList": "geometry",
+    },
 }
 
 # Classes rendered as a SINGLE page (overview + Properties + Methods) instead of
@@ -177,7 +337,7 @@ def parse_attributes(docstring: str):
 
 # ---- Rendering --------------------------------------------------------------
 
-def render_markdown(doc: FuncDoc, func_to_cat: dict) -> str:
+def render_markdown(doc: FuncDoc, link_map: dict) -> str:
     """Render a FuncDoc to markdown matching the repo's existing style."""
     parts = [f"# {doc.func_name}", ""]
 
@@ -257,8 +417,17 @@ def render_markdown(doc: FuncDoc, func_to_cat: dict) -> str:
                 ref = raw.strip()
                 if not ref or SEPARATOR_RE.match(ref):
                     continue
-                cat = func_to_cat.get(ref, doc.categories[0])
-                parts.append(f"- [{ref}](/python/functions/{cat}/{ref})")
+                # Look the ref up in the global (name -> (category, sub)) map.
+                # Fallback: same category and subcategory as the current doc.
+                loc = link_map.get(ref)
+                if loc:
+                    cat, sub = loc
+                else:
+                    cat = doc.categories[0]
+                    sub = SUBCATEGORIES.get(cat, {}).get(ref)
+                path = f"/python/functions/{cat}/{sub}/{ref}" if sub \
+                       else f"/python/functions/{cat}/{ref}"
+                parts.append(f"- [{ref}]({path})")
             parts.append("")
 
         elif title == "Notes":
@@ -276,7 +445,7 @@ def render_markdown(doc: FuncDoc, func_to_cat: dict) -> str:
     return "\n".join(parts)
 
 
-def render_class_markdown(doc: ClassDoc, func_to_cat: dict) -> str:
+def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
     """Render a ClassDoc to a single page: overview, Properties, Methods."""
     parts = [f"# {doc.class_name}", ""]
 
@@ -321,28 +490,45 @@ def _doc_name(d) -> str:
     return d.class_name if isinstance(d, ClassDoc) else d.func_name
 
 
+def _resolve_path(category: str, name: str) -> Path:
+    """Compose the target md path, honoring SUBCATEGORIES if a match exists.
+    Unmapped names land at the category root."""
+    sub = SUBCATEGORIES.get(category, {}).get(name)
+    if sub:
+        return DOCS_ROOT / category / sub / f"{name}.md"
+    return DOCS_ROOT / category / f"{name}.md"
+
+
+def _build_link_map(docs: list) -> dict:
+    """name -> (category, subcategory_or_None) for See-also link resolution.
+    A function that appears in multiple categories is resolved to the first
+    one listed in CLASS_TO_CATEGORIES (e.g. StageBase's "model-and-stage")."""
+    out = {}
+    for d in docs:
+        name = _doc_name(d)
+        if name in out:
+            continue
+        cat = d.categories[0]
+        sub = SUBCATEGORIES.get(cat, {}).get(name)
+        out[name] = (cat, sub)
+    return out
+
+
 def write_docs(docs: list, dry_run: bool, verbose: bool):
     """Render each doc and write only files whose content changed.
     Returns (written, unchanged, set_of_touched_paths)."""
-    # See-also link resolution: which category does each name live in?
-    # If a method exists in multiple categories (e.g. StageBase), prefer the
-    # one that appears first in CLASS_TO_CATEGORIES (model before stage).
-    func_to_cat = {}
-    for d in docs:
-        key = _doc_name(d)
-        if key not in func_to_cat:
-            func_to_cat[key] = d.categories[0]
+    link_map = _build_link_map(docs)
 
     written = 0
     unchanged = 0
     touched = set()
     for d in docs:
         if isinstance(d, ClassDoc):
-            rendered = render_class_markdown(d, func_to_cat)
+            rendered = render_class_markdown(d, link_map)
         else:
-            rendered = render_markdown(d, func_to_cat)
+            rendered = render_markdown(d, link_map)
         for cat in d.categories:
-            target = DOCS_ROOT / cat / f"{_doc_name(d)}.md"
+            target = _resolve_path(cat, _doc_name(d))
             touched.add(target)
             if target.exists() and target.read_text(encoding="utf-8") == rendered:
                 unchanged += 1
@@ -361,13 +547,14 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
 
 
 def find_orphans(touched: set) -> list:
-    """List .md files in category folders that weren't (re)generated this run --
-    likely candidates for deletion, but never deleted automatically."""
+    """List .md files anywhere under DOCS_ROOT that weren't (re)generated this
+    run -- likely candidates for deletion, but never deleted automatically.
+    Recurses into subcategory folders."""
     orphans = []
     for cat_dir in DOCS_ROOT.iterdir():
         if not cat_dir.is_dir():
             continue
-        for md in cat_dir.glob("*.md"):
+        for md in cat_dir.rglob("*.md"):
             if md.name in INDEX_FILES:
                 continue
             if md not in touched:
