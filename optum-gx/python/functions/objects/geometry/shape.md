@@ -25,6 +25,22 @@ type (length for edges, area for faces, volume for volumes).
 
 ## Methods
 
+### vertices()
+
+*No docstring yet — add one in source to populate this section.*
+
+### edges()
+
+*No docstring yet — add one in source to populate this section.*
+
+### faces()
+
+*No docstring yet — add one in source to populate this section.*
+
+### volumes()
+
+*No docstring yet — add one in source to populate this section.*
+
 ### set_2d_to_3d_settings()
 
 Set 2D to 3D extrusion settings for this shape.
