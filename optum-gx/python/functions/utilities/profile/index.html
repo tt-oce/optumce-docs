@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835177049551">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835189456571">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Profile</title>
     <meta name="title" content="Profile">
-    <meta name="description" content="Wrapper for IField profile data (depth, value).">
+    <meta name="description" content="Profile data (depth, value).">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/utilities/profile/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/profile/">
     <meta property="og:title" content="Profile">
-    <meta property="og:description" content="Wrapper for IField profile data (depth, value).">
+    <meta property="og:description" content="Profile data (depth, value).">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/profile/">
     <meta name="twitter:title" content="Profile">
-    <meta name="twitter:description" content="Wrapper for IField profile data (depth, value).">
+    <meta name="twitter:description" content="Profile data (depth, value).">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/utilities/profile.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=4.6.0.835177049551" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=4.6.0.835189456571" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835177049551" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835189456571" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835177049551" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835189456571" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.835189456571" defer></script>
 
     <style>
         /* Images */
@@ -305,7 +306,53 @@
 
                 <!-- Page content  -->
 <h1 id="profile">Profile</h1>
-<p>Wrapper for IField profile data (depth, value).</p>
+<p>Profile data (depth, value).</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dd>List[List[float]] List of depth and corresponding parameter value.</dd>
+</dl>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="/python/functions/utilities/map">Map</a></li>
+<li><a href="../gradient/">Gradient</a></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">gamma_profile= Profile([
+    [0, 15],
+    [-3, 18],
+    [-5, 20],
+ ])
+prj.MohrCoulomb(
+    name='MC gamma_profile',
+    gamma_dry = gamma_profile,
+    )</code></pre>
+</doc-codeblock></div>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/utilities/gradient/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">Gradient</span>
+            </div>
+            <p class="card-compact-description">Gradient data (zref, zgrad, value).</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/utilities/parametermap/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">ParameterMap</span>
+            </div>
+            <p class="card-compact-description">Map data (x, y, z, value).</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
 
                 
                 <!-- Required only on API pages -->
@@ -372,6 +419,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Profile", level: 4, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/profile.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Profile", level: 4, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/profile.md" }</script>
 </body>
 </html>

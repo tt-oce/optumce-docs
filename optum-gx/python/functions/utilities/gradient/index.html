@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835177049551">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835189456571">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Gradient</title>
     <meta name="title" content="Gradient">
-    <meta name="description" content="Wrapper for IField gradient data (zref, zgrad, value).">
+    <meta name="description" content="Gradient data (zref, zgrad, value).">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/utilities/gradient/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/gradient/">
     <meta property="og:title" content="Gradient">
-    <meta property="og:description" content="Wrapper for IField gradient data (zref, zgrad, value).">
+    <meta property="og:description" content="Gradient data (zref, zgrad, value).">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/gradient/">
     <meta name="twitter:title" content="Gradient">
-    <meta name="twitter:description" content="Wrapper for IField gradient data (zref, zgrad, value).">
+    <meta name="twitter:description" content="Gradient data (zref, zgrad, value).">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/utilities/gradient.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=4.6.0.835177049551" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=4.6.0.835189456571" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835177049551" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835189456571" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835177049551" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835189456571" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.835189456571" defer></script>
 
     <style>
         /* Images */
@@ -305,7 +306,53 @@
 
                 <!-- Page content  -->
 <h1 id="gradient">Gradient</h1>
-<p>Wrapper for IField gradient data (zref, zgrad, value).</p>
+<p>Gradient data (zref, zgrad, value).</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt>zref : float</dt>
+<dd>Reference depth.</dd>
+<dt>zgrad : float</dt>
+<dd>Gradient.</dd>
+<dt>value : float</dt>
+<dd>Value at refrence.</dd>
+</dl>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="/python/functions/utilities/map">Map</a></li>
+<li><a href="../profile/">Profile</a></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">phi_gradient= Gradient(0,  1.2, 15)
+prj.MohrCoulomb(
+    name='MC phi_gradient',
+    phi = phi_gradient)</code></pre>
+</doc-codeblock></div>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/utilities/parametermap/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">ParameterMap</span>
+            </div>
+            <p class="card-compact-description">Map data (x, y, z, value).</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/utilities/profile/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">Profile</span>
+            </div>
+            <p class="card-compact-description">Profile data (depth, value).</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
 
                 
                 <!-- Required only on API pages -->
@@ -372,6 +419,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "Gradient", level: 4, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/gradient.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Gradient", level: 4, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/gradient.md" }</script>
 </body>
 </html>

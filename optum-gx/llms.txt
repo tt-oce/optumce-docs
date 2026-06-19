@@ -276,8 +276,36 @@
 
 ##### Features
 
-- [Connectors](https://docs.optumce.com/optum-gx/python/functions/objects/features/connectors.md)
+- [Connectors](https://docs.optumce.com/optum-gx/python/functions/objects/features/connectors.md): Apply a prestress to this connector's edge.
 - [ExtrudeTo3dSettings](https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md)
+- [FixedEndAnchors](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedendanchors.md): Apply a prestress to this fixed-end anchor's vertex.
+- [FixedExcessPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedexcesspressures.md)
+- [FixedHeads](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedheads.md)
+- [FixedPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md)
+- [Geogrids](https://docs.optumce.com/optum-gx/python/functions/objects/features/geogrids.md)
+- [LineLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/lineloads.md): Line load feature with remote API synchronization via IFeature.
+- [LineMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/linemoments.md): Line moment feature with remote API synchronization via IFeature.
+- [MeshFans](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshfans.md)
+- [MeshSizes](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshsizes.md)
+- [NailRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/nailrows.md)
+- [NoFlows](https://docs.optumce.com/optum-gx/python/functions/objects/features/noflows.md): Object without properties.
+- [PileRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/pilerows.md)
+- [PlateBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/platebcs.md)
+- [Plates](https://docs.optumce.com/optum-gx/python/functions/objects/features/plates.md)
+- [PointBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointbcs.md)
+- [PointLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointloads.md): Point load feature with remote API synchronization via IFeature.
+- [PointMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointmoments.md): Point moment feature with remote API synchronization via IFeature.
+- [Prestresses](https://docs.optumce.com/optum-gx/python/functions/objects/features/prestresses.md)
+- [ReactionRelaxations](https://docs.optumce.com/optum-gx/python/functions/objects/features/reactionrelaxations.md)
+- [ResultPoints](https://docs.optumce.com/optum-gx/python/functions/objects/features/resultpoints.md)
+- [SeepageFaces](https://docs.optumce.com/optum-gx/python/functions/objects/features/seepagefaces.md): Object without properties.
+- [ShearJoints](https://docs.optumce.com/optum-gx/python/functions/objects/features/shearjoints.md)
+- [SixDofLoadings](https://docs.optumce.com/optum-gx/python/functions/objects/features/sixdofloadings.md): Six DOF loading feature with remote API synchronization via IFeature.
+- [Solids](https://docs.optumce.com/optum-gx/python/functions/objects/features/solids.md)
+- [Supports](https://docs.optumce.com/optum-gx/python/functions/objects/features/supports.md): Support boundary condition feature.
+- [SurfaceLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/surfaceloads.md): Surface load feature with remote API synchronization via IFeature.
+- [VolumeLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/volumeloads.md): Volume (body) load feature with remote API synchronization via IFeature.
+- [WaterTables](https://docs.optumce.com/optum-gx/python/functions/objects/features/watertables.md): Object without properties.
 
 ##### Geometry
 
@@ -287,9 +315,9 @@
 #### Utilities
 
 - [Utilities](https://docs.optumce.com/optum-gx/python/functions/utilities/index.md)
-- [Gradient](https://docs.optumce.com/optum-gx/python/functions/utilities/gradient.md): Wrapper for IField gradient data (zref, zgrad, value).
-- [ParameterMap](https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap.md): Wrapper for IField map data (x, y, z, value).
-- [Profile](https://docs.optumce.com/optum-gx/python/functions/utilities/profile.md): Wrapper for IField profile data (depth, value).
+- [Gradient](https://docs.optumce.com/optum-gx/python/functions/utilities/gradient.md): Gradient data (zref, zgrad, value).
+- [ParameterMap](https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap.md): Map data (x, y, z, value).
+- [Profile](https://docs.optumce.com/optum-gx/python/functions/utilities/profile.md): Profile data (depth, value).
 - [Run OptumGX from Python](https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md): This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.
 
 ### Examples

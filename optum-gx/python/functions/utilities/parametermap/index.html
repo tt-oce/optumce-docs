@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835177049551">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835189456571">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>ParameterMap</title>
     <meta name="title" content="ParameterMap">
-    <meta name="description" content="Wrapper for IField map data (x, y, z, value).">
+    <meta name="description" content="Map data (x, y, z, value).">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap/">
     <meta property="og:title" content="ParameterMap">
-    <meta property="og:description" content="Wrapper for IField map data (x, y, z, value).">
+    <meta property="og:description" content="Map data (x, y, z, value).">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,18 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap/">
     <meta name="twitter:title" content="ParameterMap">
-    <meta name="twitter:description" content="Wrapper for IField map data (x, y, z, value).">
+    <meta name="twitter:description" content="Map data (x, y, z, value).">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=4.6.0.835177049551" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=4.6.0.835189456571" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835177049551" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.835189456571" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835177049551" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.835189456571" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.835189456571" defer></script>
 
     <style>
         /* Images */
@@ -305,7 +306,40 @@
 
                 <!-- Page content  -->
 <h1 id="parametermap">ParameterMap</h1>
-<p>Wrapper for IField map data (x, y, z, value).</p>
+<p>Map data (x, y, z, value).</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dd>List[List[float]] List of coordinates and corresponding parameter value.</dd>
+</dl>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../profile/">Profile</a></li>
+<li><a href="../gradient/">Gradient</a></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">c_map = ParameterMap([
+    [      2,    0,       1,  50.548 ],
+    [  1.785,    0,   0.783,  47.444 ],
+    [      2,    0,   0.667,  55.074 ],
+    [ 1.6667,    0,       1,  47.398 ],
+    [      2,    0,   0.333,  59.481 ],
+    [  1.785,    0,   0.217,  56.275 ],
+    [      2,    0,       0,  62.736 ],
+    [ 1.6667,    0,       0,  56.639 ],
+    [ 0.3333,    0,       0,  34.833 ],
+    [ 0.2151,    0,   0.217,  39.318 ],
+    [      0,    0,       0,  37.735 ],
+    [      0,    0,   0.333,  49.557 ],
+    [      0,    0,   0.667,  62.669 ],
+    [  0.215,    0,   0.783,  59.746 ],
+    [      0,    0,       1,  74.451 ],
+    ])
+prj.MohrCoulomb(
+    name='MC c_map',
+    c = c_map
+    )</code></pre>
+</doc-codeblock></div>
 
                 
                 <!-- Required only on API pages -->
@@ -372,6 +406,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "ParameterMap", level: 4, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/parametermap.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "ParameterMap", level: 4, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/python/functions/utilities/parametermap.md" }</script>
 </body>
 </html>
