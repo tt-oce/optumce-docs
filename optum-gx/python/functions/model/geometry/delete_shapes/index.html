@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835175444148">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835176635332">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.835175444148" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.835176635332" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835175444148" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835176635332" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835175444148" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835175444148" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835176635332" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835176635332" defer></script>
 
     <style>
         /* Images */
@@ -329,14 +329,39 @@
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">model2d.add_polygons([[[0,0],[2,0],[2,2]],[[2,0],[5,0],[5,5],[3,5]]])       #Add two polygons
 f = model2d.select([1,1],[2,2],types=['face'],option='green')           #Select the face of first polygon
-model2d.del_shapes(f)                                                   #Delete the face
+model2d.delete_shapes(f)                                                   #Delete the face
 model2d.add_polygons([[[0,0],[2,0],[2,2]],[[2,0],[5,0],[5,5],[3,5]]])       #Add two polygons
 v = model2d.select([2,2],types=['vertex'])                              #Select vertex
-model2d.del_shapes(v)                                                   #Delete vertex and all shapes defined by vertex
+model2d.delete_shapes(v)                                                   #Delete vertex and all shapes defined by vertex
 model3d.add_box([0,0,0],[5,5,5])                                        #Add box
 v = model3d.select([1,1,1],types=['volume'])                            #Select volume of box
-model3d.del_shapes(v)</code></pre>
+model3d.delete_shapes(v)</code></pre>
 </doc-codeblock></div>
+<div id="retype-backlinks">
+    <h2>See also</h2>
+<div class="card-compact-group">
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/model-and-stage/operations/delete/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">delete</span>
+            </div>
+            <p class="card-compact-description">Delete model or stage.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/model/geometry/delete_interior/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">delete_interior</span>
+            </div>
+            <p class="card-compact-description">Delete shapes and leave voids in their place.</p>
+        </div>
+    </a>
+</div>
+</div>
+</div>
 
                 
                 <!-- Required only on API pages -->

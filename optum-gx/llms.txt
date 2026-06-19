@@ -33,9 +33,17 @@
 #### Utilities
 
 - [Utilities](https://docs.optumce.com/optum-gx/python/functions/utilities/index.md)
+- [Gradient](https://docs.optumce.com/optum-gx/python/functions/utilities/gradient.md): Wrapper for IField gradient data (zref, zgrad, value).
+- [ParameterMap](https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap.md): Wrapper for IField map data (x, y, z, value).
+- [Profile](https://docs.optumce.com/optum-gx/python/functions/utilities/profile.md): Wrapper for IField profile data (depth, value).
 - [Run OptumGX from Python](https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md): This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.
 
 #### Objects
+
+##### Features
+
+- [Connectors](https://docs.optumce.com/optum-gx/python/functions/objects/features/connectors.md)
+- [ExtrudeTo3dSettings](https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md)
 
 ##### Geometry
 
@@ -46,8 +54,6 @@
 
 ##### Analysis
 
-- [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/get_analysis_properties.md): Get analysis properties.
-- [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/set_analysis_properties.md): Define analysis properties
 - [set_from_stage](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/set_from_stage.md): Set stage from another stage in the same model.
 
 ##### Features
@@ -63,8 +69,10 @@
 
 ##### Analysis
 
+- [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/get_analysis_properties.md): Get analysis properties.
 - [get_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/get_run_flag.md): Get run flag for model or stage.
 - [output](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output.md): Analysis output.
+- [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_analysis_properties.md): Define analysis properties
 - [set_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_run_flag.md): Set run flag for model or stage.
 - [set_solver_settings](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_solver_settings.md): Define solver settings.
 

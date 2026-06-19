@@ -10,7 +10,7 @@ Get analysis properties.
 
 ## See also
 
-- [set_analysis_properties](/python/functions/stage/analysis/set_analysis_properties)
+- [set_analysis_properties](/python/functions/model-and-stage/analysis/set_analysis_properties)
 
 ## Examples
 
