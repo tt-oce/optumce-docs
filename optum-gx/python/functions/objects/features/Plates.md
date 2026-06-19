@@ -1,5 +1,7 @@
 # Plates
 
+*No docstring yet — add one in source to populate this section.*
+
 ## Properties
 
 <dl>
@@ -8,3 +10,9 @@
 <dt>strong_axis : List[float]</dt>
 <dd>Strong axis (Y / J) of the beam coordinate system as [x, y, z]. Setting this enables ``use_beam_coordinate_system``.</dd>
 </dl>
+
+## Methods
+
+### coordinate_system()
+
+*No docstring yet — add one in source to populate this section.*

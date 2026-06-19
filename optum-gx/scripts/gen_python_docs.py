@@ -590,8 +590,14 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
 
     # Class-level docstring -> body sections at H2. Skip the Attributes
     # section here; it's rendered explicitly below alongside AnnAssign props.
-    parts.extend(_render_body(doc.docstring, link_map, fallback_cat,
-                              h_level=2, skip_attributes=True))
+    # If the class has no docstring at all, leave a punch list reminder.
+    if doc.docstring.strip():
+        parts.extend(_render_body(doc.docstring, link_map, fallback_cat,
+                                  h_level=2, skip_attributes=True))
+    else:
+        parts.append("*No docstring yet — add one in source to "
+                     "populate this section.*")
+        parts.append("")
 
     # Properties: union of docstring Attributes and AnnAssign attribute
     # docstrings. Docstring entries come first (they tend to be hand-curated);
@@ -621,18 +627,31 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
                 parts.append(f"<dd>{desc}</dd>")
         parts.append("</dl>")
         parts.append("")
+    else:
+        # Make the absence explicit rather than just leaving the page bare.
+        # Plain text (not italic) -- this is a factual statement, not a
+        # punch-list placeholder like the missing-docstring note.
+        parts.append("Object without properties.")
+        parts.append("")
 
     # Method docstrings inlined under a Methods section. Each method's title
     # is H3, its docstring's own sub-sections drop to H4 so they don't clash
-    # with the H2 class-level headers above.
-    documented_methods = [m for m in doc.methods if m[2]]
-    if documented_methods:
+    # with the H2 class-level headers above. Methods without a docstring are
+    # still listed (so the API surface is visible) with a placeholder note
+    # that doubles as a punch list for upstream docstring work.
+    if doc.methods:
         parts.append("## Methods")
         parts.append("")
-        for name, _summary, ds in documented_methods:
+        for name, _summary, ds in doc.methods:
             parts.append(f"### {name}()")
             parts.append("")
-            parts.extend(_render_body(ds, link_map, fallback_cat, h_level=4))
+            if ds:
+                parts.extend(_render_body(ds, link_map, fallback_cat,
+                                          h_level=4))
+            else:
+                parts.append("*No docstring yet — add one in source to "
+                             "populate this section.*")
+                parts.append("")
 
     while parts and parts[-1] == "":
         parts.pop()

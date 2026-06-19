@@ -30,6 +30,22 @@ indexing, len(), merge() and remove(); the raw list is available via values.
 
 ## Methods
 
+### vertices()
+
+*No docstring yet — add one in source to populate this section.*
+
+### edges()
+
+*No docstring yet — add one in source to populate this section.*
+
+### faces()
+
+*No docstring yet — add one in source to populate this section.*
+
+### volumes()
+
+*No docstring yet — add one in source to populate this section.*
+
 ### set_2d_to_3d_settings()
 
 Set 2D to 3D extrusion settings for shapes.
@@ -76,3 +92,23 @@ Get 2D to 3D extrusion settings for the first shape in the list.
 <dt>dict</dt>
 <dd>Dictionary containing extrusion settings: - depth_in: Extrusion depth inward - depth_out: Extrusion depth outward - repetition: Whether repetition is enabled - repetition_spacing: Spacing between repetitions - repetition_out: Number of repetitions outward - repetition_in: Number of repetitions inward - fill: Whether fill is enabled - fill_in: Fill depth inward - fill_out: Fill depth outward - as_face: Whether to treat as face</dd>
 </dl>
+
+### contains()
+
+*No docstring yet — add one in source to populate this section.*
+
+### find()
+
+*No docstring yet — add one in source to populate this section.*
+
+### remove()
+
+*No docstring yet — add one in source to populate this section.*
+
+### get()
+
+*No docstring yet — add one in source to populate this section.*
+
+### merge()
+
+*No docstring yet — add one in source to populate this section.*
