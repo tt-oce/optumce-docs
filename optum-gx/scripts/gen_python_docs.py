@@ -99,10 +99,11 @@ SUBCATEGORIES = {
         "get_csys": "geometry",
         # Running analyses.
         "run_analysis": "analysis", "run_analysis_async": "analysis",
+        "get_current_result_set": "analysis",
         # Project / model / stage management.
         "create_model": "operations", "get_model": "operations",
         "get_current_model": "operations", "set_current_model": "operations",
-        "get_current_stage": "operations", "get_current_result_set": "operations",
+        "get_current_stage": "operations", 
         "get_file_path": "operations", "get_python_code": "operations",
     },
     "model": {
@@ -145,7 +146,8 @@ SUBCATEGORIES = {
         "set_fixed_end_anchor": "features", "add_fixed_end_anchor": "features",
         "set_pilerow": "features",
         "set_hinge_2d": "features", "set_hinge_3d": "features",
-        "set_standard_fixities": "features",
+        "set_standard_fixities": "features", "get_features": "features",
+        "remove_features": "features",
         # Feature getters (mirror of the setters above)
         "get_solid": "features", "get_plate": "features",
         "get_interface": "features", "get_geogrid": "features",
@@ -170,8 +172,7 @@ SUBCATEGORIES = {
         # Operations
         "model_type": "operations",
         "get_current_stage": "operations", "set_current_stage": "operations",
-        "get_stage": "operations", "get_features": "operations",
-        "remove_features": "operations",
+        "get_stage": "operations", 
         "hide_shapes": "operations", "unhide_shapes": "operations",
         "unhide_all_shapes": "operations",
         "enable_transparency": "operations",
@@ -202,7 +203,7 @@ SUBCATEGORIES = {
         "clone": "operations", "delete": "operations",
         "undo": "operations", "redo": "operations", "zoom_all": "operations",
         "create_stage": "operations",
-        "get_run_flag": "operations", "set_run_flag": "operations",
+        "get_run_flag": "analysis", "set_run_flag": "analysis",
     },
     "objects": {
         # The two existing Object class pages live under geometry/ in objects/.
