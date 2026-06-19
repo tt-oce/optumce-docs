@@ -30,6 +30,11 @@
 
 ### Functions
 
+#### Utilities
+
+- [Utilities](https://docs.optumce.com/optum-gx/python/functions/utilities/index.md)
+- [Run OptumGX from Python](https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md): This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.
+
 #### Objects
 
 ##### Geometry
@@ -37,68 +42,58 @@
 - [Shape](https://docs.optumce.com/optum-gx/python/functions/objects/geometry/shape.md): A single geometric entity (vertex, edge, face or volume) within a model.
 - [ShapeList](https://docs.optumce.com/optum-gx/python/functions/objects/geometry/shapelist.md): An ordered collection of Shape objects from a single stage.
 
-#### Application
-
-##### Operations
-
-- [create_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/create_project.md): Create project.
-- [get_current_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/get_current_project.md): Get current project.
-- [open_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/open_project.md): Open GX project.
-- [save_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/save_project.md): Save current project
-- [write_step](https://docs.optumce.com/optum-gx/python/functions/application/operations/write_step.md): Write step
-
-#### Project
+#### Stage
 
 ##### Analysis
 
-- [get_current_result_set](https://docs.optumce.com/optum-gx/python/functions/project/analysis/get_current_result_set.md): Get data of the currently plotted result.
-- [run_analysis](https://docs.optumce.com/optum-gx/python/functions/project/analysis/run_analysis.md): Run analysis
-- [run_analysis_async](https://docs.optumce.com/optum-gx/python/functions/project/analysis/run_analysis_async.md): Start the analysis without blocking and return a progress handle.
+- [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/get_analysis_properties.md): Get analysis properties.
+- [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/set_analysis_properties.md): Define analysis properties
+- [set_from_stage](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/set_from_stage.md): Set stage from another stage in the same model.
 
-##### Geometry
+##### Features
 
-- [create_csys_2d](https://docs.optumce.com/optum-gx/python/functions/project/geometry/create_csys_2d.md): Create two-dimensional coordinate system.
-- [create_csys_3d](https://docs.optumce.com/optum-gx/python/functions/project/geometry/create_csys_3d.md): Create three-dimensional coordinate system.
-- [get_csys](https://docs.optumce.com/optum-gx/python/functions/project/geometry/get_csys.md): Obtains a list of coordinate systems.
-
-##### Materials
-
-- [AUS](https://docs.optumce.com/optum-gx/python/functions/project/materials/aus.md): Define an AUS material.
-- [Beam](https://docs.optumce.com/optum-gx/python/functions/project/materials/beam.md): Define a beam material
-- [Connector](https://docs.optumce.com/optum-gx/python/functions/project/materials/connector.md): Define a Connector material.
-- [DruckerPrager](https://docs.optumce.com/optum-gx/python/functions/project/materials/druckerprager.md): Define a Drucker-Prager material.
-- [FlatPlateConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/flatplateconcrete.md): Define a Flat Plate Concrete material.
-- [GeneralPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/generalplate.md): Define a General Plate material.
-- [Geogrid](https://docs.optumce.com/optum-gx/python/functions/project/materials/geogrid.md): Define a Geogrid material
-- [get_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_material.md): Get material(s) from the current project.
-- [HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/project/materials/hardeningsoil.md): Define a Hardeing Soil material.
-- [HMC](https://docs.optumce.com/optum-gx/python/functions/project/materials/hmc.md): Define a Hardening Mohr-Coulomb material.
-- [HoekBrown](https://docs.optumce.com/optum-gx/python/functions/project/materials/hoekbrown.md): Define a Hoek-Brown material.
-- [LinearElastic](https://docs.optumce.com/optum-gx/python/functions/project/materials/linearelastic.md): Define a Linear Elastic material.
-- [ModifiedCamClay](https://docs.optumce.com/optum-gx/python/functions/project/materials/modifiedcamclay.md): Define a Modified Cam Clay material.
-- [MohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/project/materials/mohrcoulomb.md): Define a Mohr-Coulomb material.
-- [MohrCoulombEngineering](https://docs.optumce.com/optum-gx/python/functions/project/materials/mohrcoulombengineering.md): Define a Mohr-Coulomb Engineering material.
-- [MultiMohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/project/materials/multimohrcoulomb.md): Define a Multi Mohr-Coulomb material.
-- [NailRow](https://docs.optumce.com/optum-gx/python/functions/project/materials/nailrow.md): Define a Nail Row material.
-- [NGIADP](https://docs.optumce.com/optum-gx/python/functions/project/materials/ngiadp.md): Define a NGI-ADP material.
-- [PileRow](https://docs.optumce.com/optum-gx/python/functions/project/materials/pilerow.md): Define a Pile Row material.
-- [ReinforcedConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/reinforcedconcrete.md): Creates a ReinforcedConcrete material.
-- [Rigid](https://docs.optumce.com/optum-gx/python/functions/project/materials/rigid.md): Define a Rigid material.
-- [RigidBeam](https://docs.optumce.com/optum-gx/python/functions/project/materials/rigidbeam.md): Define a rigid beam material
-- [RigidPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/rigidplate.md): Define a Rigid Plate material.
-- [SheetPile](https://docs.optumce.com/optum-gx/python/functions/project/materials/sheetpile.md): Define a Sheet Pile material.
-- [Tresca](https://docs.optumce.com/optum-gx/python/functions/project/materials/tresca.md): Define a Tresca material.
-- [Water](https://docs.optumce.com/optum-gx/python/functions/project/materials/water.md): Define Water material.
+- [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/features/toggle_features.md): Toggle features on/off.
 
 ##### Operations
 
-- [create_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/create_model.md): Create model in project
-- [get_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_current_model.md): Get current model.
-- [get_current_stage](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_current_stage.md): Get current stage.
-- [get_file_path](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_file_path.md): Get the full path of the currently opened project file.
-- [get_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_model.md): Get model or models by name.
-- [get_python_code](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_python_code.md): Get generated Python code from the current session.
-- [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
+- [create_stage](https://docs.optumce.com/optum-gx/python/functions/stage/operations/create_stage.md): Creates a new stage from this stage.
+- [model](https://docs.optumce.com/optum-gx/python/functions/stage/operations/model.md): Stage origin model property.
+
+#### Model and Stage
+
+##### Analysis
+
+- [get_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/get_run_flag.md): Get run flag for model or stage.
+- [output](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output.md): Analysis output.
+- [set_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_run_flag.md): Set run flag for model or stage.
+- [set_solver_settings](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_solver_settings.md): Define solver settings.
+
+##### Geometry
+
+- [edges](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/edges.md): Get all edges in model.
+- [faces](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/faces.md): Get all faces in model.
+- [get_active_csys](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_active_csys.md): Obtains the active coordinate system.
+- [get_selected_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_selected_shapes.md): Return selected shapes in GUI.
+- [get_shape_by_id](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shape_by_id.md): Get shape by id.
+- [get_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes.md): Get shapes in a model.
+- [get_shapes_by_vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes_by_vertices.md): Get shapes bounded by vertices.
+- [get_shared_edges](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shared_edges.md): Obtain the shared edges between two lists of shapes.
+- [get_shared_faces](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shared_faces.md): Obtain the shared faces between two lists of shapes.
+- [get_sub_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_sub_shapes.md): Get subshapes in a model.
+- [get_vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_vertices.md): Get vertex from their coordinates.
+- [select](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/select.md): Select geometric objects by point or bounding box.
+- [set_active_csys](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/set_active_csys.md): Set the active coordinate system.
+- [vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/vertices.md): Get all vertices in model.
+- [volumes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/volumes.md): Get all volumes in model.
+
+##### Operations
+
+- [clone](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/clone.md): Clones the selected model.
+- [create_stage](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/create_stage.md): Creates a new stage.
+- [delete](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/delete.md): Delete model or stage.
+- [redo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/redo.md): Redo last undone operation on this model.
+- [undo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/undo.md): Undo last operation on this model.
+- [zoom_all](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/zoom_all.md): Zoom to view all geometry.
 
 #### Model
 
@@ -226,63 +221,68 @@
 - [unhide_all_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_all_shapes.md): Unhide all hidden shapes.
 - [unhide_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_shapes.md): Unhide previously hidden shapes.
 
-#### Stage
+#### Project
 
 ##### Analysis
 
-- [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/get_analysis_properties.md): Get analysis properties.
-- [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/set_analysis_properties.md): Define analysis properties
-- [set_from_stage](https://docs.optumce.com/optum-gx/python/functions/stage/analysis/set_from_stage.md): Set stage from another stage in the same model.
-
-##### Features
-
-- [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/features/toggle_features.md): Toggle features on/off.
-
-##### Operations
-
-- [create_stage](https://docs.optumce.com/optum-gx/python/functions/stage/operations/create_stage.md): Creates a new stage from this stage.
-- [model](https://docs.optumce.com/optum-gx/python/functions/stage/operations/model.md): Stage origin model property.
-
-#### Utilities
-
-- [Utilities](https://docs.optumce.com/optum-gx/python/functions/utilities/index.md)
-- [Run OptumGX from Python](https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md): This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.
-
-#### Model and Stage
-
-##### Analysis
-
-- [get_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/get_run_flag.md): Get run flag for model or stage.
-- [output](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output.md): Analysis output.
-- [set_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_run_flag.md): Set run flag for model or stage.
-- [set_solver_settings](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_solver_settings.md): Define solver settings.
+- [get_current_result_set](https://docs.optumce.com/optum-gx/python/functions/project/analysis/get_current_result_set.md): Get data of the currently plotted result.
+- [run_analysis](https://docs.optumce.com/optum-gx/python/functions/project/analysis/run_analysis.md): Run analysis
+- [run_analysis_async](https://docs.optumce.com/optum-gx/python/functions/project/analysis/run_analysis_async.md): Start the analysis without blocking and return a progress handle.
 
 ##### Geometry
 
-- [edges](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/edges.md): Get all edges in model.
-- [faces](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/faces.md): Get all faces in model.
-- [get_active_csys](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_active_csys.md): Obtains the active coordinate system.
-- [get_selected_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_selected_shapes.md): Return selected shapes in GUI.
-- [get_shape_by_id](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shape_by_id.md): Get shape by id.
-- [get_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes.md): Get shapes in a model.
-- [get_shapes_by_vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes_by_vertices.md): Get shapes bounded by vertices.
-- [get_shared_edges](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shared_edges.md): Obtain the shared edges between two lists of shapes.
-- [get_shared_faces](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shared_faces.md): Obtain the shared faces between two lists of shapes.
-- [get_sub_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_sub_shapes.md): Get subshapes in a model.
-- [get_vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_vertices.md): Get vertex from their coordinates.
-- [select](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/select.md): Select geometric objects by point or bounding box.
-- [set_active_csys](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/set_active_csys.md): Set the active coordinate system.
-- [vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/vertices.md): Get all vertices in model.
-- [volumes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/volumes.md): Get all volumes in model.
+- [create_csys_2d](https://docs.optumce.com/optum-gx/python/functions/project/geometry/create_csys_2d.md): Create two-dimensional coordinate system.
+- [create_csys_3d](https://docs.optumce.com/optum-gx/python/functions/project/geometry/create_csys_3d.md): Create three-dimensional coordinate system.
+- [get_csys](https://docs.optumce.com/optum-gx/python/functions/project/geometry/get_csys.md): Obtains a list of coordinate systems.
+
+##### Materials
+
+- [AUS](https://docs.optumce.com/optum-gx/python/functions/project/materials/aus.md): Define an AUS material.
+- [Beam](https://docs.optumce.com/optum-gx/python/functions/project/materials/beam.md): Define a beam material
+- [Connector](https://docs.optumce.com/optum-gx/python/functions/project/materials/connector.md): Define a Connector material.
+- [DruckerPrager](https://docs.optumce.com/optum-gx/python/functions/project/materials/druckerprager.md): Define a Drucker-Prager material.
+- [FlatPlateConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/flatplateconcrete.md): Define a Flat Plate Concrete material.
+- [GeneralPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/generalplate.md): Define a General Plate material.
+- [Geogrid](https://docs.optumce.com/optum-gx/python/functions/project/materials/geogrid.md): Define a Geogrid material
+- [get_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_material.md): Get material(s) from the current project.
+- [HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/project/materials/hardeningsoil.md): Define a Hardeing Soil material.
+- [HMC](https://docs.optumce.com/optum-gx/python/functions/project/materials/hmc.md): Define a Hardening Mohr-Coulomb material.
+- [HoekBrown](https://docs.optumce.com/optum-gx/python/functions/project/materials/hoekbrown.md): Define a Hoek-Brown material.
+- [LinearElastic](https://docs.optumce.com/optum-gx/python/functions/project/materials/linearelastic.md): Define a Linear Elastic material.
+- [ModifiedCamClay](https://docs.optumce.com/optum-gx/python/functions/project/materials/modifiedcamclay.md): Define a Modified Cam Clay material.
+- [MohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/project/materials/mohrcoulomb.md): Define a Mohr-Coulomb material.
+- [MohrCoulombEngineering](https://docs.optumce.com/optum-gx/python/functions/project/materials/mohrcoulombengineering.md): Define a Mohr-Coulomb Engineering material.
+- [MultiMohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/project/materials/multimohrcoulomb.md): Define a Multi Mohr-Coulomb material.
+- [NailRow](https://docs.optumce.com/optum-gx/python/functions/project/materials/nailrow.md): Define a Nail Row material.
+- [NGIADP](https://docs.optumce.com/optum-gx/python/functions/project/materials/ngiadp.md): Define a NGI-ADP material.
+- [PileRow](https://docs.optumce.com/optum-gx/python/functions/project/materials/pilerow.md): Define a Pile Row material.
+- [ReinforcedConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/reinforcedconcrete.md): Creates a ReinforcedConcrete material.
+- [Rigid](https://docs.optumce.com/optum-gx/python/functions/project/materials/rigid.md): Define a Rigid material.
+- [RigidBeam](https://docs.optumce.com/optum-gx/python/functions/project/materials/rigidbeam.md): Define a rigid beam material
+- [RigidPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/rigidplate.md): Define a Rigid Plate material.
+- [SheetPile](https://docs.optumce.com/optum-gx/python/functions/project/materials/sheetpile.md): Define a Sheet Pile material.
+- [Tresca](https://docs.optumce.com/optum-gx/python/functions/project/materials/tresca.md): Define a Tresca material.
+- [Water](https://docs.optumce.com/optum-gx/python/functions/project/materials/water.md): Define Water material.
 
 ##### Operations
 
-- [clone](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/clone.md): Clones the selected model.
-- [create_stage](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/create_stage.md): Creates a new stage.
-- [delete](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/delete.md): Delete model or stage.
-- [redo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/redo.md): Redo last undone operation on this model.
-- [undo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/undo.md): Undo last operation on this model.
-- [zoom_all](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/zoom_all.md): Zoom to view all geometry.
+- [create_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/create_model.md): Create model in project
+- [get_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_current_model.md): Get current model.
+- [get_current_stage](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_current_stage.md): Get current stage.
+- [get_file_path](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_file_path.md): Get the full path of the currently opened project file.
+- [get_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_model.md): Get model or models by name.
+- [get_python_code](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_python_code.md): Get generated Python code from the current session.
+- [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
+
+#### Application
+
+##### Operations
+
+- [create_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/create_project.md): Create project.
+- [get_current_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/get_current_project.md): Get current project.
+- [open_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/open_project.md): Open GX project.
+- [save_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/save_project.md): Save current project
+- [write_step](https://docs.optumce.com/optum-gx/python/functions/application/operations/write_step.md): Write step
 
 ### Examples
 
