@@ -627,10 +627,13 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
                 parts.append(f"<dd>{desc}</dd>")
         parts.append("</dl>")
         parts.append("")
-    else:
+    elif "Parameters" not in SECTION_RE.findall(doc.docstring):
         # Make the absence explicit rather than just leaving the page bare.
         # Plain text (not italic) -- this is a factual statement, not a
         # punch-list placeholder like the missing-docstring note.
+        # Suppressed when the docstring has a Parameters section, since
+        # that already documents the object's constituents (the __init__
+        # args become instance attributes -- e.g. Profile.data, Gradient.zref).
         parts.append("Object without properties.")
         parts.append("")
 
