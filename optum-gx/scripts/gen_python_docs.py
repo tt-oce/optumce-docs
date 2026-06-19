@@ -39,8 +39,28 @@ SOURCE_FILES = [
     "v2.py",
     "ContractV2_gen.py",
     "DataModelV2.py",
+    "Common.py",
     "Materials/RemoteMaterialAPI.pyi",
     "RemoteFeatures/FeatureAPI.pyi",
+]
+
+# Directory walks producing one Object class page per .py file. Each file is
+# assumed to define a single class with the same name as the file (e.g.
+# Materials/MohrCoulomb.py -> class MohrCoulomb). Helper bases / API wrappers
+# are filtered out via the SKIP list.
+OBJECT_DIRS = [
+    {
+        "subdir": "Materials",
+        "subcategory": "materials",
+        "skip": {"RemoteMaterial.py", "RemoteMaterialAPI.py",
+                 "RemoteMaterialAPI.pyi", "_docloader.py", "__init__.py"},
+    },
+    {
+        "subdir": "RemoteFeatures",
+        "subcategory": "features",
+        "skip": {"Feature.py", "FeatureAPI.py", "FeatureAPI.pyi",
+                 "__init__.py"},
+    },
 ]
 
 # Class name in the source -> doc folder(s) under optum-gx/python/functions/.
@@ -65,6 +85,10 @@ CLASS_TO_CATEGORIES = {
     "FeatureAPI": ["model"],
     "ModelFeatureAPI": ["model"],
     "StageFeatureAPI": ["stage"],
+    # Parameter variation classes (Common.py) -- flat under utilities/.
+    "ParameterMap": ["utilities"],
+    "Profile": ["utilities"],
+    "Gradient": ["utilities"],
 }
 
 # Per-category function-name -> subcategory mapping. The renderer composes
@@ -200,6 +224,9 @@ SUBCATEGORIES = {
         "get_shared_edges": "geometry", "get_shared_faces": "geometry",
         "get_sub_shapes": "geometry", "get_vertices": "geometry",
         "output": "analysis", "set_solver_settings": "analysis",
+        # Methods inherited from _RemoteStage (set/get_analysis_properties).
+        "set_analysis_properties": "analysis",
+        "get_analysis_properties": "analysis",
         "clone": "operations", "delete": "operations",
         "undo": "operations", "redo": "operations", "zoom_all": "operations",
         "create_stage": "operations",
@@ -214,7 +241,7 @@ SUBCATEGORIES = {
 # Classes rendered as a SINGLE page (overview + Properties + Methods) instead of
 # one page per method. Properties come from a numpy-style "Attributes" section in
 # the class docstring; methods are the public, non-@property callables.
-CLASS_PAGE_CLASSES = {"Shape", "ShapeList"}
+CLASS_PAGE_CLASSES = {"Shape", "ShapeList", "ParameterMap", "Profile", "Gradient"}
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DOCS_ROOT = SCRIPT_DIR.parent / "python" / "functions"
@@ -239,11 +266,13 @@ class FuncDoc:
 
 @dataclass
 class ClassDoc:
-    """A class rendered as a single page (overview + Properties + Methods)."""
+    """A class rendered as a single page (overview + Properties + Methods).
+    Each entry in `methods` carries the full method docstring so per-method
+    sub-pages can be emitted at <ClassName>/<method>.md when present."""
     class_name: str
     docstring: str          # full class docstring (overview + Attributes section)
     categories: list
-    methods: list           # list of (name, one-line summary)
+    methods: list           # list of (name, one-line summary, full_docstring)
 
 
 def _is_property(func: ast.FunctionDef) -> bool:
@@ -251,6 +280,23 @@ def _is_property(func: ast.FunctionDef) -> bool:
     documented via the class Attributes section rather than as a method)."""
     return any(isinstance(d, ast.Name) and d.id == "property"
                for d in func.decorator_list)
+
+
+def _extract_class_methods(class_node: ast.ClassDef) -> list:
+    """Return [(name, summary, full_docstring), ...] for public non-property
+    methods of a class. Used when the class itself is rendered as a single
+    page (ClassDoc) -- the summary feeds the Methods list on the class page,
+    the full docstring feeds the per-method sub-page."""
+    out = []
+    for sub in class_node.body:
+        if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        if sub.name.startswith("_") or _is_property(sub):
+            continue
+        ds = ast.get_docstring(sub, clean=True) or ""
+        summary = ds.strip().split("\n")[0] if ds else ""
+        out.append((sub.name, summary, ds))
+    return out
 
 
 # ---- Extraction (AST) -------------------------------------------------------
@@ -274,15 +320,7 @@ def extract_docs(source_root: Path) -> list:
                 continue
 
             if node.name in CLASS_PAGE_CLASSES:
-                methods = []
-                for sub in node.body:
-                    if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                        continue
-                    if sub.name.startswith("_") or _is_property(sub):
-                        continue
-                    ds = ast.get_docstring(sub, clean=True) or ""
-                    summary = ds.strip().split("\n")[0] if ds else ""
-                    methods.append((sub.name, summary))
+                methods = _extract_class_methods(node)
                 class_ds = ast.get_docstring(node, clean=True) or ""
                 docs.append(ClassDoc(node.name, class_ds, cats, methods))
                 continue
@@ -296,6 +334,38 @@ def extract_docs(source_root: Path) -> list:
                 if not ds:
                     continue
                 docs.append(FuncDoc(node.name, sub.name, ds, cats))
+
+    # Object class pages from per-file dirs (Materials/, RemoteFeatures/).
+    # Each .py file in such a dir is assumed to define a class with the same
+    # name as the file. We register the subcategory at runtime so the path
+    # resolver and link map pick them up without manual SUBCATEGORIES entries.
+    objects_subs = SUBCATEGORIES.setdefault("objects", {})
+    for cfg in OBJECT_DIRS:
+        dir_path = source_root / cfg["subdir"]
+        if not dir_path.exists():
+            print(f"warning: object dir not found: {dir_path}", file=sys.stderr)
+            continue
+        for py in sorted(dir_path.glob("*.py")):
+            if py.name in cfg["skip"]:
+                continue
+            class_name = py.stem
+            try:
+                tree = ast.parse(py.read_text(encoding="utf-8"))
+            except SyntaxError as e:
+                print(f"warning: skipping {py}: {e}", file=sys.stderr)
+                continue
+            cls_node = next(
+                (n for n in tree.body
+                 if isinstance(n, ast.ClassDef) and n.name == class_name),
+                None,
+            )
+            if cls_node is None:
+                continue
+            class_ds = ast.get_docstring(cls_node, clean=True) or ""
+            methods = _extract_class_methods(cls_node)
+            docs.append(ClassDoc(class_name, class_ds, ["objects"], methods))
+            objects_subs[class_name] = cfg["subcategory"]
+
     return docs
 
 
@@ -467,12 +537,21 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
         parts.append("</dl>")
         parts.append("")
 
+    # Methods entries link to per-method sub-pages when the method has a
+    # docstring (so the sub-page actually exists). Plain text otherwise.
     if doc.methods:
+        cat = doc.categories[0]
+        sub = SUBCATEGORIES.get(cat, {}).get(doc.class_name)
+        base = f"/python/functions/{cat}/{sub}/{doc.class_name}" if sub \
+               else f"/python/functions/{cat}/{doc.class_name}"
         parts.append("## Methods")
         parts.append("")
         parts.append("<dl>")
-        for name, summary in doc.methods:
-            parts.append(f"<dt>{name}()</dt>")
+        for name, summary, ds in doc.methods:
+            if ds:
+                parts.append(f'<dt><a href="{base}/{name}">{name}()</a></dt>')
+            else:
+                parts.append(f"<dt>{name}()</dt>")
             if summary:
                 parts.append(f"<dd>{summary}</dd>")
         parts.append("</dl>")
@@ -482,6 +561,18 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
         parts.pop()
     parts.append("")
     return "\n".join(parts)
+
+
+def render_class_method_markdown(class_name: str, method_doc: FuncDoc,
+                                 link_map: dict) -> str:
+    """Render a method of an Object class as its own page. Same body as
+    render_markdown but the H1 is class-qualified (e.g. '# Shape.center')."""
+    md = render_markdown(method_doc, link_map)
+    return md.replace(
+        f"# {method_doc.func_name}\n",
+        f"# {class_name}.{method_doc.func_name}\n",
+        1,
+    )
 
 
 # ---- Writer -----------------------------------------------------------------
@@ -523,6 +614,24 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
     written = 0
     unchanged = 0
     touched = set()
+
+    def _emit(target: Path, rendered: str):
+        nonlocal written, unchanged
+        touched.add(target)
+        if target.exists() and target.read_text(encoding="utf-8") == rendered:
+            unchanged += 1
+            return
+        rel = target.relative_to(REPO_ROOT)
+        if dry_run:
+            if verbose:
+                print(f"would write {rel}")
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(rendered, encoding="utf-8")
+            if verbose:
+                print(f"wrote {rel}")
+        written += 1
+
     for d in docs:
         if isinstance(d, ClassDoc):
             rendered = render_class_markdown(d, link_map)
@@ -530,20 +639,23 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
             rendered = render_markdown(d, link_map)
         for cat in d.categories:
             target = _resolve_path(cat, _doc_name(d))
-            touched.add(target)
-            if target.exists() and target.read_text(encoding="utf-8") == rendered:
-                unchanged += 1
-                continue
-            rel = target.relative_to(REPO_ROOT)
-            if dry_run:
-                if verbose:
-                    print(f"would write {rel}")
-            else:
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_text(rendered, encoding="utf-8")
-                if verbose:
-                    print(f"wrote {rel}")
-            written += 1
+            _emit(target, rendered)
+
+        # Per-method sub-pages for Object classes (only when the method has
+        # a docstring -- skips creating the <Class>/ folder otherwise).
+        if isinstance(d, ClassDoc):
+            for method_name, _summary, method_ds in d.methods:
+                if not method_ds:
+                    continue
+                method_doc = FuncDoc(d.class_name, method_name, method_ds,
+                                     d.categories)
+                method_rendered = render_class_method_markdown(
+                    d.class_name, method_doc, link_map)
+                for cat in d.categories:
+                    parent = _resolve_path(cat, d.class_name).with_suffix("")
+                    method_target = parent / f"{method_name}.md"
+                    _emit(method_target, method_rendered)
+
     return written, unchanged, touched
 
 
