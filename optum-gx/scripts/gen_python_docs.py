@@ -57,7 +57,7 @@ CLASS_TO_CATEGORIES = {
     "Model": ["model"],
     "Stage": ["stage"],
     "StageBase": ["model-and-stage"],
-    "_RemoteStage": ["stage"],
+    "_RemoteStage": ["model-and-stage"],
     "AnalysisProperties": ["stage"],
     "Shape": ["objects"],
     "ShapeList": ["objects"],
