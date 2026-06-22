@@ -1,6 +1,14 @@
 # Connectors
 
-*No docstring yet — add one in source to populate this section.*
+Connector element linking two points.
+
+## Examples
+
+```python
+feature = model.get_connector(shapes)
+feature.material_id
+feature.corrosion_loss = 0.10
+```
 
 ## Properties
 

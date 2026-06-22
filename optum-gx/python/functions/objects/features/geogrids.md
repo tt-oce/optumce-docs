@@ -1,6 +1,13 @@
 # Geogrids
 
-*No docstring yet — add one in source to populate this section.*
+Geogrid reinforcement assigned to an edge (2D) or face (3D).
+
+## Examples
+
+```python
+feature = model.get_geogrid(shapes)
+feature.material_id
+```
 
 ## Properties
 

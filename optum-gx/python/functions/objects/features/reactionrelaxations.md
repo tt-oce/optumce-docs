@@ -1,6 +1,14 @@
 # ReactionRelaxations
 
-*No docstring yet — add one in source to populate this section.*
+Reaction-relaxation feature -- allows a fraction of the support reaction
+at a boundary to be relaxed during analysis.
+
+## Examples
+
+```python
+feature = model.get_reaction_relaxation(shapes)
+feature.relaxation = 0.5
+```
 
 ## Properties
 

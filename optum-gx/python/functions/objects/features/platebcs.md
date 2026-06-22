@@ -1,6 +1,16 @@
 # PlateBcs
 
-*No docstring yet — add one in source to populate this section.*
+Boundary condition applied to a plate -- fixes or releases the plate's
+displacement and rotation degrees of freedom.
+
+## Examples
+
+```python
+feature = model.get_plate_bc(shapes)
+feature.displacement_x = 0
+feature.displacement_y = 0
+feature.displacement_rotation = 0
+```
 
 ## Properties
 

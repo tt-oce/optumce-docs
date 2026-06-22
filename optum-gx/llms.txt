@@ -276,36 +276,36 @@
 
 ##### Features
 
-- [Connectors](https://docs.optumce.com/optum-gx/python/functions/objects/features/connectors.md): No docstring yet — add one in source to populate this section.
-- [ExtrudeTo3dSettings](https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md): No docstring yet — add one in source to populate this section.
-- [FixedEndAnchors](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedendanchors.md): No docstring yet — add one in source to populate this section.
-- [FixedExcessPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedexcesspressures.md): No docstring yet — add one in source to populate this section.
-- [FixedHeads](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedheads.md): No docstring yet — add one in source to populate this section.
-- [FixedPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md): No docstring yet — add one in source to populate this section.
-- [Geogrids](https://docs.optumce.com/optum-gx/python/functions/objects/features/geogrids.md): No docstring yet — add one in source to populate this section.
-- [LineLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/lineloads.md): Line load feature with remote API synchronization via IFeature.
-- [LineMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/linemoments.md): Line moment feature with remote API synchronization via IFeature.
-- [MeshFans](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshfans.md): No docstring yet — add one in source to populate this section.
-- [MeshSizes](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshsizes.md): No docstring yet — add one in source to populate this section.
-- [NailRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/nailrows.md): No docstring yet — add one in source to populate this section.
-- [NoFlows](https://docs.optumce.com/optum-gx/python/functions/objects/features/noflows.md): No docstring yet — add one in source to populate this section.
-- [PileRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/pilerows.md): No docstring yet — add one in source to populate this section.
-- [PlateBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/platebcs.md): No docstring yet — add one in source to populate this section.
-- [Plates](https://docs.optumce.com/optum-gx/python/functions/objects/features/plates.md): No docstring yet — add one in source to populate this section.
-- [PointBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointbcs.md): No docstring yet — add one in source to populate this section.
-- [PointLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointloads.md): Point load feature with remote API synchronization via IFeature.
-- [PointMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointmoments.md): Point moment feature with remote API synchronization via IFeature.
-- [Prestresses](https://docs.optumce.com/optum-gx/python/functions/objects/features/prestresses.md): No docstring yet — add one in source to populate this section.
-- [ReactionRelaxations](https://docs.optumce.com/optum-gx/python/functions/objects/features/reactionrelaxations.md): No docstring yet — add one in source to populate this section.
-- [ResultPoints](https://docs.optumce.com/optum-gx/python/functions/objects/features/resultpoints.md): No docstring yet — add one in source to populate this section.
-- [SeepageFaces](https://docs.optumce.com/optum-gx/python/functions/objects/features/seepagefaces.md): No docstring yet — add one in source to populate this section.
-- [ShearJoints](https://docs.optumce.com/optum-gx/python/functions/objects/features/shearjoints.md): No docstring yet — add one in source to populate this section.
-- [SixDofLoadings](https://docs.optumce.com/optum-gx/python/functions/objects/features/sixdofloadings.md): Six DOF loading feature with remote API synchronization via IFeature.
-- [Solids](https://docs.optumce.com/optum-gx/python/functions/objects/features/solids.md): No docstring yet — add one in source to populate this section.
-- [Supports](https://docs.optumce.com/optum-gx/python/functions/objects/features/supports.md): Support boundary condition feature.
-- [SurfaceLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/surfaceloads.md): Surface load feature with remote API synchronization via IFeature.
-- [VolumeLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/volumeloads.md): Volume (body) load feature with remote API synchronization via IFeature.
-- [WaterTables](https://docs.optumce.com/optum-gx/python/functions/objects/features/watertables.md): No docstring yet — add one in source to populate this section.
+- [BodyLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/bodyloads.md): Body load applied throughout a solid region -- distributed force per unit volume across the selected face (2D) or volume (3D).
+- [Connectors](https://docs.optumce.com/optum-gx/python/functions/objects/features/connectors.md): Connector element linking two points.
+- [ExtrudeTo3dSettings](https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md): 2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the result is a face or a volume.
+- [FixedEndAnchors](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedendanchors.md): Fixed-end anchor connecting a point in the model to a fictitious fixed support at the far end of the anchor.
+- [FixedExcessPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedexcesspressures.md): Prescribed excess pore pressure boundary condition -- fixes the excess pressure above the steady-state value at the selected shapes.
+- [FixedHeads](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedheads.md): Prescribed hydraulic head boundary condition -- fixes the head value at the selected shapes.
+- [FixedPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md): Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes.
+- [Geogrids](https://docs.optumce.com/optum-gx/python/functions/objects/features/geogrids.md): Geogrid reinforcement assigned to an edge (2D) or face (3D).
+- [LineLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/lineloads.md): Line load applied to an edge -- distributed force per unit length along the selected edge(s). Supports constant or linearly-varying distributions.
+- [LineMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/linemoments.md): Line moment applied to an edge -- distributed moment per unit length along the selected edge(s).
+- [MeshFans](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshfans.md): Mesh refinement fan centred on a vertex -- generates a radial pattern of elements around a point for capturing stress concentrations or singular fields.
+- [MeshSizes](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshsizes.md): Local mesh-size override -- sets the target element size in the selected region.
+- [NailRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/nailrows.md): Soil-nail row assigned to an edge (2D) or face (3D).
+- [NoFlows](https://docs.optumce.com/optum-gx/python/functions/objects/features/noflows.md): No-flow (zero-flux) hydraulic boundary condition.
+- [PileRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/pilerows.md): Pile-row assigned to an edge (2D) or face (3D).
+- [PlateBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/platebcs.md): Boundary condition applied to a plate -- fixes or releases the plate's displacement and rotation degrees of freedom.
+- [Plates](https://docs.optumce.com/optum-gx/python/functions/objects/features/plates.md): Plate element assigned to an edge (2D) or face (3D).
+- [PointBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointbcs.md): Boundary condition applied at a point -- fixes or releases the point's displacement and rotation degrees of freedom.
+- [PointLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointloads.md): Point load applied at a point -- concentrated force at the selected point(s).
+- [PointMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/pointmoments.md): Point moment applied at a point -- concentrated moment at the selected point(s).
+- [Prestresses](https://docs.optumce.com/optum-gx/python/functions/objects/features/prestresses.md): Prestress force applied to a structural element -- initial axial force on a connector, anchor or similar member at the start of analysis.
+- [ReactionRelaxations](https://docs.optumce.com/optum-gx/python/functions/objects/features/reactionrelaxations.md): Reaction-relaxation feature -- allows a fraction of the support reaction at a boundary to be relaxed during analysis.
+- [ResultPoints](https://docs.optumce.com/optum-gx/python/functions/objects/features/resultpoints.md): Result point used for tracking output at a specific location during analysis. Set is_control to mark the point as the control point in a load-deformation analysis.
+- [SeepageFaces](https://docs.optumce.com/optum-gx/python/functions/objects/features/seepagefaces.md): Seepage face hydraulic boundary.
+- [ShearJoints](https://docs.optumce.com/optum-gx/python/functions/objects/features/shearjoints.md): Shear joint / interface element between two solid domains -- typically used to model reduced-strength contact surfaces such as soil-structure interfaces.
+- [SixDofLoadings](https://docs.optumce.com/optum-gx/python/functions/objects/features/sixdofloadings.md): Six-degree-of-freedom loading at a point -- combined force and moment components (Fx, Fy, Fz, Mx, My, Mz) applied to the selected point(s).
+- [Solids](https://docs.optumce.com/optum-gx/python/functions/objects/features/solids.md): Solid material assignment on a face (2D) or volume (3D) of the model.
+- [Supports](https://docs.optumce.com/optum-gx/python/functions/objects/features/supports.md): Support boundary condition -- fixes displacement in specified directions on the selected edges or faces.
+- [SurfaceLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/surfaceloads.md): Surface load applied to a face -- distributed pressure on the selected face(s). Supports constant or linearly-varying distributions.
+- [WaterTables](https://docs.optumce.com/optum-gx/python/functions/objects/features/watertables.md): Water table feature defining the phreatic surface used to derive initial pore pressures in the model.
 
 ##### Geometry
 

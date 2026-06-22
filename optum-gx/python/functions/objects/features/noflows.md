@@ -1,5 +1,5 @@
 # NoFlows
 
-*No docstring yet — add one in source to populate this section.*
+No-flow (zero-flux) hydraulic boundary condition.
 
 Object without properties.

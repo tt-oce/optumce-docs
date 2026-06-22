@@ -1,20 +1,25 @@
 # SixDofLoadings
 
-Six DOF loading feature with remote API synchronization via IFeature.
+Six-degree-of-freedom loading at a point -- combined force and moment
+components (Fx, Fy, Fz, Mx, My, Mz) applied to the selected point(s).
 
-Usage:
-    feature = model.get_six_dof_loading(shapes)
-    feature.fx = 10.0
-    feature.mz = 5.0
+## Examples
 
-Batch updates:
-    with feature.batch():
-        feature.fx = 10.0
-        feature.Fy = 0.0
-        feature.Fz = -20.0
-        feature.Mx = 0.0
-        feature.My = 0.0
-        feature.Mz = 5.0
+```python
+feature = model.get_six_dof_load(shapes)
+feature.Fx = 10.0
+feature.Mz = 5.0
+
+# Apply multiple changes in a single network call:
+
+with feature.batch():
+    feature.Fx = 10.0
+    feature.Fy = 0.0
+    feature.Fz = -20.0
+    feature.Mx = 0.0
+    feature.My = 0.0
+    feature.Mz = 5.0
+```
 
 ## Properties
 

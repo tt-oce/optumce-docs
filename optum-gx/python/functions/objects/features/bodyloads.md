@@ -1,16 +1,20 @@
-# VolumeLoads
+# BodyLoads
 
-Volume (body) load feature with remote API synchronization via IFeature.
+Body load applied throughout a solid region -- distributed
+force per unit volume across the selected face (2D) or volume (3D).
 
-Usage:
-    feature = model.get_volume_load(shapes)
-    feature.direction = 'z'
+## Examples
+
+```python
+feature = model.get_body_load(shapes)
+feature.load_direction = 'z'
+feature.value = -20.0
+
+# Apply multiple changes in a single network call:
+with feature.batch():
+    feature.load_direction = 'z'
     feature.value = -20.0
-
-Batch updates:
-    with feature.batch():
-        feature.direction = 'z'
-        feature.value = -20.0
+```
 
 ## Properties
 
@@ -30,7 +34,7 @@ Batch updates:
 <dt>load_variation : int</dt>
 <dd>Load variation (constant/linear).</dd>
 <dt>p : float | Profile | Gradient</dt>
-<dd>Volume load value (unit weight).</dd>
+<dd>Body load value (unit weight).</dd>
 <dt>value : float | Profile | Gradient</dt>
 <dd>Alias for p.</dd>
 </dl>

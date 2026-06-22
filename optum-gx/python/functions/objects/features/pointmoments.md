@@ -1,16 +1,21 @@
 # PointMoments
 
-Point moment feature with remote API synchronization via IFeature.
+Point moment applied at a point -- concentrated moment at the selected
+point(s).
 
-Usage:
-    feature = model.get_point_moment(shapes)
-    feature.direction = 'z'
+## Examples
+
+```python
+feature = model.get_point_moment(shapes)
+feature.load_direction = 'z'
+feature.value = 10.0
+
+# Apply multiple changes in a single network call:
+
+with feature.batch():
+    feature.load_direction = 'z'
     feature.value = 10.0
-
-Batch updates:
-    with feature.batch():
-        feature.direction = 'z'
-        feature.value = 10.0
+```
 
 ## Properties
 

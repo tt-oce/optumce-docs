@@ -1,5 +1,6 @@
 # WaterTables
 
-*No docstring yet — add one in source to populate this section.*
+Water table feature defining the phreatic surface used to derive
+initial pore pressures in the model.
 
 Object without properties.

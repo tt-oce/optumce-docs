@@ -5,7 +5,8 @@ Map data (x, y, z, value).
 ## Parameters
 
 <dl>
-<dd>List[List[float]] List of coordinates and corresponding parameter value.</dd>
+<dt>data : List[List[float]]</dt>
+<dd>List of coordinates and corresponding parameter value.</dd>
 </dl>
 
 ## See also

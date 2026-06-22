@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835190579887">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835449189730">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Supports</title>
     <meta name="title" content="Supports">
-    <meta name="description" content="Support boundary condition feature.">
+    <meta name="description" content="Support boundary condition -- fixes displacement in specified directions on the selected edges or faces.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/objects/features/supports/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/features/supports/">
     <meta property="og:title" content="Supports">
-    <meta property="og:description" content="Support boundary condition feature.">
+    <meta property="og:description" content="Support boundary condition -- fixes displacement in specified directions on the selected edges or faces.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/features/supports/">
     <meta name="twitter:title" content="Supports">
-    <meta name="twitter:description" content="Support boundary condition feature.">
+    <meta name="twitter:description" content="Support boundary condition -- fixes displacement in specified directions on the selected edges or faces.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/objects/features/supports.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.835190579887" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.835449189730" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835190579887" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835449189730" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835190579887" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835190579887" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835449189730" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835449189730" defer></script>
 
     <style>
         /* Images */
@@ -314,26 +314,13 @@
 
                 <!-- Page content  -->
 <h1 id="supports">Supports</h1>
-<p>Support boundary condition feature.</p>
-<p>Properties</p>
-<hr>
-<p>type : str
-Support type. One of:
-- <code translate="no" v-pre>'full'</code> – fully fixed (no displacement in any direction)
-- <code translate="no" v-pre>'normal'</code> – fixed in the normal direction only
-- <code translate="no" v-pre>'tangential'</code> – fixed in the tangential direction only
-- <code translate="no" v-pre>'vertical_roller'</code> – vertical roller (free vertical, fixed horizontal)
-- <code translate="no" v-pre>'horizontal_roller'</code> – horizontal roller (free horizontal, fixed vertical)
-is_local : bool
-If True, the support is defined in the local coordinate system
-of the shape. If False, it uses the global coordinate system.</p>
+<p>Support boundary condition -- fixes displacement in specified
+directions on the selected edges or faces.</p>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">edges = model.select([0, 2.5], types='edge')
-model.set_support(shapes=edges, type='full')
-support = model.get_support(edges)
-support.type = 'normal'
-support.is_local = False</code></pre>
+<pre translate="no" class="language-python"><code v-pre class="language-python">feature = model.get_support(shapes)
+feature.type = 'normal'
+feature.is_local = False</code></pre>
 </doc-codeblock></div>
 <h2 id="properties">Properties</h2>
 <dl>

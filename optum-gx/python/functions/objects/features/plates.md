@@ -1,6 +1,15 @@
 # Plates
 
-*No docstring yet — add one in source to populate this section.*
+Plate element assigned to an edge (2D) or face (3D).
+
+## Examples
+
+```python
+feature = model.get_plate(shapes)
+feature.material_id
+feature.use_beam_coordinate_system = True
+feature.strong_axis = [0, 1, 0]
+```
 
 ## Properties
 

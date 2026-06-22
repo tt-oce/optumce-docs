@@ -1,6 +1,17 @@
 # ExtrudeTo3dSettings
 
-*No docstring yet — add one in source to populate this section.*
+2D-to-3D extrusion settings attached to a 2D feature -- controls
+extrusion depths, repetition, end-cap fills, and whether the result
+is a face or a volume.
+
+## Examples
+
+```python
+settings = model.get_extrude_to_3d(shapes)
+settings.depth_in = 5.0
+settings.depth_out = 5.0
+settings.as_face = True
+```
 
 ## Properties
 
