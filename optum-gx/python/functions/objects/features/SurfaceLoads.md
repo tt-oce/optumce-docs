@@ -1,17 +1,24 @@
 # SurfaceLoads
 
-Surface load feature with remote API synchronization via IFeature.
+Surface load applied to a face -- distributed pressure on
+the selected face(s). Supports constant or linearly-varying
+distributions.
 
-Usage:
-    feature = model.get_surface_load(shapes)
-    feature.direction = 'z'
+## Examples
+
+```python
+feature = model.get_surface_load(shapes)
+feature.load_direction = 'z'
+feature.load_type = 'unfavourable'
+feature.value = 10.0
+
+# Apply multiple changes in a single network call:
+
+with feature.batch():
+    feature.load_direction = 'z'
     feature.load_type = 'unfavourable'
-
-Batch updates:
-    with feature.batch():
-        feature.direction = 'z'
-        feature.load_type = 'unfavourable'
-        feature.value = 10.0
+    feature.value = 10.0
+```
 
 ## Properties
 

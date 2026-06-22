@@ -1,6 +1,14 @@
 # MeshSizes
 
-*No docstring yet — add one in source to populate this section.*
+Local mesh-size override -- sets the target element size in the
+selected region.
+
+## Examples
+
+```python
+feature = model.get_mesh_size(shapes)
+feature.mesh_size = 0.25
+```
 
 ## Properties
 

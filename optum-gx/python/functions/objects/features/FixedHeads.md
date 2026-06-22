@@ -1,6 +1,14 @@
 # FixedHeads
 
-*No docstring yet — add one in source to populate this section.*
+Prescribed hydraulic head boundary condition -- fixes the head value
+at the selected shapes.
+
+## Examples
+
+```python
+feature = model.get_fixed_head(shapes)
+feature.head = -2.0
+```
 
 ## Properties
 

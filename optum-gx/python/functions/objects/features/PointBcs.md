@@ -1,6 +1,16 @@
 # PointBcs
 
-*No docstring yet — add one in source to populate this section.*
+Boundary condition applied at a point -- fixes or releases the point's
+displacement and rotation degrees of freedom.
+
+## Examples
+
+```python
+feature = model.get_point_bc(shapes)
+feature.displacement_x = 0
+feature.displacement_y = 0
+feature.displacement_z = 0
+```
 
 ## Properties
 

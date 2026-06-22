@@ -1,16 +1,21 @@
 # PointLoads
 
-Point load feature with remote API synchronization via IFeature.
+Point load applied at a point -- concentrated force at the selected
+point(s).
 
-Usage:
-    feature = model.get_point_load(shapes)
-    feature.direction = 'z'
+## Examples
+
+```python
+feature = model.get_point_load(shapes)
+feature.load_direction = 'z'
+feature.value = 10.0
+
+# Apply multiple changes in a single network call:
+
+with feature.batch():
+    feature.load_direction = 'z'
     feature.value = 10.0
-
-Batch updates:
-    with feature.batch():
-        feature.direction = 'z'
-        feature.value = 10.0
+```
 
 ## Properties
 

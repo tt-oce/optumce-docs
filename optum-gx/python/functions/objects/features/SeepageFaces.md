@@ -1,5 +1,5 @@
 # SeepageFaces
 
-*No docstring yet — add one in source to populate this section.*
+Seepage face hydraulic boundary.
 
 Object without properties.

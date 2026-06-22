@@ -1,6 +1,17 @@
 # FixedEndAnchors
 
-*No docstring yet — add one in source to populate this section.*
+Fixed-end anchor connecting a point in the model to a fictitious fixed
+support at the far end of the anchor.
+
+## Examples
+
+```python
+feature = model.get_fixed_end_anchor(shapes)
+feature.material_id
+feature.length = 6.0
+feature.inclination_angle = 30
+feature.corrosion_loss = 0.10
+```
 
 ## Properties
 
