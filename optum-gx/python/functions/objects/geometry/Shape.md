@@ -27,19 +27,19 @@ type (length for edges, area for faces, volume for volumes).
 
 ### vertices()
 
-*No docstring yet — add one in source to populate this section.*
+List of all the vertices bounding the shape.
 
 ### edges()
 
-*No docstring yet — add one in source to populate this section.*
+List of all the edges bounding the shape.
 
 ### faces()
 
-*No docstring yet — add one in source to populate this section.*
+List of all the faces bounding the shape.
 
 ### volumes()
 
-*No docstring yet — add one in source to populate this section.*
+List with the volume shape.
 
 ### set_2d_to_3d_settings()
 

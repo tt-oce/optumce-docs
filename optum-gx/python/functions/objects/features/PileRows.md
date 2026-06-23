@@ -20,4 +20,4 @@ feature.base_location()
 
 ### base_location()
 
-*No docstring yet — add one in source to populate this section.*
+Set the base location

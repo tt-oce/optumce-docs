@@ -12,7 +12,6 @@ Delete model or stage.
 
 - [delete_interior](/python/functions/model/geometry/delete_interior)
 - [delete_shapes](/python/functions/model/geometry/delete_shapes)
-- [delete_features](/python/functions/model-and-stage/delete_features)
 
 ## Examples
 

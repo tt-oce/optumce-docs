@@ -19,12 +19,12 @@ feature.material_id
 
 ### strength_reduction_factor()
 
-*No docstring yet — add one in source to populate this section.*
+Strength reduction factor setter.
 
 ### tension_cutoff()
 
-*No docstring yet — add one in source to populate this section.*
+Set the tension cutoff.
 
 ### compression_cutoff()
 
-*No docstring yet — add one in source to populate this section.*
+Set the compression cutoff

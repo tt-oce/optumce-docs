@@ -16,6 +16,7 @@ feature.strong_axis = [0, 1, 0]
 <dl>
 <dt>material_id : str</dt>
 <dt>use_beam_coordinate_system : bool</dt>
+<dd>Use a custom beam coordinate system (3D beam plates only). Setting strong_axis enables this automatically.</dd>
 <dt>strong_axis : List[float]</dt>
 <dd>Strong axis (Y / J) of the beam coordinate system as [x, y, z]. Setting this enables ``use_beam_coordinate_system``.</dd>
 </dl>
@@ -24,4 +25,4 @@ feature.strong_axis = [0, 1, 0]
 
 ### coordinate_system()
 
-*No docstring yet — add one in source to populate this section.*
+Set the Beam internal coordinate system.
