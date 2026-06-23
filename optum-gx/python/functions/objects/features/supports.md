@@ -15,7 +15,7 @@ feature.is_local = False
 
 <dl>
 <dt>type : str</dt>
-<dd>Support type: 'full', 'normal', 'tangential', 'vertical_roller', 'horizontal_roller'.</dd>
+<dd>Support type: 'full', 'normal', 'tangential'.</dd>
 <dt>is_local : bool</dt>
 <dd>Whether the support uses local coordinate system.</dd>
 </dl>

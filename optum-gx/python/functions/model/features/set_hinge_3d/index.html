@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835449189730">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835517651968">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.835449189730" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.835517651968" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835449189730" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835517651968" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835449189730" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835449189730" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835517651968" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835517651968" defer></script>
 
     <style>
         /* Images */
@@ -317,23 +317,23 @@
 <p>Set hinge in 3D.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt>vertices : Shapelist</dt>
+<dt>edges : ShapeList</dt>
 <dd>List of edges</dd>
+<dt>faces : ShapeList</dt>
+<dd>List of faces</dd>
 </dl>
 <h2 id="notes">Notes</h2>
-<p>Edges must be connected to at least one plate, to which the hinge will be assigned.</p>
+<p>Edges must be connected to at least one plate, to which the hinge will be assigned. If edges are connected to multiple plates,
+hinges will all be set to all of them, unless faces are specified.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../set_hinge_2d/">set_hinge_2d</a></li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">e = model3d.select(  
-    p0=[0,0,0],
-    p1=[0,0,1],
-    types=['edge'],
-    option='blue')
-model3d.set_hinge_3d(edges=e)</code></pre>
+<pre translate="no" class="language-python"><code v-pre class="language-python">edges = model.get_shapes(['edge'])
+faces = model.get_shapes(['face'])
+model.set_hinge_3d(edges, faces)</code></pre>
 </doc-codeblock></div>
 <div id="retype-backlinks">
     <h2>See also</h2>

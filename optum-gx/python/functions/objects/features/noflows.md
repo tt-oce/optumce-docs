@@ -1,5 +1,5 @@
 # NoFlows
 
-No-flow (zero-flux) hydraulic boundary condition.
+No-flow hydraulic boundary condition.
 
 Object without properties.

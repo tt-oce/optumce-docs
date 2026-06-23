@@ -5,13 +5,16 @@ Set hinge in 3D.
 ## Parameters
 
 <dl>
-<dt>vertices : Shapelist</dt>
+<dt>edges : ShapeList</dt>
 <dd>List of edges</dd>
+<dt>faces : ShapeList</dt>
+<dd>List of faces</dd>
 </dl>
 
 ## Notes
 
-Edges must be connected to at least one plate, to which the hinge will be assigned.
+Edges must be connected to at least one plate, to which the hinge will be assigned. If edges are connected to multiple plates, 
+hinges will all be set to all of them, unless faces are specified.
 
 ## See also
 
@@ -20,10 +23,7 @@ Edges must be connected to at least one plate, to which the hinge will be assign
 ## Examples
 
 ```python
-e = model3d.select(  
-    p0=[0,0,0],
-    p1=[0,0,1],
-    types=['edge'],
-    option='blue')
-model3d.set_hinge_3d(edges=e)
+edges = model.get_shapes(['edge'])
+faces = model.get_shapes(['face'])
+model.set_hinge_3d(edges, faces)
 ```

@@ -32,19 +32,75 @@ indexing, len(), merge() and remove(); the raw list is available via values.
 
 ### vertices()
 
-*No docstring yet — add one in source to populate this section.*
+List of all the vertices bounding the shape. Designed for a single Shape in the shapelist.
+
+#### Returns
+
+<dl>
+<dt>ShapeList</dt>
+<dd>List of vertices</dd>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shapes[26].vertices()
+```
 
 ### edges()
 
-*No docstring yet — add one in source to populate this section.*
+List of all the edges bounding the shape. Designed for a single Shape in the shapelist.
+
+#### Returns
+
+<dl>
+<dt>ShapeList</dt>
+<dd>List of edges</dd>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shapes[26].edges()
+```
 
 ### faces()
 
-*No docstring yet — add one in source to populate this section.*
+List of all the faces bounding the shape. Designed for a single Shape in the shapelist.
+
+#### Returns
+
+<dl>
+<dt>ShapeList</dt>
+<dd>List of faces</dd>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shapes[26].faces()
+```
 
 ### volumes()
 
-*No docstring yet — add one in source to populate this section.*
+List with the volume shape. Designed for a single Shape in the shapelist.
+
+#### Returns
+
+<dl>
+<dt>ShapeList</dt>
+<dd>List with volume</dd>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shapes[26].volumes()
+```
 
 ### set_2d_to_3d_settings()
 
@@ -95,20 +151,114 @@ Get 2D to 3D extrusion settings for the first shape in the list.
 
 ### contains()
 
-*No docstring yet — add one in source to populate this section.*
+Check if Shape is contained in ShapeList.
+
+#### Returns
+
+<dl>
+<dt>bool</dt>
+<dd>True or False</dd>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shape = model.get_shape_by_id(26)
+shapes.contains(shape)
+```
 
 ### find()
 
-*No docstring yet — add one in source to populate this section.*
+Find Shape contained in ShapeList.
+
+#### Parameters
+
+<dl>
+<dt>items : Shape</dt>
+<dd>shape</dd>
+</dl>
+
+#### Returns
+
+<dl>
+<dt>Shape or None.</dt>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shape = model.get_shape_by_id(26)
+shapes.contains(shape)
+```
 
 ### remove()
 
-*No docstring yet — add one in source to populate this section.*
+Remove Shape from ShapeList.
+
+#### Parameters
+
+<dl>
+<dt>items : Shape or ShapeList</dt>
+<dd>shape or shapes.</dd>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shape = model.get_shape_by_id(26)
+shapes.remove(shape)
+shapes.remove(model.get_shapes(['vertex']))
+```
 
 ### get()
 
-*No docstring yet — add one in source to populate this section.*
+Get new Shapelist from index in Shapelist
+
+#### Parameters
+
+<dl>
+<dt>index : int</dt>
+<dd>index of shape to get new shapelist from.</dd>
+</dl>
+
+#### Returns
+
+<dl>
+<dt>ShapeList.</dt>
+</dl>
+
+#### Examples
+
+```python
+shapes = model.get_shapes()
+shapes.get(10)
+```
 
 ### merge()
 
-*No docstring yet — add one in source to populate this section.*
+'
+Merge current ShapeList with another.
+
+#### Parameters
+
+<dl>
+<dt>other : ShapeList</dt>
+<dd>ShapeList to merge with.</dd>
+</dl>
+
+#### Returns
+
+<dl>
+<dt>ShapeList.</dt>
+</dl>
+
+#### Examples
+
+```python
+vertexList = model.get_shapes(types=['vertex'])
+edgeList = model.get_shapes(types=['edge'])
+vertexList.merge(edgeList)
+```

@@ -7,11 +7,14 @@ Set hinge in 2D.
 <dl>
 <dt>vertices : ShapeList</dt>
 <dd>List of vertices</dd>
+<dt>edges : ShapeList</dt>
+<dd>List of edges</dd>
 </dl>
 
 ## Notes
 
-Vertices must be connected to at least one plate, to which the hinge will be assigned.
+Vertices must be connected to at least one plate, to which the hinge will be assigned. If vertices are connected to multiple plates, 
+hinges will all be set to all of them, unless edges are specified.
 
 ## See also
 
@@ -20,15 +23,7 @@ Vertices must be connected to at least one plate, to which the hinge will be ass
 ## Examples
 
 ```python
-model2d.add_rectangle([0,0],[0,2])
-edge = model2d.select(p0=[0,1],types='edge')
-RigidPlateMaterial = prj.RigidPlate(name='RigidPlateMaterial',
-                            color=rgb(128,156,180),
-                            weight=0,
-                            permeable='no',
-                            )
-model2d.set_plate(shapes=edge,material=RigidPlateMaterial)
-model2d.add_vertex([0,1])
-vertex = model2d.select(p0=[0,1],p1=[0,2],types=['vertex'])
-model2d.set_hinge_2d(vertices=vertex)
+vertices = model.get_shapes(['vertex'])
+edges = model.get_shapes(['edge'])
+model2d.set_hinge_2d(vertices, edges)
 ```

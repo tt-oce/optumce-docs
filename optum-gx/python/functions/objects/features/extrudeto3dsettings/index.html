@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835449189730">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.835517651968">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>ExtrudeTo3dSettings</title>
     <meta name="title" content="ExtrudeTo3dSettings">
-    <meta name="description" content="2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the result is a face or a volume.">
+    <meta name="description" content="2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the resulting shape is a face or a volume.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings/">
     <meta property="og:title" content="ExtrudeTo3dSettings">
-    <meta property="og:description" content="2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the result is a face or a volume.">
+    <meta property="og:description" content="2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the resulting shape is a face or a volume.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings/">
     <meta name="twitter:title" content="ExtrudeTo3dSettings">
-    <meta name="twitter:description" content="2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the result is a face or a volume.">
+    <meta name="twitter:description" content="2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the resulting shape is a face or a volume.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.835449189730" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.835517651968" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835449189730" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.835517651968" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835449189730" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835449189730" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.835517651968" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.835517651968" defer></script>
 
     <style>
         /* Images */
@@ -315,14 +315,14 @@
                 <!-- Page content  -->
 <h1 id="extrudeto3dsettings">ExtrudeTo3dSettings</h1>
 <p>2D-to-3D extrusion settings attached to a 2D feature -- controls
-extrusion depths, repetition, end-cap fills, and whether the result
+extrusion depths, repetition, end-cap fills, and whether the resulting shape
 is a face or a volume.</p>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">settings = model.get_extrude_to_3d(shapes)
-settings.depth_in = 5.0
-settings.depth_out = 5.0
-settings.as_face = True</code></pre>
+<pre translate="no" class="language-python"><code v-pre class="language-python">extrudeSettings = model.get_extrude_to_3d(shapes)
+extrudeSettings.depth_in = 5.0
+extrudeSettings.depth_out = 5.0
+extrudeSettings.as_face = True</code></pre>
 </doc-codeblock></div>
 <h2 id="properties">Properties</h2>
 <dl>

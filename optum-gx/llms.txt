@@ -278,7 +278,7 @@
 
 - [BodyLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/bodyloads.md): Body load applied throughout a solid region -- distributed force per unit volume across the selected face (2D) or volume (3D).
 - [Connectors](https://docs.optumce.com/optum-gx/python/functions/objects/features/connectors.md): Connector element linking two points.
-- [ExtrudeTo3dSettings](https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md): 2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the result is a face or a volume.
+- [ExtrudeTo3dSettings](https://docs.optumce.com/optum-gx/python/functions/objects/features/extrudeto3dsettings.md): 2D-to-3D extrusion settings attached to a 2D feature -- controls extrusion depths, repetition, end-cap fills, and whether the resulting shape is a face or a volume.
 - [FixedEndAnchors](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedendanchors.md): Fixed-end anchor connecting a point in the model to a fictitious fixed support at the far end of the anchor.
 - [FixedExcessPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedexcesspressures.md): Prescribed excess pore pressure boundary condition -- fixes the excess pressure above the steady-state value at the selected shapes.
 - [FixedHeads](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedheads.md): Prescribed hydraulic head boundary condition -- fixes the head value at the selected shapes.
@@ -289,7 +289,7 @@
 - [MeshFans](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshfans.md): Mesh refinement fan centred on a vertex -- generates a radial pattern of elements around a point for capturing stress concentrations or singular fields.
 - [MeshSizes](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshsizes.md): Local mesh-size override -- sets the target element size in the selected region.
 - [NailRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/nailrows.md): Soil-nail row assigned to an edge (2D) or face (3D).
-- [NoFlows](https://docs.optumce.com/optum-gx/python/functions/objects/features/noflows.md): No-flow (zero-flux) hydraulic boundary condition.
+- [NoFlows](https://docs.optumce.com/optum-gx/python/functions/objects/features/noflows.md): No-flow hydraulic boundary condition.
 - [PileRows](https://docs.optumce.com/optum-gx/python/functions/objects/features/pilerows.md): Pile-row assigned to an edge (2D) or face (3D).
 - [PlateBcs](https://docs.optumce.com/optum-gx/python/functions/objects/features/platebcs.md): Boundary condition applied to a plate -- fixes or releases the plate's displacement and rotation degrees of freedom.
 - [Plates](https://docs.optumce.com/optum-gx/python/functions/objects/features/plates.md): Plate element assigned to an edge (2D) or face (3D).
@@ -311,6 +311,35 @@
 
 - [Shape](https://docs.optumce.com/optum-gx/python/functions/objects/geometry/shape.md): A single geometric entity (vertex, edge, face or volume) within a model.
 - [ShapeList](https://docs.optumce.com/optum-gx/python/functions/objects/geometry/shapelist.md): An ordered collection of Shape objects from a single stage.
+
+##### Materials
+
+- [AUS](https://docs.optumce.com/optum-gx/python/functions/objects/materials/aus.md): Anisotropic Undrained Strength (AUS) material -- captures direction- dependent undrained shear strength typical of natural clays.
+- [Beam](https://docs.optumce.com/optum-gx/python/functions/objects/materials/beam.md): Beam element -- beam material with axial and bending stiffness in two directions, for modelling secondary structural members.
+- [Connector](https://docs.optumce.com/optum-gx/python/functions/objects/materials/connector.md): Connector material -- axial-only element for trusses, struts and similar line members.
+- [DruckerPrager](https://docs.optumce.com/optum-gx/python/functions/objects/materials/druckerprager.md): Drucker-Prager elastoplastic material -- smoothed approximation of the Mohr-Coulomb failure surface, well-suited to 3D analyses.
+- [FlatPlateConcrete](https://docs.optumce.com/optum-gx/python/functions/objects/materials/flatplateconcrete.md): Flat plate (concrete) -- concrete plate element parameterised by thickness and concrete grade for slab and wall modelling.
+- [FlatPlateSteel](https://docs.optumce.com/optum-gx/python/functions/objects/materials/flatplatesteel.md): Flat plate (steel) -- steel plate element parameterised by thickness and yield strength, with optional yield-condition cutoff.
+- [GeneralPlate](https://docs.optumce.com/optum-gx/python/functions/objects/materials/generalplate.md): General plate material -- configurable axial and bending stiffness for modelling sheet piles, walls and other structural plates with custom properties.
+- [Geogrid](https://docs.optumce.com/optum-gx/python/functions/objects/materials/geogrid.md): Geogrid reinforcement material -- thin tensile reinforcement for modelling geogrids and reinforcement layers in soils.
+- [HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hardeningsoil.md): Hardening-Soil model -- work-hardening elastoplastic soil with separate loading and unloading/reloading stiffnesses, suitable for staged geotechnical analyses.
+- [HMC](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hmc.md): Hardening Mohr-Coulomb -- Mohr-Coulomb with hardening, capturing pre-failure non-linearity while retaining the familiar c-phi failure criterion.
+- [HoekBrown](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hoekbrown.md): Hoek-Brown criterion -- empirical failure criterion for jointed rock masses, parameterised by the Geological Strength Index (GSI).
+- [LinearElastic](https://docs.optumce.com/optum-gx/python/functions/objects/materials/linearelastic.md): Linear-elastic material -- Hooke's law without yielding, used where deformation is small or stiffness is the only quantity of interest.
+- [ModifiedCamClay](https://docs.optumce.com/optum-gx/python/functions/objects/materials/modifiedcamclay.md): Modified Cam-Clay (MCC) -- critical-state model for normally and lightly over-consolidated clays.
+- [MohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/objects/materials/mohrcoulomb.md): Mohr-Coulomb elastoplastic material -- frictional/cohesive failure criterion suitable for most soils.
+- [MohrCoulombEngineering](https://docs.optumce.com/optum-gx/python/functions/objects/materials/mohrcoulombengineering.md): Mohr-Coulomb Engineering -- Mohr-Coulomb variant parameterised with engineering-style strength quantities for design-code workflows.
+- [MultiMohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/objects/materials/multimohrcoulomb.md): Multi-surface Mohr-Coulomb -- Mohr-Coulomb with multiple yield surfaces for modelling cyclic loading or kinematic hardening.
+- [NailRow](https://docs.optumce.com/optum-gx/python/functions/objects/materials/nailrow.md): Soil-nail row material -- discrete row of grouted nails parameterised by spacing, diameter and yield strength.
+- [NGIADP](https://docs.optumce.com/optum-gx/python/functions/objects/materials/ngiadp.md): NGI-ADP (Anisotropic Direct Plasticity) -- advanced anisotropic undrained model for clays with active / direct / passive shear inputs.
+- [PileRow](https://docs.optumce.com/optum-gx/python/functions/objects/materials/pilerow.md): Pile row material -- row of equally-spaced piles parameterised by diameter, spacing and pile type (driven, bored, etc.).
+- [ReinforcedConcrete](https://docs.optumce.com/optum-gx/python/functions/objects/materials/reinforcedconcrete.md): Reinforced concrete -- composite solid material combining a concrete matrix with discrete reinforcement, for slab and wall analyses.
+- [Rigid](https://docs.optumce.com/optum-gx/python/functions/objects/materials/rigid.md): Rigid material -- no deformation, used to model bodies whose stiffness dominates the solution (e.g. retaining walls, footings).
+- [RigidBeam](https://docs.optumce.com/optum-gx/python/functions/objects/materials/rigidbeam.md): Rigid beam -- beam element with no deformation, used for stiff secondary structural members.
+- [RigidPlate](https://docs.optumce.com/optum-gx/python/functions/objects/materials/rigidplate.md): Rigid plate -- plate element with no deformation, used for sheet piles or walls whose stiffness dominates the analysis.
+- [SheetPile](https://docs.optumce.com/optum-gx/python/functions/objects/materials/sheetpile.md): Sheet pile profile -- standard steel sheet pile sections (Az, Larssen, etc.) with built-in section properties and yield strength.
+- [Tresca](https://docs.optumce.com/optum-gx/python/functions/objects/materials/tresca.md): Tresca elastoplastic material -- pressure-independent failure based on maximum shear stress, used for undrained clays.
+- [Water](https://docs.optumce.com/optum-gx/python/functions/objects/materials/water.md): Water material -- assigned to fluid regions to represent free water (e.g. lakes, reservoirs, fluid-filled cavities).
 
 #### Utilities
 
