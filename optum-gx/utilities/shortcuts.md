@@ -10,8 +10,9 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | **New project** | Ctrl + N |
 | **Open project** | Ctrl + O |
 | **Save project** | Ctrl + S |
+| **Save As**      | Ctrl + Shift + S|
 | **Cancel current tool** | Esc |
-| **Deselect (in canvas)** | Esc |
+| **Deselect all** | Esc |
 | **Toggle Selection / last used tool** | Spacebar |
 | **Copy** | Ctrl + C |
 | **Paste** | Ctrl + V |
