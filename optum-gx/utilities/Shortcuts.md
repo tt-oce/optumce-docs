@@ -10,8 +10,9 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | **New project** | Ctrl + N |
 | **Open project** | Ctrl + O |
 | **Save project** | Ctrl + S |
+| **Save As**      | Ctrl + Shift + S|
 | **Cancel current tool** | Esc |
-| **Deselect (in canvas)** | Esc |
+| **Deselect all** | Esc |
 | **Toggle Selection / last used tool** | Spacebar |
 | **Copy** | Ctrl + C |
 | **Paste** | Ctrl + V |
@@ -59,16 +60,16 @@ Modification
 Draw - 2D primitives
 | Action        | Proposed shortcut     |
 | ------------- | --------------------- |
-| Vertex        | V                     |
-| Line          | L                     |
+| Vertex        | V or 1                    |
+| Line          | L or 2                    |
 | Arc           | A                     |
 | Circle        | C                     |
-| Rectangle     | R                     |
+| Rectangle     | R or 3                    |
 
 Draw - 3D primitives
 | Action        | Proposed shortcut     |
 | ------------- | --------------------- |
-| Box           | B                     |
+| Box           | B or 4                   |
 | Sphere        | Shift + C             |
 | N-cone        | N                     |
 | Prism         | P                     |
@@ -94,7 +95,7 @@ View / Zoom
 Model conversions
 | Action                    | Proposed shortcut  |
 | ------------------------- | ------------------ |
-| Slice 3D model to 2D model    | Ctrl + Shift + S |
+| Slice 3D model to 2D model    | Ctrl + Shift + X |
 | Extrude 2D model to 3D model  | Ctrl + Shift + E |
 | Revolve 2D model to 3D model  | Ctrl + Shift + R |
 =====================================================================
