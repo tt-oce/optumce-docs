@@ -42,7 +42,7 @@ Some mouse behavior depends on the **Mouse Controls** setting (*Settings → Mou
 
 <!--
 =====================================================================
-PROPOSED DRAW / CANVAS TOOL SHORTCUTS  (NOT YET IMPLEMENTED)
+PROPOSED DRAW / CANVAS TOOL SHORTCUTS  (NOT YET IMPLEMENTED) 
 ---------------------------------------------------------------------
 
 Modification
