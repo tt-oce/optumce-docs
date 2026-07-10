@@ -90,7 +90,7 @@ View / Zoom
 | ------------- | --------------------- |
 | Zoom In       | +                     |
 | Zoom Out      | -                     |
-| Zoom All      | Home                  |
+| Zoom All      | Home or F4            |
 
 Model conversions
 | Action                    | Proposed shortcut  |
