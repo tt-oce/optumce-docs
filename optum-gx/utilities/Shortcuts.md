@@ -107,3 +107,4 @@ Some mouse behavior depends on the **Mouse Controls** setting (*Settings → Mou
 | **Zoom** | Mouse wheel | Mouse wheel |
 | **Pan** | Shift + Left mouse drag | Middle mouse drag |
 | **Orbit** | Ctrl + Left mouse drag | Shift + Middle mouse drag |
+ 
