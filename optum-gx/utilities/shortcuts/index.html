@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.836395919316">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838024978794">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,11 +38,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.836395919316" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.838024978794" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.836395919316" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838024978794" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.836395919316" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838024978794" data-turbo-eval="false" defer></script>
 
     <style>
         /* Images */
@@ -291,26 +291,14 @@
 <h1 id="shortcuts">Shortcuts</h1>
 <p>A reference of keyboard and mouse shortcuts available in OPTUM GX.</p>
 <h2 id="keyboard">Keyboard</h2>
+<h3 id="general">General</h3>
 <retype-table copy-text="| Action | Shortcut |
 | ------ | -------- |
 | **Run analysis** | F5 |
 | **New project** | Ctrl + N |
 | **Open project** | Ctrl + O |
 | **Save project** | Ctrl + S |
-| **Save As**      | Ctrl + Shift + S|
-| **Cancel current tool** | Esc |
-| **Deselect all** | Esc |
-| **Toggle Selection / last used tool** | Spacebar |
-| **Copy** | Ctrl + C |
-| **Paste** | Ctrl + V |
-| **Undo** | Ctrl + Z |
-| **Redo** | Ctrl + Y |
-| **Delete** | Delete |
-| **Toggle voids selection** | Ctrl + 0 |
-| **Toggle points selection** | Ctrl + 1 |
-| **Toggle lines selection** | Ctrl + 2 |
-| **Toggle faces selection** | Ctrl + 3 |
-| **Toggle volumes selection** | Ctrl + 4 |">
+| **Save As** | Ctrl + Shift + S |">
 <div class="table-wrapper scrollbar overflow-hidden">
 <table class="comfortable">
 <thead>
@@ -340,18 +328,28 @@
 <td><strong>Save As</strong></td>
 <td>Ctrl + Shift + S</td>
 </tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="editing">Editing</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Copy** | Ctrl + C |
+| **Paste** | Ctrl + V |
+| **Undo** | Ctrl + Z |
+| **Redo** | Ctrl + Y |
+| **Delete** | Delete |
+| **Clear model** | Ctrl + Shift + Delete |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
 <tr>
-<td><strong>Cancel current tool</strong></td>
-<td>Esc</td>
+<th>Action</th>
+<th>Shortcut</th>
 </tr>
-<tr>
-<td><strong>Deselect all</strong></td>
-<td>Esc</td>
-</tr>
-<tr>
-<td><strong>Toggle Selection / last used tool</strong></td>
-<td>Spacebar</td>
-</tr>
+</thead>
+<tbody>
 <tr>
 <td><strong>Copy</strong></td>
 <td>Ctrl + C</td>
@@ -373,6 +371,42 @@
 <td>Delete</td>
 </tr>
 <tr>
+<td><strong>Clear model</strong></td>
+<td>Ctrl + Shift + Delete</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="selection">Selection</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Select cursor tool / cancel current tool** | Esc |
+| **Last used tool** | Spacebar |
+| **Toggle voids selection** | Ctrl + 0 |
+| **Toggle points selection** | Ctrl + 1 |
+| **Toggle lines selection** | Ctrl + 2 |
+| **Toggle faces selection** | Ctrl + 3 |
+| **Toggle volumes selection** | Ctrl + 4 |
+| **Toggle groups selection** | Ctrl + 5 |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Select cursor tool / cancel current tool</strong></td>
+<td>Esc</td>
+</tr>
+<tr>
+<td><strong>Last used tool</strong></td>
+<td>Spacebar</td>
+</tr>
+<tr>
 <td><strong>Toggle voids selection</strong></td>
 <td>Ctrl + 0</td>
 </tr>
@@ -391,6 +425,241 @@
 <tr>
 <td><strong>Toggle volumes selection</strong></td>
 <td>Ctrl + 4</td>
+</tr>
+<tr>
+<td><strong>Toggle groups selection</strong></td>
+<td>Ctrl + 5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="transform-tools">Transform tools</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Move** | M |
+| **Scale** | S |
+| **Rotate** | Shift + R |
+| **Mirror** | Shift + M |
+| **Offset** | O |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Move</strong></td>
+<td>M</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>S</td>
+</tr>
+<tr>
+<td><strong>Rotate</strong></td>
+<td>Shift + R</td>
+</tr>
+<tr>
+<td><strong>Mirror</strong></td>
+<td>Shift + M</td>
+</tr>
+<tr>
+<td><strong>Offset</strong></td>
+<td>O</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="draw--2d-primitives">Draw — 2D primitives</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Vertex** | V or 1 |
+| **Line** | L or 2 |
+| **Arc** | A |
+| **Circle** | C |
+| **Rectangle** | R or 3 |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vertex</strong></td>
+<td>V or 1</td>
+</tr>
+<tr>
+<td><strong>Line</strong></td>
+<td>L or 2</td>
+</tr>
+<tr>
+<td><strong>Arc</strong></td>
+<td>A</td>
+</tr>
+<tr>
+<td><strong>Circle</strong></td>
+<td>C</td>
+</tr>
+<tr>
+<td><strong>Rectangle</strong></td>
+<td>R or 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="draw--3d-primitives">Draw — 3D primitives</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Box** | B or 4 |
+| **Sphere** | Shift + C |
+| **N-cone** | N |
+| **Prism** | P |
+| **N-Prism** | Shift + P |
+| **Extrude** | E |
+| **Extrude along path** | Shift + E |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Box</strong></td>
+<td>B or 4</td>
+</tr>
+<tr>
+<td><strong>Sphere</strong></td>
+<td>Shift + C</td>
+</tr>
+<tr>
+<td><strong>N-cone</strong></td>
+<td>N</td>
+</tr>
+<tr>
+<td><strong>Prism</strong></td>
+<td>P</td>
+</tr>
+<tr>
+<td><strong>N-Prism</strong></td>
+<td>Shift + P</td>
+</tr>
+<tr>
+<td><strong>Extrude</strong></td>
+<td>E</td>
+</tr>
+<tr>
+<td><strong>Extrude along path</strong></td>
+<td>Shift + E</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="patterns">Patterns</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Array** | Shift + A |
+| **Polar Array** | Ctrl + Shift + A |
+| **Axi-Symmetric** | X |
+| **Grid** | G |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Array</strong></td>
+<td>Shift + A</td>
+</tr>
+<tr>
+<td><strong>Polar Array</strong></td>
+<td>Ctrl + Shift + A</td>
+</tr>
+<tr>
+<td><strong>Axi-Symmetric</strong></td>
+<td>X</td>
+</tr>
+<tr>
+<td><strong>Grid</strong></td>
+<td>G</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="view--zoom">View &amp; zoom</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Zoom In** | + |
+| **Zoom Out** | - |
+| **Zoom All** | Home or F4 |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zoom In</strong></td>
+<td>+</td>
+</tr>
+<tr>
+<td><strong>Zoom Out</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Zoom All</strong></td>
+<td>Home or F4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</retype-table>
+<h3 id="model-conversions">Model conversions</h3>
+<retype-table copy-text="| Action | Shortcut |
+| ------ | -------- |
+| **Slice 3D model to 2D model** | Ctrl + Shift + X |
+| **Extrude 2D model to 3D model** | Ctrl + Shift + E |
+| **Revolve 2D model to 3D model** | Ctrl + Shift + R |">
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Slice 3D model to 2D model</strong></td>
+<td>Ctrl + Shift + X</td>
+</tr>
+<tr>
+<td><strong>Extrude 2D model to 3D model</strong></td>
+<td>Ctrl + Shift + E</td>
+</tr>
+<tr>
+<td><strong>Revolve 2D model to 3D model</strong></td>
+<td>Ctrl + Shift + R</td>
 </tr>
 </tbody>
 </table>
@@ -450,67 +719,6 @@
 </table>
 </div>
 </retype-table>
-<hr>
-<!--
-=====================================================================
-PROPOSED DRAW / CANVAS TOOL SHORTCUTS  (NOT YET IMPLEMENTED) 
----------------------------------------------------------------------
-
-Modification
-| Action        | Proposed shortcut     |
-| ------------- | --------------------- |
-| Move          | M                     |
-| Scale         | S                     |
-| Rotate        | Shift + R             |
-| Mirror        | Shift + M             |
-| Offset        | O                     |
-
-| Clear model   | Ctrl + Shift + Delete |
-(Copy, Paste, Undo, Redo already implemented above.)
-
-Draw - 2D primitives
-| Action        | Proposed shortcut     |
-| ------------- | --------------------- |
-| Vertex        | V or 1                    |
-| Line          | L or 2                    |
-| Arc           | A                     |
-| Circle        | C                     |
-| Rectangle     | R or 3                    |
-
-Draw - 3D primitives
-| Action        | Proposed shortcut     |
-| ------------- | --------------------- |
-| Box           | B or 4                   |
-| Sphere        | Shift + C             |
-| N-cone        | N                     |
-| Prism         | P                     |
-| N-Prism       | Shift + P             |
-| Extrude       | E                     |
-| Extrude along path | Shift + E        |
-
-Patterns
-| Action        | Proposed shortcut     |
-| ------------- | --------------------- |
-| Array         | Shift + A             |
-| Polar Array   | Ctrl + Shift + A      |
-| Axi-Symmetric | X                     |
-| Grid          | G                     |
-
-View / Zoom
-| Action        | Proposed shortcut     |
-| ------------- | --------------------- |
-| Zoom In       | +                     |
-| Zoom Out      | -                     |
-| Zoom All      | Home                  |
-
-Model conversions
-| Action                    | Proposed shortcut  |
-| ------------------------- | ------------------ |
-| Slice 3D model to 2D model    | Ctrl + Shift + X |
-| Extrude 2D model to 3D model  | Ctrl + Shift + E |
-| Revolve 2D model to 3D model  | Ctrl + Shift + R |
-=====================================================================
--->
 
                 
                 <!-- Required only on API pages -->
