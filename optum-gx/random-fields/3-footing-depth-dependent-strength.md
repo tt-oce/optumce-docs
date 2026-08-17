@@ -46,4 +46,4 @@ Unlike the previous two examples, the mobilized mass is a poor discriminator her
 
 ## Code
 
-:::code source="../static/random-fields/code-files/Stochastic footing in clay.py" ::: 
+:::code source="../static/random-fields/code-files/Stochastic footing in clay.py" :::
