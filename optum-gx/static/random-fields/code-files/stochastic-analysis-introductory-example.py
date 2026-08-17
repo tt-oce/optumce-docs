@@ -9,6 +9,7 @@ model = project.get_current_model().delete()
 
 """Constants"""
 B = [0.5, 1, 2, 4, 8, 16]
+cu = 80
 
 """Model setup"""
 for i in range(len(B)):
