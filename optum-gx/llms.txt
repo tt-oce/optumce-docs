@@ -359,6 +359,12 @@
 - [10. Slope with pre-existing fault](https://docs.optumce.com/optum-gx/python/examples/example10_slope_fault.md): In this example we consider the stability of slope with, and without, a fault line.
 - [11. Stability of seismically loaded slope](https://docs.optumce.com/optum-gx/python/examples/example11_loukidis_seismic.md): In this example we consider the stability of slope with pseudo-static seismic loading. The analytical solutions are shown in [Loukidis et al. (2003)][1].
 
+## Random Fields
+
+- [1 Stochastic Analysis – Introductory Example](https://docs.optumce.com/optum-gx/random-fields/1-introductory-example.md): The following example introduces one method of performing stochastic analysis in GX, in particular the concept of random field modelling of the spatial variability of material parameters.
+- [2 Stochastic Factor of Safety Analysis of Slope in Clay](https://docs.optumce.com/optum-gx/random-fields/2-slope-in-clay.md): The following example considers the determination of the factor of safety for the slope shown in Figure 2.1. The material is Tresca and the undrained shear
+- [3 Stochastic Analysis of Footing in Clay with Depth Dependent Strength](https://docs.optumce.com/optum-gx/random-fields/3-footing-depth-dependent-strength.md): The following example involves the determination of the bearing capacity of a footing in a random field soil (see Figure 3.1). Undrained conditions are assumed and the Tresca model is used to model the soil.
+
 ## Utilities
 
 - [Shortcuts](https://docs.optumce.com/optum-gx/utilities/shortcuts.md): A reference of keyboard and mouse shortcuts available in OPTUM GX.
