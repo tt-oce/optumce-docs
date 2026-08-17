@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840281663962">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840283753411">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,12 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840281663962" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840283753411" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840283753411" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840281663962" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840283753411" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840283753411" defer></script>
     <link href="../../resources/css/katex.css?v=4.6.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.6.0" defer></script>
 
@@ -345,7 +345,48 @@
 <div class="custom-caption"><p>Figure 2.5: Examples of shallow (a), intermediate (b) and deep (c) failure mechanisms. From top to bottom: (a) run no 569, mobilized mass = 601 m³/m; (b) run no 599, mobilized mass = 1,001 m³/m; (c) run no 366, mobilized mass = 1,400 m³/m.</p>
 </div>
 <h2 id="code">Code</h2>
-:::code source=&quot;../../static/random-fields/code-files/Stochastic slope in clay.py&quot; :::
+<div id="code-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">&quot;&quot;&quot;Preample&quot;&quot;&quot;
+from OptumGX import *
+gx = GX()
+
+&quot;&quot;&quot;Project setup&quot;&quot;&quot;
+project_name=&quot;Stochastic slope in clay&quot;
+project = gx.create_project(project_name)
+model = project.get_model('Model A')
+model.name = 'Clay slope'
+
+&quot;&quot;&quot;Constants&quot;&quot;&quot;
+cu = 70
+
+&quot;&quot;&quot;Model Setup&quot;&quot;&quot;
+model.add_polygon([[35,15], [-30,15], [-30,-15], [80,-15], [80,0], [56.42,0], [35,15]])
+
+shapes = model.select([0, -0.001], types='face')
+material = project.get_material('Tresca Basic')
+material.cu = cu
+solid = model.set_solid(shapes, material)
+
+model.set_standard_fixities()
+
+model.zoom_all()
+
+&quot;&quot;&quot;Analysis and output&quot;&quot;&quot;
+model.set_analysis_properties(
+    analysis_type= 'factor_of_safety',
+    # load_multiplier_multiplier = 'gravity',
+    mesh_adaptivity= 'yes',
+    adaptivity_iterations=3)
+
+project.run_analysis()
+
+print('Factor of safety: ', model.output.critical_results.factor_of_safety)
+
+current_path = os.getcwd()
+filename =project_name+&quot;.gxx&quot;
+gx.save_project(file_path=os.path.join(current_path, filename))</code></pre>
+</doc-codeblock></div>
+
                 
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>

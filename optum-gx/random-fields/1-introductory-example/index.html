@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840281663962">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840283753411">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,12 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840281663962" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840283753411" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840283753411" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840281663962" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840283753411" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840283753411" defer></script>
     <link href="../../resources/css/katex.css?v=4.6.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.6.0" defer></script>
 
@@ -436,7 +436,56 @@
 <div class="custom-caption"><p>Figure 1.10: Key statistics versus Monte Carlo run number (<span class="math">B = 2</span> m).</p>
 </div>
 <h2 id="code">Code</h2>
-:::code source=&quot;../../static/random-fields/code-files/Stochastic analysis - Introductory example.py&quot; :::
+<div id="code-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">&quot;&quot;&quot;Preample&quot;&quot;&quot;
+from OptumGX import *
+gx = GX()
+
+&quot;&quot;&quot;Project setup&quot;&quot;&quot;
+project_name =&quot;Stochastic analyisis - Introductory example&quot;
+project = gx.create_project(name=project_name)
+model = project.get_current_model().delete()
+
+&quot;&quot;&quot;Constants&quot;&quot;&quot;
+B = [0.5, 1, 2, 4, 8, 16]
+
+&quot;&quot;&quot;Model setup&quot;&quot;&quot;
+for i in range(len(B)):
+    soil_width = 8*B[i]
+    soil_depth = 3*B[i]
+    footing_height = 0.5
+    model = project.create_model(name = &quot;Footing B = %.1f m&quot; % (B[i]))
+    model.add_rectangle([-soil_width/2, 0.0], [soil_width/2, -soil_depth])
+    model.add_rectangle([-B[i]/2, 0.0], [B[i]/2, footing_height])
+
+    shapes = model.select([0, -0.001], types='face')
+    material = project.get_material('Tresca Basic')
+    material.cu = cu
+    solid = model.set_solid(shapes, material)
+
+    shapes = model.select([0, 0.001], types='face')
+    material = project.get_material('Rigid')
+    solid = model.set_solid(shapes, material)
+
+    shapes = model.select([0.0, footing_height], types='edge')
+    load = model.set_surface_load(shapes, -1.0, direction='y', option='fixed',value=-249)
+
+    model.set_standard_fixities()
+
+    model.set_analysis_properties(
+        analysis_type= 'factor_of_safety',
+        mesh_adaptivity= 'yes',
+        adaptivity_iterations=3)
+
+&quot;&quot;&quot;Analysis and output&quot;&quot;&quot;
+model.zoom_all()
+project.run_analysis()
+
+current_path = os.getcwd()
+filename =project_name+&quot;.gxx&quot;
+gx.save_project(file_path=os.path.join(current_path, filename))</code></pre>
+</doc-codeblock></div>
+
                 
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>

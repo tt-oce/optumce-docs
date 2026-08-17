@@ -45,4 +45,4 @@ Figure 2.5: Examples of shallow (a), intermediate (b) and deep (c) failure mecha
 
 ## Code
 
-:::code source="../../static/random-fields/code-files/Stochastic slope in clay.py" :::
+:::code source="../static/random-fields/code-files/Stochastic slope in clay.py" :::

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840281663962">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840283753411">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,12 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840281663962" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840283753411" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840283753411" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840281663962" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840283753411" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840283753411" defer></script>
     <link href="../../resources/css/katex.css?v=4.6.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.6.0" defer></script>
 
@@ -345,7 +345,63 @@
 </div>
 <p>Unlike the previous two examples, the mobilized mass is a poor discriminator here: it is 13.0, 11.4 and 13.0 m³/m for the three runs above even though their bearing capacities differ by more than a factor of three. The reason is the strength gradient, which pins the depth of the mechanism regardless of the particular realization, so it is the magnitude of <span class="math">s_u</span> within an almost-fixed volume that varies rather than the volume itself. The runs are therefore identified by bearing capacity.</p>
 <h2 id="code">Code</h2>
-:::code source=&quot;../../static/random-fields/code-files/Stochastic footing in clay.py&quot; :::
+<div id="code-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">&quot;&quot;&quot;Preample&quot;&quot;&quot;
+from OptumGX import *
+gx = GX()
+
+&quot;&quot;&quot;Project setup&quot;&quot;&quot;
+project_name =&quot;Stochastic analysis - Footing in clay&quot;
+project = gx.create_project(name=project_name)
+model = project.get_current_model().delete()
+model = project.create_model(name = 'Footing in clay')
+
+&quot;&quot;&quot;Constants&quot;&quot;&quot;
+width = 16; depth = 6; embedment = 1; B = 2
+
+&quot;&quot;&quot;Model Setup&quot;&quot;&quot;
+model.add_rectangle([-width/2,0], [width/2,-depth])
+model.add_rectangle([-B/2,0], [B/2,-embedment])
+
+shapes = model.select([0, -0.001], types='face')
+material = project.get_material('Rigid')
+solid = model.set_solid(shapes, material)
+
+shapes = model.select([0, -embedment-0.001], types='face')
+material = project.get_material('Tresca Basic')
+profile = Profile([
+    [0.0, 10.0],
+    [-10.0, 40.0]
+])
+material.c_u = profile
+# material.c_u = Gradient(zref=0.0, zgrad=-3.0, value=10.0)
+solid = model.set_solid(shapes, material)
+
+
+
+shapes = model.select([0.0, 0.0], types='edge')
+load = model.set_surface_load(shapes, -1.0, direction='y', option='multiplier')
+
+model.set_standard_fixities()
+
+model.zoom_all()
+
+&quot;&quot;&quot;Analysis and output&quot;&quot;&quot;
+model.set_analysis_properties(
+    analysis_type= 'load_multiplier',
+    load_multiplier_multiplier = 'gravity',
+    mesh_adaptivity= 'yes',
+    adaptivity_iterations=3)
+
+project.run_analysis()
+
+print('Factor of safety: ', model.output.critical_results.load_multiplier)
+
+current_path = os.getcwd()
+filename =project_name+&quot;.gxx&quot;
+gx.save_project(file_path=os.path.join(current_path, filename))</code></pre>
+</doc-codeblock></div>
+
                 
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
