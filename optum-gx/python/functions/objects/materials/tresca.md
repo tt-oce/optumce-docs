@@ -34,7 +34,15 @@ material.cu
 <dt>Eu : float | ParameterMap | Profile | Gradient</dt>
 <dd>Undrained Young's modulus (parameter set A; alias for E).</dd>
 <dt>cu : float | ParameterMap | Profile | Gradient</dt>
-<dd>Undrained shear strength.</dd>
+<dd>Undrained shear strength (standard option; alias of c_u).</dd>
+<dt>strength_option : str</dt>
+<dd>Strength option: 'standard' (c_u) or 'generalized' (c_uc, c_ue).</dd>
+<dt>c_u : float | ParameterMap | Profile | Gradient</dt>
+<dd>Undrained shear strength (standard option).</dd>
+<dt>c_uc : float | ParameterMap | Profile | Gradient</dt>
+<dd>Undrained shear strength in compression (generalized option).</dd>
+<dt>c_ue : float | ParameterMap | Profile | Gradient</dt>
+<dd>Undrained shear strength in extension (generalized option).</dd>
 <dt>tension_cutoff : bool</dt>
 <dd>Tension cutoff enabled.</dd>
 <dt>sigma_t : float | ParameterMap | Profile | Gradient</dt>

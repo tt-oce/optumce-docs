@@ -35,10 +35,26 @@ Define analysis properties
 <dd>Time step variation. seepage_time_step_variation = 'constant' or 'linear'</dd>
 <dt>load_multiplier_multiplier : str</dt>
 <dd>Type of load multiplier. load_multiplier_multiplier = 'load' or 'gravity'</dd>
+<dt>effective_stress_type : str</dt>
+<dd>Effective stress type used with seepage/flow. effective_stress_type = 'terzaghi' or 'bishop'</dd>
 <dt>undrained_parameters : str</dt>
 <dd>undrained_parameters = 'cu' or 'coupled'</dd>
 <dt>initial_stresses : str</dt>
 <dd>initial_stresses = 'automatic' or 'none'</dd>
+<dt>initial_stress_type : str</dt>
+<dd>Analysis type for an initial stress analysis. initial_stress_type = 'elastoplastic', 'elastic', 'field_stress'</dd>
+<dt>s_x0 : float</dt>
+<dd>Field stress sx,0. Only used when initial_stress_type = 'field_stress'</dd>
+<dt>s_y0 : float</dt>
+<dd>Field stress sy,0. Only used when initial_stress_type = 'field_stress'</dd>
+<dt>s_z0 : float</dt>
+<dd>Field stress sz,0. Only used when initial_stress_type = 'field_stress'</dd>
+<dt>s_xy0 : float</dt>
+<dd>Field stress sxy,0. Only used when initial_stress_type = 'field_stress'</dd>
+<dt>s_yz0 : float</dt>
+<dd>Field stress syz,0. 3D only, and only used when initial_stress_type = 'field_stress'</dd>
+<dt>s_zx0 : float</dt>
+<dd>Field stress szx,0. 3D only, and only used when initial_stress_type = 'field_stress'</dd>
 <dt>reset_displacements : str</dt>
 <dd>reset_displacements = 'yes' or 'no'</dd>
 <dt>load_deformation_scheme : str</dt>
@@ -69,8 +85,6 @@ Define analysis properties
 <dd>Strength reduction. reduce_strength_in = 'solids', 'plates', 'anchors', 'plates_and_anchors'</dd>
 <dt>davis_correction : str</dt>
 <dd>Apply davis correction for MCE materials. davis_correction = 'yes' or 'no'</dd>
-<dt>reduce_strength_in : str</dt>
-<dd>Strength reduction. reduce_strength_in = 'soil', 'plates', 'anchors', 'plates_and_anchors'</dd>
 </dl>
 
 ## See also
@@ -168,7 +182,7 @@ stage6.set_analysis_properties(
         from_stage = 'stage 2',
         design_approach= 'sls',
         time_scope='long_term'
-        reduce_strength_in= 'soil'
+        reduce_strength_in= 'solids'
         )
 
 stage7.set_analysis_properties(

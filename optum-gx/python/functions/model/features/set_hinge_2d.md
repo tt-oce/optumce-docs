@@ -25,5 +25,5 @@ hinges will all be set to all of them, unless edges are specified.
 ```python
 vertices = model.get_shapes(['vertex'])
 edges = model.get_shapes(['edge'])
-model2d.set_hinge_2d(vertices, edges)
+model.set_hinge_2d(vertices, edges)
 ```

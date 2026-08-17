@@ -39,6 +39,7 @@
 - [open_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/open_project.md): Open GX project.
 - [save_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/save_project.md): Save current project
 - [write_step](https://docs.optumce.com/optum-gx/python/functions/application/operations/write_step.md): Write step
+- [screenshot](https://docs.optumce.com/optum-gx/python/functions/application/screenshot.md): Save an image of the current view to a PNG file.
 
 #### Project
 
@@ -92,6 +93,7 @@
 - [get_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_model.md): Get model or models by name.
 - [get_python_code](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_python_code.md): Get generated Python code from the current session.
 - [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
+- [regional](https://docs.optumce.com/optum-gx/python/functions/project/regional.md): Regional (units) settings of the project.
 
 #### Model
 
@@ -237,7 +239,7 @@
 - [get_active_csys](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_active_csys.md): Obtains the active coordinate system.
 - [get_selected_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_selected_shapes.md): Return selected shapes in GUI.
 - [get_shape_by_id](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shape_by_id.md): Get shape by id.
-- [get_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes.md): Get shapes in a model.
+- [get_shapes](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes.md): Get the visible shapes in a model. Hidden shapes are not returned.
 - [get_shapes_by_vertices](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shapes_by_vertices.md): Get shapes bounded by vertices.
 - [get_shared_edges](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shared_edges.md): Obtain the shared edges between two lists of shapes.
 - [get_shared_faces](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/geometry/get_shared_faces.md): Obtain the shared faces between two lists of shapes.
