@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840280083132">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840281663962">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840280083132" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840281663962" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840280083132" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840280083132" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840281663962" defer></script>
     <link href="../../resources/css/katex.css?v=4.6.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.6.0" defer></script>
 
@@ -313,8 +314,6 @@
 </figure>
 <div class="custom-caption"><p>Figure 2.2: Collapse mechanism for deterministic analysis with constant <span class="math">s_u = 70</span> kPa.</p>
 </div>
-<hr>
-<h2 id="21-stochastic-analysis">2.1 Stochastic analysis</h2>
 <p>As in the previous example, the factor of safety is determined by means of Limit Analysis (now with Multiplier = Gravity) using 1,000 upper and lower bound elements with 3 adaptivity iterations. The factors of safety reported in the following are the mean values between each upper and lower bound run. A total of 1,000 Monte Carlo runs are conducted.</p>
 <p>The results in terms of probability distributions of the factor of safety are shown in Figure 2.3. Also shown are the distributions corresponding to infinite correlation lengths (mean value = 1.45 and standard deviation = <span class="math">1.45 \times \text{COV}/100\% = 0.435</span>). Since the characteristic length scale of the failure mechanism is much larger than the vertical correlation length, the COV of the resulting factor of safety (11.4%) is significantly smaller than the inherent COV of the undrained shear strength (30%). The mean value is also somewhat smaller (1.31 vs 1.45) while the probability of failure is much less (1.0% vs 13.2%). These results follow the same trend as those of the previous example for a footing width much larger than the vertical correlation length.</p>
 <figure class="content-center">
@@ -323,8 +322,6 @@
 </figure>
 <div class="custom-caption"><p>Figure 2.3: Probability functions for factor of safety. The red curves correspond to infinite correlation lengths.</p>
 </div>
-<hr>
-<h2 id="22-collapse-mechanisms">2.2 Collapse mechanisms</h2>
 <p>The probability distribution of mobilized mass is shown in Figure 2.4. We see that the distribution tends to be somewhat bimodal with a peak around 600 m³/m and another one around 1,400 m³/m. These two values represent two distinct families of failure mechanisms, the latter being deeper than the former. Examples are shown in Figure 2.5.</p>
 <figure class="content-center">
     <img src="../../static/random-fields/slope-mass-hist.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="999" height="722" />
@@ -347,7 +344,8 @@
 </p>
 <div class="custom-caption"><p>Figure 2.5: Examples of shallow (a), intermediate (b) and deep (c) failure mechanisms. From top to bottom: (a) run no 569, mobilized mass = 601 m³/m; (b) run no 599, mobilized mass = 1,001 m³/m; (c) run no 366, mobilized mass = 1,400 m³/m.</p>
 </div>
-
+<h2 id="code">Code</h2>
+:::code source=&quot;../../static/random-fields/code-files/Stochastic slope in clay.py&quot; :::
                 
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
@@ -413,6 +411,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "2 Stochastic Factor of Safety Analysis of Slope in Clay", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/random-fields/2-slope-in-clay.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "2 Stochastic Factor of Safety Analysis of Slope in Clay", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/random-fields/2-slope-in-clay.md" }</script>
 </body>
 </html>

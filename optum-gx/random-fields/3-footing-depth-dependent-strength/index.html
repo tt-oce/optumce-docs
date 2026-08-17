@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840280083132">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840281663962">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.840280083132" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.840281663962" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840280083132" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840280083132" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.840281663962" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.840281663962" defer></script>
     <link href="../../resources/css/katex.css?v=4.6.0" rel="stylesheet">
     <script id="katex-js" data-cfasync="false" src="../../resources/js/katex.js?v=4.6.0" defer></script>
 
@@ -304,8 +305,6 @@
 </figure>
 <div class="custom-caption"><p>Figure 3.1: Footing in clay with strength increasing linearly with depth.</p>
 </div>
-<hr>
-<h2 id="31-deterministic-analysis">3.1 Deterministic analysis</h2>
 <p>A standard deterministic analysis is first conducted, leading to a bearing capacity of</p>
 <div class="math"><pre translate="no">q_u = 124.5 \; \text{kN/m}^2 \tag{3.1}</pre></div>
 <p>The associated collapse mechanism shown in Figure 3.2 is entirely dominated by vertical downwards movement, i.e. rotation is negligible.</p>
@@ -315,16 +314,12 @@
 </figure>
 <div class="custom-caption"><p>Figure 3.2: Collapse mechanism from deterministic analysis.</p>
 </div>
-<hr>
-<h2 id="32-random-field">3.2 Random field</h2>
 <figure class="content-center">
     <img src="../../static/random-fields/footing-rf-profiles.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1277" height="851" />
     <figcaption class="caption"></figcaption>
 </figure>
 <div class="custom-caption"><p>Figure 3.3: Random field with mean value of strength increasing linearly with depth. The profiles are taken at <span class="math">x = -4</span>, <span class="math">0</span> and <span class="math">4</span> m of run 1.</p>
 </div>
-<hr>
-<h2 id="33-stochastic-analysis">3.3 Stochastic analysis</h2>
 <p>Next, a stochastic analysis is performed using 1,000 Monte Carlo runs. The resulting statistics are shown in Figure 3.4. We see that the mean value of the bearing capacity is similar to that of the deterministic analysis while the coefficient of variation (18.5%) is somewhat smaller than that of the material (30%), echoing the findings of the previous examples.</p>
 <figure class="content-center">
     <img src="../../static/random-fields/footing-qu-hist.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="982" height="722" />
@@ -332,8 +327,6 @@
 </figure>
 <div class="custom-caption"><p>Figure 3.4: Probability distribution of bearing capacity.</p>
 </div>
-<hr>
-<h2 id="34-collapse-mechanisms">3.4 Collapse mechanisms</h2>
 <p>Finally, three examples of collapse mechanisms are shown in Figure 3.5. These all involve a significant rotation of the foundation, in contrast to the mechanism of the deterministic analysis.</p>
 <p><figure class="content-center">
     <img src="../../static/random-fields/footing-mech-run886.png" alt="" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1699" height="638" />
@@ -351,7 +344,8 @@
 <div class="custom-caption"><p>Figure 3.5: Collapse mechanisms from stochastic analysis. From top to bottom: (a) run no 886, <span class="math">q_u</span> = 65.7 kN/m²; (b) run no 444, <span class="math">q_u</span> = 118.9 kN/m²; (c) run no 298, <span class="math">q_u</span> = 211.0 kN/m².</p>
 </div>
 <p>Unlike the previous two examples, the mobilized mass is a poor discriminator here: it is 13.0, 11.4 and 13.0 m³/m for the three runs above even though their bearing capacities differ by more than a factor of three. The reason is the strength gradient, which pins the depth of the mechanism regardless of the particular realization, so it is the magnitude of <span class="math">s_u</span> within an almost-fixed volume that varies rather than the volume itself. The runs are therefore identified by bearing capacity.</p>
-
+<h2 id="code">Code</h2>
+:::code source=&quot;../../static/random-fields/code-files/Stochastic footing in clay.py&quot; :::
                 
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
@@ -417,6 +411,6 @@
 
     <div id="retype-overlay-target"></div>
 
-        <script data-cfasync="false">window.__DOCS__ = { "title": "3 Stochastic Analysis of Footing in Clay with Depth Dependent Strength", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/random-fields/3-footing-depth-dependent-strength.md" }</script>
+        <script data-cfasync="false">window.__DOCS__ = { "title": "3 Stochastic Analysis of Footing in Clay with Depth Dependent Strength", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: true, tocDepth: 23, "md": "/random-fields/3-footing-depth-dependent-strength.md" }</script>
 </body>
 </html>

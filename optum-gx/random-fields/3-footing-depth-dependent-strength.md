@@ -7,10 +7,6 @@ The following example involves the determination of the bearing capacity of a fo
 Figure 3.1: Footing in clay with strength increasing linearly with depth.
 :::
 
----
-
-## 3.1 Deterministic analysis
-
 A standard deterministic analysis is first conducted, leading to a bearing capacity of
 
 $$
@@ -24,18 +20,10 @@ The associated collapse mechanism shown in Figure 3.2 is entirely dominated by v
 Figure 3.2: Collapse mechanism from deterministic analysis.
 :::
 
----
-
-## 3.2 Random field
-
 ![](/static/random-fields/footing-rf-profiles.png)
 :::custom-caption
 Figure 3.3: Random field with mean value of strength increasing linearly with depth. The profiles are taken at $x = -4$, $0$ and $4$ m of run 1.
 :::
-
----
-
-## 3.3 Stochastic analysis
 
 Next, a stochastic analysis is performed using 1,000 Monte Carlo runs. The resulting statistics are shown in Figure 3.4. We see that the mean value of the bearing capacity is similar to that of the deterministic analysis while the coefficient of variation (18.5%) is somewhat smaller than that of the material (30%), echoing the findings of the previous examples.
 
@@ -43,10 +31,6 @@ Next, a stochastic analysis is performed using 1,000 Monte Carlo runs. The resul
 :::custom-caption
 Figure 3.4: Probability distribution of bearing capacity.
 :::
-
----
-
-## 3.4 Collapse mechanisms
 
 Finally, three examples of collapse mechanisms are shown in Figure 3.5. These all involve a significant rotation of the foundation, in contrast to the mechanism of the deterministic analysis.
 
@@ -58,3 +42,7 @@ Figure 3.5: Collapse mechanisms from stochastic analysis. From top to bottom: (a
 :::
 
 Unlike the previous two examples, the mobilized mass is a poor discriminator here: it is 13.0, 11.4 and 13.0 m³/m for the three runs above even though their bearing capacities differ by more than a factor of three. The reason is the strength gradient, which pins the depth of the mechanism regardless of the particular realization, so it is the magnitude of $s_u$ within an almost-fixed volume that varies rather than the volume itself. The runs are therefore identified by bearing capacity.
+
+## Code
+
+:::code source="../../static/random-fields/code-files/Stochastic footing in clay.py" :::

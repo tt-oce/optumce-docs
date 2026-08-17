@@ -169,3 +169,7 @@ For the case of $B = 2$ m, the mean value and COV of the factor of safety versus
 :::custom-caption
 Figure 1.10: Key statistics versus Monte Carlo run number ($B = 2$ m).
 :::
+
+## Code
+
+:::code source="../../static/random-fields/code-files/Stochastic analysis - Introductory example.py" :::
