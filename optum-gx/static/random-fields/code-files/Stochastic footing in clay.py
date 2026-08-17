@@ -41,7 +41,6 @@ model.zoom_all()
 """Analysis and output"""
 model.set_analysis_properties(
     analysis_type= 'load_multiplier',
-    load_multiplier_multiplier = 'gravity',
     mesh_adaptivity= 'yes',
     adaptivity_iterations=3)
 

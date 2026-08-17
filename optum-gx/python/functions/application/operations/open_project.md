@@ -7,6 +7,8 @@ Open GX project.
 <dl>
 <dt>file_path : str</dt>
 <dd>path to file</dd>
+<dt>convert_units : bool, optional</dt>
+<dd>When True (default), a file saved in a different unit system than the active session is rescaled and its materials/loads rebased to the session units on open. Set to False to load the file as-is.</dd>
 </dl>
 
 ## Examples

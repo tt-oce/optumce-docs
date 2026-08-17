@@ -1,6 +1,6 @@
 # get_shapes
 
-Get shapes in a model.
+Get the visible shapes in a model. Hidden shapes are not returned.
 
 ## Parameters
 

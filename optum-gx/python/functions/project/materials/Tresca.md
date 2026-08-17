@@ -12,7 +12,15 @@ Define a Tresca material.
 <dt>Eu : float</dt>
 <dd>Undrained Young's modulus, in MPa.</dd>
 <dt>cu : float</dt>
-<dd>Undrained shear strength, in kPa.</dd>
+<dd>Undrained shear strength, in kPa (standard option; alias of c_u).</dd>
+<dt>strength_option : str</dt>
+<dd>Strength option. strength_option = 'standard' or 'generalized'</dd>
+<dt>c_u : float</dt>
+<dd>Undrained shear strength for the standard option, in kPa.</dd>
+<dt>c_uc : float</dt>
+<dd>Undrained shear strength in compression for the generalized option, in kPa.</dd>
+<dt>c_ue : float</dt>
+<dd>Undrained shear strength in extension for the generalized option, in kPa.</dd>
 <dt>gamma_dry : float</dt>
 <dd>Dry unit weight in kN/m^3</dd>
 <dt>gamma_sat : float</dt>
