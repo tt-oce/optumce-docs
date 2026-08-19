@@ -8,7 +8,9 @@ interfaces.
 
 ```python
 feature = model.get_interface(shapes)
-feature.material_id
+feature.material = 'MC Basic'
+feature.strength_reduction_factor = 0.8
+feature.tension_cutoff = False
 ```
 
 ## Properties
