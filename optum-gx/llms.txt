@@ -227,7 +227,7 @@
 
 - [get_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/get_analysis_properties.md): Get analysis properties.
 - [get_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/get_run_flag.md): Get run flag for model or stage.
-- [output](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output.md): Analysis output.
+- [output](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output.md): Analysis output (results). Output always contains global_results and critical_results. These contain the often used results e.g. load_multiplier, consolidation_degree, u_norm_max etc.
 - [set_analysis_properties](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_analysis_properties.md): Define analysis properties
 - [set_run_flag](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_run_flag.md): Set run flag for model or stage.
 - [set_solver_settings](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/set_solver_settings.md): Define solver settings.

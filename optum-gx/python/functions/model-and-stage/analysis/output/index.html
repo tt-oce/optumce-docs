@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840286976474">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.840635232831">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>output</title>
     <meta name="title" content="output">
-    <meta name="description" content="Analysis output.">
+    <meta name="description" content="Analysis output (results). Output always contains global_results and critical_results. These contain the often used results e.g. load_multiplier, consolidation_degree, u_norm_max etc.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output/">
     <meta property="og:title" content="output">
-    <meta property="og:description" content="Analysis output.">
+    <meta property="og:description" content="Analysis output (results). Output always contains global_results and critical_results. These contain the often used results e.g. load_multiplier, consolidation_degree, u_norm_max etc.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output/">
     <meta name="twitter:title" content="output">
-    <meta name="twitter:description" content="Analysis output.">
+    <meta name="twitter:description" content="Analysis output (results). Output always contains global_results and critical_results. These contain the often used results e.g. load_multiplier, consolidation_degree, u_norm_max etc.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/model-and-stage/analysis/output.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.840286976474" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.840635232831" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.840286976474" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.840635232831" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.840286976474" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.840286976474" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.840635232831" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.840635232831" defer></script>
 
     <style>
         /* Images */
@@ -314,21 +314,26 @@
 
                 <!-- Page content  -->
 <h1 id="output">output</h1>
-<p>Analysis output.</p>
+<p>Analysis output (results). Output always contains global_results and critical_results. These contain the often used results e.g. load_multiplier, consolidation_degree, u_norm_max etc.
+Based on the present model all the output may be accessed through the objects, which is one or more of:
+solid, plate, geogrid, connector, nailrow, pilerow, interface,
+control_resulpoint, solid_resultpoint, plate_resultpoint, geogrid_resultpoint, connector_resultpoint, nail_row_resultpoint, pile_row_resultpoint, fixed_end_anchor_resultpoint, interface_resultpoint,
+point_reaction, line_reaction, face_reaction</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
 <dd>None</dd>
 </dl>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">stage_lower = model2d.create_stage('lower bound')
+<pre translate="no" class="language-python"><code v-pre class="language-python">stage_lower = model.create_stage('lower bound')
 stage_lower.set_analysis_properties(
-        analysis_type='load_multiplier',
-        element_type='lower',
-        no_of_elements=1000,
+        analysis_type='load_multiplier'
         )
 prj.run_analysis()
-stage_lower.output.global_results.load_multiplier</code></pre>
+stage_lower.output.global_results.load_multiplier
+stage.output.plate[2].results.final_forces.M_y
+stage.output.line_reaction[0].topology.nodes
+stage.output.critical_results.fixed_end_anchor_force_max</code></pre>
 </doc-codeblock></div>
 
                 
