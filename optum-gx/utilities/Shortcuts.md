@@ -51,7 +51,7 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | **Mirror** | Shift + M |
 | **Offset** | O |
 
-### Draw — 2D primitives
+### Draw — 2D primitives 
 
 | Action | Shortcut |
 | ------ | -------- |
