@@ -9,10 +9,13 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | Action | Shortcut |
 | ------ | -------- |
 | **Run analysis** | F5 |
+| **Open log** | F6|
 | **New project** | Ctrl + N |
 | **Open project** | Ctrl + O |
 | **Save project** | Ctrl + S |
 | **Save As** | Ctrl + Shift + S |
+| **Close window** | Alt + F4 |
+| **Open settings**| Ctrl + , |
 
 ### Editing
 
@@ -48,7 +51,7 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | **Mirror** | Shift + M |
 | **Offset** | O |
 
-### Draw — 2D primitives
+### Draw — 2D primitives 
 
 | Action | Shortcut |
 | ------ | -------- |
