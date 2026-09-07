@@ -1,4 +1,4 @@
-# Shortcuts
+# Shortcuts 
 
 A reference of keyboard and mouse shortcuts available in OPTUM GX.
 
