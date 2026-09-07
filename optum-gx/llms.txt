@@ -38,8 +38,8 @@
 - [get_current_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/get_current_project.md): Get current project.
 - [open_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/open_project.md): Open GX project.
 - [save_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/save_project.md): Save current project
+- [screenshot](https://docs.optumce.com/optum-gx/python/functions/application/operations/screenshot.md): Save an image of the current view to a PNG file.
 - [write_step](https://docs.optumce.com/optum-gx/python/functions/application/operations/write_step.md): Write step
-- [screenshot](https://docs.optumce.com/optum-gx/python/functions/application/screenshot.md): Save an image of the current view to a PNG file.
 
 #### Project
 
@@ -255,11 +255,11 @@
 - [clone](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/clone.md): Clones the selected model.
 - [create_stage](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/create_stage.md): Creates a new stage.
 - [delete](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/delete.md): Delete model or stage.
+- [get_plots](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/get_plots.md): List all result field plots available for this model or stage.
 - [redo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/redo.md): Redo last undone operation on this model.
+- [take_picture](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/take_picture.md): Save a plot of a result field of this model or stage to an image file.
 - [undo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/undo.md): Undo last operation on this model.
 - [zoom_all](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/zoom_all.md): Zoom to view all geometry.
-- [get_plots](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/get_plots.md): List all result field plots available for this model or stage.
-- [take_picture](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/take_picture.md): Save a plot of a result field of this model or stage to an image file.
 
 #### Stage
 
