@@ -6,6 +6,8 @@ solid, plate, geogrid, connector, nailrow, pilerow, interface,
 control_resulpoint, solid_resultpoint, plate_resultpoint, geogrid_resultpoint, connector_resultpoint, nail_row_resultpoint, pile_row_resultpoint, fixed_end_anchor_resultpoint, interface_resultpoint,
 point_reaction, line_reaction, face_reaction
 
+Analysis with steps will also include a step object that contains output from each step. The normal output is equal to the final step in this case.
+
 ## Parameters
 
 <dl>
@@ -15,13 +17,10 @@ point_reaction, line_reaction, face_reaction
 ## Examples
 
 ```python
-stage_lower = model.create_stage('lower bound')
-stage_lower.set_analysis_properties(
-        analysis_type='load_multiplier'
-        )
-prj.run_analysis()
-stage_lower.output.global_results.load_multiplier
+project.run_analysis()
+stage.output.global_results.load_multiplier
 stage.output.plate[2].results.final_forces.M_y
 stage.output.line_reaction[0].topology.nodes
 stage.output.critical_results.fixed_end_anchor_force_max
+u_norm_max = [step.critical_results.u_norm_max for step in stage.output.step]
 ```

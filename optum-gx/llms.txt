@@ -258,6 +258,8 @@
 - [redo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/redo.md): Redo last undone operation on this model.
 - [undo](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/undo.md): Undo last operation on this model.
 - [zoom_all](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/operations/zoom_all.md): Zoom to view all geometry.
+- [get_plots](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/get_plots.md): List all result field plots available for this model or stage.
+- [take_picture](https://docs.optumce.com/optum-gx/python/functions/model-and-stage/take_picture.md): Save a plot of a result field of this model or stage to an image file.
 
 #### Stage
 
@@ -284,7 +286,7 @@
 - [FixedEndAnchors](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedendanchors.md): Fixed-end anchor connecting a point in the model to a fictitious fixed support at the far end of the anchor.
 - [FixedExcessPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedexcesspressures.md): Prescribed excess pore pressure boundary condition -- fixes the excess pressure above the steady-state value at the selected shapes.
 - [FixedHeads](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedheads.md): Prescribed hydraulic head boundary condition -- fixes the head value at the selected shapes.
-- [FixedPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md): Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes.
+- [FixedPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md): Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes. Supports constant or linearly-varying distributions.
 - [Geogrids](https://docs.optumce.com/optum-gx/python/functions/objects/features/geogrids.md): Geogrid reinforcement assigned to an edge (2D) or face (3D).
 - [LineLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/lineloads.md): Line load applied to an edge -- distributed force per unit length along the selected edge(s). Supports constant or linearly-varying distributions.
 - [LineMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/linemoments.md): Line moment applied to an edge -- distributed moment per unit length along the selected edge(s).

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.841142559309">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.842100826831">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>FixedPressures</title>
     <meta name="title" content="FixedPressures">
-    <meta name="description" content="Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes.">
+    <meta name="description" content="Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes. Supports constant or linearly-varying distributions.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures/">
     <meta property="og:title" content="FixedPressures">
-    <meta property="og:description" content="Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes.">
+    <meta property="og:description" content="Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes. Supports constant or linearly-varying distributions.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures/">
     <meta name="twitter:title" content="FixedPressures">
-    <meta name="twitter:description" content="Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes.">
+    <meta name="twitter:description" content="Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes. Supports constant or linearly-varying distributions.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.841142559309" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.842100826831" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.841142559309" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.842100826831" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.841142559309" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.841142559309" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.842100826831" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.842100826831" defer></script>
 
     <style>
         /* Images */
@@ -315,18 +315,42 @@
                 <!-- Page content  -->
 <h1 id="fixedpressures">FixedPressures</h1>
 <p>Prescribed pore pressure boundary condition -- fixes the
-total pore pressure value at the selected shapes.</p>
+total pore pressure value at the selected shapes. Supports
+constant or linearly-varying distributions.</p>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">feature = model.get_fixed_pressure(shapes)
 feature.pressure = 100.0
-feature.minus_plus = 'plus'</code></pre>
+feature.minus_plus = 'plus'
+
+# Linear variation defined by values at anchor points:
+
+feature.variation = 'linear'
+feature.p1 = 50.0
+feature.p2 = 100.0
+feature.p1_location = [0, 0, 0]
+feature.p2_location = [0, 5, 0]</code></pre>
 </doc-codeblock></div>
 <h2 id="properties">Properties</h2>
 <dl>
 <dt>pressure : float</dt>
+<dd>Pressure value: the constant value ('constant' variation) or p1 ('linear' variation).</dd>
 <dt>minus_plus : str</dt>
 <dd>Side of the boundary the condition acts on: 'minus' (default) or 'plus'.</dd>
+<dt>variation : str</dt>
+<dd>Pressure variation over the shape: 'constant' or 'linear' (default).</dd>
+<dt>p1 : float</dt>
+<dd>Linear variation value at anchor point 1.</dd>
+<dt>p2 : float</dt>
+<dd>Linear variation value at anchor point 2.</dd>
+<dt>p3 : float</dt>
+<dd>Linear variation value at anchor point 3 (3D only).</dd>
+<dt>p1_location : object</dt>
+<dd>Anchor point 1.</dd>
+<dt>p2_location : object</dt>
+<dd>Anchor point 2.</dd>
+<dt>p3_location : object</dt>
+<dd>Anchor point 3 (3D only).</dd>
 </dl>
 
                 
