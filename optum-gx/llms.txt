@@ -351,11 +351,11 @@
 - [Gradient](https://docs.optumce.com/optum-gx/python/functions/utilities/gradient.md): Gradient data (zref, zgrad, value).
 - [ParameterMap](https://docs.optumce.com/optum-gx/python/functions/utilities/parametermap.md): Map data (x, y, z, value).
 - [Profile](https://docs.optumce.com/optum-gx/python/functions/utilities/profile.md): Profile data (depth, value).
-- [Run OptumGX from Python](https://docs.optumce.com/optum-gx/python/functions/utilities/run-gx-from-python.md): This article outlines a helper function that checks if an instance of OptumGX is running. If not, the application is started. The input parameters are set to the default, but may need to be altered to match the current machine.
 
 ### Examples
 
 - [Examples](https://docs.optumce.com/optum-gx/python/examples/index.md)
+- [8. Stability of slope subjected to unconfined seepage](https://docs.optumce.com/optum-gx/python/examples/example8_slope_seepage.md): In this example we consider the stability of a layered slope. The seepage pressure distribution and the location of the phreatic surface are not known a
 - [Footing on soil with user defined material data](https://docs.optumce.com/optum-gx/python/examples/example5_parametric_cu.md): This example deals with user defined material parameter variation.
 - [Settlement of strip footing on elastic soil](https://docs.optumce.com/optum-gx/python/examples/example3_strip_footing.md): This example deals with a centrally loaded weightless rigid strip footing on an elastic soil. The footing and the soil are modeled using the default materials Rigid and Linear Elastic, respectively.
 - [Shallow foundation](https://docs.optumce.com/optum-gx/python/examples/example1_shallow_foundation.md): This example deals with the an eccentrically loaded foundation. The soil is saturated clay and the analysis is to be performed assuming undrained conditions.

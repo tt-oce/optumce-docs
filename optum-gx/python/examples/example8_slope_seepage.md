@@ -3,7 +3,9 @@ In this example we consider the stability of a layered slope. The seepage pressu
 
 ![**`Figure 8.1`** Geometry of layered slope.](../../static/example-figures/example8/Geometry.png)
 
-![**`Figure 8.2`** Resultant saturation in the embankment.](../../static/example-figures/example8/Result.png)
+![**`Figure 8.2`** Resultant saturation in the embankment.](../../static/example-figures/example8/Saturation.png)
+
+![**`Figure 8.3`** Collapse mechanism of the slope.](../../static/example-figures/example8/SlipSurface.png)
 ## Code
 
 :::code source="../../static/code-files/Example8.py" :::
