@@ -79,36 +79,65 @@ model2d.set_water_table(sel)
 sel = model2d.select(p0=[0,-1],p1=[0,-depth],types='edge',option='blue')
 #Set fixed head
 model2d.set_fixed_head(sel,head=-1) #Head y-coordinate
-
-"""Stages"""
-stage1 = model2d.create_stage('Seepage')
-stage2 = model2d.create_stage('Fos')
-
+"""Screenshot model"""
+# Zoom and center model
+model2d.zoom_all()
+gx.screenshot(file_path='Geometry.png') #Screenshot settings: Application settings->Display->Screenshot
 """Analysis"""
 #Define analysis parameters
-stage1.set_analysis_properties(
-                analysis_type= 'seepage',
-                element_type='mixed',
-                no_of_elements=2000,
-                mesh_adaptivity='yes',
-                adaptivity_iterations=3,
-                time_scope= 'long_term'
-                )
-stage2.set_analysis_properties(
+
+model2d.set_analysis_properties(
                 analysis_type= 'factor_of_safety',
                 element_type='mixed',
                 no_of_elements=2000,
+                mesh_adaptivity= True,
+                adaptivity_iterations=3,
                 time_scope= 'long_term',
-                from_stage=stage1
                 )
 #Begin analysis
 prj.run_analysis()
 
-"""Output"""
-res = [stage2.output.global_results.factor_of_safety]
-print("Factor of safety:", round(res[0],ndigits=3))
-#Zoom and center model
-model2d.zoom_all()
+"""Post processing"""
+###Save results in object to avoid excessive interaction with GX API.
+res = model2d.output
+###Output
+FoS = res.critical_results.factor_of_safety
+print("Factor of safety:", round(FoS,ndigits=3))
+
+###Pictures
+model2d.take_picture(
+       result_path='Solid/Seepage/Saturation/S',
+       file_path='Saturation.png',
+       options={
+            'width': 2000,
+            'height': 1500,
+            'mesh_overlay': True,
+            'medium':"print",
+            'grid':False,
+            'colorbar_min':0,
+            'colorbar_max':1,
+            'colorbar_text_scale':1.5,
+            })
+#Obtain the maximum shear dissipation
+smax = np.max([res.solid[i].results.plasticity.shear_dissipation.value for i in range(len(res.solid))])
+
+model2d.take_picture(
+        result_path='Solid/Plasticity/Shear dissipation',
+        file_path='SlipSurface.png',
+        options={
+            'width': 2000,
+            'height': 1500,
+            'mesh_overlay': True,
+            'medium':"print",
+            'grid':False,
+            'colorbar_min':0,
+            'colorbar_max':smax*0.9,
+            'colorbar_text_scale':1.5,
+            
+            }
+)
+
+
 
 #If desired, save the GX file produced by the script by setting: save = True  
 save = False
@@ -116,3 +145,4 @@ if save: #Save GX file to current working directory
        current_path = os.getcwd()
        filename =project_name+".gxx"
        gx.save_project(file_path=os.path.join(current_path, filename))
+
