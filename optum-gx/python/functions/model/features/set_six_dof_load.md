@@ -5,7 +5,10 @@ Add six degree of freedom load.
 ## Parameters
 
 <dl>
-<dd>fx, fy, fz : float Forces in kN. mx, my, mz : float Moments in kNm.</dd>
+<dt>fx, fy, fz : float</dt>
+<dd>Forces in kN.</dd>
+<dt>mx, my, mz : float</dt>
+<dd>Moments in kNm.</dd>
 </dl>
 
 ## Examples

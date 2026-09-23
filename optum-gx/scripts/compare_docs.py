@@ -98,17 +98,20 @@ def main() -> int:
     args = ap.parse_args()
 
     docs = g.extract_docs(Path(args.source))
-    func_to_cat = {}
-    for d in docs:
-        func_to_cat.setdefault(d.func_name, d.categories[0])
+    link_map = g._build_link_map(docs)
 
     rows = []
     for d in docs:
-        rendered = g.render_markdown(d, func_to_cat)
+        name = g._doc_name(d)
+        rendered = (g.render_class_markdown(d, link_map)
+                    if isinstance(d, g.ClassDoc) else g.render_markdown(d, link_map))
         for cat in d.categories:
-            target = g.DOCS_ROOT / cat / f"{d.func_name}.md"
+            target = g._resolve_path(cat, name)
+            rel = target.relative_to(g.DOCS_ROOT).as_posix()
+            if rel in g.SKIP_REGENERATE_PATHS:
+                continue  # hand-maintained page
             if not target.exists():
-                rows.append((d.func_name, cat, "MISSING", "no .md on disk yet",
+                rows.append((name, cat, "MISSING", "no .md on disk yet",
                              0, 0, 0.0, rendered, ""))
                 continue
             existing = target.read_text(encoding="utf-8")
@@ -118,7 +121,7 @@ def main() -> int:
             added, removed, ratio = line_stats(existing, rendered)
             total = max(len(existing.splitlines()), len(rendered.splitlines()))
             sev = severity(added, removed, ratio, total, secs)
-            rows.append((d.func_name, cat, sev, ", ".join(secs) or "formatting only",
+            rows.append((name, cat, sev, ", ".join(secs) or "formatting only",
                          added, removed, ratio, rendered, existing))
 
     order = {"MISSING": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}

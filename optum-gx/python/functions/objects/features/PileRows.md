@@ -14,10 +14,6 @@ feature.base_location()
 
 <dl>
 <dt>material_id : str</dt>
+<dt>base_location : str | None</dt>
+<dd>Base location: 'begin', 'end', or None.</dd>
 </dl>
-
-## Methods
-
-### base_location()
-
-Set the base location

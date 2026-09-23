@@ -13,18 +13,11 @@ feature.material_id
 
 <dl>
 <dt>material_id : str</dt>
+<dt>strength_reduction_factor : float</dt>
+<dt>tension_cutoff : bool</dt>
+<dt>compression_cutoff : bool</dt>
+<dt>interface_minus : _InterfaceSide</dt>
+<dd>Interface minus side properties (material, strength_reduction_factor, tension_cutoff, compression_cutoff, fc, normal).</dd>
+<dt>interface_plus : _InterfaceSide</dt>
+<dd>Interface plus side properties (material, strength_reduction_factor, tension_cutoff, compression_cutoff, fc, normal).</dd>
 </dl>
-
-## Methods
-
-### strength_reduction_factor()
-
-Strength reduction factor setter.
-
-### tension_cutoff()
-
-Set the tension cutoff.
-
-### compression_cutoff()
-
-Set the compression cutoff

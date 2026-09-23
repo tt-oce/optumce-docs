@@ -2,6 +2,9 @@
 
 Toggle features on/off.
 
+This toggles between activated and deactivated status for features on
+a stage.
+
 ## Parameters
 
 <dl>

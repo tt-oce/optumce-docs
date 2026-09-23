@@ -17,6 +17,7 @@ context manager exposing is_running, read_log() and read_solver().
 ## See also
 
 - [run_analysis](/python/functions/project/analysis/run_analysis)
+- [AnalysisProgress](/python/functions/objects/analysis/AnalysisProgress)
 
 ## Examples
 

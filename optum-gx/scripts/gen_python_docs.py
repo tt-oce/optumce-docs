@@ -12,6 +12,16 @@ on disk get rewritten, so the git diff is minimal.
 
 Source-of-truth policy: docstrings in the OptumGX Python source win. If a
 generated .md disagrees with a hand-edited one, fix the docstring upstream.
+Where a .pyi stub sits next to a .py, the stub is read (it's what IDEs show);
+edit the stub, not the .py.
+
+Coverage report: after writing, the script lists API it could NOT document --
+.py docstrings that never made it into the .pyi, public methods without a
+docstring, unmapped classes and inherited bases, pages with no subcategory.
+Nothing there is silent any more, so review it on every run.
+
+Full workflow (where each docstring lives, recipes, pitfalls):
+Docstring_generation.md at the root of this repo.
 
 Usage:
     python gen_python_docs.py                # regenerate, write changes
@@ -23,10 +33,12 @@ from __future__ import annotations
 
 import argparse
 import ast
+import functools
 import re
 import sys
+from collections import defaultdict
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 # ---- Configuration ----------------------------------------------------------
@@ -42,6 +54,8 @@ SOURCE_FILES = [
     "Common.py",
     "Materials/RemoteMaterialAPI.pyi",
     "RemoteFeatures/FeatureAPI.pyi",
+    "Output.py",     # per-element results (StageResults and friends)
+    "ResultV2.py",   # Result (stage.output.global_results)
 ]
 
 # Directory walks producing one Object class page per .py file. Each file is
@@ -89,6 +103,15 @@ CLASS_TO_CATEGORIES = {
     "ParameterMap": ["utilities"],
     "Profile": ["utilities"],
     "Gradient": ["utilities"],
+    # Objects returned by the API (class pages under objects/<sub>/).
+    "MaterialPoint": ["objects"], "AnalysisProgress": ["objects"],
+    "Regional": ["objects"],
+    "StageOutput": ["objects"], "StepOutput": ["objects"],
+    "MaterialPointOutput": ["objects"], "StageResults": ["objects"],
+    "Result": ["objects"], "CriticalResults": ["objects"],
+    "ResultIndexer": ["objects"], "ElementIndexer": ["objects"],
+    "GeneralProperties": ["objects"], "Topology": ["objects"],
+    "PropertyContainer": ["objects"], "ElementResult": ["objects"],
 }
 
 # Per-category function-name -> subcategory mapping. The renderer composes
@@ -101,7 +124,9 @@ SUBCATEGORIES = {
         # but expose under operations/ for consistency with the other categories.
         "create_project": "operations", "open_project": "operations",
         "save_project": "operations", "write_step": "operations",
-        "get_current_project": "operations",
+        "get_current_project": "operations", "screenshot": "operations",
+        "create_material_point": "operations",
+        "get_material_point": "operations",
     },
     "project": {
         # Material factories (one entry per MaterialType -- same name as the
@@ -127,13 +152,14 @@ SUBCATEGORIES = {
         # Project / model / stage management.
         "create_model": "operations", "get_model": "operations",
         "get_current_model": "operations", "set_current_model": "operations",
-        "get_current_stage": "operations", 
+        "get_current_stage": "operations",
         "get_file_path": "operations", "get_python_code": "operations",
+        "regional": "operations",
     },
     "model": {
         # Geometry creation
         "add_arc": "geometry", "add_box": "geometry", "add_circle": "geometry",
-        "add_connector": "geometry", "add_line": "geometry",
+        "add_line": "geometry",
         "add_lines": "geometry", "add_ncone": "geometry",
         "add_nprism": "geometry", "add_polygon": "geometry",
         "add_polygons": "geometry", "add_polyline": "geometry",
@@ -230,29 +256,49 @@ SUBCATEGORIES = {
         "clone": "operations", "delete": "operations",
         "undo": "operations", "redo": "operations", "zoom_all": "operations",
         "create_stage": "operations",
+        "take_picture": "operations", "get_plots": "operations",
         "get_run_flag": "analysis", "set_run_flag": "analysis",
     },
     "objects": {
-        # The two existing Object class pages live under geometry/ in objects/.
+        # Materials/ and RemoteFeatures/ pages are registered at runtime
+        # (see OBJECT_DIRS); everything else is listed here.
         "Shape": "geometry", "ShapeList": "geometry",
+        "MaterialPoint": "analysis", "AnalysisProgress": "analysis",
+        "Regional": "settings",
+        # stage.output object graph: StageOutput -> StepOutput -> StageResults
+        # -> ResultIndexer -> ElementIndexer -> GeneralProperties / Topology /
+        # PropertyContainer -> ElementResult.
+        "StageOutput": "results", "StepOutput": "results",
+        "MaterialPointOutput": "results", "StageResults": "results",
+        "Result": "results", "CriticalResults": "results",
+        "ResultIndexer": "results", "ElementIndexer": "results",
+        "GeneralProperties": "results", "Topology": "results",
+        "PropertyContainer": "results", "ElementResult": "results",
     },
 }
 
 # Classes rendered as a SINGLE page (overview + Properties + Methods) instead of
 # one page per method. Properties come from a numpy-style "Attributes" section in
 # the class docstring; methods are the public, non-@property callables.
-CLASS_PAGE_CLASSES = {"Shape", "ShapeList", "ParameterMap", "Profile", "Gradient"}
+CLASS_PAGE_CLASSES = {
+    "Shape", "ShapeList", "ParameterMap", "Profile", "Gradient",
+    "MaterialPoint", "AnalysisProgress", "Regional",
+    "StageOutput", "StepOutput", "MaterialPointOutput", "StageResults",
+    "Result", "CriticalResults", "ResultIndexer", "ElementIndexer",
+    "GeneralProperties", "Topology", "PropertyContainer", "ElementResult",
+}
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DOCS_ROOT = SCRIPT_DIR.parent / "python" / "functions"
 REPO_ROOT = DOCS_ROOT.parent.parent.parent
 
 SECTION_RE = re.compile(
-    r'^(Parameters|Returns|Examples|See Also|Notes|Attributes)\s*$',
+    r'^(Parameters|Returns|Raises|Examples|See Also|Notes|Attributes)\s*$',
     re.MULTILINE,
 )
 ATTR_HEADER_RE = re.compile(r'^Attributes\s*$', re.MULTILINE)
-PARAM_RE = re.compile(r'^\s*(\w+)\s*:\s*(.+?)\s*$')
+# "name : type", or numpy's grouped form "sx, sy, sz : float".
+PARAM_RE = re.compile(r'^\s*(\w+(?:\s*,\s*\w+)*)\s*:\s*(.+?)\s*$')
 SEPARATOR_RE = re.compile(r'^-{5,}\s*$')
 INDEX_FILES = {"index.md", "index.yaml", "index.yml"}
 
@@ -262,6 +308,13 @@ INDEX_FILES = {"index.md", "index.yaml", "index.yml"}
 # Paths are relative to DOCS_ROOT, forward-slash separated.
 SKIP_REGENERATE_PATHS = {
     "model-and-stage/geometry/select.md",
+}
+
+# Names the coverage report stays quiet about: a whole class ("RemoteCacheMixin")
+# or one method ("GX.app_version"). For plumbing that is public only by naming
+# convention -- not a place to park real API that lacks a docstring.
+COVERAGE_IGNORE = {
+    "RemoteCacheMixin",   # caching/batching base of AnalysisProperties
 }
 
 
@@ -284,13 +337,83 @@ class ClassDoc:
     categories: list
     methods: list           # list of (name, one-line summary, full_docstring)
     properties: list = None # list of (name, type, attribute_docstring); may be []
+    bases: list = None      # base class names; documented ones get linked
+    dynamic: bool = False   # exposes data via indexing/runtime attributes
+
+
+def _decorator_names(func: ast.FunctionDef) -> set:
+    """Last dotted component of each decorator: @property -> 'property',
+    @material.setter -> 'setter', @typing.overload -> 'overload'."""
+    out = set()
+    for d in func.decorator_list:
+        if isinstance(d, ast.Call):
+            d = d.func
+        if isinstance(d, ast.Name):
+            out.add(d.id)
+        elif isinstance(d, ast.Attribute):
+            out.add(d.attr)
+    return out
+
+
+def _annotation_str(node) -> str:
+    """Annotation as display text: unquoted and without module prefixes
+    ('DM.UnitSystem' -> UnitSystem, RV2.Result -> Result)."""
+    if node is None:
+        return ""
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        text = node.value
+    else:
+        try:
+            text = ast.unparse(node)
+        except Exception:
+            return ""
+    return re.sub(r"\b[A-Za-z_]\w*\.(?=[A-Za-z_])", "", text)
+
+
+def _base_names(class_node: ast.ClassDef) -> list:
+    """Bare names of a class's bases (output.StageResults -> StageResults)."""
+    return [b.id if isinstance(b, ast.Name) else b.attr
+            for b in class_node.bases
+            if isinstance(b, (ast.Name, ast.Attribute))]
+
+
+def _is_dynamic(class_node: ast.ClassDef) -> bool:
+    """True if the class exposes its data through indexing/iteration or
+    attributes created at runtime (__getitem__, __iter__, __getattr__ or
+    setattr calls) -- so "no declared properties" doesn't mean "no data"."""
+    for n in ast.walk(class_node):
+        if (isinstance(n, ast.FunctionDef)
+                and n.name in ("__getitem__", "__iter__", "__getattr__")):
+            return True
+        if (isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                and n.func.id == "setattr"):
+            return True
+    return False
 
 
 def _is_property(func: ast.FunctionDef) -> bool:
-    """True if the def is decorated with @property (so it's a data attribute,
-    documented via the class Attributes section rather than as a method)."""
-    return any(isinstance(d, ast.Name) and d.id == "property"
-               for d in func.decorator_list)
+    """True if the def is a @property getter (so it's a data attribute,
+    documented under the class Properties rather than as a method)."""
+    return bool(_decorator_names(func) & {"property", "cached_property"})
+
+
+def _public_defs(class_node: ast.ClassDef) -> list:
+    """One def per public name, in source order. Picks the implementation
+    over @overload stubs and the @property getter over its setter/deleter,
+    so a name never renders twice to the same page."""
+    chosen = {}
+    for sub in class_node.body:
+        if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        if sub.name.startswith("_"):
+            continue
+        if _decorator_names(sub) & {"setter", "deleter"}:
+            continue
+        prev = chosen.get(sub.name)
+        if prev is None or ("overload" in _decorator_names(prev)
+                            and "overload" not in _decorator_names(sub)):
+            chosen[sub.name] = sub
+    return list(chosen.values())
 
 
 def _extract_class_methods(class_node: ast.ClassDef) -> list:
@@ -299,10 +422,8 @@ def _extract_class_methods(class_node: ast.ClassDef) -> list:
     page (ClassDoc) -- the summary feeds the Methods list on the class page,
     the full docstring feeds the per-method sub-page."""
     out = []
-    for sub in class_node.body:
-        if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            continue
-        if sub.name.startswith("_") or _is_property(sub):
+    for sub in _public_defs(class_node):
+        if _is_property(sub):
             continue
         ds = ast.get_docstring(sub, clean=True) or ""
         summary = ds.strip().split("\n")[0] if ds else ""
@@ -311,15 +432,20 @@ def _extract_class_methods(class_node: ast.ClassDef) -> list:
 
 
 def _extract_class_properties(class_node: ast.ClassDef) -> list:
-    """Return [(name, type, attribute_docstring), ...] for class-level
-    annotated assignments (PEP 258 attribute-docstring pattern):
+    """Return [(name, type, attribute_docstring), ...] in source order for:
+
+    - class-level annotated assignments (PEP 258 attribute-docstring pattern):
 
         name: type
         \"\"\"Description.\"\"\"
         name = prop(...)         # optional binding line
 
-    Skips private names. The attribute docstring is the string Expr that
-    immediately follows the AnnAssign in the class body."""
+      The attribute docstring is the string Expr immediately following the
+      AnnAssign in the class body.
+    - @property getters; type from the return annotation, description from
+      the getter's docstring.
+
+    Skips private names."""
     out = []
     body = class_node.body
     for i, node in enumerate(body):
@@ -330,10 +456,7 @@ def _extract_class_properties(class_node: ast.ClassDef) -> list:
         name = node.target.id
         if name.startswith("_"):
             continue
-        try:
-            type_str = ast.unparse(node.annotation)
-        except Exception:
-            type_str = ""
+        type_str = _annotation_str(node.annotation)
         ds = ""
         if i + 1 < len(body):
             nxt = body[i + 1]
@@ -341,11 +464,25 @@ def _extract_class_properties(class_node: ast.ClassDef) -> list:
                     and isinstance(nxt.value, ast.Constant)
                     and isinstance(nxt.value.value, str)):
                 ds = nxt.value.value.strip()
-        out.append((name, type_str, ds))
-    return out
+        out.append((node.lineno, name, type_str, ds))
+    for sub in _public_defs(class_node):
+        if not _is_property(sub):
+            continue
+        type_str = _annotation_str(sub.returns)
+        # Summary text only: sections (Examples, ...) don't fit in a <dd>.
+        ds = SECTION_RE.split(ast.get_docstring(sub, clean=True) or "")[0]
+        ds = " ".join(ds.split())
+        out.append((sub.lineno, sub.name, type_str, ds))
+    return [entry[1:] for entry in sorted(out, key=lambda e: e[0])]
 
 
 # ---- Extraction (AST) -------------------------------------------------------
+
+@functools.lru_cache(maxsize=None)
+def _parse(path: Path) -> ast.Module:
+    """Parse a source file once; shared by extraction and the coverage report."""
+    return ast.parse(path.read_text(encoding="utf-8"))
+
 
 def extract_docs(source_root: Path) -> list:
     """Walk the configured source files and pull every (class, method, docstring)
@@ -357,8 +494,7 @@ def extract_docs(source_root: Path) -> list:
         if not path.exists():
             print(f"warning: source file not found: {path}", file=sys.stderr)
             continue
-        tree = ast.parse(path.read_text(encoding="utf-8"))
-        for node in tree.body:
+        for node in _parse(path).body:
             if not isinstance(node, ast.ClassDef):
                 continue
             cats = CLASS_TO_CATEGORIES.get(node.name)
@@ -370,14 +506,11 @@ def extract_docs(source_root: Path) -> list:
                 properties = _extract_class_properties(node)
                 class_ds = ast.get_docstring(node, clean=True) or ""
                 docs.append(ClassDoc(node.name, class_ds, cats, methods,
-                                     properties))
+                                     properties, _base_names(node),
+                                     _is_dynamic(node)))
                 continue
 
-            for sub in node.body:
-                if not isinstance(sub, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                    continue
-                if sub.name.startswith("_"):
-                    continue
+            for sub in _public_defs(node):
                 ds = ast.get_docstring(sub, clean=True)
                 if not ds:
                     continue
@@ -413,7 +546,8 @@ def extract_docs(source_root: Path) -> list:
             methods = _extract_class_methods(cls_node)
             properties = _extract_class_properties(cls_node)
             docs.append(ClassDoc(class_name, class_ds, ["objects"], methods,
-                                 properties))
+                                 properties, _base_names(cls_node),
+                                 _is_dynamic(cls_node)))
             objects_subs[class_name] = cfg["subcategory"]
 
     return docs
@@ -457,6 +591,12 @@ def parse_attributes(docstring: str):
 
 
 # ---- Rendering --------------------------------------------------------------
+
+def _doc_url(cat: str, sub, name: str) -> str:
+    """Site URL of a generated page."""
+    return f"/python/functions/{cat}/{sub}/{name}" if sub \
+        else f"/python/functions/{cat}/{name}"
+
 
 def _render_body(docstring: str, link_map: dict, fallback_cat: str,
                  h_level: int = 2, skip_attributes: bool = False) -> list:
@@ -508,8 +648,8 @@ def _render_body(docstring: str, link_map: dict, fallback_cat: str,
             parts.append("</dl>")
             parts.append("")
 
-        elif title == "Returns":
-            parts.append(f"{h} Returns")
+        elif title in ("Returns", "Raises"):
+            parts.append(f"{h} {title}")
             parts.append("")
             parts.append("<dl>")
             desc_buf = []
@@ -553,9 +693,7 @@ def _render_body(docstring: str, link_map: dict, fallback_cat: str,
                 else:
                     cat = fallback_cat
                     sub = SUBCATEGORIES.get(cat, {}).get(ref)
-                path = f"/python/functions/{cat}/{sub}/{ref}" if sub \
-                       else f"/python/functions/{cat}/{ref}"
-                parts.append(f"- [{ref}]({path})")
+                parts.append(f"- [{ref}]({_doc_url(cat, sub, ref)})")
             parts.append("")
 
         elif title == "Notes":
@@ -587,6 +725,16 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
     docstrings) + Methods (each method's full docstring inlined)."""
     parts = [f"# {doc.class_name}", ""]
     fallback_cat = doc.categories[0]
+
+    # Link documented base classes -- their members apply here too but are
+    # only listed on the base's own page.
+    inherited = [b for b in (doc.bases or []) if b in link_map]
+    if inherited:
+        links = ", ".join(f"[{b}]({_doc_url(*link_map[b], b)})"
+                          for b in inherited)
+        parts.append(f"Inherits from {links} -- all of its properties and "
+                     f"methods are available too.")
+        parts.append("")
 
     # Class-level docstring -> body sections at H2. Skip the Attributes
     # section here; it's rendered explicitly below alongside AnnAssign props.
@@ -627,13 +775,16 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
                 parts.append(f"<dd>{desc}</dd>")
         parts.append("</dl>")
         parts.append("")
-    elif "Parameters" not in SECTION_RE.findall(doc.docstring):
+    elif (not doc.dynamic
+          and "Parameters" not in SECTION_RE.findall(doc.docstring)):
         # Make the absence explicit rather than just leaving the page bare.
         # Plain text (not italic) -- this is a factual statement, not a
         # punch-list placeholder like the missing-docstring note.
         # Suppressed when the docstring has a Parameters section, since
         # that already documents the object's constituents (the __init__
-        # args become instance attributes -- e.g. Profile.data, Gradient.zref).
+        # args become instance attributes -- e.g. Profile.data, Gradient.zref)
+        # and for dynamic classes (ResultIndexer, PropertyContainer), whose
+        # data is reached by indexing or runtime attributes.
         parts.append("Object without properties.")
         parts.append("")
 
@@ -754,6 +905,190 @@ def find_orphans(touched: set) -> list:
     return sorted(orphans)
 
 
+# ---- Coverage report --------------------------------------------------------
+
+def _module_file(source_root: Path, from_rel: str, level: int,
+                 module: str):
+    """Package-relative file for a relative import, preferring the .pyi stub
+    (what IDEs show, and what SOURCE_FILES lists) over the .py."""
+    base = PurePosixPath(from_rel).parent
+    for _ in range(level - 1):
+        base = base.parent
+    stem = base / module.replace(".", "/")
+    for ext in (".pyi", ".py"):
+        if (source_root / f"{stem}{ext}").exists():
+            return f"{stem}{ext}"
+    return None
+
+
+def _resolve_bases(source_root: Path, rel: str, class_node: ast.ClassDef):
+    """Yield (rel_path, ClassDef) for each base of class_node that traces to a
+    class in the package, following the defining module's relative imports
+    (`from .X import Base`, or `from . import X as x` + `x.Base`)."""
+    names, modules = {}, {}
+    for n in _parse(source_root / rel).body:
+        if not (isinstance(n, ast.ImportFrom) and n.level):
+            continue
+        for a in n.names:
+            local = a.asname or a.name
+            if n.module is None:
+                modules[local] = _module_file(source_root, rel, n.level, a.name)
+            else:
+                names[local] = (_module_file(source_root, rel, n.level,
+                                             n.module), a.name)
+    for b in class_node.bases:
+        if isinstance(b, ast.Name):
+            target_rel, target_name = names.get(b.id, (rel, b.id))
+        elif isinstance(b, ast.Attribute) and isinstance(b.value, ast.Name):
+            target_rel, target_name = modules.get(b.value.id), b.attr
+        else:
+            continue
+        if not target_rel:
+            continue
+        for n in _parse(source_root / target_rel).body:
+            if isinstance(n, ast.ClassDef) and n.name == target_name:
+                yield target_rel, n
+                break
+
+
+def _words(text: str) -> set:
+    return set(re.findall(r"[a-z0-9_]+", text.lower()))
+
+
+def _param_names(func: ast.FunctionDef) -> set:
+    a = func.args
+    return {p.arg for p in a.posonlyargs + a.args + a.kwonlyargs}
+
+
+def coverage_report(source_root: Path, docs: list) -> dict:
+    """Collect public API the generator could not document. Returns
+    {heading: [message, ...]}, empty groups omitted."""
+    DRIFT = ".py docstring has text the .pyi lacks (edit the .pyi)"
+    PARAMS = "Parameter names differ between .py and .pyi (docs show the .pyi)"
+    STUB_MISSING = "In the .py but missing from the .pyi"
+    NO_DOC_STUB = "No docstring in the .pyi, but the .py has one (copy it over)"
+    NO_DOC = "Public methods without a docstring"
+    UNMAPPED = "Classes not in CLASS_TO_CATEGORIES (docstring'd methods)"
+    BASES = "Inherited from a base class the generator doesn't read"
+    ROOT = "No SUBCATEGORIES entry (page lands at category root)"
+    COLLISION = "Several sources render to the same page (last one wins)"
+    SEE_ALSO = "See Also names with no generated page (broken link)"
+    report = {h: [] for h in (DRIFT, PARAMS, STUB_MISSING, NO_DOC_STUB, NO_DOC,
+                              UNMAPPED, BASES, ROOT, COLLISION, SEE_ALSO)}
+
+    def ignored(cls, meth=None):
+        return cls in COVERAGE_IGNORE or f"{cls}.{meth}" in COVERAGE_IGNORE
+
+    seen_bases = set()
+
+    def check_bases(rel, cls, via):
+        for base_rel, base in _resolve_bases(source_root, rel, cls):
+            key = (base_rel, base.name)
+            if ignored(base.name) or key in seen_bases:
+                continue
+            seen_bases.add(key)
+            if base.name in CLASS_TO_CATEGORIES and base_rel in SOURCE_FILES:
+                continue  # documented in its own right
+            public = [d.name for d in _public_defs(base)]
+            if public:
+                report[BASES].append(f"{via} <- {base.name} ({base_rel}): "
+                                     f"{', '.join(public)}")
+            check_bases(base_rel, base, f"{via} <- {base.name}")
+
+    for fname in SOURCE_FILES:
+        path = source_root / fname
+        if not path.exists():
+            continue
+        impl_classes = {}
+        impl_rel = None
+        if path.suffix == ".pyi" and path.with_suffix(".py").exists():
+            impl_rel = fname[:-1]
+            impl_classes = {n.name: n for n in _parse(path.with_suffix(".py")).body
+                            if isinstance(n, ast.ClassDef)}
+
+        for node in _parse(path).body:
+            if not isinstance(node, ast.ClassDef) or ignored(node.name):
+                continue
+            defs = {d.name: d for d in _public_defs(node)}
+            if node.name not in CLASS_TO_CATEGORIES:
+                with_ds = [d for d in defs.values() if ast.get_docstring(d)]
+                if with_ds:
+                    methods = [d.name for d in with_ds if not _is_property(d)]
+                    n_props = len(with_ds) - len(methods)
+                    summary = ", ".join(methods)
+                    if n_props:
+                        summary = f"{summary} (+{n_props} properties)".strip()
+                    report[UNMAPPED].append(f"{fname}: {node.name} -- {summary}")
+                continue
+            check_bases(fname, node, node.name)
+            if node.name in CLASS_PAGE_CLASSES:
+                continue  # class pages already flag missing method docstrings
+
+            impl = impl_classes.get(node.name)
+            impl_defs = {d.name: d for d in _public_defs(impl)} if impl else {}
+            no_doc, no_doc_stub = [], []
+            for name, d in defs.items():
+                if ignored(node.name, name) or ast.get_docstring(d):
+                    continue
+                if name in impl_defs and ast.get_docstring(impl_defs[name]):
+                    no_doc_stub.append(name)
+                else:
+                    no_doc.append(name)
+            if no_doc:
+                report[NO_DOC].append(f"{fname}: {node.name} -- {', '.join(no_doc)}")
+            if no_doc_stub:
+                report[NO_DOC_STUB].append(
+                    f"{fname}: {node.name} -- {', '.join(no_doc_stub)}")
+
+            for name, d_impl in impl_defs.items():
+                if ignored(node.name, name):
+                    continue
+                if name not in defs:
+                    report[STUB_MISSING].append(f"{impl_rel}: {node.name}.{name}")
+                    continue
+                p_impl, p_stub = _param_names(d_impl), _param_names(defs[name])
+                if p_impl != p_stub:
+                    report[PARAMS].append(
+                        f"{node.name}.{name} -- only in .py: "
+                        f"{', '.join(sorted(p_impl - p_stub)) or '-'}; only in "
+                        f".pyi: {', '.join(sorted(p_stub - p_impl)) or '-'}")
+                ds_impl = ast.get_docstring(d_impl, clean=True) or ""
+                ds_stub = ast.get_docstring(defs[name], clean=True) or ""
+                if ds_impl and ds_stub and not _words(ds_impl) <= _words(ds_stub):
+                    report[DRIFT].append(f"{impl_rel}: {node.name}.{name} -- "
+                                         f"\"{ds_impl.splitlines()[0][:90]}\"")
+
+    by_target = defaultdict(set)
+    for d in docs:
+        name = _doc_name(d)
+        for cat in d.categories:
+            if SUBCATEGORIES.get(cat) and name not in SUBCATEGORIES[cat]:
+                report[ROOT].append(f"{cat}/{name}.md")
+            by_target[_resolve_path(cat, name)].add((d.class_name, d.docstring))
+    for target, owners in by_target.items():
+        if len(owners) > 1:
+            classes = ", ".join(sorted({c for c, _ in owners}))
+            report[COLLISION].append(
+                f"{target.relative_to(DOCS_ROOT).as_posix()} <- {classes}")
+
+    link_map = _build_link_map(docs)
+    for d in docs:
+        texts = [d.docstring]
+        if isinstance(d, ClassDoc):
+            texts += [ds for _name, _summary, ds in d.methods]
+        for text in texts:
+            parts = SECTION_RE.split(text)
+            for i in range(1, len(parts), 2):
+                if parts[i].strip() != "See Also":
+                    continue
+                for raw in re.split(r'[,;\n]', parts[i + 1]):
+                    ref = raw.strip()
+                    if ref and not SEPARATOR_RE.match(ref) and ref not in link_map:
+                        report[SEE_ALSO].append(f"{_doc_name(d)}: {ref}")
+
+    return {h: msgs for h, msgs in report.items() if msgs}
+
+
 # ---- Entrypoint -------------------------------------------------------------
 
 def main() -> int:
@@ -792,6 +1127,17 @@ def main() -> int:
         for o in orphans:
             print(f"  {o.relative_to(REPO_ROOT)}")
         print("  -- delete by hand if these are no longer wanted.")
+
+    report = coverage_report(Path(args.source), docs)
+    if report:
+        print()
+        n = sum(len(msgs) for msgs in report.values())
+        print(f"Coverage warnings ({n}) -- public API that is missing or "
+              f"incomplete in the docs:")
+        for heading, msgs in report.items():
+            print(f"  {heading}:")
+            for m in msgs:
+                print(f"    {m}")
 
     print()
     print("Run `git status` / `git diff` in the docs repo to review changes.")

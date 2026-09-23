@@ -17,4 +17,6 @@ feature.tension_cutoff = False
 
 <dl>
 <dt>material_id : str</dt>
+<dt>material</dt>
+<dd>Interface material (UUID string). Accepts a name, a material object or a UUID.</dd>
 </dl>
