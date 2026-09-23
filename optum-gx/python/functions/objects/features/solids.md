@@ -13,4 +13,6 @@ feature.material_id
 
 <dl>
 <dt>material_id : str</dt>
+<dt>coordinate_system : _CoordinateSystem</dt>
+<dd>Reinforcement coordinate system (origo, direction_i, direction_j, direction_k). Only meaningful for solids with a ReinforcedConcrete material.</dd>
 </dl>

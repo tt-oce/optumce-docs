@@ -18,7 +18,7 @@ Define analysis properties
 <dt>start_elements : int</dt>
 <dd>Starting number of elements in mesh adaptivity</dd>
 <dt>adaptivity_control : str</dt>
-<dd>Adaptivity control type. adaptivity_control = 'shear_disipation', total_disipation','strain'</dd>
+<dd>Adaptivity control type. adaptivity_control = 'shear_dissipation', 'total_dissipation', 'strain'</dd>
 <dt>time_scope : str</dt>
 <dd>Time scope type. time_scope= 'long_term', 'short_term', 'variable'</dd>
 <dt>from_model : str|object</dt>
@@ -119,7 +119,7 @@ stage3.set_analysis_properties(
         mesh_adaptivity='yes',
         adaptivity_iterations=2,
         start_elements=1000,
-        adaptivity_control= 'shear_disipation',
+        adaptivity_control= 'shear_dissipation',
         from_model = '2D model',
         from_stage = 'stage 1',
         design_approach= 'sls',
@@ -134,7 +134,7 @@ stage4.set_analysis_properties(
         no_of_elements=1000,
         mesh_adaptivity='no',
         adaptivity_iterations=2,
-        adaptivity_control= 'total_disipation',
+        adaptivity_control= 'total_dissipation',
         start_elements=1000,
         from_model = '2D model',
         from_stage = 'stage 2',

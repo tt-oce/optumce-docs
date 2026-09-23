@@ -15,3 +15,7 @@ Regional (units) settings of the project.
 prj.regional.unit = UnitSystem.us_customary
 prj.regional.result_unit = UnitSystem.si
 ```
+
+## See also
+
+- [Regional](/python/functions/objects/settings/Regional)

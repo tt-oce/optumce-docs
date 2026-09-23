@@ -24,3 +24,7 @@ stage.output.line_reaction[0].topology.nodes
 stage.output.critical_results.fixed_end_anchor_force_max
 u_norm_max = [step.critical_results.u_norm_max for step in stage.output.step]
 ```
+
+## See also
+
+- [StageOutput](/python/functions/objects/results/StageOutput)

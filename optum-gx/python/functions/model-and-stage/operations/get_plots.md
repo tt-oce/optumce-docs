@@ -17,7 +17,7 @@ List all result field plots available for this model or stage.
 
 ## See also
 
-- [take_picture](/python/functions/model-and-stage/take_picture)
+- [take_picture](/python/functions/model-and-stage/operations/take_picture)
 
 ## Notes
 

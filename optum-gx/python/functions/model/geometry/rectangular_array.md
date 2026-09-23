@@ -6,7 +6,11 @@ Generate rectangular array of shapes.
 
 <dl>
 <dt>shapes : ShapeList</dt>
-<dd>List of shapes Nx, Ny, Nz : int Number of copies in x, y, z directions dx, dy, dz : float Spacing in x, y, z directions</dd>
+<dd>List of shapes</dd>
+<dt>Nx, Ny, Nz : int</dt>
+<dd>Number of copies in x, y, z directions</dd>
+<dt>dx, dy, dz : float</dt>
+<dd>Spacing in x, y, z directions</dd>
 </dl>
 
 ## Examples

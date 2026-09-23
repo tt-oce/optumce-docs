@@ -1,6 +1,6 @@
 # get_features
 
-Return all features as typed Remote objects.
+Return all features (optionally filtered by shapes) as typed Remote objects.
 
 ## Parameters
 

@@ -31,8 +31,8 @@ material.t
 <dd>Thickness.</dd>
 <dt>permeable : bool</dt>
 <dd>Permeable flag.</dd>
-<dt>weight : float | ParameterMap | Profile | Gradient</dt>
-<dd>Weight per unit area.</dd>
+<dt>gamma : float | ParameterMap | Profile | Gradient</dt>
+<dd>Unit weight.</dd>
 <dt>yield_condition : int</dt>
 <dd>Yield condition type (square=0, diamond=1, iluyshin=2, none=3).</dd>
 <dt>parameter_set : int</dt>

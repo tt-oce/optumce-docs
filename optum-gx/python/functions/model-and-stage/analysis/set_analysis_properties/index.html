@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843035627490">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843480107409">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.843035627490" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.843480107409" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843035627490" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843480107409" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843035627490" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843035627490" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843480107409" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843480107409" defer></script>
 
     <style>
         /* Images */
@@ -330,7 +330,7 @@
 <dt>start_elements : int</dt>
 <dd>Starting number of elements in mesh adaptivity</dd>
 <dt>adaptivity_control : str</dt>
-<dd>Adaptivity control type. adaptivity_control = 'shear_disipation', total_disipation','strain'</dd>
+<dd>Adaptivity control type. adaptivity_control = 'shear_dissipation', 'total_dissipation', 'strain'</dd>
 <dt>time_scope : str</dt>
 <dd>Time scope type. time_scope= 'long_term', 'short_term', 'variable'</dd>
 <dt>from_model : str|object</dt>
@@ -427,7 +427,7 @@ stage3.set_analysis_properties(
         mesh_adaptivity='yes',
         adaptivity_iterations=2,
         start_elements=1000,
-        adaptivity_control= 'shear_disipation',
+        adaptivity_control= 'shear_dissipation',
         from_model = '2D model',
         from_stage = 'stage 1',
         design_approach= 'sls',
@@ -442,7 +442,7 @@ stage4.set_analysis_properties(
         no_of_elements=1000,
         mesh_adaptivity='no',
         adaptivity_iterations=2,
-        adaptivity_control= 'total_disipation',
+        adaptivity_control= 'total_dissipation',
         start_elements=1000,
         from_model = '2D model',
         from_stage = 'stage 2',

@@ -92,8 +92,8 @@
 - [get_file_path](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_file_path.md): Get the full path of the currently opened project file.
 - [get_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_model.md): Get model or models by name.
 - [get_python_code](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_python_code.md): Get generated Python code from the current session.
+- [regional](https://docs.optumce.com/optum-gx/python/functions/project/operations/regional.md): Regional (units) settings of the project.
 - [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
-- [regional](https://docs.optumce.com/optum-gx/python/functions/project/regional.md): Regional (units) settings of the project.
 
 #### Model
 
@@ -108,7 +108,7 @@
 - [add_fixed_end_anchor](https://docs.optumce.com/optum-gx/python/functions/model/features/add_fixed_end_anchor.md): Add fixed-end anchor at a point (without shape selection).
 - [get_body_load](https://docs.optumce.com/optum-gx/python/functions/model/features/get_body_load.md): Get all volume (body) load features on the given shapes.
 - [get_connector](https://docs.optumce.com/optum-gx/python/functions/model/features/get_connector.md): Get connector features on the given shapes.
-- [get_features](https://docs.optumce.com/optum-gx/python/functions/model/features/get_features.md): Return all features as typed Remote objects.
+- [get_features](https://docs.optumce.com/optum-gx/python/functions/model/features/get_features.md): Return all features (optionally filtered by shapes) as typed Remote objects.
 - [get_fixed_end_anchor](https://docs.optumce.com/optum-gx/python/functions/model/features/get_fixed_end_anchor.md): Get fixed-end anchor features on the given shapes.
 - [get_fixed_excess_pressure](https://docs.optumce.com/optum-gx/python/functions/model/features/get_fixed_excess_pressure.md): Get fixed excess pressure features on the given shapes.
 - [get_fixed_head](https://docs.optumce.com/optum-gx/python/functions/model/features/get_fixed_head.md): Get fixed head features on the given shapes.
@@ -278,6 +278,10 @@
 
 #### Objects
 
+##### Analysis
+
+- [AnalysisProgress](https://docs.optumce.com/optum-gx/python/functions/objects/analysis/analysisprogress.md): Live progress handle for an asynchronous analysis run.
+
 ##### Features
 
 - [BodyLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/bodyloads.md): Body load applied throughout a solid region -- distributed force per unit volume across the selected face (2D) or volume (3D).
@@ -344,6 +348,24 @@
 - [SheetPile](https://docs.optumce.com/optum-gx/python/functions/objects/materials/sheetpile.md): Sheet pile profile -- standard steel sheet pile sections (Az, Larssen, etc.) with built-in section properties and yield strength.
 - [Tresca](https://docs.optumce.com/optum-gx/python/functions/objects/materials/tresca.md): Tresca elastoplastic material -- pressure-independent failure based on maximum shear stress, used for undrained clays.
 - [Water](https://docs.optumce.com/optum-gx/python/functions/objects/materials/water.md): Water material -- assigned to fluid regions to represent free water (e.g. lakes, reservoirs, fluid-filled cavities).
+
+##### Results
+
+- [CriticalResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/criticalresults.md): Summary values of one analysis step: load multiplier, factor of safety and the extreme (min/max) displacements, stresses and structural forces.
+- [ElementIndexer](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer.md): A single element of a result group, obtained by indexing a ResultIndexer (e.g. stage.output.plate[2]).
+- [ElementResult](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementresult.md): One result field or material parameter of a single element: its unit and its values.
+- [GeneralProperties](https://docs.optumce.com/optum-gx/python/functions/objects/results/generalproperties.md): General information about a single element: its material and the shape it belongs to.
+- [PropertyContainer](https://docs.optumce.com/optum-gx/python/functions/objects/results/propertycontainer.md): Nested namespace of named values for one element - its result fields or material parameters.
+- [Result](https://docs.optumce.com/optum-gx/python/functions/objects/results/result.md): Global results of a stage, available as stage.output.global_results.
+- [ResultIndexer](https://docs.optumce.com/optum-gx/python/functions/objects/results/resultindexer.md): The elements of one result group, e.g. all plate elements (stage.output.plate) or all point reactions (stage.output.point_reaction).
+- [StageOutput](https://docs.optumce.com/optum-gx/python/functions/objects/results/stageoutput.md): Inherits from StepOutput -- all of its properties and methods are available too.
+- [StageResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/stageresults.md): Per-element results of one analysis step, grouped by element type.
+- [StepOutput](https://docs.optumce.com/optum-gx/python/functions/objects/results/stepoutput.md): Inherits from StageResults -- all of its properties and methods are available too.
+- [Topology](https://docs.optumce.com/optum-gx/python/functions/objects/results/topology.md): Mesh topology of a single element: its nodes and their coordinates.
+
+##### Settings
+
+- [Regional](https://docs.optumce.com/optum-gx/python/functions/objects/settings/regional.md): Regional (units) settings of the project.
 
 #### Utilities
 
