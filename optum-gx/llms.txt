@@ -354,7 +354,7 @@
 
 ##### Results
 
-- [Results](https://docs.optumce.com/optum-gx/python/functions/objects/results/index.md): After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.
+- [Results](https://docs.optumce.com/optum-gx/python/functions/objects/results/index.md): After an analysis you read results through stage.output. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages.
 - [CriticalResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/criticalresults.md): Summary values of one analysis step: load multiplier, factor of safety and the extreme (min/max) displacements, stresses and sectional forces.
 - [ElementIndexer](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer.md): A single element of a result group, obtained by indexing a ResultIndexer.
 - [ElementResult](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementresult.md): A result field or material parameter of a single element containing its unit and values.

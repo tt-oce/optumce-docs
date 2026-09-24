@@ -1,9 +1,9 @@
 # Results
 
-After an analysis you read results through `stage.output`. They follow a fixed hierarchy: from the stage down to one value on one element.
+After an analysis you read results through `stage.output`. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages. As long as it it calculated and carries results it considered a calculation stage. Results follow a fixed hierarchy: from the stage down to a single value on one element.
 
 ```text
-Stage
+Calculation stage
   └── output                                  StageOutput
         ├── global_results                    Result
         ├── critical_results                  CriticalResults
@@ -18,7 +18,7 @@ Stage
               ├── critical_results            CriticalResults
               └── solid, plate, ...           ResultIndexer
 ```
-
+All these object are further described on their own page in this section.
 Each level is reached with an attribute or an index, so a single value is one expression:
 
 ```python
@@ -52,13 +52,13 @@ out.plate[2].topology.X                             # node X coordinates
 | [MaterialPointOutput](/python/functions/objects/results/MaterialPointOutput) | `test.output` | Material point test output; same structure, no `global_results` |
 
 ## Good to know
-- **Repeated extraction of results from GX** is cumbersome for the program and will slow down scripts. It is preferable to extract the output to Python once and only interacting with the object from there e.g. 
+- **Repeated extraction of results from GX** is cumbersome for the program and will slow down scripts. It is preferable to extract the output to Python once and only interacting with the object from there. An example of this follows.
 ```python
 #Bad practice
-[stage.output.critical_results.u_norm_max for s in out.step] #Interacts with GX API at every step.
+[stage.output.critical_results.u_norm_max for s in out.step] #Interacts with GX API at every step
 #Preferable
-out = stage.output
-[s.critical_results.u_norm_max for s in out.step] #Only interacts with the Python object.
+out = stage.output #Results are extracted once
+[s.critical_results.u_norm_max for s in out.step] #Only interacts with the Python object
 ```
 - **Explore with `repr()`.** The fields in `CriticalResults` and `PropertyContainer` depend on the analysis type and element type. Print the object to list what is available at that level.
 - **Steps.** `step` exists only when the analysis has more than one step. The top-level results of `stage.output` are the results of the last step.

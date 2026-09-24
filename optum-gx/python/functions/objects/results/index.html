@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843563408827">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843564445751">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Results</title>
     <meta name="title" content="Results">
-    <meta name="description" content="After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.">
+    <meta name="description" content="After an analysis you read results through stage.output. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/objects/results/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/results/">
     <meta property="og:title" content="Results">
-    <meta property="og:description" content="After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.">
+    <meta property="og:description" content="After an analysis you read results through stage.output. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/results/">
     <meta name="twitter:title" content="Results">
-    <meta name="twitter:description" content="After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.">
+    <meta name="twitter:description" content="After an analysis you read results through stage.output. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/objects/results/index.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=4.6.0.843563408827" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=4.6.0.843564445751" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.843563408827" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=4.6.0.843564445751" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.843563408827" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.843563408827" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=4.6.0.843564445751" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../resources/js/prism.js?v=4.6.0.843564445751" defer></script>
 
     <style>
         /* Images */
@@ -306,9 +306,9 @@
 
                 <!-- Page content  -->
 <h1 id="results">Results</h1>
-<p>After an analysis you read results through <code translate="no" v-pre>stage.output</code>. They follow a fixed hierarchy: from the stage down to one value on one element.</p>
+<p>After an analysis you read results through <code translate="no" v-pre>stage.output</code>. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages. As long as it it calculated and carries results it considered a calculation stage. Results follow a fixed hierarchy: from the stage down to a single value on one element.</p>
 <div id="results-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-none"><code v-pre class="language-none">Stage
+<pre translate="no" class="language-none"><code v-pre class="language-none">Calculation stage
   └── output                                  StageOutput
         ├── global_results                    Result
         ├── critical_results                  CriticalResults
@@ -323,7 +323,8 @@
               ├── critical_results            CriticalResults
               └── solid, plate, ...           ResultIndexer</code></pre>
 </doc-codeblock></div>
-<p>Each level is reached with an attribute or an index, so a single value is one expression:</p>
+<p>All these object are further described on their own page in this section.
+Each level is reached with an attribute or an index, so a single value is one expression:</p>
 <div id="results-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">project = gx.get_current_project()
 project.run_analysis()
@@ -427,14 +428,14 @@ out.plate[2].topology.X                             # node X coordinates
 </retype-table>
 <h2 id="good-to-know">Good to know</h2>
 <ul>
-<li><strong>Repeated extraction of results from GX</strong> is cumbersome for the program and will slow down scripts. It is preferable to extract the output to Python once and only interacting with the object from there e.g.</li>
+<li><strong>Repeated extraction of results from GX</strong> is cumbersome for the program and will slow down scripts. It is preferable to extract the output to Python once and only interacting with the object from there. An example of this follows.</li>
 </ul>
 <div id="good-to-know-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-python"><code v-pre class="language-python">#Bad practice
-[stage.output.critical_results.u_norm_max for s in out.step] #Interacts with GX API at every step.
+[stage.output.critical_results.u_norm_max for s in out.step] #Interacts with GX API at every step
 #Preferable
-out = stage.output
-[s.critical_results.u_norm_max for s in out.step] #Only interacts with the Python object.</code></pre>
+out = stage.output #Results are extracted once
+[s.critical_results.u_norm_max for s in out.step] #Only interacts with the Python object</code></pre>
 </doc-codeblock></div>
 <ul>
 <li><strong>Explore with <code translate="no" v-pre>repr()</code>.</strong> The fields in <code translate="no" v-pre>CriticalResults</code> and <code translate="no" v-pre>PropertyContainer</code> depend on the analysis type and element type. Print the object to list what is available at that level.</li>
