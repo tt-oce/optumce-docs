@@ -1,7 +1,7 @@
 # ElementResult
 
-One result field or material parameter of a single element: its unit and
-its values.
+A result field or material parameter of a single element containing its unit and
+values.
 
 Printing an ElementResult shows the unit as text (e.g. ``kN/m2``)
 together with the values.
@@ -9,6 +9,7 @@ together with the values.
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 m = stage.output.plate[2].results.final_forces.M_y
 m
 m.value

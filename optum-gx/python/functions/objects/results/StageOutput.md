@@ -12,6 +12,8 @@ when the analysis has more than one step - the output of each step in
 ## Examples
 
 ```python
+project = gx.get_current_project()
+stage = project.get_models_and_stages()[0]
 project.run_analysis()
 out = stage.output
 out.global_results.load_multiplier

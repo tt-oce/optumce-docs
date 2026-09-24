@@ -10,17 +10,13 @@ ElementIndexer, or None when the index is out of range.
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 plates = stage.output.plate
 len(plates)
 plates[2].results.final_forces.M_y
 for el in plates:
     print(el.general.material_name)
 ```
-
-## Notes
-
-A ResultIndexer is its own iterator, so it can be looped over only once.
-To loop again, get the group from a new ``stage.output``.
 
 ## See also
 

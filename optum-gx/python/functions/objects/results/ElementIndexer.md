@@ -1,14 +1,14 @@
 # ElementIndexer
 
-A single element of a result group, obtained by indexing a ResultIndexer
-(e.g. ``stage.output.plate[2]``).
+A single element of a result group, obtained by indexing a ResultIndexer.
 
-Its data is split into ``general``, ``topology``, ``material`` and
-``results``; ``repr()`` lists these.
+The data is split into ``general``, ``topology``, ``material`` and
+``results``.
 
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 el = stage.output.plate[2]
 el.general.material_name
 el.topology.nodes
@@ -27,11 +27,11 @@ el.material
 
 <dl>
 <dt>general : GeneralProperties</dt>
-<dd>Material name, colour, material model and shape ID of the element.</dd>
+<dd>Material name, color, material model and shape ID of the element.</dd>
 <dt>topology : Topology</dt>
 <dd>Nodes of the element and their coordinates.</dd>
 <dt>material : PropertyContainer</dt>
-<dd>Parameters of the element's material, plus the material's ``name`` and ``color``.</dd>
+<dd>Parameters of the element's material as well as ``name`` and ``color``.</dd>
 <dt>results : PropertyContainer</dt>
-<dd>Result fields of the element as a nested PropertyContainer whose leaves are ElementResult objects (e.g. ``results.final_forces.M_y``).</dd>
+<dd>Result fields of the element as a nested PropertyContainer.</dd>
 </dl>

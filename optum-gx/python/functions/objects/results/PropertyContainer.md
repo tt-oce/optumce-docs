@@ -1,21 +1,20 @@
 # PropertyContainer
 
-Nested namespace of named values for one element - its result fields or
+Nested namespace of named values for one element containing result fields or
 material parameters.
 
 The attribute names come from the element's result definitions, so they
-depend on the analysis and the element type. Nested groups are themselves
-PropertyContainers; the leaves are ElementResult objects (plus plain values
-such as a material's ``name`` and ``color``). ``repr()`` lists the names
-available at that level, which is the easiest way to explore the tree.
+depend on the type of analysis and the element type.
 
 ## Examples
 
 ```python
-r = stage.output.plate[2].results
+stage = gx.get_current_project().get_models_and_stages()[0]
+res = stage.output
+r = res.plate[2].results
 r
 r.final_forces.M_y
-test.output.solid[0].results.final_stresses.total_stresses.q.value
+res.solid[0].results.final_stresses.total_stresses.q.value
 ```
 
 ## See also

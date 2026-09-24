@@ -3,12 +3,12 @@
 Inherits from [StageResults](/python/functions/objects/results/StageResults) -- all of its properties and methods are available too.
 
 Results of one analysis step: ``critical_results`` plus per-element
-results through the result groups (``solid``, ``plate``, ...) inherited
-from StageResults.
+results through the result groups inherited from StageResults.
 
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 last = stage.output.step[-1]
 last.critical_results.u_norm_max
 last.plate[2].results.final_forces.M_y
@@ -20,9 +20,13 @@ last.plate[2].results.final_forces.M_y
 - [StageResults](/python/functions/objects/results/StageResults)
 - [CriticalResults](/python/functions/objects/results/CriticalResults)
 
+## Notes
+
+In analysis with steps the StageResults are equivalent to the last step.
+
 ## Properties
 
 <dl>
 <dt>critical_results : CriticalResults</dt>
-<dd>Summary values of the step: load multiplier, factor of safety, extreme displacements, stresses and forces.</dd>
+<dd>Critical values of the step: load multiplier, FoS, extreme displacements, stresses and forces.</dd>
 </dl>
