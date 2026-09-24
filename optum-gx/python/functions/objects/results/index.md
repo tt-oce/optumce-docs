@@ -1,9 +1,9 @@
 # Results
 
-After an analysis you read results through `stage.output`. They follow a fixed hierarchy: from the stage down to one value on one element.
+After an analysis you read results through `stage.output`. A stage in this context is a so-called calculation stage, which can be both a stage and a model without stages. As long as it it calculated and carries results it considered a calculation stage. Results follow a fixed hierarchy: from the stage down to a single value on one element.
 
 ```text
-Stage
+Calculation stage
   └── output                                  StageOutput
         ├── global_results                    Result
         ├── critical_results                  CriticalResults
@@ -18,7 +18,7 @@ Stage
               ├── critical_results            CriticalResults
               └── solid, plate, ...           ResultIndexer
 ```
-
+All these object are further described on their own page in this section.
 Each level is reached with an attribute or an index, so a single value is one expression:
 
 ```python
