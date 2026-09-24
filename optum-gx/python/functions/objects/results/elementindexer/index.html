@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843480107409">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843563408827">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>ElementIndexer</title>
     <meta name="title" content="ElementIndexer">
-    <meta name="description" content="A single element of a result group, obtained by indexing a ResultIndexer (e.g. stage.output.plate[2]).">
+    <meta name="description" content="A single element of a result group, obtained by indexing a ResultIndexer.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer/">
     <meta property="og:title" content="ElementIndexer">
-    <meta property="og:description" content="A single element of a result group, obtained by indexing a ResultIndexer (e.g. stage.output.plate[2]).">
+    <meta property="og:description" content="A single element of a result group, obtained by indexing a ResultIndexer.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer/">
     <meta name="twitter:title" content="ElementIndexer">
-    <meta name="twitter:description" content="A single element of a result group, obtained by indexing a ResultIndexer (e.g. stage.output.plate[2]).">
+    <meta name="twitter:description" content="A single element of a result group, obtained by indexing a ResultIndexer.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.843480107409" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.843563408827" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843480107409" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843563408827" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843480107409" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843480107409" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843563408827" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843563408827" defer></script>
 
     <style>
         /* Images */
@@ -295,9 +295,9 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <span class="pr-4">
+                            <a href="../../../../../python/functions/objects/results/" class="pr-4">
                                 Results
-                            </span>
+                            </a>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                             </svg>
@@ -314,13 +314,13 @@
 
                 <!-- Page content  -->
 <h1 id="elementindexer">ElementIndexer</h1>
-<p>A single element of a result group, obtained by indexing a ResultIndexer
-(e.g. <code translate="no" v-pre>stage.output.plate[2]</code>).</p>
-<p>Its data is split into <code translate="no" v-pre>general</code>, <code translate="no" v-pre>topology</code>, <code translate="no" v-pre>material</code> and
-<code translate="no" v-pre>results</code>; <code translate="no" v-pre>repr()</code> lists these.</p>
+<p>A single element of a result group, obtained by indexing a ResultIndexer.</p>
+<p>The data is split into <code translate="no" v-pre>general</code>, <code translate="no" v-pre>topology</code>, <code translate="no" v-pre>material</code> and
+<code translate="no" v-pre>results</code>.</p>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">el = stage.output.plate[2]
+<pre translate="no" class="language-python"><code v-pre class="language-python">stage = gx.get_current_project().get_models_and_stages()[0]
+el = stage.output.plate[2]
 el.general.material_name
 el.topology.nodes
 el.results.final_forces.M_y
@@ -336,13 +336,13 @@ el.material</code></pre>
 <h2 id="properties">Properties</h2>
 <dl>
 <dt>general : GeneralProperties</dt>
-<dd>Material name, colour, material model and shape ID of the element.</dd>
+<dd>Material name, color, material model and shape ID of the element.</dd>
 <dt>topology : Topology</dt>
 <dd>Nodes of the element and their coordinates.</dd>
 <dt>material : PropertyContainer</dt>
-<dd>Parameters of the element's material, plus the material's ``name`` and ``color``.</dd>
+<dd>Parameters of the element's material as well as ``name`` and ``color``.</dd>
 <dt>results : PropertyContainer</dt>
-<dd>Result fields of the element as a nested PropertyContainer whose leaves are ElementResult objects (e.g. ``results.final_forces.M_y``).</dd>
+<dd>Result fields of the element as a nested PropertyContainer.</dd>
 </dl>
 <div id="retype-backlinks">
     <h2>See also</h2>
@@ -363,7 +363,7 @@ el.material</code></pre>
             <div class="card-compact-header">
                 <span class="card-compact-title">PropertyContainer</span>
             </div>
-            <p class="card-compact-description">Nested namespace of named values for one element - its result fields or material parameters.</p>
+            <p class="card-compact-description">Nested namespace of named values for one element containing result fields or material parameters.</p>
         </div>
     </a>
 </div>
@@ -378,12 +378,22 @@ el.material</code></pre>
     </a>
 </div>
 <div class="card-compact-container">
+    <a href="/optum-gx/python/functions/objects/results/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">Results</span>
+            </div>
+            <p class="card-compact-description">After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
     <a href="/optum-gx/python/functions/objects/results/topology/" class="group card-compact no-link">
         <div class="card-compact-body">
             <div class="card-compact-header">
                 <span class="card-compact-title">Topology</span>
             </div>
-            <p class="card-compact-description">Mesh topology of a single element: its nodes and their coordinates.</p>
+            <p class="card-compact-description">Mesh topology of a single element i.e. its nodes and their coordinates.</p>
         </div>
     </a>
 </div>

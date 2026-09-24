@@ -1,16 +1,15 @@
 # StageResults
 
-Per-element results of one analysis step, grouped by element type.
+Results of one analysis step, grouped by element type.
 
-Each property returns a ResultIndexer over the elements of that group, or
-None when the model has no such elements. ``repr()`` lists the groups
-that are present. StepOutput, StageOutput and MaterialPointOutput extend
-this class, so the groups are available on ``stage.output`` and on each
+Each property returns a ResultIndexer over the elements of that group.
+StepOutput and StageOutput extend this class, so the groups are available on ``stage.output`` and on each
 ``stage.output.step[i]``.
 
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 out = stage.output
 out
 out.plate[2].results.final_forces.M_y
@@ -42,7 +41,7 @@ out.plate_resultpoint[0].results.displacements.total_displacements.u_x.value
 <dt>interface : ResultIndexer | None</dt>
 <dd>Interface elements. None if the model has none.</dd>
 <dt>control_resultpoint : ResultIndexer | None</dt>
-<dd>Control result points. None if the model has none.</dd>
+<dd>Control result point. None if the model has none.</dd>
 <dt>solid_resultpoint : ResultIndexer | None</dt>
 <dd>Result points on solids. None if the model has none.</dd>
 <dt>plate_resultpoint : ResultIndexer | None</dt>

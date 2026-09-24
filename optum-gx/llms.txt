@@ -34,8 +34,10 @@
 
 ##### Operations
 
+- [create_material_point](https://docs.optumce.com/optum-gx/python/functions/application/operations/create_material_point.md): Create a material point test. The test runs on a single material - no geometry, model or stage is involved.
 - [create_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/create_project.md): Create project.
 - [get_current_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/get_current_project.md): Get current project.
+- [get_material_point](https://docs.optumce.com/optum-gx/python/functions/application/operations/get_material_point.md): Get a material point test by name, or all tests when no name is given.
 - [open_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/open_project.md): Open GX project.
 - [save_project](https://docs.optumce.com/optum-gx/python/functions/application/operations/save_project.md): Save current project
 - [screenshot](https://docs.optumce.com/optum-gx/python/functions/application/operations/screenshot.md): Save an image of the current view to a PNG file.
@@ -281,6 +283,7 @@
 ##### Analysis
 
 - [AnalysisProgress](https://docs.optumce.com/optum-gx/python/functions/objects/analysis/analysisprogress.md): Live progress handle for an asynchronous analysis run.
+- [MaterialPoint](https://docs.optumce.com/optum-gx/python/functions/objects/analysis/materialpoint.md): A material point test: runs an analysis on a single material without any geometry or stages.
 
 ##### Features
 
@@ -351,17 +354,19 @@
 
 ##### Results
 
-- [CriticalResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/criticalresults.md): Summary values of one analysis step: load multiplier, factor of safety and the extreme (min/max) displacements, stresses and structural forces.
-- [ElementIndexer](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer.md): A single element of a result group, obtained by indexing a ResultIndexer (e.g. stage.output.plate[2]).
-- [ElementResult](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementresult.md): One result field or material parameter of a single element: its unit and its values.
+- [Results](https://docs.optumce.com/optum-gx/python/functions/objects/results/index.md): After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.
+- [CriticalResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/criticalresults.md): Summary values of one analysis step: load multiplier, factor of safety and the extreme (min/max) displacements, stresses and sectional forces.
+- [ElementIndexer](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementindexer.md): A single element of a result group, obtained by indexing a ResultIndexer.
+- [ElementResult](https://docs.optumce.com/optum-gx/python/functions/objects/results/elementresult.md): A result field or material parameter of a single element containing its unit and values.
 - [GeneralProperties](https://docs.optumce.com/optum-gx/python/functions/objects/results/generalproperties.md): General information about a single element: its material and the shape it belongs to.
-- [PropertyContainer](https://docs.optumce.com/optum-gx/python/functions/objects/results/propertycontainer.md): Nested namespace of named values for one element - its result fields or material parameters.
-- [Result](https://docs.optumce.com/optum-gx/python/functions/objects/results/result.md): Global results of a stage, available as stage.output.global_results.
+- [MaterialPointOutput](https://docs.optumce.com/optum-gx/python/functions/objects/results/materialpointoutput.md): Inherits from StepOutput -- all of its properties and methods are available too.
+- [PropertyContainer](https://docs.optumce.com/optum-gx/python/functions/objects/results/propertycontainer.md): Nested namespace of named values for one element containing result fields or material parameters.
+- [Result](https://docs.optumce.com/optum-gx/python/functions/objects/results/result.md): Global results of a calculation stage.
 - [ResultIndexer](https://docs.optumce.com/optum-gx/python/functions/objects/results/resultindexer.md): The elements of one result group, e.g. all plate elements (stage.output.plate) or all point reactions (stage.output.point_reaction).
 - [StageOutput](https://docs.optumce.com/optum-gx/python/functions/objects/results/stageoutput.md): Inherits from StepOutput -- all of its properties and methods are available too.
-- [StageResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/stageresults.md): Per-element results of one analysis step, grouped by element type.
+- [StageResults](https://docs.optumce.com/optum-gx/python/functions/objects/results/stageresults.md): Results of one analysis step, grouped by element type.
 - [StepOutput](https://docs.optumce.com/optum-gx/python/functions/objects/results/stepoutput.md): Inherits from StageResults -- all of its properties and methods are available too.
-- [Topology](https://docs.optumce.com/optum-gx/python/functions/objects/results/topology.md): Mesh topology of a single element: its nodes and their coordinates.
+- [Topology](https://docs.optumce.com/optum-gx/python/functions/objects/results/topology.md): Mesh topology of a single element i.e. its nodes and their coordinates.
 
 ##### Settings
 

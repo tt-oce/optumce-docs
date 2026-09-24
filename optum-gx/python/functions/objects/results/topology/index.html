@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843480107409">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843563408827">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Topology</title>
     <meta name="title" content="Topology">
-    <meta name="description" content="Mesh topology of a single element: its nodes and their coordinates.">
+    <meta name="description" content="Mesh topology of a single element i.e. its nodes and their coordinates.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.optumce.com/optum-gx/python/functions/objects/results/topology/">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/results/topology/">
     <meta property="og:title" content="Topology">
-    <meta property="og:description" content="Mesh topology of a single element: its nodes and their coordinates.">
+    <meta property="og:description" content="Mesh topology of a single element i.e. its nodes and their coordinates.">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -31,19 +31,19 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://docs.optumce.com/optum-gx/python/functions/objects/results/topology/">
     <meta name="twitter:title" content="Topology">
-    <meta name="twitter:description" content="Mesh topology of a single element: its nodes and their coordinates.">
+    <meta name="twitter:description" content="Mesh topology of a single element i.e. its nodes and their coordinates.">
 
     <!-- Alternate Markdown -->
     <link rel="alternate" type="text/markdown" href="https://docs.optumce.com/optum-gx/python/functions/objects/results/topology.md">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.843480107409" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.843563408827" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843480107409" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843563408827" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843480107409" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843480107409" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843563408827" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843563408827" defer></script>
 
     <style>
         /* Images */
@@ -295,9 +295,9 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <span class="pr-4">
+                            <a href="../../../../../python/functions/objects/results/" class="pr-4">
                                 Results
-                            </span>
+                            </a>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                             </svg>
@@ -314,10 +314,11 @@
 
                 <!-- Page content  -->
 <h1 id="topology">Topology</h1>
-<p>Mesh topology of a single element: its nodes and their coordinates.</p>
+<p>Mesh topology of a single element i.e. its nodes and their coordinates.</p>
 <h2 id="examples">Examples</h2>
 <div id="examples-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-python"><code v-pre class="language-python">topo = stage.output.line_reaction[0].topology
+<pre translate="no" class="language-python"><code v-pre class="language-python">stage = gx.get_current_project().get_models_and_stages()[0]
+topo = stage.output.line_reaction[0].topology
 topo.nodes
 list(zip(topo.X, topo.Y))</code></pre>
 </doc-codeblock></div>
@@ -328,15 +329,15 @@ list(zip(topo.X, topo.Y))</code></pre>
 <h2 id="properties">Properties</h2>
 <dl>
 <dt>mesh_id : int</dt>
-<dd>ID of the mesh part the element belongs to.</dd>
+<dd>ID of the mesh the element belongs to.</dd>
 <dt>nodes : list[int]</dt>
 <dd>Indices of the element's nodes.</dd>
 <dt>X : list[float]</dt>
-<dd>x-coordinates of the element's nodes, in the order of ``nodes``.</dd>
+<dd>x-coordinates of the element's nodes.</dd>
 <dt>Y : list[float]</dt>
-<dd>y-coordinates of the element's nodes, in the order of ``nodes``.</dd>
+<dd>y-coordinates of the element's nodes.</dd>
 <dt>Z : list[float]</dt>
-<dd>z-coordinates of the element's nodes, in the order of ``nodes``.</dd>
+<dd>z-coordinates of the element's nodes.</dd>
 </dl>
 <div id="retype-backlinks">
     <h2>See also</h2>
@@ -347,7 +348,17 @@ list(zip(topo.X, topo.Y))</code></pre>
             <div class="card-compact-header">
                 <span class="card-compact-title">ElementIndexer</span>
             </div>
-            <p class="card-compact-description">A single element of a result group, obtained by indexing a ResultIndexer (e.g. stage.output.plate[2]).</p>
+            <p class="card-compact-description">A single element of a result group, obtained by indexing a ResultIndexer.</p>
+        </div>
+    </a>
+</div>
+<div class="card-compact-container">
+    <a href="/optum-gx/python/functions/objects/results/" class="group card-compact no-link">
+        <div class="card-compact-body">
+            <div class="card-compact-header">
+                <span class="card-compact-title">Results</span>
+            </div>
+            <p class="card-compact-description">After an analysis you read results through stage.output. They follow a fixed hierarchy: from the stage down to one value on one element.</p>
         </div>
     </a>
 </div>

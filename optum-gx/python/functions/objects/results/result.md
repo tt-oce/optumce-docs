@@ -1,12 +1,13 @@
 # Result
 
-Global results of a stage, available as ``stage.output.global_results``.
+Global results of a calculation stage.
 
 Each property is read from OptumGX when it is accessed.
 
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 stage.output.global_results.factor_of_safety
 stage.output.global_results.load_multiplier
 stage.output.global_results.max_displacement

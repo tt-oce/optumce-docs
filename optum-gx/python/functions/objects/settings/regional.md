@@ -2,9 +2,7 @@
 
 Regional (units) settings of the project.
 
-Exposes the project's unit systems as read/write properties. Each access
-talks to the running OptumGX instance over RPC, so reads reflect the live
-project state and writes are applied immediately.
+Exposes the project's unit systems as read/write properties.
 
 ## Examples
 

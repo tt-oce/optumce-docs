@@ -1,14 +1,17 @@
 # CriticalResults
 
 Summary values of one analysis step: load multiplier, factor of safety
-and the extreme (min/max) displacements, stresses and structural forces.
+and the extreme (min/max) displacements, stresses and sectional forces.
 
 The attributes are sent by OptumGX and depend on the analysis and the
-model. The properties below are the common ones.
+model. ``repr()`` lists the ones present, and accessing one that was not
+sent raises AttributeError. Values are floats, or lists of floats for
+array-valued fields. The properties below are the common ones.
 
 ## Examples
 
 ```python
+stage = gx.get_current_project().get_models_and_stages()[0]
 cr = stage.output.critical_results
 cr
 cr.u_norm_max
