@@ -98,18 +98,35 @@ project.run_analysis()
 def extract(element_start, element_end, CalculationStage, Output):
     if len(element_start) != len(element_end):
         raise ValueError("Element start and end points must be of same dimension.")
+    if len(element_start) not in (2, 3):
+        raise ValueError("Element points must contain either 2D or 3D coordinates.")
     stage = CalculationStage
-    model = stage if hasattr(stage, "model_type") else stage.model #Determine model or stage
-    is_3d = model.model_type == ModelType.three_dimensional #Determine model type
+    is_3d = len(element_start) == 3
     vertical_axis = 2 if is_3d else 1
 
+    selection_start = element_start
+    selection_end = element_end
+    if is_3d:
+        #Ensure the face(s) is inside the selection box.
+        scale = max(1.0, *(abs(value) for value in element_start + element_end))
+        tolerance = 1e-6 * scale
+        selection_start = [
+            min(start, end) - tolerance
+            for start, end in zip(element_start, element_end)
+        ]
+        selection_end = [
+            max(start, end) + tolerance
+            for start, end in zip(element_start, element_end)
+        ]
+
     shapes = stage.select( #Select shapes
-        element_start,
-        element_end,
+        selection_start,
+        selection_end,
         types="face" if is_3d else "edge",
         option="blue",
     )
-    print(shapes)
+    if len(shapes) == 0:
+        raise ValueError("No shapes could be selected.")
     shape_ids = {shape.id for shape in shapes}  #Get shape ids
 
     plate_res = Output.plate
@@ -118,11 +135,10 @@ def extract(element_start, element_end, CalculationStage, Output):
         plate_res[i] for i in range(len(plate_res))
         if plate_res[i].general.shape_id in shape_ids
     ]
-    print(elements)
     points = []
     
     for element in elements:
-        ux = element.results.displacements.total_displacements.u_x.value if is_3d else element.results.collapse_mechanism.u_x.value
+        ux = element.results.collapse_mechanism.u_x.value
         mesh = element.mesh
         start = element.element_index * mesh.element_size
         node_ids = mesh.indices[start:start + mesh.element_size]
@@ -140,7 +156,8 @@ def extract(element_start, element_end, CalculationStage, Output):
 model_res = model.output
 depth, displacement = extract([2.5, -10],[2.5, 30],model,model_res)
 plt.plot(displacement, depth, ".-")
-depth, displacement = extract([2.5, 0, -10],[2.3097, 0.956709, 30],model,model_res)
+model3d_res = model3d.output
+depth, displacement = extract([2.5, 0, -10],[2.3097, 0.956709, 30],model3d,model3d_res)
 plt.plot(displacement, depth, ".-")
 plt.xlabel("Total horizontal displacement, $u_x$")
 plt.ylabel("Elevation")
