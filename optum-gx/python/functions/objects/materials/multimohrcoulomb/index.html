@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843993467685">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.844601344313">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.843993467685" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.844601344313" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843993467685" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.844601344313" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843993467685" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843993467685" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.844601344313" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.844601344313" defer></script>
 
     <style>
         /* Images */
@@ -359,6 +359,16 @@ material.no_surfaces</code></pre>
 <dd>Cohesion for surface 4.</dd>
 <dt>c5 : float | ParameterMap | Profile | Gradient</dt>
 <dd>Cohesion for surface 5.</dd>
+<dt>fit : int</dt>
+<dd>Strength envelope fit: 'user' (c1..c5 / phi1..phi5), 'ngi_sand' (from I_D) or 'gsk_rockfill' (from phi25, phi_infty, sigma_c).</dd>
+<dt>I_D : float | ParameterMap | Profile | Gradient</dt>
+<dd>Relative density for the NGI-Sand fit, 0 (loose) to 1 (dense).</dd>
+<dt>phi25 : float | ParameterMap | Profile | Gradient</dt>
+<dd>GSK Rockfill fit: friction angle at 25 kPa confining stress.</dd>
+<dt>phi_infty : float | ParameterMap | Profile | Gradient</dt>
+<dd>GSK Rockfill fit: asymptotic friction angle at high confinement.</dd>
+<dt>sigma_c : float | ParameterMap | Profile | Gradient</dt>
+<dd>GSK Rockfill fit: stress controlling the curvature of the envelope.</dd>
 <dt>tension_cutoff : bool</dt>
 <dd>Tension cutoff enabled.</dd>
 <dt>sigma_t : float | ParameterMap | Profile | Gradient</dt>

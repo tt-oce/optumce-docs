@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843993467685">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.844601344313">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -38,12 +38,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=4.6.0.843993467685" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=4.6.0.844601344313" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.843993467685" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=4.6.0.844601344313" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.843993467685" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.843993467685" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=4.6.0.844601344313" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../resources/js/prism.js?v=4.6.0.844601344313" defer></script>
 
     <style>
         /* Images */
@@ -355,6 +355,8 @@
 <dd>Model fitting parameter. Generally: 0.5 < m < 1</dd>
 <dt>Ru : float</dt>
 <dd>Failure ratio.</dd>
+<dt>small_strain_stiffness : boolean</dt>
+<dd>Enable small strain stiffness (E0_ref and gamma_07 apply only when enabled). small_strain_stiffness = 'yes' or 'no'</dd>
 <dt>E0_ref : float</dt>
 <dd>Small strain reference modulus, in MPa.</dd>
 <dt>gamma_07 : float</dt>
@@ -420,6 +422,7 @@ HardeningSoilMaterial = prj.HardeningSoil(name='HardeningSoilMaterial',
                      pref=100,
                      m = 0.5,
                      Ru=0.9,
+                     small_strain_stiffness='yes',
                      E0_ref= 250,
                      gamma_07= 0.0001,
                      Eoed_ref=30,

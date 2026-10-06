@@ -96,6 +96,9 @@
 - [get_python_code](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_python_code.md): Get generated Python code from the current session.
 - [regional](https://docs.optumce.com/optum-gx/python/functions/project/operations/regional.md): Regional (units) settings of the project.
 - [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
+- [design_approach](https://docs.optumce.com/optum-gx/python/functions/project/design_approach.md): The project's design approaches (partial factors), keyed by name.
+- [get_design_approach](https://docs.optumce.com/optum-gx/python/functions/project/get_design_approach.md): The raw IDesignApproach message of one design approach: name, the positional parameters list and one field per factor. Prefer project.design_approach[name]. An unknown name raises grpc.RpcError (INVALID_ARGUMENT).
+- [set_design_approach_parameters](https://docs.optumce.com/optum-gx/python/functions/project/set_design_approach_parameters.md): Set the factors of a design approach from a positional list (legacy form). Prefer project.design_approach[name].factor = value.
 
 #### Model
 
@@ -222,6 +225,11 @@
 - [set_current_stage](https://docs.optumce.com/optum-gx/python/functions/model/operations/set_current_stage.md): Sets the current stage.
 - [unhide_all_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_all_shapes.md): Unhide all hidden shapes.
 - [unhide_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_shapes.md): Unhide previously hidden shapes.
+- [get_result_point](https://docs.optumce.com/optum-gx/python/functions/model/get_result_point.md): Get result point features on the given shapes.
+- [hide_features](https://docs.optumce.com/optum-gx/python/functions/model/hide_features.md): Hide the visual of features.
+- [set_result_point](https://docs.optumce.com/optum-gx/python/functions/model/set_result_point.md): Set points to record results.
+- [unhide_all_features](https://docs.optumce.com/optum-gx/python/functions/model/unhide_all_features.md): Show every hidden feature of the model.
+- [unhide_features](https://docs.optumce.com/optum-gx/python/functions/model/unhide_features.md): Show features hidden with hide_features.
 
 #### Model and Stage
 

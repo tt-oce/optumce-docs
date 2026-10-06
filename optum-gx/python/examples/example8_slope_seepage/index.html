@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/optum-gx">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843993467685">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.844601344313">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,12 +44,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../resources/css/retype.css?v=4.6.0.843993467685" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=4.6.0.844601344313" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.843993467685" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=4.6.0.844601344313" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.843993467685" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.843993467685" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=4.6.0.844601344313" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=4.6.0.844601344313" defer></script>
 
     <style>
         /* Images */
@@ -324,7 +324,7 @@ from OptumGX import *
 import matplotlib.pyplot as plt
 gx = GX()
 # Project
-project_name = &quot;Example 8 Slope seepage&quot;
+project_name = &quot;Example Stability of slope subjected to unconfined seepage&quot;
 prj = gx.create_project(project_name)
 prj.get_current_model().delete()
 # Model (2D)
@@ -433,7 +433,7 @@ model2d.take_picture(
             'width': 2000,
             'height': 1500,
             'mesh_overlay': True,
-            'medium':&quot;print&quot;,
+            'medium':&quot;screenshot&quot;,
             'grid':False,
             'colorbar_min':0,
             'colorbar_max':1,
@@ -449,11 +449,14 @@ model2d.take_picture(
             'width': 2000,
             'height': 1500,
             'mesh_overlay': True,
-            'medium':&quot;print&quot;,
+            'medium':&quot;screenshot&quot;,
             'grid':False,
             'colorbar_min':0,
+            'average_vertex_values': False,
             'colorbar_max':smax*0.9,
             'colorbar_text_scale':1.5,
+            'deformation_percent': 100,
+            'deformation_scale': 1,
 
             }
 )

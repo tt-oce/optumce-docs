@@ -4,7 +4,8 @@ Nested namespace of named values for one element containing result fields or
 material parameters.
 
 The attribute names come from the element's result definitions, so they
-depend on the type of analysis and the element type.
+depend on the type of analysis and the element type. ``repr()`` lists the names
+available at this level.
 
 ## Examples
 

@@ -63,11 +63,21 @@ test.output.solid[0].results.final_stresses.total_stresses.q.value
 
 Run this material point test.
 
+Blocks until the analysis completes. The run log is shown in the
+application's Analysis Progress dialog while running.
+
 #### Examples
 
 ```python
 test.run_analysis()
 ```
+
+#### Raises
+
+<dl>
+<dt>MaterialPointAnalysisError</dt>
+<dd>If GX completes the request with an Error or Aborted calculation status. The exception includes the current GX analysis messages when they are available.</dd>
+</dl>
 
 ### delete()
 

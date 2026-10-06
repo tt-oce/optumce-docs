@@ -40,6 +40,8 @@ material.Eur_ref
 <dd>Power for stress-level dependency of stiffness.</dd>
 <dt>Ru : float | ParameterMap | Profile | Gradient</dt>
 <dd>Pore pressure ratio.</dd>
+<dt>small_strain_stiffness : bool</dt>
+<dd>Enable small-strain stiffness (activates E0_ref and gamma_07).</dd>
 <dt>E0_ref : float | ParameterMap | Profile | Gradient</dt>
 <dd>Reference initial stiffness (small-strain).</dd>
 <dt>gamma_07 : float | ParameterMap | Profile | Gradient</dt>
