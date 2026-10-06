@@ -3,7 +3,7 @@ from OptumGX import *
 import matplotlib.pyplot as plt
 gx = GX()
 # Project
-project_name = "Example 8 Slope seepage"
+project_name = "Example Stability of slope subjected to unconfined seepage"
 prj = gx.create_project(project_name)
 prj.get_current_model().delete()
 # Model (2D)
@@ -112,7 +112,7 @@ model2d.take_picture(
             'width': 2000,
             'height': 1500,
             'mesh_overlay': True,
-            'medium':"print",
+            'medium':"screenshot",
             'grid':False,
             'colorbar_min':0,
             'colorbar_max':1,
@@ -128,11 +128,14 @@ model2d.take_picture(
             'width': 2000,
             'height': 1500,
             'mesh_overlay': True,
-            'medium':"print",
+            'medium':"screenshot",
             'grid':False,
             'colorbar_min':0,
+            'average_vertex_values': False,
             'colorbar_max':smax*0.9,
             'colorbar_text_scale':1.5,
+            'deformation_percent': 100,
+            'deformation_scale': 1,
             
             }
 )

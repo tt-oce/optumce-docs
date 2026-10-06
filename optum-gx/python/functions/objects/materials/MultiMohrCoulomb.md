@@ -49,6 +49,16 @@ material.no_surfaces
 <dd>Cohesion for surface 4.</dd>
 <dt>c5 : float | ParameterMap | Profile | Gradient</dt>
 <dd>Cohesion for surface 5.</dd>
+<dt>fit : int</dt>
+<dd>Strength envelope fit: 'user' (c1..c5 / phi1..phi5), 'ngi_sand' (from I_D) or 'gsk_rockfill' (from phi25, phi_infty, sigma_c).</dd>
+<dt>I_D : float | ParameterMap | Profile | Gradient</dt>
+<dd>Relative density for the NGI-Sand fit, 0 (loose) to 1 (dense).</dd>
+<dt>phi25 : float | ParameterMap | Profile | Gradient</dt>
+<dd>GSK Rockfill fit: friction angle at 25 kPa confining stress.</dd>
+<dt>phi_infty : float | ParameterMap | Profile | Gradient</dt>
+<dd>GSK Rockfill fit: asymptotic friction angle at high confinement.</dd>
+<dt>sigma_c : float | ParameterMap | Profile | Gradient</dt>
+<dd>GSK Rockfill fit: stress controlling the curvature of the envelope.</dd>
 <dt>tension_cutoff : bool</dt>
 <dd>Tension cutoff enabled.</dd>
 <dt>sigma_t : float | ParameterMap | Profile | Gradient</dt>

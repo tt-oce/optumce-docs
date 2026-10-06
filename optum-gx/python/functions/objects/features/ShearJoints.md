@@ -9,7 +9,7 @@ interfaces.
 ```python
 feature = model.get_interface(shapes)
 feature.material = 'MC Basic'
-feature.strength_reduction_factor = 0.8
+feature.roughness = 0.8
 feature.tension_cutoff = False
 ```
 
@@ -17,6 +17,8 @@ feature.tension_cutoff = False
 
 <dl>
 <dt>material_id : str</dt>
+<dt>strength_reduction_factor : float</dt>
+<dd>Deprecated alias for ``roughness``.</dd>
 <dt>material</dt>
 <dd>Interface material (UUID string). Accepts a name, a material object or a UUID.</dd>
 </dl>

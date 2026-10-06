@@ -19,8 +19,18 @@ Define a Multi Mohr-Coulomb material.
 <dd>Young's Modulus, in MPa.</dd>
 <dt>nu : float</dt>
 <dd>Poisson's ratio.</dd>
+<dt>fit : str</dt>
+<dd>Strength envelope fit. fit = 'user' (c1..c5 and phi1..phi5), 'ngi_sand' (derived from I_D) or 'gsk_rockfill' (derived from phi25, phi_infty, sigma_c)</dd>
+<dt>I_D : float</dt>
+<dd>Relative density for the NGI-Sand fit, 0 (loose) to 1 (dense).</dd>
+<dt>phi25 : float</dt>
+<dd>GSK Rockfill fit: friction angle in degrees at 25 kPa confining stress.</dd>
+<dt>phi_infty : float</dt>
+<dd>GSK Rockfill fit: asymptotic friction angle in degrees at high confinement.</dd>
+<dt>sigma_c : float</dt>
+<dd>GSK Rockfill fit: stress controlling the curvature of the envelope, in kPa.</dd>
 <dt>no_surfaces : int</dt>
-<dd>Number of surfaces up to 5.</dd>
+<dd>Number of surfaces up to 5 (fit = 'user').</dd>
 <dt>c1 : float</dt>
 <dd>Cohesion for the first surface.</dd>
 <dt>phi1 : float</dt>
@@ -90,6 +100,7 @@ MMCMaterial = prj.MultiMohrCoulomb(name='MMCMaterial',
                      pcav = 100,
                      E= 30,
                      nu= 0.25,
+                     fit='user',
                      no_surfaces=2,
                      c1= 5,
                      phi1= 35,

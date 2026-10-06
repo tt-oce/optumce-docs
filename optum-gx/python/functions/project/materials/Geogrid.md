@@ -39,7 +39,7 @@ GeoGridMaterial = prj.Geogrid(name='Geogrid Material',
                               EA = 500)
 model2d.set_geogrid(shapes=Edge,
                         material=GeoGridMaterial,
-                        strength_reduction_factor=1,
+                        roughness=1,
                         tension_cutoff= False,
                         compression_cutoff= False)
 ```

@@ -43,6 +43,8 @@ Define a Hardeing Soil material.
 <dd>Model fitting parameter. Generally: 0.5 < m < 1</dd>
 <dt>Ru : float</dt>
 <dd>Failure ratio.</dd>
+<dt>small_strain_stiffness : boolean</dt>
+<dd>Enable small strain stiffness (E0_ref and gamma_07 apply only when enabled). small_strain_stiffness = 'yes' or 'no'</dd>
 <dt>E0_ref : float</dt>
 <dd>Small strain reference modulus, in MPa.</dd>
 <dt>gamma_07 : float</dt>
@@ -110,6 +112,7 @@ HardeningSoilMaterial = prj.HardeningSoil(name='HardeningSoilMaterial',
                      pref=100,
                      m = 0.5,
                      Ru=0.9,
+                     small_strain_stiffness='yes',
                      E0_ref= 250,
                      gamma_07= 0.0001,
                      Eoed_ref=30,
