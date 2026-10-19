@@ -33,6 +33,10 @@ Define analysis properties
 <dd>Number of seepage steps.</dd>
 <dt>seepage_time_step_variation : str</dt>
 <dd>Time step variation. seepage_time_step_variation = 'constant' or 'linear'</dd>
+<dt>seepage_limit_ponding : bool</dt>
+<dd>Transient seepage only. Limit the depth of water that can pond on an infiltration boundary. seepage_limit_ponding = 'yes' or 'no' (default 'yes')</dd>
+<dt>seepage_max_ponding_depth : float</dt>
+<dd>Transient seepage only, used when seepage_limit_ponding is 'yes'. Maximum ponding depth in the stored length unit (default 10 mm).</dd>
 <dt>load_multiplier_multiplier : str</dt>
 <dd>Type of load multiplier. load_multiplier_multiplier = 'load' or 'gravity'</dd>
 <dt>effective_stress_type : str</dt>
@@ -199,5 +203,7 @@ stage7.set_analysis_properties(
         seepage_target_time= 120,
         seepage_no_of_steps=10,
         seepage_time_step_variation = 'linear',
+        seepage_limit_ponding = 'yes',
+        seepage_max_ponding_depth = 10,
         )
 ```

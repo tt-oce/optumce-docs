@@ -98,6 +98,7 @@
 - [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
 - [design_approach](https://docs.optumce.com/optum-gx/python/functions/project/design_approach.md): The project's design approaches (partial factors), keyed by name.
 - [get_design_approach](https://docs.optumce.com/optum-gx/python/functions/project/get_design_approach.md): The raw IDesignApproach message of one design approach: name, the positional parameters list and one field per factor. Prefer project.design_approach[name]. An unknown name raises grpc.RpcError (INVALID_ARGUMENT).
+- [Hinge](https://docs.optumce.com/optum-gx/python/functions/project/hinge.md): Define a Hinge material, assigned to plate hinges with set_hinge_2d / set_hinge_3d.
 - [set_design_approach_parameters](https://docs.optumce.com/optum-gx/python/functions/project/set_design_approach_parameters.md): Set the factors of a design approach from a positional list (legacy form). Prefer project.design_approach[name].factor = value.
 
 #### Model
@@ -303,6 +304,7 @@
 - [FixedHeads](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedheads.md): Prescribed hydraulic head boundary condition -- fixes the head value at the selected shapes.
 - [FixedPressures](https://docs.optumce.com/optum-gx/python/functions/objects/features/fixedpressures.md): Prescribed pore pressure boundary condition -- fixes the total pore pressure value at the selected shapes. Supports constant or linearly-varying distributions.
 - [Geogrids](https://docs.optumce.com/optum-gx/python/functions/objects/features/geogrids.md): Geogrid reinforcement assigned to an edge (2D) or face (3D).
+- [Infiltrations](https://docs.optumce.com/optum-gx/python/functions/objects/features/infiltrations.md): Prescribed infiltration boundary condition -- a uniform inflow normal to the selected boundary shapes, entering the domain. The value is in the feature's own unit (mm/day for SI projects, in/day for US).
 - [LineLoads](https://docs.optumce.com/optum-gx/python/functions/objects/features/lineloads.md): Line load applied to an edge -- distributed force per unit length along the selected edge(s). Supports constant or linearly-varying distributions.
 - [LineMoments](https://docs.optumce.com/optum-gx/python/functions/objects/features/linemoments.md): Line moment applied to an edge -- distributed moment per unit length along the selected edge(s).
 - [MeshFans](https://docs.optumce.com/optum-gx/python/functions/objects/features/meshfans.md): Mesh refinement fan centred on a vertex -- generates a radial pattern of elements around a point for capturing stress concentrations or singular fields.
@@ -342,6 +344,7 @@
 - [GeneralPlate](https://docs.optumce.com/optum-gx/python/functions/objects/materials/generalplate.md): General plate material -- configurable axial and bending stiffness for modelling sheet piles, walls and other structural plates with custom properties.
 - [Geogrid](https://docs.optumce.com/optum-gx/python/functions/objects/materials/geogrid.md): Geogrid reinforcement material -- thin tensile reinforcement for modelling geogrids and reinforcement layers in soils.
 - [HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hardeningsoil.md): Hardening-Soil model -- work-hardening elastoplastic soil with separate loading and unloading/reloading stiffnesses, suitable for staged geotechnical analyses.
+- [Hinge](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hinge.md): Hinge -- hinge material for plates, assigned with set_hinge_2d / set_hinge_3d: plastic moment m_p and an optional rotational stiffness k.
 - [HMC](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hmc.md): Hardening Mohr-Coulomb -- Mohr-Coulomb with hardening, capturing pre-failure non-linearity while retaining the familiar c-phi failure criterion.
 - [HoekBrown](https://docs.optumce.com/optum-gx/python/functions/objects/materials/hoekbrown.md): Hoek-Brown criterion -- empirical failure criterion for jointed rock masses, parameterised by the Geological Strength Index (GSI).
 - [LinearElastic](https://docs.optumce.com/optum-gx/python/functions/objects/materials/linearelastic.md): Linear-elastic material -- Hooke's law without yielding, used where deformation is small or stiffness is the only quantity of interest.
@@ -406,4 +409,5 @@
 
 ## Utilities
 
+- [G2 to GX](https://docs.optumce.com/optum-gx/utilities/g2togx.md): Understand how to transfer your projects seamlessly from OPTUM G2 to OPTUM GX with this step by step video guide. ![Video 1.1 G2 to GX
 - [Shortcuts](https://docs.optumce.com/optum-gx/utilities/shortcuts.md): A reference of keyboard and mouse shortcuts available in OPTUM GX.

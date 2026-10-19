@@ -31,6 +31,8 @@ stage1.get_analysis_properties().seepage_time_settings
 stage1.get_analysis_properties().seepage_target_time
 stage1.get_analysis_properties().seepage_no_of_steps
 stage1.get_analysis_properties().seepage_time_step_variation
+stage1.get_analysis_properties().seepage_limit_ponding
+stage1.get_analysis_properties().seepage_max_ponding_depth
 stage1.get_analysis_properties().load_multiplier_multiplier
 stage1.get_analysis_properties().initial_stresses
 stage1.get_analysis_properties().reset_displacements
