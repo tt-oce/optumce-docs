@@ -31,8 +31,12 @@ material.phi
 <dd>Bulk modulus (parameter sets B and C).</dd>
 <dt>G : float | ParameterMap | Profile | Gradient</dt>
 <dd>Shear modulus (parameter set C).</dd>
+<dt>Eoed : float | ParameterMap | Profile | Gradient</dt>
+<dd>Oedometer modulus (parameter sets D and E).</dd>
+<dt>Goed : float | ParameterMap | Profile | Gradient</dt>
+<dd>Shear modulus (parameter set D).</dd>
 <dt>parameter_set : str</dt>
-<dd>Elastic parameter set: 'A' (E, nu), 'B' (K, nu), or 'C' (K, G).</dd>
+<dd>Elastic parameter set: 'A' (E, nu), 'B' (K, nu), 'C' (K, G), 'D' (Eoed, Goed), or 'E' (Eoed, nu).</dd>
 <dt>phi : float | ParameterMap | Profile | Gradient</dt>
 <dd>Friction angle.</dd>
 <dt>c : float | ParameterMap | Profile | Gradient</dt>

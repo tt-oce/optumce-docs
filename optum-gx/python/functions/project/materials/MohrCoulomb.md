@@ -16,9 +16,17 @@ Define a Mohr-Coulomb material.
 <dt>pcav : float</dt>
 <dd>Cavitation pressure in kPa</dd>
 <dt>E : float</dt>
-<dd>Young's modulus, in MPa.</dd>
+<dd>Young's modulus, in MPa (parameter set A).</dd>
 <dt>nu : float</dt>
-<dd>Poisson's ratio</dd>
+<dd>Poisson's ratio (parameter sets A, B and E)</dd>
+<dt>G : float</dt>
+<dd>Shear modulus, in MPa (parameter set C).</dd>
+<dt>Eoed : float</dt>
+<dd>Oedometer modulus, in MPa (parameter sets D and E).</dd>
+<dt>Goed : float</dt>
+<dd>Shear modulus, in MPa (parameter set D).</dd>
+<dt>parameter_set : str</dt>
+<dd>Elastic parameter set: 'A' (E, nu), 'B' (K, nu), 'C' (K, G), 'D' (Eoed, Goed), or 'E' (Eoed, nu).</dd>
 <dt>c : float</dt>
 <dd>Cohesion in kPa</dd>
 <dt>phi : float</dt>
