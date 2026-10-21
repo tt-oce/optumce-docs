@@ -1,17 +1,3 @@
 # set_resultpoint
 
-Set points to record results.
-
-## Parameters
-
-<dl>
-<dt>shapes : Shape | ShapeList</dt>
-<dd>Shapes. Must be 'vertex'.</dd>
-</dl>
-
-## Examples
-
-```python
-sel = model.get_vertices([[8,5],[11,5]])
-model.set_resultpoint(sel)
-```
+See [set_result_point](/python/functions/model/features/set_result_point) for the current API documentation.

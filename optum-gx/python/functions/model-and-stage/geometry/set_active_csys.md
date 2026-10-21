@@ -13,8 +13,8 @@ Set the active coordinate system.
 
 - [get_active_csys](/python/functions/model-and-stage/geometry/get_active_csys)
 - [get_csys](/python/functions/project/geometry/get_csys)
-- [prj.create_csys_2d](/python/functions/model-and-stage/prj.create_csys_2d)
-- [prj.create_csys_3d](/python/functions/model-and-stage/prj.create_csys_3d)
+- [prj.create_csys_2d](/python/functions/project/geometry/create_csys_2d)
+- [prj.create_csys_3d](/python/functions/project/geometry/create_csys_3d)
 
 ## Examples
 

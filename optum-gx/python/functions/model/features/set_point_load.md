@@ -13,6 +13,10 @@ Add point load.
 <dd>Load direction. direction = 'x' or 'y' or 'z'.</dd>
 <dt>option : str</dt>
 <dd>Load option. option = 'fixed' or 'multiplier'.</dd>
+<dt>p : float</dt>
+<dd>Load magnitude; value is an alias and takes precedence when supplied.</dd>
+<dt>csys : Csys</dt>
+<dd>Coordinate system; coordinate_system is an alias and takes precedence when supplied.</dd>
 </dl>
 
 ## Examples

@@ -66,8 +66,46 @@
 - [FlatPlateConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/flatplateconcrete.md): Define a Flat Plate Concrete material.
 - [GeneralPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/generalplate.md): Define a General Plate material.
 - [Geogrid](https://docs.optumce.com/optum-gx/python/functions/project/materials/geogrid.md): Define a Geogrid material
+- [get_AUS](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_aus.md): Get an AUS material by name.
+- [get_Beam](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_beam.md): Get a Beam material by name.
+- [get_beam_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_beam_material.md): Get beam material(s). If name is provided, returns single material; otherwise returns list.
+- [get_Connector](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_connector.md): Get a Connector material by name.
+- [get_connector_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_connector_material.md): Get connector material(s). If name is provided, returns single material; otherwise returns list.
+- [get_DruckerPrager](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_druckerprager.md): Get a DruckerPrager material by name.
+- [get_FlatPlateConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_flatplateconcrete.md): Get a FlatPlateConcrete material by name.
+- [get_FlatPlateSteel](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_flatplatesteel.md): Get a FlatPlateSteel material by name.
+- [get_fluid_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_fluid_material.md): Get fluid material(s). If name is provided, returns single material; otherwise returns list.
+- [get_GeneralPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_generalplate.md): Get a GeneralPlate material by name.
+- [get_Geogrid](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_geogrid.md): Get a Geogrid material by name.
+- [get_geogrid_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_geogrid_material.md): Get geogrid material(s). If name is provided, returns single material; otherwise returns list.
+- [get_HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_hardeningsoil.md): Get a HardeningSoil material by name.
+- [get_Hinge](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_hinge.md): Get a Hinge material by name.
+- [get_hinge_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_hinge_material.md): Get hinge material(s). If name is provided, returns single material; otherwise returns list.
+- [get_HMC](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_hmc.md): Get an HMC material by name.
+- [get_HoekBrown](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_hoekbrown.md): Get a HoekBrown material by name.
+- [get_LinearElastic](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_linearelastic.md): Get a LinearElastic material by name.
 - [get_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_material.md): Get material(s) from the current project.
+- [get_ModifiedCamClay](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_modifiedcamclay.md): Get a ModifiedCamClay material by name.
+- [get_MohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_mohrcoulomb.md): Get a MohrCoulomb material by name.
+- [get_MohrCoulombEngineering](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_mohrcoulombengineering.md): Get a MohrCoulombEngineering material by name.
+- [get_MultiMohrCoulomb](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_multimohrcoulomb.md): Get a MultiMohrCoulomb material by name.
+- [get_NailRow](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_nailrow.md): Get a NailRow material by name.
+- [get_nailrow_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_nailrow_material.md): Get nail row material(s). If name is provided, returns single material; otherwise returns list.
+- [get_NGIADP](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_ngiadp.md): Get an NGIADP material by name.
+- [get_PileRow](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_pilerow.md): Get a PileRow material by name.
+- [get_pilerow_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_pilerow_material.md): Get pile row material(s). If name is provided, returns single material; otherwise returns list.
+- [get_plate_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_plate_material.md): Get plate material(s). If name is provided, returns single material; otherwise returns list.
+- [get_ReinforcedConcrete](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_reinforcedconcrete.md): Get a ReinforcedConcrete material by name.
+- [get_Rigid](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_rigid.md): Get a Rigid material by name.
+- [get_RigidPlate](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_rigidplate.md): Get a RigidPlate material by name.
+- [get_shearjoint_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_shearjoint_material.md): Get shear joint material(s). If name is provided, returns single material; otherwise returns list.
+- [get_SheetPile](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_sheetpile.md): Get a SheetPile material by name.
+- [get_shell_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_shell_material.md): Get shell material(s). If name is provided, returns single material; otherwise returns list.
+- [get_solid_material](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_solid_material.md): Get solid material(s). If name is provided, returns single material; otherwise returns list.
+- [get_Tresca](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_tresca.md): Get a Tresca material by name.
+- [get_Water](https://docs.optumce.com/optum-gx/python/functions/project/materials/get_water.md): Get a Water material by name.
 - [HardeningSoil](https://docs.optumce.com/optum-gx/python/functions/project/materials/hardeningsoil.md): Define a Hardeing Soil material.
+- [Hinge](https://docs.optumce.com/optum-gx/python/functions/project/materials/hinge.md): Define a Hinge material, assigned to plate hinges with set_hinge_2d / set_hinge_3d.
 - [HMC](https://docs.optumce.com/optum-gx/python/functions/project/materials/hmc.md): Define a Hardening Mohr-Coulomb material.
 - [HoekBrown](https://docs.optumce.com/optum-gx/python/functions/project/materials/hoekbrown.md): Define a Hoek-Brown material.
 - [LinearElastic](https://docs.optumce.com/optum-gx/python/functions/project/materials/linearelastic.md): Define a Linear Elastic material.
@@ -89,6 +127,7 @@
 ##### Operations
 
 - [create_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/create_model.md): Create model in project
+- [design_approach](https://docs.optumce.com/optum-gx/python/functions/project/operations/design_approach.md): The project's design approaches (partial factors), keyed by name.
 - [get_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_current_model.md): Get current model.
 - [get_current_stage](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_current_stage.md): Get current stage.
 - [get_file_path](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_file_path.md): Get the full path of the currently opened project file.
@@ -96,10 +135,7 @@
 - [get_python_code](https://docs.optumce.com/optum-gx/python/functions/project/operations/get_python_code.md): Get generated Python code from the current session.
 - [regional](https://docs.optumce.com/optum-gx/python/functions/project/operations/regional.md): Regional (units) settings of the project.
 - [set_current_model](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_current_model.md): Sets the current model.
-- [design_approach](https://docs.optumce.com/optum-gx/python/functions/project/design_approach.md): The project's design approaches (partial factors), keyed by name.
-- [get_design_approach](https://docs.optumce.com/optum-gx/python/functions/project/get_design_approach.md): The raw IDesignApproach message of one design approach: name, the positional parameters list and one field per factor. Prefer project.design_approach[name]. An unknown name raises grpc.RpcError (INVALID_ARGUMENT).
-- [Hinge](https://docs.optumce.com/optum-gx/python/functions/project/hinge.md): Define a Hinge material, assigned to plate hinges with set_hinge_2d / set_hinge_3d.
-- [set_design_approach_parameters](https://docs.optumce.com/optum-gx/python/functions/project/set_design_approach_parameters.md): Set the factors of a design approach from a positional list (legacy form). Prefer project.design_approach[name].factor = value.
+- [set_design_approach_parameters](https://docs.optumce.com/optum-gx/python/functions/project/operations/set_design_approach_parameters.md): Set the factors of a design approach from a positional list (legacy form). Prefer project.design_approach[name].factor = value.
 
 #### Model
 
@@ -120,6 +156,7 @@
 - [get_fixed_head](https://docs.optumce.com/optum-gx/python/functions/model/features/get_fixed_head.md): Get fixed head features on the given shapes.
 - [get_fixed_pressure](https://docs.optumce.com/optum-gx/python/functions/model/features/get_fixed_pressure.md): Get fixed pressure features on the given shapes.
 - [get_geogrid](https://docs.optumce.com/optum-gx/python/functions/model/features/get_geogrid.md): Get geogrid features on the given shapes.
+- [get_infiltration](https://docs.optumce.com/optum-gx/python/functions/model/features/get_infiltration.md): Get infiltration boundary conditions on the selected shapes.
 - [get_interface](https://docs.optumce.com/optum-gx/python/functions/model/features/get_interface.md): Get interface (shear joint) features on the given shapes.
 - [get_line_load](https://docs.optumce.com/optum-gx/python/functions/model/features/get_line_load.md): Get all line load features on the given shapes.
 - [get_line_moment](https://docs.optumce.com/optum-gx/python/functions/model/features/get_line_moment.md): Get all line moment features on the given shapes.
@@ -133,7 +170,8 @@
 - [get_point_moment](https://docs.optumce.com/optum-gx/python/functions/model/features/get_point_moment.md): Get all point moment features on the given shapes.
 - [get_prestress](https://docs.optumce.com/optum-gx/python/functions/model/features/get_prestress.md): Get prestress features on the given shapes.
 - [get_reaction_relaxation](https://docs.optumce.com/optum-gx/python/functions/model/features/get_reaction_relaxation.md): Get reaction relaxation features on the given shapes.
-- [get_resultpoint](https://docs.optumce.com/optum-gx/python/functions/model/features/get_resultpoint.md): Get result point features on the given shapes.
+- [get_result_point](https://docs.optumce.com/optum-gx/python/functions/model/features/get_result_point.md): Get result point features on the given shapes.
+- [get_resultpoint](https://docs.optumce.com/optum-gx/python/functions/model/features/get_resultpoint.md): See get_result_point for the current API documentation.
 - [get_seepage_face](https://docs.optumce.com/optum-gx/python/functions/model/features/get_seepage_face.md): Get seepage face features on the given shapes.
 - [get_six_dof_load](https://docs.optumce.com/optum-gx/python/functions/model/features/get_six_dof_load.md): Get all six DOF loading features on the given shapes.
 - [get_solid](https://docs.optumce.com/optum-gx/python/functions/model/features/get_solid.md): Get solid (material assignment) features on the given shapes.
@@ -150,6 +188,7 @@
 - [set_geogrid](https://docs.optumce.com/optum-gx/python/functions/model/features/set_geogrid.md): Set shape as geogrid.
 - [set_hinge_2d](https://docs.optumce.com/optum-gx/python/functions/model/features/set_hinge_2d.md): Set hinge in 2D.
 - [set_hinge_3d](https://docs.optumce.com/optum-gx/python/functions/model/features/set_hinge_3d.md): Set hinge in 3D.
+- [set_infiltration](https://docs.optumce.com/optum-gx/python/functions/model/features/set_infiltration.md): Set a uniform infiltration boundary condition on the selected shapes.
 - [set_interface](https://docs.optumce.com/optum-gx/python/functions/model/features/set_interface.md): Define interface (shear joint).
 - [set_line_load](https://docs.optumce.com/optum-gx/python/functions/model/features/set_line_load.md): Add line load.
 - [set_line_moment](https://docs.optumce.com/optum-gx/python/functions/model/features/set_line_moment.md): Add line moment (kNm/m).
@@ -163,7 +202,8 @@
 - [set_point_moment](https://docs.optumce.com/optum-gx/python/functions/model/features/set_point_moment.md): Add point moment (kNm).
 - [set_prestress](https://docs.optumce.com/optum-gx/python/functions/model/features/set_prestress.md): Set prestress.
 - [set_reaction_relaxation](https://docs.optumce.com/optum-gx/python/functions/model/features/set_reaction_relaxation.md): Set reaction relaxation.
-- [set_resultpoint](https://docs.optumce.com/optum-gx/python/functions/model/features/set_resultpoint.md): Set points to record results.
+- [set_result_point](https://docs.optumce.com/optum-gx/python/functions/model/features/set_result_point.md): Set points to record results.
+- [set_resultpoint](https://docs.optumce.com/optum-gx/python/functions/model/features/set_resultpoint.md): See set_result_point for the current API documentation.
 - [set_seepage_face](https://docs.optumce.com/optum-gx/python/functions/model/features/set_seepage_face.md): Set shape to allow seepage.
 - [set_six_dof_load](https://docs.optumce.com/optum-gx/python/functions/model/features/set_six_dof_load.md): Add six degree of freedom load.
 - [set_solid](https://docs.optumce.com/optum-gx/python/functions/model/features/set_solid.md): Set shape material as solid.
@@ -221,16 +261,14 @@
 - [enable_transparency](https://docs.optumce.com/optum-gx/python/functions/model/operations/enable_transparency.md): Enable transparency on shapes.
 - [get_current_stage](https://docs.optumce.com/optum-gx/python/functions/model/operations/get_current_stage.md): Obtain current stage.
 - [get_stage](https://docs.optumce.com/optum-gx/python/functions/model/operations/get_stage.md): Obtain a list of stages.
+- [hide_features](https://docs.optumce.com/optum-gx/python/functions/model/operations/hide_features.md): Hide the visual of features.
 - [hide_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/hide_shapes.md): Hide shapes from view.
 - [model_type](https://docs.optumce.com/optum-gx/python/functions/model/operations/model_type.md): Model type property.
 - [set_current_stage](https://docs.optumce.com/optum-gx/python/functions/model/operations/set_current_stage.md): Sets the current stage.
+- [unhide_all_features](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_all_features.md): Show every hidden feature of the model.
 - [unhide_all_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_all_shapes.md): Unhide all hidden shapes.
+- [unhide_features](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_features.md): Show features hidden with hide_features.
 - [unhide_shapes](https://docs.optumce.com/optum-gx/python/functions/model/operations/unhide_shapes.md): Unhide previously hidden shapes.
-- [get_result_point](https://docs.optumce.com/optum-gx/python/functions/model/get_result_point.md): Get result point features on the given shapes.
-- [hide_features](https://docs.optumce.com/optum-gx/python/functions/model/hide_features.md): Hide the visual of features.
-- [set_result_point](https://docs.optumce.com/optum-gx/python/functions/model/set_result_point.md): Set points to record results.
-- [unhide_all_features](https://docs.optumce.com/optum-gx/python/functions/model/unhide_all_features.md): Show every hidden feature of the model.
-- [unhide_features](https://docs.optumce.com/optum-gx/python/functions/model/unhide_features.md): Show features hidden with hide_features.
 
 #### Model and Stage
 
@@ -280,7 +318,7 @@
 
 ##### Features
 
-- [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/features/toggle_features.md): Toggle features on/off.
+- [toggle_features](https://docs.optumce.com/optum-gx/python/functions/stage/features/toggle_features.md): Toggle features on/off by UUID.
 
 ##### Operations
 
@@ -293,6 +331,10 @@
 
 - [AnalysisProgress](https://docs.optumce.com/optum-gx/python/functions/objects/analysis/analysisprogress.md): Live progress handle for an asynchronous analysis run.
 - [MaterialPoint](https://docs.optumce.com/optum-gx/python/functions/objects/analysis/materialpoint.md): A material point test: runs an analysis on a single material without any geometry or stages.
+
+##### Application
+
+- [EventSignal](https://docs.optumce.com/optum-gx/python/functions/objects/application/eventsignal.md): Signal delivering server-pushed events (listen_events server-streaming RPC).
 
 ##### Features
 
@@ -381,6 +423,8 @@
 
 ##### Settings
 
+- [DesignApproach](https://docs.optumce.com/optum-gx/python/functions/objects/settings/designapproach.md): One design approach (a column of the GUI's Design Approaches table): the partial factors applied to loads, soil strength and structural strength by every stage that uses it (stage.design_approach = 'ULS').
+- [ProfileSettings](https://docs.optumce.com/optum-gx/python/functions/objects/settings/profilesettings.md): Attribute-style access to one display profile's settings.
 - [Regional](https://docs.optumce.com/optum-gx/python/functions/objects/settings/regional.md): Regional (units) settings of the project.
 
 #### Utilities

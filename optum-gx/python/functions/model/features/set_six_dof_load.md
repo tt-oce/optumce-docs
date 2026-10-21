@@ -9,6 +9,12 @@ Add six degree of freedom load.
 <dd>Forces in kN.</dd>
 <dt>mx, my, mz : float</dt>
 <dd>Moments in kNm.</dd>
+<dt>Fx, Fy, Fz : float</dt>
+<dd>Forces in kN; default to zero. Lowercase aliases take precedence when supplied.</dd>
+<dt>Mx, My, Mz : float</dt>
+<dd>Moments in kNm; default to zero. Lowercase aliases take precedence when supplied.</dd>
+<dt>csys : Csys</dt>
+<dd>Coordinate system; coordinate_system takes precedence when supplied.</dd>
 </dl>
 
 ## Examples
