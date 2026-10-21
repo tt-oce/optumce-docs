@@ -13,7 +13,8 @@ on disk get rewritten, so the git diff is minimal.
 Source-of-truth policy: docstrings in the OptumGX Python source win. If a
 generated .md disagrees with a hand-edited one, fix the docstring upstream.
 Where a .pyi stub sits next to a .py, the stub is read (it's what IDEs show);
-edit the stub, not the .py.
+the stub is the current documentation input. If it is generated, update its
+generator or documentation inputs rather than relying on hand edits to output.
 
 Coverage report: after writing, the script lists API it could NOT document --
 .py docstrings that never made it into the .pyi, public methods without a
@@ -54,7 +55,6 @@ SOURCE_FILES = [
     "Common.py",
     "Materials/RemoteMaterialAPI.pyi",
     "RemoteFeatures/FeatureAPI.pyi",
-    "RemoteFeatures/Feature.py",
     "Output.py",     # per-element results (StageResults and friends)
     "ResultV2.py",   # Result (stage.output.global_results)
 ]
@@ -109,7 +109,6 @@ CLASS_TO_CATEGORIES = {
     "Regional": ["objects"],
     "DesignApproach": ["objects"], "DesignApproaches": ["objects"],
     "EventSignal": ["objects"], "ProfileSettings": ["objects"],
-    "Feature": ["objects"],
     "StageOutput": ["objects"], "StepOutput": ["objects"],
     "MaterialPointOutput": ["objects"], "StageResults": ["objects"],
     "Result": ["objects"], "CriticalResults": ["objects"],
@@ -277,7 +276,6 @@ SUBCATEGORIES = {
         "Regional": "settings",
         "DesignApproach": "settings", "DesignApproaches": "settings",
         "ProfileSettings": "settings", "EventSignal": "application",
-        "Feature": "features",
         # stage.output object graph: StageOutput -> StepOutput -> StageResults
         # -> ResultIndexer -> ElementIndexer -> GeneralProperties / Topology /
         # PropertyContainer -> ElementResult.
@@ -300,7 +298,6 @@ CLASS_PAGE_CLASSES = {
     "Result", "CriticalResults", "ResultIndexer", "ElementIndexer",
     "GeneralProperties", "Topology", "PropertyContainer", "ElementResult",
     "DesignApproach", "DesignApproaches", "ProfileSettings", "EventSignal",
-    "Feature",
 }
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -326,23 +323,15 @@ SKIP_REGENERATE_PATHS = {
 }
 
 
-# Published URLs retained as forwarding pages when a method moves or is renamed.
-LEGACY_PAGE_TARGETS = {
-    "model/features/get_resultpoint.md": ("model", "get_result_point"),
-    "model/features/set_resultpoint.md": ("model", "set_result_point"),
-    **{f"model/{name}.md": ("model", name) for name in (
-        "get_result_point", "set_result_point", "hide_features",
-        "unhide_features", "unhide_all_features")},
-    **{f"project/{name}.md": ("project", name) for name in (
-        "design_approach", "get_design_approach", "set_design_approach_parameters",
-        "Hinge")},
-}
+# Internal base-class members intentionally omitted from the user documentation.
+OMITTED_SEE_ALSO = {"Feature.hidden"}
 
 # Names the coverage report stays quiet about: a whole class ("RemoteCacheMixin")
 # or one method ("GX.app_version"). For plumbing that is public only by naming
 # convention -- not a place to park real API that lacks a docstring.
 COVERAGE_IGNORE = {
     "RemoteCacheMixin",   # caching/batching base of AnalysisProperties
+    "Feature",            # internal base; concrete feature pages stand alone
 }
 
 
@@ -742,7 +731,7 @@ def _render_body(docstring: str, link_map: dict, fallback_cat: str,
             parts.append("")
             for raw in re.split(r'[,;\n]', content):
                 ref = raw.strip()
-                if not ref or SEPARATOR_RE.match(ref):
+                if not ref or SEPARATOR_RE.match(ref) or ref in OMITTED_SEE_ALSO:
                     continue
                 url = _reference_url(ref, link_map)
                 parts.append(f"- [{ref}]({url})" if url else f"- {ref}")
@@ -965,15 +954,6 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
             target = _resolve_path(cat, _doc_name(d))
             _emit(target, rendered)
 
-    for old_path, (cat, name) in LEGACY_PAGE_TARGETS.items():
-        target = _resolve_path(cat, name)
-        if target not in touched:
-            continue
-        url = _doc_url(cat, SUBCATEGORIES.get(cat, {}).get(name), name)
-        _emit(DOCS_ROOT / old_path,
-              f"# {Path(old_path).stem}\n\nSee [{name}]({url}) "
-              "for the current API documentation.\n")
-
     return written, unchanged, touched
 
 
@@ -1051,10 +1031,10 @@ def _param_names(func: ast.FunctionDef) -> set:
 def coverage_report(source_root: Path, docs: list) -> dict:
     """Collect public API the generator could not document. Returns
     {heading: [message, ...]}, empty groups omitted."""
-    DRIFT = ".py docstring has text the .pyi lacks (edit the .pyi)"
+    DRIFT = ".py docstring has text the .pyi lacks (update its documentation source)"
     PARAMS = "Parameter names differ between .py and .pyi (docs show the .pyi)"
     STUB_MISSING = "In the .py but missing from the .pyi"
-    NO_DOC_STUB = "No docstring in the .pyi, but the .py has one (copy it over)"
+    NO_DOC_STUB = "No docstring in the .pyi, but the .py has one (update its documentation source)"
     NO_DOC = "Public methods without a docstring"
     UNMAPPED = "Classes not in CLASS_TO_CATEGORIES (docstring'd methods)"
     BASES = "Inherited from a base class the generator doesn't read"
@@ -1178,7 +1158,7 @@ def coverage_report(source_root: Path, docs: list) -> dict:
                     continue
                 for raw in re.split(r'[,;\n]', parts[i + 1]):
                     ref = raw.strip()
-                    if (ref and not SEPARATOR_RE.match(ref)
+                    if (ref and ref not in OMITTED_SEE_ALSO and not SEPARATOR_RE.match(ref)
                             and _reference_url(ref, link_map) is None):
                         report[SEE_ALSO].append(f"{_doc_name(d)}: {ref}")
 

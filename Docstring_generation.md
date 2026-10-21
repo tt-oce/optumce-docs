@@ -19,7 +19,7 @@ context.
 | Generator | [optum-gx/scripts/gen_python_docs.py](optum-gx/scripts/gen_python_docs.py). Parses the source statically with `ast`; it never imports OptumGX. Python 3.9+. |
 | Output | One `.md` per function or class under `optum-gx/python/functions/<category>/[<subcategory>/]<name>.md`, published at `docs.optumce.com/optum-gx/python/functions/...`. |
 | Direction | Source → docs, always. A generated page is overwritten on the next run, so fix the docstring upstream instead of editing the page. Exception: pages listed in `SKIP_REGENERATE_PATHS` (currently only `model-and-stage/geometry/select.md`). |
-| Size | 266 pages (as of 2026-09-23). |
+| Size | 318 API targets; pages are generated only at their configured locations. |
 
 ## 2. The normal loop
 
@@ -45,17 +45,27 @@ Then:
 4. Commit both repos: the docstring change in `OptumGX`, and the generated pages
    (plus any script change) in `Optumce-docs`.
 
-Options: `--dry-run` (write nothing), `-v` (list each written file),
+Options: `--strict` (exit nonzero on coverage warnings or orphaned pages),
+`--dry-run` (write nothing), `-v` (list each written file),
 `--source PATH` (another OptumGX checkout; the default is the dev checkout
 `C:\Optum\OptumGX\Rpc\src\OptumGX`, and the release install layout
 `C:\Users\Public\OPTUM CE\OPTUM GX\library\OptumGX` works too).
 
 ## 3. Where to edit a docstring
 
-When a `.pyi` stub sits next to a `.py`, **the stub is the docstring source**.
+For the configured API modules, the `.pyi` stub is the generator's current
+**input**, not necessarily the authoritative place to author documentation.
+If another script generates that stub, update its templates or documentation
+inputs: regenerating the stub can overwrite hand edits. The generator for
+`FeatureAPI.pyi` and `RemoteMaterialAPI.pyi` has not been located in this checkout;
+`Rpc/src/gen.bat` generates protobuf stubs, not those two API stubs.
 The generator reads it, VS Code/Pylance shows it on hover, and for materials
 `Materials/_docloader.py` copies stub docstrings into the module at runtime for
-`help()`. Editing only the `.py` changes nothing in the docs. That's exactly
+`help()` in normal (non-optimized) Python runs. The loader fills only empty
+runtime docstrings; existing `.py` text takes precedence. FeatureAPI does not
+currently call that loader. Stub-only text therefore does not automatically
+reach runtime help for feature methods. Editing only the `.py` changes nothing
+in the generated docs. That's exactly
 why `toggle_features` didn't update (section 9).
 
 | API (docs location) | Edit here (under `Rpc/src/OptumGX/` unless noted) | Notes |
@@ -63,9 +73,9 @@ why `toggle_features` didn't update (section 9).
 | `GX` (`application/`), `Project` (`project/`), `Model` (`model/`), `Stage` (`stage/`), `StageBase` (`model-and-stage/`) | `v2.py` | Hand-written. `@property` getters are documented as pages too (e.g. `regional`, `output`). |
 | `MaterialPoint`, `AnalysisProgress` (`objects/analysis/`), `Regional` (`objects/settings/`), `StageOutput`, `StepOutput`, `MaterialPointOutput` (`objects/results/`) | `v2.py` | Class pages. |
 | `set_analysis_properties`, `get_analysis_properties` (`model-and-stage/analysis/`) | **`Rpc/src/docstrings/<name>.txt`**, then regenerate with `Rpc/src/gen.bat` | `ContractV2_gen.py` is **generated** by ProxyGen (`gen.bat`: `--gen-set-params -d "docstrings"`). Hand edits to it are lost on the next regeneration. |
-| Material factories `project.MohrCoulomb(...)` etc. and `get_material` (`project/materials/`) | `Materials/RemoteMaterialAPI.pyi` | The `docstrings/<Material>.txt` files are older copies (last changed 2025-09 to 2026-03; the `.pyi` changed 2026-07-10). Treat the `.pyi` as canonical. |
+| Material factories `project.MohrCoulomb(...)` etc. and `get_material` (`project/materials/`) | `Materials/RemoteMaterialAPI.pyi` | The `docstrings/<Material>.txt` files are older copies (last changed 2025-09 to 2026-03; the `.pyi` changed 2026-07-10). The stub is consumed by the docs; confirm its generating inputs before editing it as an authoring source. |
 | Material classes (`objects/materials/`) | `Materials/<Name>.py` | One class per file; the file name must equal the class name. |
-| Feature setters/getters `set_solid`, `get_plate`, … (`model/features/`), `remove_features`, `toggle_features` (`stage/features/`) | `RemoteFeatures/FeatureAPI.pyi` | Keep `FeatureAPI.py` in sync. The coverage report flags drift. |
+| Feature setters/getters `set_solid`, `get_plate`, … (`model/features/`), `remove_features`, `toggle_features` (`stage/features/`) | `RemoteFeatures/FeatureAPI.pyi` | Keep declarations compatible with `FeatureAPI.py`; update the stub generator/documentation inputs when available. Runtime doc loading is not configured for this module. |
 | Feature classes (`objects/features/`) | `RemoteFeatures/<Name>.py` | One class per file. Originally produced by a codegen that isn't in the repo ("python codegen feature set", 2026-03-19); edited by hand since. Ask Dang Thai Hung before regenerating them. |
 | `Shape`, `ShapeList` (`objects/geometry/`) | `DataModelV2.py` | |
 | `ParameterMap`, `Profile`, `Gradient` (`utilities/`) | `Common.py` | |
@@ -122,8 +132,8 @@ def set_line_load(self, shapes, value=..., direction=...):
 - **Examples**: the `>>>` / `...` prompts are stripped and the block renders
   as Python code.
 - **See Also**: comma- or newline-separated names. Each becomes a link to that
-  generated page, whether a function or a class. Unknown names get a guessed
-  link in the same category, which may 404.
+  generated page, whether a function or a class. Qualified methods and class members resolve to their generated pages or
+  anchors. Unknown names remain plain text and appear in the coverage report.
 - **Class pages** (classes in `CLASS_PAGE_CLASSES`, plus everything under
   `Materials/` and `RemoteFeatures/`) render as: title → "Inherits from …"
   (only for documented bases) → class docstring → Properties → Methods.
@@ -274,62 +284,85 @@ don't appear; bases are followed through relative imports only.
 - Fix: the text was added to the `.pyi` and the `.py` wording was synced.
   The generator now prints a drift warning whenever this happens.
 
-## 10. Status and open items (2026-09-23)
+## 10. Remaining documentation
 
-### Done in this pass
+The locations below identify current missing text. For generated stubs, make durable edits in the generating templates or documentation inputs, then regenerate the stubs and docs. Paths in this section are
+relative to `C:/Optum/OptumGX/Rpc/src/OptumGX/`. The generator's five remaining
+warning entries group six methods; they do not represent a complete assessment
+of parameter or property descriptions.
 
-- Generator: coverage report (including broken See Also links); `@overload` handling (`get_material` used to be
-  written 3× per run); property setters no longer shown as methods and
-  `@property` getters listed as properties; `Raises` section; grouped
-  parameter names; "Inherits from" links on class pages; cleaned type text;
-  dynamic classes exempt from "Object without properties.".
-- New subcategory mappings: `application/operations`: `screenshot`,
-  `create_material_point`, `get_material_point`; `project/operations`:
-  `regional`; `model-and-stage/operations`: `take_picture`, `get_plots`.
-  Six root-level duplicates were removed.
-- New class pages: `objects/analysis/` (`MaterialPoint`, `AnalysisProgress`),
-  `objects/settings/` (`Regional`) and `objects/results/` (the whole
-  `stage.output` object graph, `MaterialPointOutput` and `Result`). The
-  docstrings for `Output.py`, `ResultV2.py` and the output classes in `v2.py`
-  were written for this; only docstrings and type hints changed.
-- `compare_docs.py` works again (it predated class pages and subcategories).
+### Methods with no docstring
 
-### Open: needs an upstream fix or a decision
+| Source | Methods | Content to write |
+|---|---|---|
+| `v2.py`, `Stage` | `from_stage` (property getter) | Meaning, returned stage, and relationship to stage inheritance. Put the docstring on the getter. |
+| `v2.py`, `Model` | `initialize_geometry` | Purpose, parameters, effects on existing geometry, and example. |
+| `v2.py`, `Project` | `get_models_and_stages` | Return structure, ordering, and example. |
+| `v2.py`, `GX` | `create_report`, `app_version` | Report input/output file formats and requirements; version return format. |
+| `Materials/RemoteMaterialAPI.pyi`, `RemoteMaterialAPI` | `FlatPlateSteel` | Factory parameters, units, defaults, return value, and a practical example. The implementation accepts `gamma`, not `weight`. |
 
-1. **Stub parameters don't match the code**:
-   - `set_line_moment` and `set_point_moment`: the stub and docs say `value`,
-     the code takes `m`, so `value=` raises TypeError.
-   - `FlatPlateSteel`: `weight` in the stub, `gamma` in the code (renamed in
-     `b7c0a1b9f`).
-   - `PileRow`: `gamma_dry`/`gamma_sat` in the stub vs `gamma` in the code.
-   - Undocumented parameters: the load setters' `p`/`csys`,
-     `set_six_dof_load`'s `Fx…Mz`/`csys`, and `set_solid`'s `append`.
-2. **`FlatPlateSteel` factory has no docstring** in `RemoteMaterialAPI.pyi`,
-   so `project/materials/FlatPlateSteel.md` doesn't exist.
-   `docstrings/FlatSteelPlate.txt` has the text under a mismatched name.
-3. **35 `get_<Type>` material getters** (`get_MohrCoulomb`, …,
-   `get_nailrow_material`) have docstrings only in `RemoteMaterialAPI.py`.
-   Copy them to the `.pyi` to get pages.
-4. **No docstring**: `GX.create_report`, `GX.app_version`,
-   `Project.get_models_and_stages`, `Project.set_design_approach_parameters`,
-   `Project.get_design_approach`, `Model.initialize_geometry`,
-   `Stage.from_stage`.
-5. **No page yet**: `EventSignal`, `ProfileSettings` (61 display settings),
-   `GxSettings`, `Csys`, `StageList`, `PlottedResult` (returned by
-   `get_current_result_set`).
-6. **Runtime bugs seen while documenting (not fixed; docstrings describe
-   current behaviour)**:
-   - `ResultIndexer.__iter__` returns `self` and never resets, so a group can
-     be looped over only once. Fix: `return (self[i] for i in range(len(self)))`.
-   - `StageOutput.__init__` does `raise 'Invalid result data…'` (raising a
-     `str` is itself a TypeError).
-   - `CriticalResults` annotations contain likely typos: `u_solid_Z_min`,
-     `u_plate_Z_min`, `txyx_plate3d_max`, and `du_solid_z_min` in the plate
-     block (probably `du_plate_z_min`). They show up on the docs page.
-   - `get_material` uses Google-style `Args:`/`Returns:`/`Raises:`, which
-     renders as plain text. Convert it to NumPy style.
-7. **Broken See Also links on the live site (6)**: `set_active_csys` →
-   `prj.create_csys_2d` / `prj.create_csys_3d`; `create_stage` →
-   `Model.create_stage`; `revolve_2d_to_3d_model` → `create_3d_from2d_model`
-   (no such function); `Profile` and `Gradient` → `Map` (probably
-   `ParameterMap`).
+### Existing docstrings that need more detail
+
+- `RemoteFeatures/FeatureAPI.pyi`: complete the parameter descriptions for
+  `set_point_moment`, `set_line_moment`, and `set_six_dof_load`. Signatures now
+  match runtime names, order, and defaults; moment magnitude is named `m`.
+- `RemoteFeatures/FeatureAPI.pyi`, `set_solid`: explain the `append` option,
+  including its effects when solids/materials already exist. The declaration
+  now includes `append: bool = False`; the implementation forwards it to the server.
+- `Materials/RemoteMaterialAPI.pyi`, `PileRow`: document `gamma` (the runtime
+  factory does not accept `gamma_dry` or `gamma_sat`).
+- `Materials/RemoteMaterialAPI.pyi`, `get_material`: convert the existing
+  Google-style sections to NumPy style so parameter/return/exception sections
+  render correctly. Reconcile the corresponding runtime docstring as part of
+  the runtime-loading policy below.
+- Material getter pages now contain their existing one-line source docstrings.
+  Add return values, not-found behavior, and examples where useful.
+
+### Properties without descriptions
+
+Add a string literal after the class-level annotation, document the property
+getter, or add a NumPy-style `Attributes` section to the class docstring.
+The generator reads descriptor `doc=` strings too. These gaps are separate
+from missing-method warnings.
+
+- `DataModelV2.py`, `ShapeList`: `values`, `id`, `type`, `length`, `area`, `volume`, `location`.
+- `Output.py`, `CriticalResults`: describe all result fields, units, and aggregation semantics. Review suspicious names such as `u_solid_Z_min`, `u_plate_Z_min`, `txyx_plate3d_max`, and the `du_solid_z_min` entry in the plate block against runtime behavior before documenting them.
+- `RemoteFeatures/Connectors.py`: `p0`, `p1`, `material_id`.
+- `RemoteFeatures/FixedEndAnchors.py`: `length`, `inclination_angle`, `direction`, `material_id`, `point`.
+- `RemoteFeatures/FixedExcessPressures.py`: `pressure`.
+- `RemoteFeatures/FixedHeads.py`: `head`.
+- `RemoteFeatures/Geogrids.py`: `material_id`, `tension_cutoff`, `compression_cutoff`.
+- `RemoteFeatures/MeshFans.py`: `fan_angle`.
+- `RemoteFeatures/MeshSizes.py`: `mesh_size`.
+- `RemoteFeatures/NailRows.py`: `material_id`.
+- `RemoteFeatures/PileRows.py`: `material_id`.
+- `RemoteFeatures/PlateBcs.py`: `displacement_x`, `displacement_y`, `displacement_z`, `displacement_rotation`, `is_local_coord`, `csys_id`.
+- `RemoteFeatures/Plates.py`: `material_id`.
+- `RemoteFeatures/PointBcs.py`: `displacement_x`, `displacement_y`, `displacement_z`, `displacement_rotation_x`, `displacement_rotation_y`, `displacement_rotation_z`, `is_local_coord`, `csys_id`.
+- `RemoteFeatures/Prestresses.py`: `force`.
+- `RemoteFeatures/ReactionRelaxations.py`: `relaxation`.
+- `RemoteFeatures/ResultPoints.py`: `is_control`.
+- `RemoteFeatures/ShearJoints.py`: `material_id`.
+- `RemoteFeatures/Solids.py`: `material_id`.
+
+### Runtime docstring policy
+
+The generator reads the configured stubs, but the material runtime loader only fills
+empty docstrings and runs under `if __debug__`. FeatureAPI does not invoke it.
+To provide the same text through `help()` without maintaining two sources,
+choose build-time generation or consistent runtime loading, and validate it
+against the packaged distribution. Do not delete runtime documentation until
+that replacement is in place.
+
+### Validation
+
+```powershell
+python -m unittest discover -s tests -p "test_gen_python_docs.py"
+python optum-gx/scripts/gen_python_docs.py --dry-run --strict
+```
+
+Strict mode exits with status 1 while the remaining coverage warnings exist.
+A normal second generation should write zero files. Deleted root-level pages are not recreated as forwarding pages. Concrete
+feature pages stand alone; the internal `Feature` base and its references are
+intentionally omitted. New public API types outside the configured mappings still need
+an explicit documentation scope decision.
