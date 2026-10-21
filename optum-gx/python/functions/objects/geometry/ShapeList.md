@@ -30,6 +30,7 @@ indexing, len(), merge() and remove(); the raw list is available via values.
 
 ## Methods
 
+<a id="vertices"></a>
 ### vertices()
 
 List of all the vertices bounding the shape. Designed for a single Shape in the shapelist.
@@ -48,6 +49,7 @@ shapes = model.get_shapes()
 shapes[26].vertices()
 ```
 
+<a id="edges"></a>
 ### edges()
 
 List of all the edges bounding the shape. Designed for a single Shape in the shapelist.
@@ -66,6 +68,7 @@ shapes = model.get_shapes()
 shapes[26].edges()
 ```
 
+<a id="faces"></a>
 ### faces()
 
 List of all the faces bounding the shape. Designed for a single Shape in the shapelist.
@@ -84,6 +87,7 @@ shapes = model.get_shapes()
 shapes[26].faces()
 ```
 
+<a id="volumes"></a>
 ### volumes()
 
 List with the volume shape. Designed for a single Shape in the shapelist.
@@ -102,6 +106,7 @@ shapes = model.get_shapes()
 shapes[26].volumes()
 ```
 
+<a id="set_2d_to_3d_settings"></a>
 ### set_2d_to_3d_settings()
 
 Set 2D to 3D extrusion settings for shapes.
@@ -138,6 +143,7 @@ Set 2D to 3D extrusion settings for shapes.
 <dd>True if settings were applied successfully</dd>
 </dl>
 
+<a id="get_2d_to_3d_settings"></a>
 ### get_2d_to_3d_settings()
 
 Get 2D to 3D extrusion settings for the first shape in the list.
@@ -149,6 +155,7 @@ Get 2D to 3D extrusion settings for the first shape in the list.
 <dd>Dictionary containing extrusion settings: - depth_in: Extrusion depth inward - depth_out: Extrusion depth outward - repetition: Whether repetition is enabled - repetition_spacing: Spacing between repetitions - repetition_out: Number of repetitions outward - repetition_in: Number of repetitions inward - fill: Whether fill is enabled - fill_in: Fill depth inward - fill_out: Fill depth outward - as_face: Whether to treat as face</dd>
 </dl>
 
+<a id="contains"></a>
 ### contains()
 
 Check if Shape is contained in ShapeList.
@@ -168,6 +175,7 @@ shape = model.get_shape_by_id(26)
 shapes.contains(shape)
 ```
 
+<a id="find"></a>
 ### find()
 
 Find Shape contained in ShapeList.
@@ -193,6 +201,7 @@ shape = model.get_shape_by_id(26)
 shapes.contains(shape)
 ```
 
+<a id="remove"></a>
 ### remove()
 
 Remove Shape from ShapeList.
@@ -213,6 +222,7 @@ shapes.remove(shape)
 shapes.remove(model.get_shapes(['vertex']))
 ```
 
+<a id="get"></a>
 ### get()
 
 Get new Shapelist from index in Shapelist
@@ -237,6 +247,7 @@ shapes = model.get_shapes()
 shapes.get(10)
 ```
 
+<a id="merge"></a>
 ### merge()
 
 '

@@ -1,6 +1,6 @@
 # toggle_features
 
-Toggle features on/off.
+Toggle features on/off by UUID.
 
 This toggles between activated and deactivated status for features on
 a stage.

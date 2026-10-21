@@ -25,22 +25,27 @@ type (length for edges, area for faces, volume for volumes).
 
 ## Methods
 
+<a id="vertices"></a>
 ### vertices()
 
 List of all the vertices bounding the shape.
 
+<a id="edges"></a>
 ### edges()
 
 List of all the edges bounding the shape.
 
+<a id="faces"></a>
 ### faces()
 
 List of all the faces bounding the shape.
 
+<a id="volumes"></a>
 ### volumes()
 
 List with the volume shape.
 
+<a id="set_2d_to_3d_settings"></a>
 ### set_2d_to_3d_settings()
 
 Set 2D to 3D extrusion settings for this shape.
@@ -77,6 +82,7 @@ Set 2D to 3D extrusion settings for this shape.
 <dd>True if settings were applied successfully</dd>
 </dl>
 
+<a id="get_2d_to_3d_settings"></a>
 ### get_2d_to_3d_settings()
 
 Get 2D to 3D extrusion settings for this shape.

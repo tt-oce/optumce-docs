@@ -39,3 +39,10 @@ prj.MohrCoulomb(
     c = c_map
     )
 ```
+
+## Properties
+
+<dl>
+<dt>unit</dt>
+<dd>Unit the values are expressed in (e.g. 'MPa'), or None if unknown.</dd>
+</dl>

@@ -59,6 +59,7 @@ test.output.solid[0].results.final_stresses.total_stresses.q.value
 
 ## Methods
 
+<a id="run_analysis"></a>
 ### run_analysis()
 
 Run this material point test.
@@ -79,6 +80,7 @@ test.run_analysis()
 <dd>If GX completes the request with an Error or Aborted calculation status. The exception includes the current GX analysis messages when they are available.</dd>
 </dl>
 
+<a id="delete"></a>
 ### delete()
 
 Remove this material point test from the project.

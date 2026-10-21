@@ -25,6 +25,10 @@ Add surface load.
 <dd>Linear variation endpoint values [p1, p2, p3].</dd>
 <dt>location : list[list[float]]</dt>
 <dd>Anchor point coordinates [[x1,y1,z1], [x2,y2,z2], ...].</dd>
+<dt>p : float | ParameterMap | Gradient</dt>
+<dd>Load magnitude; value is an alias and takes precedence when supplied.</dd>
+<dt>csys : Csys</dt>
+<dd>Coordinate system; coordinate_system is an alias and takes precedence when supplied.</dd>
 </dl>
 
 ## Examples

@@ -54,6 +54,7 @@ SOURCE_FILES = [
     "Common.py",
     "Materials/RemoteMaterialAPI.pyi",
     "RemoteFeatures/FeatureAPI.pyi",
+    "RemoteFeatures/Feature.py",
     "Output.py",     # per-element results (StageResults and friends)
     "ResultV2.py",   # Result (stage.output.global_results)
 ]
@@ -106,6 +107,9 @@ CLASS_TO_CATEGORIES = {
     # Objects returned by the API (class pages under objects/<sub>/).
     "MaterialPoint": ["objects"], "AnalysisProgress": ["objects"],
     "Regional": ["objects"],
+    "DesignApproach": ["objects"], "DesignApproaches": ["objects"],
+    "EventSignal": ["objects"], "ProfileSettings": ["objects"],
+    "Feature": ["objects"],
     "StageOutput": ["objects"], "StepOutput": ["objects"],
     "MaterialPointOutput": ["objects"], "StageResults": ["objects"],
     "Result": ["objects"], "CriticalResults": ["objects"],
@@ -142,7 +146,10 @@ SUBCATEGORIES = {
         "ReinforcedConcrete": "materials", "Rigid": "materials",
         "RigidBeam": "materials", "RigidPlate": "materials",
         "SheetPile": "materials", "Tresca": "materials", "Water": "materials",
-        "get_material": "materials",
+        "get_material": "materials", "Hinge": "materials",
+        "design_approach": "operations",
+        "set_design_approach_parameters": "operations",
+        "get_design_approach": "operations",
         # Coordinate-system creation -- geometry domain.
         "create_csys_2d": "geometry", "create_csys_3d": "geometry",
         "get_csys": "geometry",
@@ -191,7 +198,8 @@ SUBCATEGORIES = {
         "set_fixed_head": "features", "set_fixed_pressure": "features",
         "set_fixed_excess_pressure": "features",
         "set_point_bc": "features", "set_plate_bc": "features",
-        "set_resultpoint": "features",
+        "set_result_point": "features",
+        "set_infiltration": "features", "get_infiltration": "features",
         "set_prestress": "features", "set_reaction_relaxation": "features",
         "set_fixed_end_anchor": "features", "add_fixed_end_anchor": "features",
         "set_pilerow": "features",
@@ -211,7 +219,7 @@ SUBCATEGORIES = {
         "get_fixed_head": "features", "get_fixed_pressure": "features",
         "get_fixed_excess_pressure": "features",
         "get_point_bc": "features", "get_plate_bc": "features",
-        "get_resultpoint": "features",
+        "get_result_point": "features",
         "get_prestress": "features", "get_reaction_relaxation": "features",
         "get_fixed_end_anchor": "features", "get_pilerow": "features",
         # Meshing
@@ -228,6 +236,8 @@ SUBCATEGORIES = {
         "enable_transparency": "operations",
         "disable_transparency": "operations",
         "disable_global_transparency": "operations",
+        "hide_features": "operations", "unhide_features": "operations",
+        "unhide_all_features": "operations",
     },
     "stage": {
         # Analysis settings on Stage itself (not the inherited ones).
@@ -265,6 +275,9 @@ SUBCATEGORIES = {
         "Shape": "geometry", "ShapeList": "geometry",
         "MaterialPoint": "analysis", "AnalysisProgress": "analysis",
         "Regional": "settings",
+        "DesignApproach": "settings", "DesignApproaches": "settings",
+        "ProfileSettings": "settings", "EventSignal": "application",
+        "Feature": "features",
         # stage.output object graph: StageOutput -> StepOutput -> StageResults
         # -> ResultIndexer -> ElementIndexer -> GeneralProperties / Topology /
         # PropertyContainer -> ElementResult.
@@ -286,6 +299,8 @@ CLASS_PAGE_CLASSES = {
     "StageOutput", "StepOutput", "MaterialPointOutput", "StageResults",
     "Result", "CriticalResults", "ResultIndexer", "ElementIndexer",
     "GeneralProperties", "Topology", "PropertyContainer", "ElementResult",
+    "DesignApproach", "DesignApproaches", "ProfileSettings", "EventSignal",
+    "Feature",
 }
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -308,6 +323,19 @@ INDEX_FILES = {"index.md", "index.yaml", "index.yml"}
 # Paths are relative to DOCS_ROOT, forward-slash separated.
 SKIP_REGENERATE_PATHS = {
     "model-and-stage/geometry/select.md",
+}
+
+
+# Published URLs retained as forwarding pages when a method moves or is renamed.
+LEGACY_PAGE_TARGETS = {
+    "model/features/get_resultpoint.md": ("model", "get_result_point"),
+    "model/features/set_resultpoint.md": ("model", "set_result_point"),
+    **{f"model/{name}.md": ("model", name) for name in (
+        "get_result_point", "set_result_point", "hide_features",
+        "unhide_features", "unhide_all_features")},
+    **{f"project/{name}.md": ("project", name) for name in (
+        "design_approach", "get_design_approach", "set_design_approach_parameters",
+        "Hinge")},
 }
 
 # Names the coverage report stays quiet about: a whole class ("RemoteCacheMixin")
@@ -464,6 +492,11 @@ def _extract_class_properties(class_node: ast.ClassDef) -> list:
                     and isinstance(nxt.value, ast.Constant)
                     and isinstance(nxt.value.value, str)):
                 ds = nxt.value.value.strip()
+            elif isinstance(nxt, ast.Assign) and isinstance(nxt.value, ast.Call):
+                for keyword in nxt.value.keywords:
+                    if (keyword.arg == "doc" and isinstance(keyword.value, ast.Constant)
+                            and isinstance(keyword.value.value, str)):
+                        ds = keyword.value.value.strip()
         out.append((node.lineno, name, type_str, ds))
     for sub in _public_defs(class_node):
         if not _is_property(sub):
@@ -484,6 +517,29 @@ def _parse(path: Path) -> ast.Module:
     return ast.parse(path.read_text(encoding="utf-8"))
 
 
+def _class_members(source_root: Path, rel: str, node: ast.ClassDef, seen=None):
+    """Include public members of private, undocumented mixins on the public page."""
+    seen = set() if seen is None else seen
+    key = (rel, node.name)
+    if key in seen:
+        return [], []
+    seen.add(key)
+    methods = _extract_class_methods(node)
+    properties = _extract_class_properties(node)
+    # A derived declaration overrides a base even when it has no docstring.
+    names = {d.name for d in _public_defs(node)} | {p[0] for p in properties}
+    for base_rel, base in _resolve_bases(source_root, rel, node):
+        if not base.name.startswith('_') or base.name in CLASS_TO_CATEGORIES:
+            continue
+        inherited_methods, inherited_properties = _class_members(
+            source_root, base_rel, base, seen)
+        methods.extend(m for m in inherited_methods if m[0] not in names)
+        properties.extend(p for p in inherited_properties if p[0] not in names)
+        names.update(m[0] for m in inherited_methods)
+        names.update(p[0] for p in inherited_properties)
+    return methods, properties
+
+
 def extract_docs(source_root: Path) -> list:
     """Walk the configured source files and pull every (class, method, docstring)
     we know how to route to a doc category. Returns a mix of FuncDoc (one page per
@@ -502,8 +558,7 @@ def extract_docs(source_root: Path) -> list:
                 continue
 
             if node.name in CLASS_PAGE_CLASSES:
-                methods = _extract_class_methods(node)
-                properties = _extract_class_properties(node)
+                methods, properties = _class_members(source_root, fname, node)
                 class_ds = ast.get_docstring(node, clean=True) or ""
                 docs.append(ClassDoc(node.name, class_ds, cats, methods,
                                      properties, _base_names(node),
@@ -514,6 +569,8 @@ def extract_docs(source_root: Path) -> list:
                 ds = ast.get_docstring(sub, clean=True)
                 if not ds:
                     continue
+                if node.name == "RemoteMaterialAPI":
+                    SUBCATEGORIES["project"].setdefault(sub.name, "materials")
                 docs.append(FuncDoc(node.name, sub.name, ds, cats))
 
     # Object class pages from per-file dirs (Materials/, RemoteFeatures/).
@@ -543,8 +600,8 @@ def extract_docs(source_root: Path) -> list:
             if cls_node is None:
                 continue
             class_ds = ast.get_docstring(cls_node, clean=True) or ""
-            methods = _extract_class_methods(cls_node)
-            properties = _extract_class_properties(cls_node)
+            methods, properties = _class_members(
+                source_root, py.relative_to(source_root).as_posix(), cls_node)
             docs.append(ClassDoc(class_name, class_ds, ["objects"], methods,
                                  properties, _base_names(cls_node),
                                  _is_dynamic(cls_node)))
@@ -687,13 +744,8 @@ def _render_body(docstring: str, link_map: dict, fallback_cat: str,
                 ref = raw.strip()
                 if not ref or SEPARATOR_RE.match(ref):
                     continue
-                loc = link_map.get(ref)
-                if loc:
-                    cat, sub = loc
-                else:
-                    cat = fallback_cat
-                    sub = SUBCATEGORIES.get(cat, {}).get(ref)
-                parts.append(f"- [{ref}]({_doc_url(cat, sub, ref)})")
+                url = _reference_url(ref, link_map)
+                parts.append(f"- [{ref}]({url})" if url else f"- {ref}")
             parts.append("")
 
         elif title == "Notes":
@@ -797,6 +849,7 @@ def render_class_markdown(doc: ClassDoc, link_map: dict) -> str:
         parts.append("## Methods")
         parts.append("")
         for name, _summary, ds in doc.methods:
+            parts.append(f'<a id="{name}"></a>')
             parts.append(f"### {name}()")
             parts.append("")
             if ds:
@@ -841,7 +894,33 @@ def _build_link_map(docs: list) -> dict:
         cat = d.categories[0]
         sub = SUBCATEGORIES.get(cat, {}).get(name)
         out[name] = (cat, sub)
+    for d in docs:
+        if isinstance(d, ClassDoc):
+            cat = d.categories[0]
+            sub = SUBCATEGORIES.get(cat, {}).get(d.class_name)
+            page_url = _doc_url(cat, sub, d.class_name)
+            for name, _summary, _ds in d.methods:
+                out[f"{d.class_name}.{name}"] = page_url + f"#{name}"
+            for name, _typ, _ds in d.properties or []:
+                out[f"{d.class_name}.{name}"] = page_url + "#properties"
+        else:
+            out[f"{d.class_name}.{d.func_name}"] = out[d.func_name]
     return out
+
+
+def _reference_url(ref: str, link_map: dict):
+    """Resolve See Also references without inventing URLs for unknown names."""
+    loc = link_map.get(ref)
+    if loc is None:
+        # Common instance notation, and Model's inherited stage operations.
+        aliases = {"prj": "Project", "Model": "StageBase"}
+        owner, dot, member = ref.partition(".")
+        if dot and owner in aliases:
+            return _reference_url(f"{aliases[owner]}.{member}", link_map)
+        return None
+    if isinstance(loc, str):
+        return loc
+    return _doc_url(*loc, ref.rsplit(".", 1)[-1])
 
 
 def write_docs(docs: list, dry_run: bool, verbose: bool):
@@ -885,6 +964,15 @@ def write_docs(docs: list, dry_run: bool, verbose: bool):
         for cat in d.categories:
             target = _resolve_path(cat, _doc_name(d))
             _emit(target, rendered)
+
+    for old_path, (cat, name) in LEGACY_PAGE_TARGETS.items():
+        target = _resolve_path(cat, name)
+        if target not in touched:
+            continue
+        url = _doc_url(cat, SUBCATEGORIES.get(cat, {}).get(name), name)
+        _emit(DOCS_ROOT / old_path,
+              f"# {Path(old_path).stem}\n\nSee [{name}]({url}) "
+              "for the current API documentation.\n")
 
     return written, unchanged, touched
 
@@ -990,7 +1078,8 @@ def coverage_report(source_root: Path, docs: list) -> dict:
             if base.name in CLASS_TO_CATEGORIES and base_rel in SOURCE_FILES:
                 continue  # documented in its own right
             public = [d.name for d in _public_defs(base)]
-            if public:
+            if public and not (base.name.startswith('_')
+                               and via.split(' <- ')[0] in CLASS_PAGE_CLASSES):
                 report[BASES].append(f"{via} <- {base.name} ({base_rel}): "
                                      f"{', '.join(public)}")
             check_bases(base_rel, base, f"{via} <- {base.name}")
@@ -1011,6 +1100,8 @@ def coverage_report(source_root: Path, docs: list) -> dict:
                 continue
             defs = {d.name: d for d in _public_defs(node)}
             if node.name not in CLASS_TO_CATEGORIES:
+                if node.name.startswith('_'):
+                    continue
                 with_ds = [d for d in defs.values() if ast.get_docstring(d)]
                 if with_ds:
                     methods = [d.name for d in with_ds if not _is_property(d)]
@@ -1073,6 +1164,10 @@ def coverage_report(source_root: Path, docs: list) -> dict:
 
     link_map = _build_link_map(docs)
     for d in docs:
+        if isinstance(d, ClassDoc):
+            missing = [name for name, _summary, ds in d.methods if not ds]
+            if missing:
+                report[NO_DOC].append(f"{d.class_name} -- {', '.join(missing)}")
         texts = [d.docstring]
         if isinstance(d, ClassDoc):
             texts += [ds for _name, _summary, ds in d.methods]
@@ -1083,7 +1178,8 @@ def coverage_report(source_root: Path, docs: list) -> dict:
                     continue
                 for raw in re.split(r'[,;\n]', parts[i + 1]):
                     ref = raw.strip()
-                    if ref and not SEPARATOR_RE.match(ref) and ref not in link_map:
+                    if (ref and not SEPARATOR_RE.match(ref)
+                            and _reference_url(ref, link_map) is None):
                         report[SEE_ALSO].append(f"{_doc_name(d)}: {ref}")
 
     return {h: msgs for h, msgs in report.items() if msgs}
@@ -1106,6 +1202,8 @@ def main() -> int:
     )
     ap.add_argument("-v", "--verbose", action="store_true",
                     help="Print each touched file")
+    ap.add_argument("--strict", action="store_true",
+                    help="Exit nonzero for coverage warnings or orphaned pages")
     args = ap.parse_args()
 
     docs = extract_docs(Path(args.source))
@@ -1141,7 +1239,7 @@ def main() -> int:
 
     print()
     print("Run `git status` / `git diff` in the docs repo to review changes.")
-    return 0
+    return 1 if args.strict and (report or orphans) else 0
 
 
 if __name__ == "__main__":
