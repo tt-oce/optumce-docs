@@ -24,7 +24,6 @@ is model-wide, so it applies to every stage of the model.
 
 - [unhide_features](/python/functions/model/operations/unhide_features)
 - [unhide_all_features](/python/functions/model/operations/unhide_all_features)
-- [Feature.hidden](/python/functions/objects/features/Feature#properties)
 
 ## Examples
 

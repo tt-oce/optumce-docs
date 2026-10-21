@@ -171,7 +171,6 @@
 - [get_prestress](https://docs.optumce.com/optum-gx/python/functions/model/features/get_prestress.md): Get prestress features on the given shapes.
 - [get_reaction_relaxation](https://docs.optumce.com/optum-gx/python/functions/model/features/get_reaction_relaxation.md): Get reaction relaxation features on the given shapes.
 - [get_result_point](https://docs.optumce.com/optum-gx/python/functions/model/features/get_result_point.md): Get result point features on the given shapes.
-- [get_resultpoint](https://docs.optumce.com/optum-gx/python/functions/model/features/get_resultpoint.md): See get_result_point for the current API documentation.
 - [get_seepage_face](https://docs.optumce.com/optum-gx/python/functions/model/features/get_seepage_face.md): Get seepage face features on the given shapes.
 - [get_six_dof_load](https://docs.optumce.com/optum-gx/python/functions/model/features/get_six_dof_load.md): Get all six DOF loading features on the given shapes.
 - [get_solid](https://docs.optumce.com/optum-gx/python/functions/model/features/get_solid.md): Get solid (material assignment) features on the given shapes.
@@ -203,7 +202,6 @@
 - [set_prestress](https://docs.optumce.com/optum-gx/python/functions/model/features/set_prestress.md): Set prestress.
 - [set_reaction_relaxation](https://docs.optumce.com/optum-gx/python/functions/model/features/set_reaction_relaxation.md): Set reaction relaxation.
 - [set_result_point](https://docs.optumce.com/optum-gx/python/functions/model/features/set_result_point.md): Set points to record results.
-- [set_resultpoint](https://docs.optumce.com/optum-gx/python/functions/model/features/set_resultpoint.md): See set_result_point for the current API documentation.
 - [set_seepage_face](https://docs.optumce.com/optum-gx/python/functions/model/features/set_seepage_face.md): Set shape to allow seepage.
 - [set_six_dof_load](https://docs.optumce.com/optum-gx/python/functions/model/features/set_six_dof_load.md): Add six degree of freedom load.
 - [set_solid](https://docs.optumce.com/optum-gx/python/functions/model/features/set_solid.md): Set shape material as solid.
@@ -424,6 +422,7 @@
 ##### Settings
 
 - [DesignApproach](https://docs.optumce.com/optum-gx/python/functions/objects/settings/designapproach.md): One design approach (a column of the GUI's Design Approaches table): the partial factors applied to loads, soil strength and structural strength by every stage that uses it (stage.design_approach = 'ULS').
+- [DesignApproaches](https://docs.optumce.com/optum-gx/python/functions/objects/settings/designapproaches.md): The project's design approaches keyed by name, as a read-only mapping.
 - [ProfileSettings](https://docs.optumce.com/optum-gx/python/functions/objects/settings/profilesettings.md): Attribute-style access to one display profile's settings.
 - [Regional](https://docs.optumce.com/optum-gx/python/functions/objects/settings/regional.md): Regional (units) settings of the project.
 

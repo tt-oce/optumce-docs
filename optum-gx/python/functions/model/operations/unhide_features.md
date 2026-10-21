@@ -20,4 +20,3 @@ Show features hidden with hide_features.
 
 - [hide_features](/python/functions/model/operations/hide_features)
 - [unhide_all_features](/python/functions/model/operations/unhide_all_features)
-- [Feature.hidden](/python/functions/objects/features/Feature#properties)
