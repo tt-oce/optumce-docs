@@ -31,14 +31,17 @@ with prj.run_analysis_async() as progress:
 
 ## Methods
 
+<a id="read_log"></a>
 ### read_log()
 
 Return the run-log text accumulated since the previous read_log() call.
 
+<a id="read_solver"></a>
 ### read_solver()
 
 Return the solver-output text accumulated since the previous read_solver() call.
 
+<a id="read_message"></a>
 ### read_message()
 
 Return the messages (warnings/errors) accumulated since the previous read_message() call.

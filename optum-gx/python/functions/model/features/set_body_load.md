@@ -9,6 +9,10 @@ Add body load.
 <dd>Shapes to apply the load to.</dd>
 <dt>value : float | ParameterMap | Gradient</dt>
 <dd>Load magnitude in kN/m^3.</dd>
+<dt>p : float | ParameterMap | Gradient</dt>
+<dd>Load magnitude; value is an alias and takes precedence when supplied.</dd>
+<dt>csys : Csys</dt>
+<dd>Coordinate system; coordinate_system is an alias and takes precedence when supplied.</dd>
 </dl>
 
 ## Examples

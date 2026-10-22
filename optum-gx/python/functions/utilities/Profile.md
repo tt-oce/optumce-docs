@@ -11,7 +11,7 @@ Profile data (depth, value).
 
 ## See also
 
-- [Map](/python/functions/utilities/Map)
+- [ParameterMap](/python/functions/utilities/ParameterMap)
 - [Gradient](/python/functions/utilities/Gradient)
 
 ## Examples
@@ -27,3 +27,10 @@ prj.MohrCoulomb(
     gamma_dry = gamma_profile,
     )
 ```
+
+## Properties
+
+<dl>
+<dt>unit</dt>
+<dd>Unit the values are expressed in (e.g. 'MPa'), or None if unknown.</dd>
+</dl>

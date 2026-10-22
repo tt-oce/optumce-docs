@@ -11,7 +11,7 @@ Creates a new stage from this stage.
 
 ## See also
 
-- [Model.create_stage](/python/functions/stage/Model.create_stage)
+- [Model.create_stage](/python/functions/model-and-stage/operations/create_stage)
 
 ## Examples
 

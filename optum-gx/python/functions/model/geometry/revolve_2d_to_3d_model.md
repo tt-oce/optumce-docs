@@ -13,7 +13,7 @@ revolve 2D model to 3D.
 
 ## See also
 
-- [create_3d_from2d_model](/python/functions/model/create_3d_from2d_model)
+- [extrude_2d_to_3d_model](/python/functions/model/geometry/extrude_2d_to_3d_model)
 - [revolve](/python/functions/model/geometry/revolve)
 
 ## Examples
