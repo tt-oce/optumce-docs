@@ -1,4 +1,6 @@
 ﻿# OPTUM G2/G3 Documentation
 
+> The complete collection of documentation documents is available here.
+
 - [OPTUM G2/G3 Documentation](https://docs.optumce.com/optum-g2g3/index.md): OPTUM G2/G3 Documentation
 - [Shortcut Keys](https://docs.optumce.com/optum-g2g3/shortcut-keys.md): Select: Left mouse button
