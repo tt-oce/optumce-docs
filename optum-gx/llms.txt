@@ -459,3 +459,4 @@
 ## Release Notes
 
 - [2.1.1880 2026-10-23](https://docs.optumce.com/optum-gx/release-notes/2.1.1880-optum-gx-release-notes.md): Version: 2.1.1880 Release date: 23 October 2026
+- [2.1.1881 2026-10-30](https://docs.optumce.com/optum-gx/release-notes/2.1.1881-optum-gx-release-notes.md): Version: 2.1.1881 Release date: 30 October 2026
