@@ -13,6 +13,6 @@ The script outputs the following table (in plain text):
 | 40.00                 | 132.54             | 1.72             |
 | 45.00                 | 104.65             | 2.05             |
 
-Screenshots of the Factor of Safety results from GX are saved to the directory the script is running from. More option for detailed result plots are available made with the function [take_picture()](../functions/model-and-stage/operations/take_picture/), which is used in the [Unconfined seepage example](./Example8_Slope_Seepage.md)
+Screenshots of the Factor of Safety results from GX are saved to the directory the script is running from. More options for detailed result plots are available with the function [take_picture()](../functions/model-and-stage/operations/take_picture/), which is used in the [Unconfined seepage](./Example8_Slope_Seepage.md) example.
 
 :::code source="../../static/code-files/ParametricVariationOfFrictionAngle.py" :::
