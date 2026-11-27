@@ -89,6 +89,8 @@ A reference of keyboard and mouse shortcuts available in OPTUM GX.
 | **Zoom In** | + |
 | **Zoom Out** | - |
 | **Zoom All** | Home or F4 |
+| **Change view left (Model, Results, Report)** | Left arrow |
+| **Change view right (Model, Results, Report)** | Right arrow |
 
 ### Model conversions
 
